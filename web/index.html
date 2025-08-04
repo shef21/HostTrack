@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HostTrack - Property Management Platform</title>
+    <meta name="description" content="Professional property management platform for short-term rentals">
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#2563EB">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="HostTrack">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/responsive.css">
+    
+    <!-- Chart.js for Analytics -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                    <rect width="48" height="48" rx="12" fill="#2563EB"/>
+                    <path d="M12 16h24v2H12v-2zm0 6h24v2H12v-2zm0 6h16v2H12v-2z" fill="white"/>
+                </svg>
+            </div>
+            <h2>HostTrack</h2>
+            <p>Loading your property dashboard...</p>
+        </div>
+    </div>
+
+    <!-- Authentication Screen -->
+    <div id="auth-screen" class="auth-screen hidden">
+        <div class="auth-container">
+            <div class="auth-header">
+                <div class="auth-logo">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                        <rect width="48" height="48" rx="12" fill="#2563EB"/>
+                        <path d="M12 16h24v2H12v-2zm0 6h24v2H12v-2zm0 6h16v2H12v-2z" fill="white"/>
+                    </svg>
+                </div>
+                <h1>Welcome to HostTrack</h1>
+                <p>Manage your properties and bookings in one place</p>
+            </div>
+            
+            <div class="auth-tabs">
+                <button class="auth-tab active" data-tab="login">Sign In</button>
+                <button class="auth-tab" data-tab="register">Sign Up</button>
+            </div>
+            
+            <!-- Login Form -->
+            <form id="login-form" class="auth-form">
+                <div class="form-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" required placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" required placeholder="Enter your password">
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">Sign In</button>
+            </form>
+            
+            <!-- Register Form -->
+            <form id="register-form" class="auth-form hidden">
+                <div class="form-group">
+                    <label for="register-name">Full Name</label>
+                    <input type="text" id="register-name" required placeholder="Enter your full name">
+                </div>
+                <div class="form-group">
+                    <label for="register-email">Email</label>
+                    <input type="email" id="register-email" required placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="register-password">Password</label>
+                    <input type="password" id="register-password" required placeholder="Create a password">
+                </div>
+                <div class="form-group">
+                    <label for="register-plan">Plan</label>
+                    <select id="register-plan" required>
+                        <option value="free">Free (1 property)</option>
+                        <option value="pro">Pro (5 properties)</option>
+                        <option value="agency">Agency (Unlimited)</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">Create Account</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Main App -->
+    <div id="app" class="app hidden">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-content">
+                <div class="header-left">
+                    <div class="logo">
+                        <svg width="32" height="32" viewBox="0 0 48 48" fill="none">
+                            <rect width="48" height="48" rx="12" fill="#2563EB"/>
+                            <path d="M12 16h24v2H12v-2zm0 6h24v2H12v-2zm0 6h16v2H12v-2z" fill="white"/>
+                        </svg>
+                        <span>HostTrack</span>
+                    </div>
+                </div>
+                
+                <div class="header-center">
+                    <h1 id="page-title">Dashboard</h1>
+                </div>
+                
+                <div class="header-right">
+                    <button class="btn-icon" id="notifications-btn" title="Notifications">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"/>
+                        </svg>
+                    </button>
+                    <div class="user-menu">
+                        <button class="user-avatar" id="user-menu-btn">
+                            <span id="user-initials">JS</span>
+                        </button>
+                        <div class="user-dropdown hidden" id="user-dropdown">
+                            <div class="user-info">
+                                <span id="user-name">John Smith</span>
+                                <span id="user-email">john@example.com</span>
+                            </div>
+                            <button class="dropdown-item" id="profile-btn">Profile</button>
+                            <button class="dropdown-item" id="settings-btn">Settings</button>
+                            <button class="dropdown-item" id="logout-btn">Sign Out</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="app-nav">
+            <div class="nav-content">
+                <button class="nav-item active" data-page="dashboard">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
+                    </svg>
+                    <span>Dashboard</span>
+                </button>
+                <button class="nav-item" data-page="properties">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/>
+                    </svg>
+                    <span>Properties</span>
+                </button>
+                <button class="nav-item" data-page="bookings">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"/>
+                    </svg>
+                    <span>Bookings</span>
+                </button>
+                <button class="nav-item" data-page="analytics">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/>
+                    </svg>
+                    <span>Analytics</span>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="app-main">
+            <!-- Dashboard Page -->
+            <div id="dashboard-page" class="page active">
+                <div class="page-header">
+                    <div class="page-title">
+                        <h2>Dashboard</h2>
+                        <p>Welcome back! Here's your property overview</p>
+                    </div>
+                    <div class="page-actions">
+                        <button class="btn btn-secondary" id="refresh-dashboard">
+                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clip-rule="evenodd"/>
+                            </svg>
+                            Refresh
+                        </button>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <!-- Revenue Overview -->
+                    <div class="card revenue-card">
+                        <div class="card-header">
+                            <h3>Revenue Overview</h3>
+                            <div class="card-actions">
+                                <button class="btn-icon" title="More options">
+                                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="revenue-stats">
+                            <div class="revenue-main">
+                                <span class="revenue-amount">R38,000</span>
+                                <span class="revenue-period">This Month</span>
+                            </div>
+                            <div class="revenue-comparison">
+                                <span class="revenue-change positive">+8.6%</span>
+                                <span class="revenue-vs">vs last month</span>
+                            </div>
+                        </div>
+                        <div class="revenue-chart">
+                            <canvas id="revenue-chart" width="400" height="200"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Key Metrics -->
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <div class="metric-icon">
+                                <svg width="24" height="24" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/>
+                                </svg>
+                            </div>
+                            <div class="metric-content">
+                                <span class="metric-value">8</span>
+                                <span class="metric-label">Total Properties</span>
+                            </div>
+                        </div>
+                        
+                        <div class="metric-card">
+                            <div class="metric-icon">
+                                <svg width="24" height="24" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/>
+                                </svg>
+                            </div>
+                            <div class="metric-content">
+                                <span class="metric-value">78%</span>
+                                <span class="metric-label">Avg Occupancy</span>
+                            </div>
+                        </div>
+                        
+                        <div class="metric-card">
+                            <div class="metric-icon">
+                                <svg width="24" height="24" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"/>
+                                </svg>
+                            </div>
+                            <div class="metric-content">
+                                <span class="metric-value">12</span>
+                                <span class="metric-label">Active Bookings</span>
+                            </div>
+                        </div>
+                        
+                        <div class="metric-card">
+                            <div class="metric-icon">
+                                <svg width="24" height="24" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z"/>
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z" clip-rule="evenodd"/>
+                                </svg>
+                            </div>
+                            <div class="metric-content">
+                                <span class="metric-value">R2,450</span>
+                                <span class="metric-label">Avg Daily Revenue</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Upcoming Bookings -->
+                    <div class="card bookings-card">
+                        <div class="card-header">
+                            <h3>Upcoming Bookings</h3>
+                            <button class="btn btn-text">View All</button>
+                        </div>
+                        <div class="bookings-list" id="upcoming-bookings">
+                            <!-- Bookings will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Platform Performance -->
+                    <div class="card platform-card">
+                        <div class="card-header">
+                            <h3>Platform Performance</h3>
+                        </div>
+                        <div class="platform-chart">
+                            <canvas id="platform-chart" width="300" height="300"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Properties Page -->
+            <div id="properties-page" class="page">
+                <div class="page-header">
+                    <div class="page-title">
+                        <h2>Properties</h2>
+                        <p>Manage your property listings</p>
+                    </div>
+                    <div class="page-actions">
+                        <button class="btn btn-primary" id="add-property-btn">
+                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd"/>
+                            </svg>
+                            Add Property
+                        </button>
+                    </div>
+                </div>
+
+                <div class="properties-grid" id="properties-grid">
+                    <!-- Properties will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Bookings Page -->
+            <div id="bookings-page" class="page">
+                <div class="page-header">
+                    <div class="page-title">
+                        <h2>Bookings</h2>
+                        <p>Manage your reservations</p>
+                    </div>
+                    <div class="page-actions">
+                        <button class="btn btn-primary" id="add-booking-btn">
+                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd"/>
+                            </svg>
+                            Add Booking
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bookings-table-container">
+                    <table class="bookings-table" id="bookings-table">
+                        <thead>
+                            <tr>
+                                <th>Guest</th>
+                                <th>Property</th>
+                                <th>Check-in</th>
+                                <th>Check-out</th>
+                                <th>Platform</th>
+                                <th>Price</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="bookings-tbody">
+                            <!-- Bookings will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Analytics Page -->
+            <div id="analytics-page" class="page">
+                <div class="page-header">
+                    <div class="page-title">
+                        <h2>Analytics</h2>
+                        <p>Detailed insights and reports</p>
+                    </div>
+                    <div class="page-actions">
+                        <button class="btn btn-secondary" id="export-data-btn">
+                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                            </svg>
+                            Export Data
+                        </button>
+                    </div>
+                </div>
+
+                <div class="analytics-grid">
+                    <div class="card analytics-card">
+                        <div class="card-header">
+                            <h3>Revenue Trends</h3>
+                        </div>
+                        <div class="analytics-chart">
+                            <canvas id="revenue-trends-chart" width="600" height="300"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="card analytics-card">
+                        <div class="card-header">
+                            <h3>Property Performance</h3>
+                        </div>
+                        <div class="property-performance" id="property-performance">
+                            <!-- Property performance will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modals -->
+    <div id="modal-overlay" class="modal-overlay hidden"></div>
+    
+    <!-- Add Property Modal -->
+    <div id="add-property-modal" class="modal hidden">
+        <div class="modal-header">
+            <h3>Add New Property</h3>
+            <button class="modal-close" id="close-property-modal">×</button>
+        </div>
+        <form id="add-property-form" class="modal-form">
+            <div class="form-group">
+                <label for="property-name">Property Name</label>
+                <input type="text" id="property-name" required placeholder="Enter property name">
+            </div>
+            <div class="form-group">
+                <label for="property-location">Location</label>
+                <input type="text" id="property-location" required placeholder="Enter location">
+            </div>
+            <div class="form-group">
+                <label for="property-platforms">Platforms</label>
+                <div class="checkbox-group">
+                    <label class="checkbox">
+                        <input type="checkbox" value="Airbnb">
+                        <span>Airbnb</span>
+                    </label>
+                    <label class="checkbox">
+                        <input type="checkbox" value="Booking.com">
+                        <span>Booking.com</span>
+                    </label>
+                    <label class="checkbox">
+                        <input type="checkbox" value="Manual">
+                        <span>Manual</span>
+                    </label>
+                </div>
+            </div>
+            <div class="form-actions">
+                <button type="button" class="btn btn-secondary" id="cancel-property">Cancel</button>
+                <button type="submit" class="btn btn-primary">Add Property</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Add Booking Modal -->
+    <div id="add-booking-modal" class="modal hidden">
+        <div class="modal-header">
+            <h3>Add New Booking</h3>
+            <button class="modal-close" id="close-booking-modal">×</button>
+        </div>
+        <form id="add-booking-form" class="modal-form">
+            <div class="form-group">
+                <label for="booking-guest">Guest Name</label>
+                <input type="text" id="booking-guest" required placeholder="Enter guest name">
+            </div>
+            <div class="form-group">
+                <label for="booking-property">Property</label>
+                <select id="booking-property" required>
+                    <option value="">Select property</option>
+                </select>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="booking-checkin">Check-in Date</label>
+                    <input type="date" id="booking-checkin" required>
+                </div>
+                <div class="form-group">
+                    <label for="booking-checkout">Check-out Date</label>
+                    <input type="date" id="booking-checkout" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="booking-platform">Platform</label>
+                <select id="booking-platform" required>
+                    <option value="">Select platform</option>
+                    <option value="Airbnb">Airbnb</option>
+                    <option value="Booking.com">Booking.com</option>
+                    <option value="Manual">Manual</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="booking-price">Price</label>
+                <input type="number" id="booking-price" required placeholder="Enter price">
+            </div>
+            <div class="form-actions">
+                <button type="button" class="btn btn-secondary" id="cancel-booking">Cancel</button>
+                <button type="submit" class="btn btn-primary">Add Booking</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/app.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/properties.js"></script>
+    <script src="js/bookings.js"></script>
+    <script src="js/analytics.js"></script>
+    <script src="js/charts.js"></script>
+</body>
+</html>
