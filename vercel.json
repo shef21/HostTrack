@@ -11,27 +11,27 @@
   "routes": [
     {
       "src": "/js/(.*)",
-      "dest": "/web/public/js/$1"
+      "dest": "/js/$1"
     },
     {
       "src": "/styles/(.*)",
-      "dest": "/web/public/styles/$1"
+      "dest": "/styles/$1"
     },
     {
       "src": "/favicon.png",
-      "dest": "/web/favicon.png"
+      "dest": "/favicon.png"
     },
     {
       "src": "/manifest.json",
-      "dest": "/web/manifest.json"
+      "dest": "/manifest.json"
     },
     {
       "src": "/icons/(.*)",
-      "dest": "/web/icons/$1"
+      "dest": "/icons/$1"
     },
     {
       "src": "/(.*)",
-      "dest": "/web/$1"
+      "dest": "/$1"
     }
   ]
 }
