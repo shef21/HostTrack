@@ -238,17 +238,41 @@ class AIChatIntegration {
             'analyze-performance': 'analytics',
             'optimize-pricing': 'revenue',
             'booking-insights': 'bookings',
-            'property-tips': 'properties'
+            'property-tips': 'properties',
+            'trend-analysis': 'analytics',
+            'revenue-forecast': 'analytics',
+            'occupancy-prediction': 'analytics',
+            'expense-forecast': 'analytics',
+            'smart-pricing': 'revenue',
+            'marketing-strategy': 'analytics',
+            'property-improvements': 'properties',
+            'investment-opportunities': 'analytics',
+            'competitor-analysis': 'analytics',
+            'market-trends': 'analytics',
+            'competitive-advantages': 'analytics',
+            'market-opportunities': 'analytics'
         };
         
         const topic = actionTopics[action] || 'general';
         this.conversationTopics.add(topic);
         
         const actionMessages = {
-            'analyze-performance': `${context}Let's dive into your property performance! 📊 I can analyze your bookings, revenue trends, and occupancy rates. What specific metrics would you like to explore?`,
-            'optimize-pricing': `${context}Great choice! 🎯 I can help you optimize your pricing strategy by analyzing market trends, seasonal patterns, and competitor pricing. Let's find that sweet spot! 💰`,
-            'booking-insights': `${context}Perfect! 🔍 I can help you uncover patterns in your bookings, peak seasons, and guest preferences. Let's boost your occupancy and revenue! 📈`,
-            'property-tips': `${context}Excellent! 🌟 I've got property management tips covering maintenance schedules, guest experience improvements, and more. Let's make your properties shine! ✨`
+            'analyze-performance': `${context}Let's dive into your property performance! 📊 I can now analyze your 6-month trends, seasonal patterns, and provide predictive insights. What specific metrics would you like to explore?`,
+            'optimize-pricing': `${context}Great choice! 🎯 I can now analyze your historical pricing patterns, seasonal trends, and provide data-driven pricing recommendations. Let's find that sweet spot! 💰`,
+            'booking-insights': `${context}Perfect! 🔍 I can now uncover 6-month booking patterns, identify peak seasons, and provide occupancy optimization strategies. Let's boost your revenue! 📈`,
+            'property-tips': `${context}Excellent! 🌟 I've got enhanced property management insights including trend analysis, seasonal optimization, and performance benchmarking. Let's make your properties shine! ✨`,
+            'trend-analysis': `${context}🚀 **NEW FEATURE**: Let me analyze your 6-month performance trends! I can now identify revenue patterns, seasonal peaks, occupancy trends, and provide predictive insights. What would you like to know about your property trends?`,
+            'revenue-forecast': `${context}🔮 **PREDICTIVE ANALYTICS**: Let me forecast your revenue for the next 3-6 months! I can now predict future earnings based on your trends, seasonal patterns, and market dynamics. What would you like to know about your revenue forecast?`,
+            'occupancy-prediction': `${context}📅 **OCCUPANCY FORECASTING**: Let me predict your future occupancy rates! I can now forecast booking patterns, identify peak seasons, and help you optimize your calendar strategy. What would you like to know about your occupancy predictions?`,
+            'expense-forecast': `${context}💰 **EXPENSE FORECASTING**: Let me predict your future costs and identify optimization opportunities! I can now forecast expenses, identify cost trends, and suggest budget optimization strategies. What would you like to know about your expense forecast?`,
+            'smart-pricing': `${context}💰 **SMART PRICING ENGINE**: Let me analyze your pricing strategy and provide data-driven recommendations! I can now suggest optimal rates based on trends, seasonal patterns, and market demand. What would you like to know about pricing optimization?`,
+            'marketing-strategy': `${context}📢 **MARKETING STRATEGY**: Let me recommend the best marketing approaches for your properties! I can now suggest strategies based on occupancy trends, seasonal patterns, and target audience analysis. What would you like to know about marketing optimization?`,
+            'property-improvements': `${context}🏠 **PROPERTY IMPROVEMENTS**: Let me calculate ROI for property upgrades and renovations! I can now analyze which improvements will give you the best return on investment. What would you like to know about property improvements?`,
+            'investment-opportunities': `${context}🚀 **INVESTMENT OPPORTUNITIES**: Let me identify the best investment opportunities for your portfolio! I can now analyze market trends, seasonal patterns, and growth potential. What would you like to know about investment opportunities?`,
+            'competitor-analysis': `${context}🏆 **COMPETITOR ANALYSIS**: Let me analyze your competitive position in the market! I can now provide insights on competitor pricing, market share, and positioning strategies. What would you like to know about your market position?`,
+            'market-trends': `${context}📈 **MARKET TRENDS**: Let me analyze broader market trends and demand patterns! I can now identify market opportunities, seasonal demand variations, and growth potential. What would you like to know about market trends?`,
+            'competitive-advantages': `${context}⭐ **COMPETITIVE ADVANTAGES**: Let me identify your unique competitive advantages! I can now analyze location benefits, property features, and market positioning strengths. What would you like to know about your competitive edge?`,
+            'market-opportunities': `${context}🎯 **MARKET OPPORTUNITIES**: Let me identify the best market opportunities for growth! I can now analyze demand gaps, market saturation, and expansion potential. What would you like to know about market opportunities?`
         };
 
         const message = actionMessages[action] || 'I\'m here to help! What would you like to know about?';
