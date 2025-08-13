@@ -7,31 +7,10 @@
       "use": "@vercel/static"
     }
   ],
-  "outputDirectory": "web/public",
   "routes": [
     {
-      "src": "/js/(.*)",
-      "dest": "/js/$1"
-    },
-    {
-      "src": "/styles/(.*)",
-      "dest": "/styles/$1"
-    },
-    {
-      "src": "/favicon.png",
-      "dest": "/favicon.png"
-    },
-    {
-      "src": "/manifest.json",
-      "dest": "/manifest.json"
-    },
-    {
-      "src": "/icons/(.*)",
-      "dest": "/icons/$1"
-    },
-    {
       "src": "/(.*)",
-      "dest": "/$1"
+      "dest": "/web/$1"
     }
   ]
 }
