@@ -316,7 +316,7 @@ class CSVImporter {
                 </div>
                 
                 <div class="mapping-actions">
-                    <button class="btn btn-secondary" onclick="window.csvImporter.resetImportState()">Reset</button>
+                    <button class="btn btn-secondary" onclick="window.csvImporter.showColumnMapping()">Reset Mapping</button>
                     <button class="btn btn-primary" onclick="window.csvImporter.validateMapping()">Validate & Preview</button>
                 </div>
             </div>
@@ -330,6 +330,8 @@ class CSVImporter {
      * Auto-map common column names
      */
     autoMapColumns(columns) {
+        console.log('🔍 Auto-mapping columns:', columns);
+        
         const mappings = {
             'property_name': ['property_name', 'name', 'property', 'title', 'property_name'],
             'location': ['location', 'address', 'city', 'area', 'neighborhood'],
@@ -342,13 +344,17 @@ class CSVImporter {
         Object.entries(mappings).forEach(([field, possibleNames]) => {
             const select = document.getElementById(`map-${field}`);
             if (select) {
+                console.log(`🔍 Looking for field: ${field}`);
                 for (const name of possibleNames) {
                     const option = select.querySelector(`option[value="${name}"]`);
                     if (option) {
+                        console.log(`✅ Auto-mapped ${field} to ${name}`);
                         select.value = name;
                         break;
                     }
                 }
+            } else {
+                console.log(`❌ Select element not found for field: ${field}`);
             }
         });
     }
@@ -357,21 +363,27 @@ class CSVImporter {
      * Validate column mapping and show preview
      */
     validateMapping() {
+        console.log('🔍 Validating column mapping...');
+        
         const requiredFields = ['property_name', 'location'];
         const missingFields = [];
 
         requiredFields.forEach(field => {
             const select = document.getElementById(`map-${field}`);
+            console.log(`Field ${field}:`, select ? select.value : 'NOT FOUND');
             if (!select || !select.value) {
                 missingFields.push(field.replace('_', ' '));
             }
         });
 
         if (missingFields.length > 0) {
+            console.log('❌ Missing fields:', missingFields);
             this.showError(`Please map the following required fields: ${missingFields.join(', ')}`);
             return;
         }
 
+        console.log('✅ All required fields mapped, creating mappedColumns...');
+        
         this.mappedColumns = {
             property_name: document.getElementById('map-property-name').value,
             location: document.getElementById('map-location').value,
@@ -381,6 +393,9 @@ class CSVImporter {
             bathrooms: document.getElementById('map-bathrooms').value
         };
 
+        console.log('📊 Mapped columns:', this.mappedColumns);
+        console.log('📁 CSV data available:', this.csvData ? this.csvData.length : 'NO DATA');
+
         this.showDataPreview();
     }
 
@@ -388,10 +403,20 @@ class CSVImporter {
      * Show data preview before import
      */
     showDataPreview() {
-        if (!this.csvData || !this.mappedColumns) return;
+        console.log('🖼️ Showing data preview...');
+        console.log('📊 CSV Data:', this.csvData);
+        console.log('🗺️ Mapped Columns:', this.mappedColumns);
+        
+        if (!this.csvData || !this.mappedColumns) {
+            console.log('❌ Missing data or mapped columns');
+            return;
+        }
 
         const importZone = document.getElementById('importZone');
-        if (!importZone) return;
+        if (!importZone) {
+            console.log('❌ Import zone not found');
+            return;
+        }
 
         const dataRows = this.csvData.slice(0, 5); // Show first 5 rows
         
@@ -437,7 +462,9 @@ class CSVImporter {
             totalRows: this.csvData.length
         };
         
+        console.log('💾 Import data stored:', this.importData);
         this.enableImport();
+        console.log('✅ Data preview complete');
     }
 
     /**
