@@ -10,15 +10,13 @@ class APIService {
     }
 
     getAPIBaseURL() {
-        // Check if we're in production (Vercel)
-        if (window.location.hostname.includes('vercel.app') || 
+        if (window.location.hostname.includes('vercel.app') ||
             window.location.hostname.includes('hosttrack') ||
             window.location.hostname !== 'localhost') {
             
             // Production: Use Railway backend URL
-            // This will be set via environment variable in Vercel
-            const productionURL = process.env.REACT_APP_API_URL || 
-                                'https://hosttrack-backend-production.up.railway.app';
+            // Since we're deployed on Vercel, use the Railway backend directly
+            const productionURL = 'https://hosttrack-production.up.railway.app';
             
             console.log('🚀 Production environment detected, using:', productionURL);
             return productionURL;
