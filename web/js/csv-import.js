@@ -282,7 +282,7 @@ class CSVImporter {
                 <div class="mapping-grid">
                     <div class="mapping-item">
                         <label>Property Name:</label>
-                        <select id="map-property-name">
+                        <select id="map-property_name">
                             <option value="">Select column</option>
                             ${columns.map(col => `<option value="${col}">${col}</option>`).join('')}
                         </select>
