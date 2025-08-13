@@ -1,0 +1,797 @@
+/**
+ * CSV Import System for HostTrack
+ * Handles property data import from CSV files with duplicate prevention
+ */
+
+class CSVImporter {
+    constructor() {
+        this.importData = null;
+        this.csvData = null;
+        this.mappedColumns = null;
+    }
+
+    /**
+     * Initialize CSV import functionality
+     */
+    init() {
+        this.bindEvents();
+        this.loadTemplates();
+        
+        // Make it globally accessible
+        window.csvImporter = this;
+    }
+
+    /**
+     * Bind event listeners
+     */
+    bindEvents() {
+        // Import zone click event
+        const importZone = document.getElementById('importZone');
+        const fileInput = document.getElementById('csvFileInput');
+        
+        if (importZone) {
+            importZone.addEventListener('click', () => fileInput.click());
+            importZone.addEventListener('dragover', this.handleDragOver.bind(this));
+            importZone.addEventListener('drop', this.handleDrop.bind(this));
+            importZone.addEventListener('dragenter', this.handleDragEnter.bind(this));
+            importZone.addEventListener('dragleave', this.handleDragLeave.bind(this));
+        }
+
+        // File input change event
+        if (fileInput) {
+            fileInput.addEventListener('change', this.handleFileSelect.bind(this));
+        }
+
+        // Start import button
+        const startImport = document.getElementById('startImport');
+        if (startImport) {
+            startImport.addEventListener('click', this.processImport.bind(this));
+        }
+    }
+
+    /**
+     * Show the CSV import modal
+     */
+    showImportModal() {
+        const modal = document.getElementById('csv-import-modal');
+        if (modal) {
+            modal.classList.remove('hidden');
+            this.resetImportState();
+        }
+    }
+
+    /**
+     * Close the CSV import modal
+     */
+    closeModal() {
+        const modal = document.getElementById('csv-import-modal');
+        if (modal) {
+            modal.classList.add('hidden');
+        }
+    }
+
+    /**
+     * Reset import state
+     */
+    resetImportState() {
+        this.importData = null;
+        this.csvData = null;
+        this.mappedColumns = null;
+        
+        // Reset UI
+        this.showImportZone('Drag & Drop CSV File Here', 'default');
+        this.hideProgress();
+        this.hideResults();
+        this.disableImport();
+    }
+
+    /**
+     * Handle drag over event
+     */
+    handleDragOver(e) {
+        e.preventDefault();
+        e.stopPropagation();
+    }
+
+    /**
+     * Handle drag enter event
+     */
+    handleDragEnter(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        const importZone = document.getElementById('importZone');
+        if (importZone) {
+            importZone.classList.add('drag-over');
+        }
+    }
+
+    /**
+     * Handle drag leave event
+     */
+    handleDragLeave(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        const importZone = document.getElementById('importZone');
+        if (importZone) {
+            importZone.classList.remove('drag-over');
+        }
+    }
+
+    /**
+     * Handle drop event
+     */
+    handleDrop(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        const importZone = document.getElementById('importZone');
+        if (importZone) {
+            importZone.classList.remove('drag-over');
+        }
+
+        const files = e.dataTransfer.files;
+        if (files.length > 0) {
+            this.processFile(files[0]);
+        }
+    }
+
+    /**
+     * Handle file selection
+     */
+    handleFileSelect(e) {
+        const file = e.target.files[0];
+        if (file) {
+            this.processFile(file);
+        }
+    }
+
+    /**
+     * Process the selected file
+     */
+    async processFile(file) {
+        if (!file.name.toLowerCase().endsWith('.csv')) {
+            this.showError('Please select a valid CSV file');
+            return;
+        }
+
+        try {
+            this.showImportZone('Processing CSV file...', 'loading');
+            
+            const text = await this.readFileAsText(file);
+            const csvData = this.parseCSV(text);
+            
+            if (csvData.length === 0) {
+                this.showError('CSV file appears to be empty');
+                return;
+            }
+
+            this.csvData = csvData;
+            this.showColumnMapping();
+            
+        } catch (error) {
+            console.error('File processing error:', error);
+            this.showError('Failed to process CSV file: ' + error.message);
+        }
+    }
+
+    /**
+     * Read file as text
+     */
+    readFileAsText(file) {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onload = (e) => resolve(e.target.result);
+            reader.onerror = (e) => reject(new Error('Failed to read file'));
+            reader.readAsText(file);
+        });
+    }
+
+    /**
+     * Parse CSV text into array of objects
+     */
+    parseCSV(text) {
+        const lines = text.split('\n').filter(line => line.trim());
+        if (lines.length === 0) return [];
+
+        const hasHeader = document.getElementById('hasHeaderRow').checked;
+        const startIndex = hasHeader ? 1 : 0;
+        
+        if (startIndex >= lines.length) return [];
+
+        const headers = hasHeader ? this.parseCSVRow(lines[0]) : this.generateDefaultHeaders();
+        const data = [];
+
+        for (let i = startIndex; i < lines.length; i++) {
+            const row = this.parseCSVRow(lines[i]);
+            if (row.length > 0) {
+                const rowData = {};
+                headers.forEach((header, index) => {
+                    rowData[header] = row[index] || '';
+                });
+                data.push(rowData);
+            }
+        }
+
+        return data;
+    }
+
+    /**
+     * Parse a single CSV row
+     */
+    parseCSVRow(line) {
+        const result = [];
+        let current = '';
+        let inQuotes = false;
+        
+        for (let i = 0; i < line.length; i++) {
+            const char = line[i];
+            
+            if (char === '"') {
+                inQuotes = !inQuotes;
+            } else if (char === ',' && !inQuotes) {
+                result.push(current.trim());
+                current = '';
+            } else {
+                current += char;
+            }
+        }
+        
+        result.push(current.trim());
+        return result;
+    }
+
+    /**
+     * Generate default headers if none provided
+     */
+    generateDefaultHeaders() {
+        return ['property_name', 'location', 'type', 'price', 'bedrooms', 'bathrooms'];
+    }
+
+    /**
+     * Show column mapping interface
+     */
+    showColumnMapping() {
+        if (!this.csvData || this.csvData.length === 0) return;
+
+        const sampleRow = this.csvData[0];
+        const columns = Object.keys(sampleRow);
+        
+        const importZone = document.getElementById('importZone');
+        if (!importZone) return;
+
+        importZone.innerHTML = `
+            <div class="column-mapping">
+                <h4>📊 Map CSV Columns to Property Fields</h4>
+                <p>Select which CSV columns correspond to each property field:</p>
+                
+                <div class="mapping-grid">
+                    <div class="mapping-item">
+                        <label>Property Name:</label>
+                        <select id="map-property-name">
+                            <option value="">Select column</option>
+                            ${columns.map(col => `<option value="${col}">${col}</option>`).join('')}
+                        </select>
+                    </div>
+                    
+                    <div class="mapping-item">
+                        <label>Location:</label>
+                        <select id="map-location">
+                            <option value="">Select column</option>
+                            ${columns.map(col => `<option value="${col}">${col}</option>`).join('')}
+                        </select>
+                    </div>
+                    
+                    <div class="mapping-item">
+                        <label>Property Type:</label>
+                        <select id="map-type">
+                            <option value="">Select column</option>
+                            ${columns.map(col => `<option value="${col}">${col}</option>`).join('')}
+                        </select>
+                    </div>
+                    
+                    <div class="mapping-item">
+                        <label>Price:</label>
+                        <select id="map-price">
+                            <option value="">Select column</option>
+                            ${columns.map(col => `<option value="${col}">${col}</option>`).join('')}
+                        </select>
+                    </div>
+                    
+                    <div class="mapping-item">
+                        <label>Bedrooms:</label>
+                        <select id="map-bedrooms">
+                            <option value="">Select column</option>
+                            ${columns.map(col => `<option value="${col}">${col}</option>`).join('')}
+                        </select>
+                    </div>
+                    
+                    <div class="mapping-item">
+                        <label>Bathrooms:</label>
+                        <select id="map-bathrooms">
+                            <option value="">Select column</option>
+                            ${columns.map(col => `<option value="${col}">${col}</option>`).join('')}
+                        </select>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="mapping-actions">
+                    <button class="btn btn-secondary" onclick="window.csvImporter.resetImportState()">Reset</button>
+                    <button class="btn btn-primary" onclick="window.csvImporter.validateMapping()">Validate & Preview</button>
+                </div>
+            </div>
+        `;
+
+        // Auto-map common column names
+        this.autoMapColumns(columns);
+    }
+
+    /**
+     * Auto-map common column names
+     */
+    autoMapColumns(columns) {
+        const mappings = {
+            'property_name': ['property_name', 'name', 'property', 'title', 'property_name'],
+            'location': ['location', 'address', 'city', 'area', 'neighborhood'],
+            'type': ['type', 'property_type', 'category', 'kind'],
+            'price': ['price', 'rate', 'cost', 'amount', 'nightly_rate'],
+            'bedrooms': ['bedrooms', 'beds', 'bed', 'room_count'],
+            'bathrooms': ['bathrooms', 'baths', 'bath', 'bathroom_count']
+        };
+
+        Object.entries(mappings).forEach(([field, possibleNames]) => {
+            const select = document.getElementById(`map-${field}`);
+            if (select) {
+                for (const name of possibleNames) {
+                    const option = select.querySelector(`option[value="${name}"]`);
+                    if (option) {
+                        select.value = name;
+                        break;
+                    }
+                }
+            }
+        });
+    }
+
+    /**
+     * Validate column mapping and show preview
+     */
+    validateMapping() {
+        const requiredFields = ['property_name', 'location'];
+        const missingFields = [];
+
+        requiredFields.forEach(field => {
+            const select = document.getElementById(`map-${field}`);
+            if (!select || !select.value) {
+                missingFields.push(field.replace('_', ' '));
+            }
+        });
+
+        if (missingFields.length > 0) {
+            this.showError(`Please map the following required fields: ${missingFields.join(', ')}`);
+            return;
+        }
+
+        this.mappedColumns = {
+            property_name: document.getElementById('map-property-name').value,
+            location: document.getElementById('map-location').value,
+            type: document.getElementById('map-type').value,
+            price: document.getElementById('map-price').value,
+            bedrooms: document.getElementById('map-bedrooms').value,
+            bathrooms: document.getElementById('map-bathrooms').value
+        };
+
+        this.showDataPreview();
+    }
+
+    /**
+     * Show data preview before import
+     */
+    showDataPreview() {
+        if (!this.csvData || !this.mappedColumns) return;
+
+        const importZone = document.getElementById('importZone');
+        if (!importZone) return;
+
+        const dataRows = this.csvData.slice(0, 5); // Show first 5 rows
+        
+        importZone.innerHTML = `
+            <div class="data-preview">
+                <h4>📋 Data Preview</h4>
+                <p>Preview of your data before import:</p>
+                
+                <div class="preview-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Property Name</th>
+                                <th>Location</th>
+                                <th>Type</th>
+                                <th>Price</th>
+                                <th>Bedrooms</th>
+                                <th>Bathrooms</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${dataRows.map(row => `
+                                <tr>
+                                    <td>${row[this.mappedColumns.property_name] || 'N/A'}</td>
+                                    <td>${row[this.mappedColumns.location] || 'N/A'}</td>
+                                    <td>${row[this.mappedColumns.type] || 'N/A'}</td>
+                                    <td>R${row[this.mappedColumns.price] || 'N/A'}</td>
+                                    <td>${row[this.mappedColumns.bedrooms] || 'N/A'}</td>
+                                    <td>${row[this.mappedColumns.bathrooms] || 'N/A'}</td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+                </div>
+                <p class="preview-note">Showing first 5 properties. Ready to import ${this.csvData.length} total properties.</p>
+            </div>
+        `;
+        
+        // Store data for import
+        this.importData = {
+            rows: this.csvData,
+            columns: this.mappedColumns,
+            totalRows: this.csvData.length
+        };
+        
+        this.enableImport();
+    }
+
+    /**
+     * Enable import button
+     */
+    enableImport() {
+        const startImport = document.getElementById('startImport');
+        if (startImport) {
+            startImport.disabled = false;
+            startImport.textContent = `🚀 Import ${this.importData.totalRows} Properties`;
+        }
+    }
+
+    /**
+     * Process the import
+     */
+    async processImport() {
+        if (!this.importData) {
+            this.showError('No data to import');
+            return;
+        }
+
+        try {
+            this.showImportProgress();
+            
+            const results = {
+                total: this.importData.totalRows,
+                imported: 0,
+                skipped: 0,
+                errors: [],
+                duplicates: 0
+            };
+
+            const skipDuplicates = document.getElementById('skipDuplicates').checked;
+
+            for (let i = 0; i < this.importData.rows.length; i++) {
+                const row = this.importData.rows[i];
+                
+                try {
+                    // Parse property data
+                    const propertyData = this.parsePropertyData(row, this.importData.columns);
+                    
+                    // Check for duplicates
+                    if (skipDuplicates && await this.isDuplicate(propertyData)) {
+                        results.skipped++;
+                        continue;
+                    }
+                    
+                    // Create property
+                    await this.createProperty(propertyData);
+                    results.imported++;
+                    
+                    // Update progress
+                    this.updateProgress(i + 1, this.importData.totalRows);
+                    
+                } catch (error) {
+                    results.errors.push({
+                        row: i + 1,
+                        error: error.message,
+                        data: row
+                    });
+                }
+            }
+
+            this.showImportResults(results);
+
+        } catch (error) {
+            console.error('Import error:', error);
+            this.showError('Import failed: ' + error.message);
+        }
+    }
+
+    /**
+     * Parse property data from CSV row
+     */
+    parsePropertyData(row, columns) {
+        const getValue = (field) => {
+            const index = columns[field];
+            return index !== undefined ? row[index] : null;
+        };
+
+        return {
+            name: getValue('property_name') || getValue('name') || 'Imported Property',
+            location: getValue('location') || 'Unknown Location',
+            type: getValue('type') || 'apartment',
+            price: parseFloat(getValue('price')) || 0,
+            bedrooms: parseInt(getValue('bedrooms')) || 1,
+            bathrooms: parseInt(getValue('bathrooms')) || 1,
+            max_guests: parseInt(getValue('max_guests')) || 2,
+            amenities: getValue('amenities') ? getValue('amenities').split(',').map(a => a.trim()) : [],
+            description: getValue('description') || 'Imported from CSV'
+        };
+    }
+
+    /**
+     * Check if property is duplicate
+     */
+    async isDuplicate(propertyData) {
+        // Simple duplicate check by name and location
+        // This will be enhanced in Phase 2 with smart matching
+        try {
+            const response = await fetch('/api/properties/check-duplicate', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${this.getAuthToken()}`
+                },
+                body: JSON.stringify({
+                    name: propertyData.name,
+                    location: propertyData.location
+                })
+            });
+            
+            const result = await response.json();
+            return result.isDuplicate;
+            
+        } catch (error) {
+            console.warn('Duplicate check failed, proceeding with import:', error);
+            return false;
+        }
+    }
+
+    /**
+     * Create property in database
+     */
+    async createProperty(propertyData) {
+        try {
+            const response = await fetch('/api/properties', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${this.getAuthToken()}`
+                },
+                body: JSON.stringify(propertyData)
+            });
+            
+            if (!response.ok) {
+                throw new Error(`Failed to create property: ${response.statusText}`);
+            }
+            
+            return await response.json();
+            
+        } catch (error) {
+            throw new Error(`Property creation failed: ${error.message}`);
+        }
+    }
+
+    /**
+     * Show import progress
+     */
+    showImportProgress() {
+        const progress = document.getElementById('importProgress');
+        const startImport = document.getElementById('startImport');
+        
+        if (progress) progress.style.display = 'block';
+        if (startImport) {
+            startImport.disabled = true;
+            startImport.textContent = 'Importing...';
+        }
+    }
+
+    /**
+     * Update progress bar
+     */
+    updateProgress(current, total) {
+        const progressFill = document.getElementById('progressFill');
+        const progressText = document.getElementById('progressText');
+        
+        if (progressFill) {
+            const percentage = (current / total) * 100;
+            progressFill.style.width = `${percentage}%`;
+        }
+        if (progressText) {
+            progressText.textContent = `Processing ${current} of ${total} properties...`;
+        }
+    }
+
+    /**
+     * Show import results
+     */
+    showImportResults(results) {
+        const progress = document.getElementById('importProgress');
+        const resultsDiv = document.getElementById('importResults');
+        const summary = document.getElementById('resultsSummary');
+        const details = document.getElementById('resultsDetails');
+        
+        if (progress) progress.style.display = 'none';
+        if (resultsDiv) resultsDiv.style.display = 'block';
+        
+        // Show summary
+        if (summary) {
+            summary.innerHTML = `
+                <div class="results-header">
+                    <h4>🎉 Import Complete!</h4>
+                    <div class="results-stats">
+                        <div class="stat">
+                            <span class="stat-number">${results.imported}</span>
+                            <span class="stat-label">Properties Imported</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">${results.skipped}</span>
+                            <span class="stat-label">Skipped (Duplicates)</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">${results.errors.length}</span>
+                            <span class="stat-label">Errors</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+        
+        // Show details
+        if (details && results.errors.length > 0) {
+            details.innerHTML = `
+                <div class="errors-section">
+                    <h5>⚠️ Import Errors</h5>
+                    <div class="error-list">
+                        ${results.errors.map(error => `
+                            <div class="error-item">
+                                <strong>Row ${error.row}:</strong> ${error.error}
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+        
+        // Reset import button
+        const startImport = document.getElementById('startImport');
+        if (startImport) {
+            startImport.disabled = false;
+            startImport.textContent = '🚀 Import More Properties';
+        }
+    }
+
+    /**
+     * Download CSV template
+     */
+    downloadTemplate() {
+        const template = [
+            ['property_name', 'location', 'type', 'price', 'bedrooms', 'bathrooms', 'max_guests', 'amenities', 'description'],
+            ['Cape Town Villa', 'Cape Town, Western Cape', 'house', '2500', '3', '2', '6', 'Pool,Garden,View', 'Beautiful villa with ocean views'],
+            ['Joburg Suite', 'Johannesburg, Gauteng', 'apartment', '1800', '2', '1', '4', 'Gym,Security,Wifi', 'Modern apartment in city center'],
+            ['Durban Beach House', 'Durban, KwaZulu-Natal', 'house', '2200', '4', '3', '8', 'Beach Access,Pool,Braai', 'Spacious beach house with private pool']
+        ];
+        
+        const csvContent = template.map(row => 
+            row.map(cell => `"${cell}"`).join(',')
+        ).join('\n');
+        
+        const blob = new Blob([csvContent], { type: 'text/csv' });
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'hosttrack_property_template.csv';
+        a.click();
+        window.URL.revokeObjectURL(url);
+    }
+
+    /**
+     * Show import zone with different states
+     */
+    showImportZone(message, state = 'default') {
+        const importZone = document.getElementById('importZone');
+        if (!importZone) return;
+        
+        const states = {
+            default: `<div class="import-placeholder">
+                <div class="upload-icon">📁</div>
+                <h4>${message}</h4>
+                <p>or click to browse files</p>
+                <input type="file" id="csvFileInput" accept=".csv" style="display: none;">
+            </div>`,
+            loading: `<div class="import-placeholder loading">
+                <div class="upload-icon">⏳</div>
+                <h4>${message}</h4>
+                <p>Please wait...</p>
+            </div>`,
+            error: `<div class="import-placeholder error">
+                <div class="upload-icon">❌</div>
+                <h4>${message}</h4>
+                <p>Please try again</p>
+            </div>`
+        };
+        
+        importZone.innerHTML = states[state] || states.default;
+        
+        // Re-bind file input event
+        const fileInput = importZone.querySelector('#csvFileInput');
+        if (fileInput) {
+            fileInput.addEventListener('change', this.handleFileSelect.bind(this));
+        }
+    }
+
+    /**
+     * Hide progress
+     */
+    hideProgress() {
+        const progress = document.getElementById('importProgress');
+        if (progress) progress.style.display = 'none';
+    }
+
+    /**
+     * Hide results
+     */
+    hideResults() {
+        const results = document.getElementById('importResults');
+        if (results) results.style.display = 'none';
+    }
+
+    /**
+     * Disable import
+     */
+    disableImport() {
+        const startImport = document.getElementById('startImport');
+        if (startImport) {
+            startImport.disabled = true;
+            startImport.textContent = '🚀 Start Import';
+        }
+    }
+
+    /**
+     * Show error message
+     */
+    showError(message) {
+        this.showImportZone(message, 'error');
+    }
+
+    /**
+     * Get authentication token
+     */
+    getAuthToken() {
+        // Get token from localStorage or wherever you store it
+        return localStorage.getItem('authToken') || sessionStorage.getItem('authToken');
+    }
+
+    /**
+     * Load CSV templates
+     */
+    loadTemplates() {
+        // This could load different templates for different platforms
+        // Airbnb, Booking.com, VRBO, etc.
+        console.log('CSV templates loaded');
+    }
+}
+
+// Initialize CSV importer when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+    const csvImporter = new CSVImporter();
+    csvImporter.init();
+});
+
+// Export for use in other modules
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = CSVImporter;
+}
