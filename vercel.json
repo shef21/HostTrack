@@ -1,6 +1,5 @@
 {
   "version": 2,
-  "name": "hosttrack-frontend",
   "builds": [
     {
       "src": "web/**/*",
