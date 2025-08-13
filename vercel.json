@@ -32,8 +32,5 @@
       "src": "/(.*)",
       "dest": "/web/$1"
     }
-  ],
-  "env": {
-    "REACT_APP_API_URL": "@api-url"
-  }
+  ]
 }
