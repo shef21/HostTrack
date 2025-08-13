@@ -7,15 +7,15 @@
       "use": "@vercel/static"
     }
   ],
-  "outputDirectory": "web",
+  "outputDirectory": "web/public",
   "routes": [
     {
       "src": "/js/(.*)",
-      "dest": "/web/js/$1"
+      "dest": "/web/public/js/$1"
     },
     {
       "src": "/styles/(.*)",
-      "dest": "/web/styles/$1"
+      "dest": "/web/public/styles/$1"
     },
     {
       "src": "/favicon.png",
