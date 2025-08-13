@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js",
-    "build": "mkdir -p public && cp -r * public/",
+    "build": "mkdir -p public && cp -r js styles favicon.png manifest.json icons public/",
     "test": "echo 'No tests specified'"
   },
   "keywords": ["property", "management", "frontend", "static"],
