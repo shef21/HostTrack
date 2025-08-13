@@ -212,7 +212,29 @@ body {
   box-shadow: var(--shadow-xl);
   width: 100%;
   max-width: 400px;
+  max-height: 90vh;
   margin: 0 auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar for auth container */
+.auth-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.auth-container::-webkit-scrollbar-track {
+  background: var(--secondary-bg);
+  border-radius: 3px;
+}
+
+.auth-container::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 3px;
+}
+
+.auth-container::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary-light);
 }
 
 .auth-header {
@@ -583,6 +605,8 @@ body {
   .auth-container {
     margin: var(--spacing-2);
     padding: var(--spacing-6);
+    max-height: 95vh;
+    max-width: calc(100vw - var(--spacing-4));
   }
   
   .header-left h1 {
