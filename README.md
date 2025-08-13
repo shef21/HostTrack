@@ -32,13 +32,13 @@ A modern, responsive web application for property management and short-term rent
 
 ### **Local Development**
 1. **Clone the repository**
-   ```bash
+```bash
    git clone <repository-url>
    cd hosttrack
-   ```
+```
 
 2. **Open the application**
-   ```bash
+```bash
    open web/index.html
    ```
    Or simply double-click the `web/index.html` file in your browser.
