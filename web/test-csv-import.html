@@ -92,20 +92,21 @@
         
         <div class="test-content">
             <div class="test-info">
-                <h3>📋 What You Can Test:</h3>
+                <h3>🚀 Phase 2: Smart Property Matching Engine</h3>
                 <ul>
-                    <li><strong>Drag & Drop:</strong> Drag CSV files directly onto the import zone</li>
-                    <li><strong>File Browser:</strong> Click to browse and select CSV files</li>
-                    <li><strong>Column Mapping:</strong> Map CSV columns to property fields</li>
-                    <li><strong>Data Preview:</strong> See your data before importing</li>
-                    <li><strong>Duplicate Prevention:</strong> Skip duplicate properties automatically</li>
-                    <li><strong>Progress Tracking:</strong> Real-time import progress</li>
-                    <li><strong>Error Handling:</strong> Detailed error reporting</li>
+                    <li><strong>🌐 Cross-Platform Detection:</strong> Find duplicates across Airbnb, Booking.com, VRBO</li>
+                    <li><strong>🔍 Fuzzy Matching:</strong> Intelligent similarity detection using advanced algorithms</li>
+                    <li><strong>📍 Location Intelligence:</strong> Smart geographic matching for nearby properties</li>
+                    <li><strong>🎯 Confidence Scoring:</strong> Rate match quality from 0-100%</li>
+                    <li><strong>🔄 Auto-Merge:</strong> Intelligently combine data from multiple sources</li>
+                    <li><strong>📊 Smart Duplicate Prevention:</strong> No more duplicate properties from cross-platform CSVs</li>
                 </ul>
+                <p><strong>Test with:</strong> Download the "Cross-Platform CSV" to see smart matching in action!</p>
             </div>
             
             <div class="test-actions">
                 <button class="btn btn-secondary" onclick="downloadSampleCSV()">📥 Download Sample CSV</button>
+                <button class="btn btn-secondary" onclick="downloadCrossPlatformCSV()">🌐 Download Cross-Platform CSV</button>
                 <button class="btn btn-primary" onclick="openImportModal()">📁 Test CSV Import</button>
             </div>
             
@@ -154,6 +155,9 @@
         </div>
     </div>
 
+    <!-- Smart Matching Engine -->
+    <script src="js/smart-matching-engine.js"></script>
+    
     <!-- CSV Import JavaScript -->
     <script src="js/csv-import.js"></script>
     
@@ -169,6 +173,13 @@
             const link = document.createElement('a');
             link.href = 'sample-properties.csv';
             link.download = 'sample-properties.csv';
+            link.click();
+        }
+        
+        function downloadCrossPlatformCSV() {
+            const link = document.createElement('a');
+            link.href = 'sample-cross-platform.csv';
+            link.download = 'sample-cross-platform.csv';
             link.click();
         }
         

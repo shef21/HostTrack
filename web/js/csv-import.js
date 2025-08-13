@@ -8,6 +8,8 @@ class CSVImporter {
         this.importData = null;
         this.csvData = null;
         this.mappedColumns = null;
+        this.smartMatchingEngine = null;
+        this.existingProperties = []; // Mock data for now
     }
 
     /**
@@ -16,6 +18,7 @@ class CSVImporter {
     init() {
         this.bindEvents();
         this.loadTemplates();
+        this.initializeSmartMatching();
         
         // Make it globally accessible
         window.csvImporter = this;
@@ -574,31 +577,59 @@ class CSVImporter {
     }
 
     /**
-     * Check if property is duplicate
+     * Check if property is duplicate using smart matching
      */
     async isDuplicate(propertyData) {
-        // Simple duplicate check by name and location
-        // This will be enhanced in Phase 2 with smart matching
-        try {
-            const response = await fetch('/api/properties/check-duplicate', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${this.getAuthToken()}`
-                },
-                body: JSON.stringify({
-                    name: propertyData.name,
-                    location: propertyData.location
-                })
-            });
-            
-            const result = await response.json();
-            return result.isDuplicate;
-            
-        } catch (error) {
-            console.warn('Duplicate check failed, proceeding with import:', error);
-            return false;
+        if (!this.smartMatchingEngine) {
+            console.warn('Smart matching engine not available, using basic duplicate check');
+            return this.basicDuplicateCheck(propertyData);
         }
+
+        try {
+            console.log('🔍 Smart matching engine checking for duplicates...');
+            
+            // Find potential matches
+            const matches = await this.smartMatchingEngine.findMatches(propertyData, this.existingProperties);
+            
+            if (matches.length === 0) {
+                console.log('✅ No duplicates found');
+                return false;
+            }
+
+            // Get match summary
+            const summary = this.smartMatchingEngine.generateMatchSummary(matches);
+            console.log('📊 Match summary:', summary);
+
+            // Handle different confidence levels
+            if (summary.type === 'high_confidence') {
+                console.log('🚨 High confidence duplicate - auto-skip');
+                return true;
+            } else if (summary.type === 'medium_confidence') {
+                console.log('⚠️ Medium confidence duplicate - user should review');
+                // For now, skip medium confidence matches
+                return true;
+            } else {
+                console.log('ℹ️ Low confidence match - proceed with import');
+                return false;
+            }
+
+        } catch (error) {
+            console.error('Smart matching failed:', error);
+            console.warn('Falling back to basic duplicate check');
+            return this.basicDuplicateCheck(propertyData);
+        }
+    }
+
+    /**
+     * Basic duplicate check fallback
+     */
+    basicDuplicateCheck(propertyData) {
+        for (const existing of this.existingProperties) {
+            if (existing.name === propertyData.name && existing.location === propertyData.location) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
@@ -814,6 +845,64 @@ class CSVImporter {
     getAuthToken() {
         // Get token from localStorage or wherever you store it
         return localStorage.getItem('authToken') || sessionStorage.getItem('authToken');
+    }
+
+    /**
+     * Initialize smart matching engine
+     */
+    initializeSmartMatching() {
+        // Load the smart matching engine
+        if (typeof SmartMatchingEngine !== 'undefined') {
+            this.smartMatchingEngine = new SmartMatchingEngine();
+            console.log('🚀 Smart Matching Engine initialized');
+        } else {
+            console.warn('⚠️ Smart Matching Engine not loaded, falling back to basic duplicate checking');
+        }
+        
+        // Load mock existing properties for testing
+        this.loadMockExistingProperties();
+    }
+
+    /**
+     * Load mock existing properties for testing
+     */
+    loadMockExistingProperties() {
+        this.existingProperties = [
+            {
+                id: 1,
+                name: 'Cape Town Villa',
+                location: 'Cape Town, Western Cape',
+                type: 'house',
+                price: 2500,
+                bedrooms: 3,
+                bathrooms: 2,
+                amenities: ['Pool', 'Garden', 'View'],
+                platform_ids: { airbnb_id: 'CT001', booking_id: 'CT001' }
+            },
+            {
+                id: 2,
+                name: 'Joburg Suite',
+                location: 'Johannesburg, Gauteng',
+                type: 'apartment',
+                price: 1800,
+                bedrooms: 2,
+                bathrooms: 1,
+                amenities: ['Gym', 'Security', 'Wifi'],
+                platform_ids: { airbnb_id: 'JB001' }
+            },
+            {
+                id: 3,
+                name: 'Durban Beach House',
+                location: 'Durban, KwaZulu-Natal',
+                type: 'house',
+                price: 2200,
+                bedrooms: 4,
+                bathrooms: 3,
+                amenities: ['Beach Access', 'Pool', 'Braai'],
+                platform_ids: { booking_id: 'DB001' }
+            }
+        ];
+        console.log('📋 Mock existing properties loaded:', this.existingProperties.length);
     }
 
     /**
