@@ -92,6 +92,26 @@ class HostTrackApp {
     }
 
     setupEventListeners() {
+        // Mobile navigation toggle
+        const mobileNavToggle = document.getElementById('mobile-nav-toggle');
+        const mainNav = document.getElementById('main-nav');
+        
+        if (mobileNavToggle && mainNav) {
+            mobileNavToggle.addEventListener('click', () => {
+                mainNav.classList.toggle('mobile-open');
+                // Change icon based on state
+                mobileNavToggle.textContent = mainNav.classList.contains('mobile-open') ? '✕' : '☰';
+            });
+            
+            // Close mobile nav when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!mobileNavToggle.contains(e.target) && !mainNav.contains(e.target)) {
+                    mainNav.classList.remove('mobile-open');
+                    mobileNavToggle.textContent = '☰';
+                }
+            });
+        }
+        
         // Navigation event listeners
         const navLinks = document.querySelectorAll('.nav-button[data-page]');
             navLinks.forEach(link => {
