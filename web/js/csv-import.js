@@ -149,6 +149,8 @@ class CSVImporter {
      * Process the selected file
      */
     async processFile(file) {
+        console.log('📁 Processing file:', file.name, 'Size:', file.size);
+        
         if (!file.name.toLowerCase().endsWith('.csv')) {
             this.showError('Please select a valid CSV file');
             return;
@@ -158,7 +160,10 @@ class CSVImporter {
             this.showImportZone('Processing CSV file...', 'loading');
             
             const text = await this.readFileAsText(file);
+            console.log('📄 File content length:', text.length);
+            
             const csvData = this.parseCSV(text);
+            console.log('📊 Parsed CSV data:', csvData);
             
             if (csvData.length === 0) {
                 this.showError('CSV file appears to be empty');
@@ -166,6 +171,7 @@ class CSVImporter {
             }
 
             this.csvData = csvData;
+            console.log('💾 CSV data stored, showing column mapping...');
             this.showColumnMapping();
             
         } catch (error) {
@@ -190,15 +196,22 @@ class CSVImporter {
      * Parse CSV text into array of objects
      */
     parseCSV(text) {
+        console.log('📄 Parsing CSV text:', text.substring(0, 200) + '...');
+        
         const lines = text.split('\n').filter(line => line.trim());
+        console.log('📝 CSV lines found:', lines.length);
+        
         if (lines.length === 0) return [];
 
         const hasHeader = document.getElementById('hasHeaderRow').checked;
         const startIndex = hasHeader ? 1 : 0;
+        console.log('🔍 Has header:', hasHeader, 'Start index:', startIndex);
         
         if (startIndex >= lines.length) return [];
 
         const headers = hasHeader ? this.parseCSVRow(lines[0]) : this.generateDefaultHeaders();
+        console.log('📋 Headers:', headers);
+        
         const data = [];
 
         for (let i = startIndex; i < lines.length; i++) {
@@ -212,6 +225,8 @@ class CSVImporter {
             }
         }
 
+        console.log('📊 Parsed data rows:', data.length);
+        console.log('📋 First row sample:', data[0]);
         return data;
     }
 
