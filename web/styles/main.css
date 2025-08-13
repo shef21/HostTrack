@@ -1,10 +1,10 @@
 /* ===== MAIN STYLES ===== */
 :root {
   /* Colors */
-  --primary-color: #2563EB;
-  --primary-hover: #1D4ED8;
-  --primary-light: #3B82F6;
-  --primary-color-alpha: rgba(37, 99, 235, 0.1);
+  --primary-color: #667eea;
+  --primary-hover: #5855eb;
+  --primary-light: #764ba2;
+  --primary-color-alpha: rgba(102, 126, 234, 0.1);
   --secondary-color: #64748B;
   --success-color: #059669;
   --warning-color: #D97706;
@@ -203,6 +203,7 @@ body {
   align-items: center;
   justify-content: center;
   z-index: 1000;
+  padding: 20px;
 }
 
 .auth-container {
@@ -212,10 +213,17 @@ body {
   box-shadow: var(--shadow-xl);
   width: 100%;
   max-width: 400px;
-  max-height: 90vh;
+  max-height: 80vh;
   margin: 0 auto;
   overflow-y: auto;
   overflow-x: hidden;
+  transform: translateY(5%);
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.auth-container::-webkit-scrollbar {
+  display: none;
 }
 
 /* Custom scrollbar for auth container */

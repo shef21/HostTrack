@@ -13,7 +13,17 @@ app.use(morgan('combined'));
 // Serve static files
 app.use(express.static(path.join(__dirname)));
 
-// Serve index.html for all routes (SPA)
+// Serve homepage.html for root route
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'homepage.html'));
+});
+
+// Serve app.html for authenticated routes
+app.get('/app', (req, res) => {
+    res.sendFile(path.join(__dirname, 'app.html'));
+});
+
+// Serve other static files
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
