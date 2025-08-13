@@ -399,7 +399,7 @@ class CSVImporter {
         console.log('✅ All required fields mapped, creating mappedColumns...');
         
         this.mappedColumns = {
-            property_name: document.getElementById('map-property-name').value,
+            property_name: document.getElementById('map-property_name').value,
             location: document.getElementById('map-location').value,
             type: document.getElementById('map-type').value,
             price: document.getElementById('map-price').value,
