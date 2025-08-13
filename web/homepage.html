@@ -49,7 +49,7 @@
             </nav>
             <div class="header-actions">
                 <a href="/app" class="btn btn-secondary">Sign In</a>
-                <a href="/app" class="btn btn-primary">Get Started</a>
+                <a href="/app" class="btn btn-primary">Try AI Free</a>
             </div>
         </div>
     </header>
@@ -424,6 +424,34 @@
             border-color: rgba(255, 255, 255, 0.5);
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Header-specific button styles */
+        .header-actions .btn-secondary {
+            background: #f3f4f6;
+            color: #374151;
+            border: 1px solid #d1d5db;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-actions .btn-secondary:hover {
+            background: #e5e7eb;
+            border-color: #9ca3af;
+            transform: none;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+        }
+
+        .header-actions .btn-primary {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: white;
+            border: none;
+            box-shadow: 0 2px 4px rgba(99, 102, 241, 0.3);
+        }
+
+        .header-actions .btn-primary:hover {
+            background: linear-gradient(135deg, #5855eb, #7c3aed);
+            transform: none;
+            box-shadow: 0 4px 8px rgba(99, 102, 241, 0.4);
         }
 
         .btn-outline {
