@@ -326,7 +326,6 @@ class CSVImporter {
                             <option value="">Select column</option>
                             ${columns.map(col => `<option value="${col}">${col}</option>`).join('')}
                         </select>
-                        </select>
                     </div>
                 </div>
                 
