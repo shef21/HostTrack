@@ -369,7 +369,7 @@ class APIService {
     // Health check
     async healthCheck() {
         try {
-            const response = await fetch('http://localhost:3001/health');
+            const response = await fetch(`${this.baseURL}/health`);
             return response.ok;
         } catch (error) {
             return false;
