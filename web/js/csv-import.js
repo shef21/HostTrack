@@ -572,7 +572,10 @@ class CSVImporter {
             bathrooms: parseInt(getValue('bathrooms')) || 1,
             max_guests: parseInt(getValue('max_guests')) || 2,
             amenities: getValue('amenities') ? getValue('amenities').split(',').map(a => a.trim()) : [],
-            description: getValue('description') || 'Imported from CSV'
+            description: getValue('description') || 'Imported from CSV',
+            airbnb_id: getValue('airbnb_id') || null,
+            booking_id: getValue('booking_id') || null,
+            vrbo_id: getValue('vrbo_id') || null
         };
     }
 
@@ -637,22 +640,46 @@ class CSVImporter {
      */
     async createProperty(propertyData) {
         try {
-            const response = await fetch('/api/properties', {
+            // Add platform IDs if they exist
+            const platformIds = {};
+            if (propertyData.airbnb_id) platformIds.airbnb_id = propertyData.airbnb_id;
+            if (propertyData.booking_id) platformIds.booking_id = propertyData.booking_id;
+            if (propertyData.vrbo_id) platformIds.vrbo_id = propertyData.vrbo_id;
+
+            const propertyPayload = {
+                name: propertyData.name,
+                location: propertyData.location,
+                type: propertyData.type,
+                price: propertyData.price,
+                bedrooms: propertyData.bedrooms,
+                bathrooms: propertyData.bathrooms,
+                max_guests: propertyData.max_guests,
+                amenities: propertyData.amenities,
+                description: propertyData.description,
+                platform_ids: platformIds
+            };
+
+            console.log('📤 Creating property:', propertyPayload);
+
+            const response = await fetch('http://localhost:3001/api/properties', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${this.getAuthToken()}`
+                    'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(propertyData)
+                body: JSON.stringify(propertyPayload)
             });
             
             if (!response.ok) {
-                throw new Error(`Failed to create property: ${response.statusText}`);
+                const errorData = await response.json();
+                throw new Error(`Failed to create property: ${errorData.error || response.statusText}`);
             }
             
-            return await response.json();
+            const result = await response.json();
+            console.log('✅ Property created successfully:', result);
+            return result;
             
         } catch (error) {
+            console.error('❌ Property creation failed:', error);
             throw new Error(`Property creation failed: ${error.message}`);
         }
     }

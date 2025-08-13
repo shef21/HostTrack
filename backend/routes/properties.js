@@ -1,410 +1,342 @@
 const express = require('express');
-const { createUserClient } = require('../config/supabase');
-const authenticateUser = require('../middleware/auth');
 const router = express.Router();
+const { Pool } = require('pg');
+const testAuth = require('../middleware/test-auth');
 
-// Get all properties for user
-router.get('/', authenticateUser, async (req, res) => {
-  try {
-    // Create client with user context for RLS
-    const supabase = createUserClient(req.headers.authorization?.split(' ')[1]);
-    
-    const { data: properties, error } = await supabase
-      .from('properties')
-      .select('*')
-      .eq('owner_id', req.user.id)
-      .order('created_at', { ascending: false });
-    
-    if (error) {
-      console.error('Properties fetch error:', error);
-      return res.status(500).json({ message: 'Failed to fetch properties' });
-    }
-    
-    res.json(properties);
-    
-  } catch (error) {
-    console.error('Properties error:', error);
-    res.status(500).json({ message: 'Server error' });
-  }
+// Database connection
+const pool = new Pool({
+    connectionString: process.env.DATABASE_URL || 'postgresql://localhost/hosttrack',
+    ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false
 });
 
-// Get single property
-router.get('/:id', authenticateUser, async (req, res) => {
-  try {
-    // Create client with user context for RLS
-    const supabase = createUserClient(req.headers.authorization?.split(' ')[1]);
-    
-    const { data: property, error } = await supabase
-      .from('properties')
-      .select('*')
-      .eq('id', req.params.id)
-      .single();
-    
-    if (error) {
-      console.error('Property fetch error:', error);
-      return res.status(404).json({ message: 'Property not found' });
+/**
+ * GET /api/properties
+ * Get all properties for the authenticated user
+ */
+router.get('/', testAuth, async (req, res) => {
+    try {
+        const userId = req.user?.id;
+        if (!userId) {
+            return res.status(401).json({ error: 'Authentication required' });
+        }
+
+        const query = `
+            SELECT id, name, location, type, price, bedrooms, bathrooms, 
+                   max_guests, amenities, description, platform_ids, 
+                   created_at, updated_at
+            FROM properties 
+            WHERE user_id = $1 
+            ORDER BY created_at DESC
+        `;
+        
+        const result = await pool.query(query, [userId]);
+        
+        res.json({
+            success: true,
+            properties: result.rows,
+            count: result.rows.length
+        });
+
+    } catch (error) {
+        console.error('Error fetching properties:', error);
+        res.status(500).json({ 
+            error: 'Failed to fetch properties',
+            details: process.env.NODE_ENV === 'development' ? error.message : undefined
+        });
     }
-    
-    res.json(property);
-    
-  } catch (error) {
-    console.error('Property error:', error);
-    res.status(500).json({ message: 'Server error' });
-  }
 });
 
-// Create new property
-router.post('/', authenticateUser, async (req, res) => {
-  try {
-    const {
-      name,
-      location,
-      address,
-      type,
-      bedrooms,
-      bathrooms,
-      max_guests,
-      price,
-      currency,
-      platforms,
-      amenities,
-      description,
-      house_rules,
-      check_in_time,
-      check_out_time,
-      image_url
-    } = req.body;
-    
-    // Validation
-    if (!name || !location || !type || !bedrooms || !bathrooms || !max_guests || !price) {
-      return res.status(400).json({ 
-        message: 'Please provide all required fields' 
-      });
+/**
+ * POST /api/properties
+ * Create a new property
+ */
+router.post('/', testAuth, async (req, res) => {
+    try {
+        const userId = req.user?.id;
+        if (!userId) {
+            return res.status(401).json({ error: 'Authentication required' });
+        }
+
+        const {
+            name, location, type, price, bedrooms, bathrooms,
+            max_guests, amenities, description, platform_ids
+        } = req.body;
+
+        // Validate required fields
+        if (!name || !location) {
+            return res.status(400).json({ 
+                error: 'Property name and location are required' 
+            });
+        }
+
+        // Check for duplicates before creating
+        const duplicateCheck = await checkForDuplicates(name, location, userId);
+        if (duplicateCheck.isDuplicate) {
+            return res.status(409).json({
+                error: 'Property with this name and location already exists',
+                duplicate_id: duplicateCheck.existingId,
+                duplicate_property: duplicateCheck.existingProperty
+            });
+        }
+
+        // Insert new property
+        const query = `
+            INSERT INTO properties (
+                user_id, name, location, type, price, bedrooms, bathrooms,
+                max_guests, amenities, description, platform_ids, created_at, updated_at
+            ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, NOW(), NOW())
+            RETURNING id, name, location, type, price, bedrooms, bathrooms,
+                      max_guests, amenities, description, platform_ids, created_at
+        `;
+
+        const values = [
+            userId, name, location, type || 'apartment', 
+            parseFloat(price) || 0, parseInt(bedrooms) || 1, 
+            parseInt(bathrooms) || 1, parseInt(max_guests) || 2,
+            Array.isArray(amenities) ? amenities : [],
+            description || '', 
+            platform_ids || {}
+        ];
+
+        const result = await pool.query(query, values);
+        const newProperty = result.rows[0];
+
+        res.status(201).json({
+            success: true,
+            message: 'Property created successfully',
+            property: newProperty
+        });
+
+    } catch (error) {
+        console.error('Error creating property:', error);
+        res.status(500).json({ 
+            error: 'Failed to create property',
+            details: process.env.NODE_ENV === 'development' ? error.message : undefined
+        });
     }
-    
-    const propertyData = {
-      owner_id: req.user.id,
-      name,
-      location,
-      address: address || null,
-      type,
-      bedrooms: parseInt(bedrooms),
-      bathrooms: parseInt(bathrooms),
-      max_guests: parseInt(max_guests),
-      price: parseFloat(price),
-      currency: currency || 'ZAR',
-      platforms: platforms || [],
-      amenities: amenities || [],
-      description: description || null,
-      house_rules: house_rules || [],
-      check_in_time: check_in_time || '15:00',
-      check_out_time: check_out_time || '11:00',
-      image_url: image_url || null
-    };
-    
-    // Create client with user context for RLS
-    const supabase = createUserClient(req.headers.authorization?.split(' ')[1]);
-    
-    const { data: property, error } = await supabase
-      .from('properties')
-      .insert(propertyData)
-      .select()
-      .single();
-    
-    if (error) {
-      console.error('Property creation error:', error);
-      return res.status(400).json({ message: 'Failed to create property' });
-    }
-    
-    res.status(201).json(property);
-    
-  } catch (error) {
-    console.error('Property creation error:', error);
-    res.status(500).json({ message: 'Server error' });
-  }
 });
 
-// Update property
-router.put('/:id', authenticateUser, async (req, res) => {
-  try {
-    // Create client with user context for RLS
-    const supabase = createUserClient(req.headers.authorization?.split(' ')[1]);
-    
-    const { data: existingProperty, error: fetchError } = await supabase
-      .from('properties')
-      .select('id')
-      .eq('id', req.params.id)
-      .single();
-    
-    if (fetchError || !existingProperty) {
-      return res.status(404).json({ message: 'Property not found' });
+/**
+ * POST /api/properties/check-duplicate
+ * Check if a property is a duplicate
+ */
+router.post('/check-duplicate', testAuth, async (req, res) => {
+    try {
+        const userId = req.user?.id;
+        if (!userId) {
+            return res.status(401).json({ error: 'Authentication required' });
+        }
+
+        const { name, location, platform_ids } = req.body;
+
+        if (!name || !location) {
+            return res.status(400).json({ 
+                error: 'Property name and location are required' 
+            });
+        }
+
+        const duplicateCheck = await checkForDuplicates(name, location, userId, platform_ids);
+        
+        res.json({
+            success: true,
+            isDuplicate: duplicateCheck.isDuplicate,
+            existingId: duplicateCheck.existingId,
+            existingProperty: duplicateCheck.existingProperty,
+            matchType: duplicateCheck.matchType,
+            confidence: duplicateCheck.confidence
+        });
+
+    } catch (error) {
+        console.error('Error checking for duplicates:', error);
+        res.status(500).json({ 
+            error: 'Failed to check for duplicates',
+            details: process.env.NODE_ENV === 'development' ? error.message : undefined
+        });
     }
-    
-    const updateData = { ...req.body };
-    delete updateData.id; // Prevent ID modification
-    delete updateData.owner_id; // Prevent owner modification
-    delete updateData.created_at; // Prevent timestamp modification
-    
-    const { data: property, error } = await supabase
-      .from('properties')
-      .update(updateData)
-      .eq('id', req.params.id)
-      .select()
-      .single();
-    
-    if (error) {
-      console.error('Property update error:', error);
-      return res.status(400).json({ message: 'Failed to update property' });
-    }
-    
-    res.json(property);
-    
-  } catch (error) {
-    console.error('Property update error:', error);
-    res.status(500).json({ message: 'Server error' });
-  }
 });
 
-// Delete property
-router.delete('/:id', authenticateUser, async (req, res) => {
-  try {
-    // Create client with user context for RLS
-    const supabase = createUserClient(req.headers.authorization?.split(' ')[1]);
-    
-    const { data: existingProperty, error: fetchError } = await supabase
-      .from('properties')
-      .select('id, name')
-      .eq('id', req.params.id)
-      .single();
-    
-    if (fetchError || !existingProperty) {
-      return res.status(404).json({ message: 'Property not found' });
-    }
+/**
+ * PUT /api/properties/:id
+ * Update an existing property
+ */
+router.put('/:id', testAuth, async (req, res) => {
+    try {
+        const userId = req.user?.id;
+        const propertyId = req.params.id;
 
-    // Check for dependencies before deletion
-    const dependencies = await checkPropertyDependencies(supabase, req.params.id);
-    
-    if (dependencies.hasDependencies) {
-      return res.status(409).json({
-        message: 'Cannot delete property due to existing dependencies',
-        propertyName: existingProperty.name,
-        dependencies: dependencies
-      });
+        if (!userId) {
+            return res.status(401).json({ error: 'Authentication required' });
+        }
+
+        // Check if property exists and belongs to user
+        const existingProperty = await pool.query(
+            'SELECT * FROM properties WHERE id = $1 AND user_id = $2',
+            [propertyId, userId]
+        );
+
+        if (existingProperty.rows.length === 0) {
+            return res.status(404).json({ error: 'Property not found' });
+        }
+
+        const {
+            name, location, type, price, bedrooms, bathrooms,
+            max_guests, amenities, description, platform_ids
+        } = req.body;
+
+        // Update property
+        const query = `
+            UPDATE properties SET
+                name = COALESCE($1, name),
+                location = COALESCE($2, location),
+                type = COALESCE($3, type),
+                price = COALESCE($4, price),
+                bedrooms = COALESCE($5, bedrooms),
+                bathrooms = COALESCE($6, bathrooms),
+                max_guests = COALESCE($7, max_guests),
+                amenities = COALESCE($8, amenities),
+                description = COALESCE($9, description),
+                platform_ids = COALESCE($10, platform_ids),
+                updated_at = NOW()
+            WHERE id = $11 AND user_id = $12
+            RETURNING *
+        `;
+
+        const values = [
+            name, location, type, parseFloat(price), parseInt(bedrooms),
+            parseInt(bathrooms), parseInt(max_guests), amenities, description,
+            platform_ids, propertyId, userId
+        ];
+
+        const result = await pool.query(query, values);
+        const updatedProperty = result.rows[0];
+
+        res.json({
+            success: true,
+            message: 'Property updated successfully',
+            property: updatedProperty
+        });
+
+    } catch (error) {
+        console.error('Error updating property:', error);
+        res.status(500).json({ 
+            error: 'Failed to update property',
+            details: process.env.NODE_ENV === 'development' ? error.message : undefined
+        });
     }
-    
-    const { error } = await supabase
-      .from('properties')
-      .delete()
-      .eq('id', req.params.id);
-    
-    if (error) {
-      console.error('Property deletion error:', error);
-      return res.status(400).json({ message: 'Failed to delete property' });
-    }
-    
-    res.json({ message: 'Property deleted successfully' });
-    
-  } catch (error) {
-    console.error('Property deletion error:', error);
-    res.status(500).json({ message: 'Server error' });
-  }
 });
 
-// Helper function to check property dependencies
-async function checkPropertyDependencies(supabase, propertyId) {
-  const dependencies = {
-    hasDependencies: false,
-    services: { count: 0, items: [] },
-    bookings: { count: 0, items: [] },
-    expenses: { count: 0, items: [] },
-    orphanedBookings: { count: 0, items: [] }
-  };
+/**
+ * DELETE /api/properties/:id
+ * Delete a property
+ */
+router.delete('/:id', testAuth, async (req, res) => {
+    try {
+        const userId = req.user?.id;
+        const propertyId = req.params.id;
 
-  try {
-    // Check services
-    const { data: services, error: servicesError } = await supabase
-      .from('services')
-      .select('id, name, category')
-      .eq('property_id', propertyId);
-    
-    if (!servicesError && services && services.length > 0) {
-      dependencies.services.count = services.length;
-      dependencies.services.items = services;
-      dependencies.hasDependencies = true;
+        if (!userId) {
+            return res.status(401).json({ error: 'Authentication required' });
+        }
+
+        // Check if property exists and belongs to user
+        const existingProperty = await pool.query(
+            'SELECT id FROM properties WHERE id = $1 AND user_id = $2',
+            [propertyId, userId]
+        );
+
+        if (existingProperty.rows.length === 0) {
+            return res.status(404).json({ error: 'Property not found' });
+        }
+
+        // Delete property
+        await pool.query(
+            'DELETE FROM properties WHERE id = $1 AND user_id = $2',
+            [propertyId, userId]
+        );
+
+        res.json({
+            success: true,
+            message: 'Property deleted successfully'
+        });
+
+    } catch (error) {
+        console.error('Error deleting property:', error);
+        res.status(500).json({ 
+            error: 'Failed to delete property',
+            details: process.env.NODE_ENV === 'development' ? error.message : undefined
+        });
     }
+});
 
-    // Check active bookings (not orphaned)
-    const { data: bookings, error: bookingsError } = await supabase
-      .from('bookings')
-      .select('id, guest_name, check_in_date, check_out_date')
-      .eq('property_id', propertyId)
-      .eq('property_deleted', false);
-    
-    if (!bookingsError && bookings && bookings.length > 0) {
-      dependencies.bookings.count = bookings.length;
-      dependencies.bookings.items = bookings;
-      dependencies.hasDependencies = true;
+/**
+ * Helper function to check for duplicates
+ */
+async function checkForDuplicates(name, location, userId, platform_ids = {}) {
+    try {
+        // Check for exact name and location match
+        const exactMatch = await pool.query(
+            'SELECT * FROM properties WHERE user_id = $1 AND LOWER(name) = LOWER($2) AND LOWER(location) = LOWER($3)',
+            [userId, name, location]
+        );
+
+        if (exactMatch.rows.length > 0) {
+            return {
+                isDuplicate: true,
+                existingId: exactMatch.rows[0].id,
+                existingProperty: exactMatch.rows[0],
+                matchType: 'exact',
+                confidence: 1.0
+            };
+        }
+
+        // Check for platform ID matches
+        for (const [platform, id] of Object.entries(platform_ids)) {
+            if (id) {
+                const platformMatch = await pool.query(
+                    `SELECT * FROM properties WHERE user_id = $1 AND platform_ids->>$2 = $3`,
+                    [userId, platform, id]
+                );
+
+                if (platformMatch.rows.length > 0) {
+                    return {
+                        isDuplicate: true,
+                        existingId: platformMatch.rows[0].id,
+                        existingProperty: platformMatch.rows[0],
+                        matchType: 'platform_id',
+                        confidence: 0.95
+                    };
+                }
+            }
+        }
+
+        // Check for similar names (fuzzy matching)
+        const similarNameMatch = await pool.query(
+            'SELECT * FROM properties WHERE user_id = $1 AND LOWER(name) % LOWER($2)',
+            [userId, name]
+        );
+
+        if (similarNameMatch.rows.length > 0) {
+            return {
+                isDuplicate: true,
+                existingId: similarNameMatch.rows[0].id,
+                existingProperty: similarNameMatch.rows[0],
+                matchType: 'similar_name',
+                confidence: 0.7
+            };
+        }
+
+        return {
+            isDuplicate: false,
+            existingId: null,
+            existingProperty: null,
+            matchType: null,
+            confidence: 0.0
+        };
+
+    } catch (error) {
+        console.error('Error checking for duplicates:', error);
+        throw error;
     }
-
-    // Check orphaned bookings (where property was previously deleted)
-    const { data: orphanedBookings, error: orphanedError } = await supabase
-      .from('bookings')
-      .select('id, guest_name, check_in_date, check_out_date, deleted_property_name')
-      .eq('property_id', propertyId)
-      .eq('property_deleted', true);
-    
-    if (!orphanedError && orphanedBookings && orphanedBookings.length > 0) {
-      dependencies.orphanedBookings.count = orphanedBookings.length;
-      dependencies.orphanedBookings.items = orphanedBookings;
-      // Note: orphaned bookings don't prevent deletion, they're just informational
-    }
-
-    // Check expenses
-    const { data: expenses, error: expensesError } = await supabase
-      .from('expenses')
-      .select('id, description, amount, date')
-      .eq('property_id', propertyId);
-    
-    if (!expensesError && expenses && expenses.length > 0) {
-      dependencies.expenses.count = expenses.length;
-      dependencies.expenses.items = expenses;
-      dependencies.hasDependencies = true;
-    }
-
-  } catch (error) {
-    console.error('Error checking property dependencies:', error);
-  }
-
-  return dependencies;
 }
-
-// Force delete property with dependencies
-router.delete('/:id/force', authenticateUser, async (req, res) => {
-  try {
-    // Create client with user context for RLS
-    const supabase = createUserClient(req.headers.authorization?.split(' ')[1]);
-    
-    const { data: existingProperty, error: fetchError } = await supabase
-      .from('properties')
-      .select('id, name')
-      .eq('id', req.params.id)
-      .single();
-    
-    if (fetchError || !existingProperty) {
-      return res.status(404).json({ message: 'Property not found' });
-    }
-
-    // Check for dependencies to report what will be deleted
-    const dependencies = await checkPropertyDependencies(supabase, req.params.id);
-    
-    // Delete dependencies first (in reverse order of foreign key relationships)
-    if (dependencies.hasDependencies) {
-      // Delete expenses first
-      if (dependencies.expenses.count > 0) {
-        const { error: expensesError } = await supabase
-          .from('expenses')
-          .delete()
-          .eq('property_id', req.params.id);
-        
-        if (expensesError) {
-          console.error('Error deleting expenses:', expensesError);
-          return res.status(500).json({ message: 'Failed to delete related expenses' });
-        }
-      }
-
-      // Update bookings to mark property as deleted (preserve booking history)
-      if (dependencies.bookings.count > 0) {
-        const { error: bookingsError } = await supabase
-          .from('bookings')
-          .update({ 
-            property_deleted: true,
-            deleted_property_name: existingProperty.name,
-            property_id: null // Remove foreign key reference
-          })
-          .eq('property_id', req.params.id);
-        
-        if (bookingsError) {
-          console.error('Error updating bookings:', bookingsError);
-          return res.status(500).json({ message: 'Failed to update related bookings' });
-        }
-      }
-
-      // Delete services
-      if (dependencies.services.count > 0) {
-        const { error: servicesError } = await supabase
-          .from('services')
-          .delete()
-          .eq('property_id', req.params.id);
-        
-        if (servicesError) {
-          console.error('Error deleting services:', servicesError);
-          return res.status(500).json({ message: 'Failed to delete related services' });
-        }
-      }
-    }
-    
-    // Now delete the property
-    const { error } = await supabase
-      .from('properties')
-      .delete()
-      .eq('id', req.params.id);
-    
-    if (error) {
-      console.error('Property deletion error:', error);
-      return res.status(400).json({ message: 'Failed to delete property' });
-    }
-    
-    res.json({ 
-      message: 'Property and all related data deleted successfully',
-      deletedDependencies: dependencies
-    });
-    
-  } catch (error) {
-    console.error('Force property deletion error:', error);
-    res.status(500).json({ message: 'Server error' });
-  }
-});
-
-// Update property images
-router.put('/:id/images', authenticateUser, async (req, res) => {
-  try {
-    const { images } = req.body;
-    
-    if (!Array.isArray(images)) {
-      return res.status(400).json({ message: 'Images must be an array' });
-    }
-    
-    // Create client with user context for RLS
-    const supabase = createUserClient(req.headers.authorization?.split(' ')[1]);
-    
-    const { data: existingProperty, error: fetchError } = await supabase
-      .from('properties')
-      .select('id')
-      .eq('id', req.params.id)
-      .single();
-    
-    if (fetchError || !existingProperty) {
-      return res.status(404).json({ message: 'Property not found' });
-    }
-    
-    const { data: property, error } = await supabase
-      .from('properties')
-      .update({ images })
-      .eq('id', req.params.id)
-      .select()
-      .single();
-    
-    if (error) {
-      console.error('Property images update error:', error);
-      return res.status(400).json({ message: 'Failed to update property images' });
-    }
-    
-    res.json(property);
-    
-  } catch (error) {
-    console.error('Property images update error:', error);
-    res.status(500).json({ message: 'Server error' });
-  }
-});
 
 module.exports = router; 
