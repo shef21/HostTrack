@@ -9,6 +9,14 @@
   ],
   "routes": [
     {
+      "src": "/",
+      "dest": "/web/homepage.html"
+    },
+    {
+      "src": "/app",
+      "dest": "/web/app.html"
+    },
+    {
       "src": "/(.*)",
       "dest": "/web/$1"
     }
