@@ -661,7 +661,8 @@ class CSVImporter {
 
             console.log('📤 Creating property:', propertyPayload);
 
-            const response = await fetch('http://localhost:3001/api/properties', {
+            // Use the API service instead of hardcoded localhost
+            const response = await fetch(`${window.apiService.baseURL}/api/properties`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
