@@ -41,8 +41,8 @@ class AIChatIntegration {
             this.lastAIResponse = '';
             this.conversationTopics = new Set();
             
-            // API configuration
-            this.apiBaseUrl = window.location.hostname === 'localhost' ? 'http://localhost:3001' : '';
+            // API configuration - Use Supabase instead of localhost backend
+            this.apiBaseUrl = ''; // No localhost backend needed
             
             console.log('🔍 AI Chat: Creating RateLimiter...');
             this.rateLimiter = new RateLimiter(15, 60000); // 15 requests per minute
