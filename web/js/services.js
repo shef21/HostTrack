@@ -194,33 +194,151 @@ class ServicesManager {
     }
 
     /**
-     * Load service categories dynamically
+     * Load service categories - standardized options for consistent categorization
      */
     async loadServiceCategories() {
+        // Use standardized service categories for consistent business operations
+        this.serviceCategories = [
+            // Core Property Services
+            'cleaning', 'maintenance', 'repairs', 'inspection',
+            
+            // Utilities & Infrastructure
+            'utilities', 'internet', 'electricity', 'water', 'gas', 'sewage',
+            
+            // Security & Safety
+            'security', 'fire-safety', 'alarm-system', 'cctv',
+            
+            // Exterior & Grounds
+            'gardening', 'landscaping', 'pool-maintenance', 'exterior-painting',
+            
+            // Interior Services
+            'laundry', 'housekeeping', 'deep-cleaning', 'carpet-cleaning',
+            
+            // Administrative
+            'insurance', 'licensing', 'permits', 'tax-services',
+            
+            // Guest Services
+            'concierge', 'check-in', 'check-out', 'guest-support',
+            
+            // Emergency Services
+            'emergency-repairs', '24-7-support', 'urgent-maintenance'
+        ];
+        
+        console.log('📋 Service categories loaded:', this.serviceCategories.length, 'standard categories');
+        
+        // Update any existing category dropdowns
+        this.updateCategoryDropdowns();
+    }
+
+
+
+    /**
+     * Update all category dropdowns with current categories
+     */
+    updateCategoryDropdowns() {
         try {
-            // Try to get service categories from database
-            if (window.apiService && window.apiService.isAuthenticated()) {
-                const services = await window.apiService.getServices();
-                if (services && services.length > 0) {
-                    // Extract unique categories from existing services
-                    const categories = [...new Set(services.map(s => s.category).filter(Boolean))];
-                    if (categories.length > 0) {
-                        this.serviceCategories = categories;
-                        console.log('✅ Loaded service categories from database:', categories);
-                        return;
-                    }
-                }
+            // Update main service form category dropdown
+            const categorySelect = document.getElementById('service-category');
+            if (categorySelect) {
+                this.populateCategoryDropdown(categorySelect);
             }
+            
+            // Update filter dropdowns
+            const filterSelects = document.querySelectorAll('.service-category-filter, .category-filter');
+            filterSelects.forEach(select => {
+                this.populateCategoryDropdown(select);
+            });
+            
+            // Update any other category-related dropdowns
+            const allCategorySelects = document.querySelectorAll('select[data-category-dropdown="true"]');
+            allCategorySelects.forEach(select => {
+                this.populateCategoryDropdown(select);
+            });
+            
+            console.log('✅ Updated all category dropdowns');
         } catch (error) {
-            console.warn('⚠️ Could not load service categories from database:', error);
+            console.warn('⚠️ Error updating category dropdowns:', error);
+        }
+    }
+
+    /**
+     * Populate a category dropdown with current categories
+     */
+    populateCategoryDropdown(selectElement) {
+        if (!selectElement || !this.serviceCategories) {
+            return;
         }
         
-        // Fallback to default categories if database fails
-        this.serviceCategories = [
-            'cleaning', 'insurance', 'maintenance', 'utilities', 
-            'internet', 'security', 'gardening', 'pool', 'laundry'
-        ];
-        console.log('📋 Using fallback service categories:', this.serviceCategories);
+        // Store current selection
+        const currentValue = selectElement.value;
+        
+        // Clear existing options (keep first option if it's a placeholder)
+        const firstOption = selectElement.querySelector('option:first-child');
+        selectElement.innerHTML = '';
+        
+        // Add placeholder option back if it exists
+        if (firstOption && (firstOption.value === '' || firstOption.value === 'Select category')) {
+            selectElement.appendChild(firstOption);
+        }
+        
+        // Add category options
+        this.serviceCategories.forEach(category => {
+            const option = document.createElement('option');
+            option.value = category;
+            option.textContent = this.formatCategoryName(category);
+            selectElement.appendChild(option);
+        });
+        
+        // Restore previous selection if it's still valid
+        if (currentValue && this.serviceCategories.includes(currentValue)) {
+            selectElement.value = currentValue;
+        }
+    }
+
+    /**
+     * Format category name for display (convert kebab-case to readable text)
+     */
+    formatCategoryName(category) {
+        return category
+            .split('-')
+            .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+            .join(' ');
+    }
+
+    /**
+     * Get current service categories
+     */
+    getServiceCategories() {
+        return this.serviceCategories || [];
+    }
+
+    /**
+     * Check if a category exists
+     */
+    hasCategory(category) {
+        return this.serviceCategories && this.serviceCategories.includes(category);
+    }
+
+    /**
+     * Add a new category (useful for admin functionality)
+     */
+    addServiceCategory(category) {
+        if (!this.serviceCategories) {
+            this.serviceCategories = [];
+        }
+        
+        const normalizedCategory = category.trim().toLowerCase();
+        
+        if (!this.hasCategory(normalizedCategory)) {
+            this.serviceCategories.push(normalizedCategory);
+            this.serviceCategories.sort();
+            this.updateCategoryDropdowns();
+            console.log('✅ Added new service category:', normalizedCategory);
+            return true;
+        } else {
+            console.log('ℹ️ Category already exists:', normalizedCategory);
+            return false;
+        }
     }
 
     populatePropertyDropdown(properties) {
@@ -1775,6 +1893,37 @@ class ServicesManager {
         }
         
         return date.toISOString().split('T')[0];
+    }
+
+
+
+    /**
+     * Get current status of the service categories system
+     */
+    getServiceCategoriesStatus() {
+        return {
+            categoriesLoaded: !!this.serviceCategories,
+            categoriesCount: this.serviceCategories ? this.serviceCategories.length : 0,
+            usingFallback: !this.serviceCategories || this.serviceCategories.length === 0,
+            lastRefresh: null, // No longer tracking last refresh for static categories
+            autoRefreshEnabled: false, // Static categories do not auto-refresh
+            categories: this.serviceCategories || []
+        };
+    }
+
+    /**
+     * Get debug information for service categories
+     */
+    getServiceCategoriesDebugInfo() {
+        return {
+            status: this.getServiceCategoriesStatus(),
+            apiServiceAvailable: !!window.apiService,
+            apiServiceAuthenticated: window.apiService ? window.apiService.isAuthenticated() : false,
+            timestamp: new Date().toISOString(),
+            memoryUsage: {
+                categoriesSize: this.serviceCategories ? JSON.stringify(this.serviceCategories).length : 0
+            }
+        };
     }
 }
 
