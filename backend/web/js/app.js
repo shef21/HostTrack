@@ -651,15 +651,7 @@ class HostTrackApp {
         console.log('📊 Data loaded flag:', this.dataLoaded);
         console.log('🔄 Loading data flag:', this.loadingData);
         
-        // Hide loading screen
-        const loadingScreen = document.getElementById('loading-screen');
-        if (loadingScreen) {
-            console.log('✅ Found loading screen, hiding it...');
-            loadingScreen.style.display = 'none';
-            console.log('✅ Loading screen hidden');
-        } else {
-            console.log('⚠️ Loading screen not found');
-        }
+
         
         // Hide auth screen
         const authScreen = document.getElementById('auth-screen');
@@ -777,11 +769,7 @@ class HostTrackApp {
 
     showAuth() {
         console.log('Showing auth screen...');
-        // Hide loading screen
-        const loadingScreen = document.getElementById('loading-screen');
-        if (loadingScreen) {
-            loadingScreen.style.display = 'none';
-        }
+
         
         // Hide main app
         const app = document.getElementById('app');
