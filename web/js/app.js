@@ -268,6 +268,11 @@ class HostTrackApp {
             // Get dashboard stats from API
             const dashboardData = await window.apiService.getDashboardStats();
             console.log('Dashboard data received:', dashboardData);
+            console.log('🔍 Data structure check:');
+            console.log('  - Properties:', dashboardData.properties);
+            console.log('  - Bookings:', dashboardData.bookings);
+            console.log('  - Services:', dashboardData.services);
+            console.log('  - Overview:', dashboardData.overview);
             
             // Update dashboard UI with real data
             this.updateDashboardUI(dashboardData);
@@ -329,6 +334,14 @@ class HostTrackApp {
             occupancyElement.textContent = `${rate}%`;
             console.log('✅ Occupancy updated to:', rate + '%');
         }
+        
+        // TEST: Force update with known working data
+        console.log('🧪 TEST: Forcing dashboard update with test data...');
+        if (propertiesElement) propertiesElement.textContent = '1';
+        if (bookingsElement) bookingsElement.textContent = '2';
+        if (revenueElement) revenueElement.textContent = 'R 0';
+        if (occupancyElement) occupancyElement.textContent = '100%';
+        console.log('🧪 TEST: Dashboard elements should now show test values');
     }
 
     showDashboardError() {
