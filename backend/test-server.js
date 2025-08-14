@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 3001;
 
 // Middleware
 app.use(cors({
-    origin: ['http://localhost:8000', 'http://127.0.0.1:8000'],
+    origin: ['http://localhost:3000', 'http://127.0.0.1:3000'],
     credentials: true
 }));
 
@@ -32,6 +32,30 @@ app.get('/health', (req, res) => {
         timestamp: new Date().toISOString(),
         service: 'HostTrack CSV Import Backend'
     });
+});
+
+// Mock auth endpoint for testing (doesn't affect production)
+app.post('/api/auth/login', (req, res) => {
+    const { email, password } = req.body;
+    
+    // Simple validation for testing
+    if (email === 'shefhaus@gmail.com' && password === 'ShowThem21!!!') {
+        res.json({
+            success: true,
+            message: 'Login successful',
+            user: {
+                id: 'test-user-123',
+                email: email,
+                name: 'Test User'
+            },
+            token: 'test-token-123'
+        });
+    } else {
+        res.status(401).json({
+            success: false,
+            message: 'Invalid credentials'
+        });
+    }
 });
 
 // API routes
@@ -62,7 +86,8 @@ app.listen(PORT, () => {
     console.log(`📊 Health check: http://localhost:${PORT}/health`);
     console.log(`🏠 Properties API: http://localhost:${PORT}/api/properties`);
     console.log(`🔍 Duplicate check: http://localhost:${PORT}/api/properties/check-duplicate`);
-    console.log(`🌐 CORS enabled for: http://localhost:8000`);
+    console.log(`🔐 Auth API: http://localhost:${PORT}/api/auth`);
+    console.log(`🌐 CORS enabled for: http://localhost:3000`);
 });
 
 module.exports = app;
