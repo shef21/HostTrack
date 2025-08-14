@@ -14,11 +14,11 @@ class APIService {
             window.location.hostname.includes('hosttrack') ||
             window.location.hostname !== 'localhost') {
             
-            // Production: Use Railway backend URL
-            // Since we're deployed on Vercel, use the Railway backend directly
-            const productionURL = 'https://hosttrack-production.up.railway.app';
+            // Production: Use relative URLs to work with existing backend
+            // This will use whatever backend your HostTrack site is already configured to use
+            const productionURL = '';
             
-            console.log('🚀 Production environment detected, using:', productionURL);
+            console.log('🚀 Production environment detected, using relative URLs');
             return productionURL;
         } else {
             // Development: Use local backend
