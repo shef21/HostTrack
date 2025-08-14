@@ -110,16 +110,42 @@ class APIService {
     // Helper method to get Supabase client with error handling
     async getSupabaseClient() {
         try {
+            console.log('🔍 getSupabaseClient called');
+            console.log('🔍 window.supabase:', typeof window.supabase);
+            console.log('🔍 window.createClient:', typeof window.createClient);
+            console.log('🔍 window.Supabase:', typeof window.Supabase);
+            
             // Check if Supabase is available globally
-            if (typeof window.supabase !== 'undefined') {
-                return window.supabase;
+            if (typeof window.supabase !== 'undefined' && window.supabase.createClient) {
+                console.log('✅ Using window.supabase.createClient');
+                return window.supabase.createClient(this.baseURL, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5hc3h0a3hpeGpoZnVoY3B0d3liIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTQ0MDkzMDYsImV4cCI6MjA2OTk4NTMwNn0.SViB5UsHFE3GkAByGTvm-hsMPrww375uRrZ0VqYgbRE');
+            }
+            
+            // Check if createClient is available globally
+            if (typeof window.createClient !== 'undefined') {
+                console.log('✅ Using window.createClient');
+                return window.createClient(this.baseURL, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5hc3h0a3hpeGpoZnVoY3B0d3liIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTQ0MDkzMDYsImV4cCI6MjA2OTk4NTMwNn0.SViB5UsHFE3GkAByGTvm-hsMPrww375uRrZ0VqYgbRE');
             }
             
             // Try to import from CDN
-            const { createClient } = await import('https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2');
-            return createClient(this.baseURL, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5hc3h0a3hpeGpoZnVoY3B0d3liIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTQ0MDkzMDYsImV4cCI6MjA2OTk4NTMwNn0.SViB5UsHFE3GkAByGTvm-hsMPrww375uRrZ0VqYgbRE');
+            try {
+                console.log('🔄 Attempting CDN import...');
+                const { createClient } = await import('https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2');
+                console.log('✅ CDN import successful, createClient:', typeof createClient);
+                return createClient(this.baseURL, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5hc3h0a3hpeGpoZnVoY3B0d3liIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTQ0MDkzMDYsImV4cCI6MjA2OTk4NTMwNn0.SViB5UsHFE3GkAByGTvm-hsMPrww375uRrZ0VqYgbRE');
+            } catch (importError) {
+                console.error('❌ CDN import failed:', importError);
+                
+                // Last resort: try to create a basic client
+                if (typeof window.Supabase !== 'undefined') {
+                    console.log('✅ Using window.Supabase constructor');
+                    return new window.Supabase(this.baseURL, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5hc3h0a3hpeGpoZnVoY3B0d3liIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTQ0MDkzMDYsImV4cCI6MjA2OTk4NTMwNn0.SViB5UsHFE3GkAByGTvm-hsMPrww375uRrZ0VqYgbRE');
+                }
+                
+                throw new Error('Supabase library not available. Please refresh the page and try again.');
+            }
         } catch (error) {
-            console.error('Failed to load Supabase client:', error);
+            console.error('❌ Failed to load Supabase client:', error);
             throw new Error('Supabase library not available. Please refresh the page and try again.');
         }
     }

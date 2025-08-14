@@ -1110,6 +1110,15 @@
 
     <!-- Supabase Library -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        // Ensure Supabase is globally accessible
+        if (typeof window.supabase !== 'undefined') {
+            window.createClient = window.supabase.createClient;
+            console.log('✅ Supabase library loaded successfully');
+        } else {
+            console.error('❌ Supabase library failed to load');
+        }
+    </script>
     
     <!-- Scripts -->
     <script src="js/api.js"></script>
