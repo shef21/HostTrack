@@ -107,21 +107,54 @@ class APIService {
         this.clearAuth();
     }
 
-    // Data methods
+    // Data methods - using real Supabase client
     async getProperties() {
-        return this.request('/rest/v1/properties?select=*');
+        // Create Supabase client for this request
+        const { createClient } = await import('https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2');
+        const supabase = createClient(this.baseURL, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5hc3h0a3hpeGpoZnVoY3B0d3liIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTQ0MDkzMDYsImV4cCI6MjA2OTk4NTMwNn0.SViB5UsHFE3GkAByGTvm-hsMPrww375uRrZ0VqYgbRE');
+        
+        const { data, error } = await supabase
+            .from('properties')
+            .select('*');
+            
+        if (error) throw error;
+        return data;
     }
 
     async getServices() {
-        return this.request('/rest/v1/services?select=*');
+        const { createClient } = await import('https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2');
+        const supabase = createClient(this.baseURL, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5hc3h0a3hpeGpoZnVoY3B0d3liIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTQ0MDkzMDYsImV4cCI6MjA2OTk4NTMwNn0.SViB5UsHFE3GkAByGTvm-hsMPrww375uRrZ0VqYgbRE');
+        
+        const { data, error } = await supabase
+            .from('services')
+            .select('*');
+            
+        if (error) throw error;
+        return data;
     }
 
     async getBookings() {
-        return this.request('/rest/v1/bookings?select=*');
+        const { createClient } = await import('https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2');
+        const supabase = createClient(this.baseURL, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5hc3h0a3hpeGpoZnVoY3B0d3liIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTQ0MDkzMDYsImV4cCI6MjA2OTk4NTMwNn0.SViB5UsHFE3GkAByGTvm-hsMPrww375uRrZ0VqYgbRE');
+        
+        const { data, error } = await supabase
+            .from('bookings')
+            .select('*');
+            
+        if (error) throw error;
+        return data;
     }
 
     async getDashboardStats() {
-        return this.request('/rest/v1/dashboard_stats?select=*');
+        const { createClient } = await import('https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2');
+        const supabase = createClient(this.baseURL, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5hc3h0a3hpeGpoZnVoY3B0d3liIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTQ0MDkzMDYsImV4cCI6MjA2OTk4NTMwNn0.SViB5UsHFE3GkAByGTvm-hsMPrww375uRrZ0VqYgbRE');
+        
+        const { data, error } = await supabase
+            .from('dashboard_stats')
+            .select('*');
+            
+        if (error) throw error;
+        return data;
     }
 
     async updateProfile(data) {
