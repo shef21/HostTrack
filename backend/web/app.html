@@ -48,8 +48,8 @@
             </div>
             
             <div class="auth-tabs">
-                <button class="auth-tab active" data-tab="login">Sign In</button>
-                <button class="auth-tab" data-tab="register">Create Account</button>
+                <button class="auth-tab active" data-tab="login" onclick="switchAuthTab('login')">Sign In</button>
+                <button class="auth-tab" data-tab="register" onclick="switchAuthTab('register')">Create Account</button>
             </div>
             
             <!-- Login Form -->
@@ -1204,6 +1204,25 @@
                     }
                 }
             }
+        }
+
+        // Tab switching function
+        function switchAuthTab(tab) {
+            console.log('🔧 Switching to tab:', tab);
+            
+            // Update tab buttons
+            document.querySelectorAll('.auth-tab').forEach(t => {
+                t.classList.remove('active');
+            });
+            document.querySelector(`[data-tab="${tab}"]`).classList.add('active');
+
+            // Update forms
+            document.querySelectorAll('.auth-form').forEach(form => {
+                form.classList.add('hidden');
+            });
+            document.getElementById(`${tab}-form`).classList.remove('hidden');
+            
+            console.log('✅ Tab switched to:', tab);
         }
 
         // Populate forms when DOM is ready
