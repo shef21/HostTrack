@@ -39,6 +39,48 @@ app.get('/test', (req, res) => {
   });
 });
 
+// Debug endpoint to check file structure
+app.get('/debug/files', (req, res) => {
+  const fs = require('fs');
+  const path = require('path');
+  
+  try {
+    const webPath = path.join(__dirname, '../web');
+    const jsPath = path.join(webPath, 'js');
+    
+    const webExists = fs.existsSync(webPath);
+    const jsExists = fs.existsSync(jsPath);
+    
+    let webFiles = [];
+    let jsFiles = [];
+    
+    if (webExists) {
+      webFiles = fs.readdirSync(webPath);
+    }
+    
+    if (jsExists) {
+      jsFiles = fs.readdirSync(jsPath);
+    }
+    
+    res.json({
+      webPath,
+      webExists,
+      webFiles,
+      jsPath,
+      jsExists,
+      jsFiles,
+      currentDir: __dirname,
+      parentDir: path.dirname(__dirname)
+    });
+  } catch (error) {
+    res.json({
+      error: error.message,
+      webPath: path.join(__dirname, '../web'),
+      currentDir: __dirname
+    });
+  }
+});
+
 // API routes
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/properties', require('./routes/properties'));
