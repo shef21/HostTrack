@@ -280,39 +280,54 @@ class HostTrackApp {
     }
 
     updateDashboardUI(data) {
+        console.log('🔄 Updating dashboard UI with data:', data);
+        console.log('🔍 Dashboard manager available:', !!window.dashboardManager);
+        
         // Use the enhanced dashboard manager to update metrics and charts
         if (window.dashboardManager && window.dashboardManager.updateEnhancedMetrics) {
+            console.log('✅ Using enhanced dashboard manager');
             window.dashboardManager.updateEnhancedMetrics(data);
         } else {
+            console.log('⚠️ Enhanced dashboard manager not available, using basic fallback');
             // Fallback to basic updates if dashboard manager isn't available
             this.updateBasicDashboardUI(data);
         }
     }
 
     updateBasicDashboardUI(data) {
+        console.log('🔧 Updating basic dashboard UI with data:', data);
+        
         // Update total properties
         const propertiesElement = document.getElementById('total-properties');
+        console.log('🏠 Properties element found:', !!propertiesElement);
         if (propertiesElement && data.properties) {
             propertiesElement.textContent = data.properties.total || 0;
+            console.log('✅ Properties updated to:', data.properties.total || 0);
         }
         
         // Update total bookings
         const bookingsElement = document.getElementById('total-bookings');
+        console.log('📅 Bookings element found:', !!bookingsElement);
         if (bookingsElement && data.bookings) {
             bookingsElement.textContent = data.bookings.total || 0;
+            console.log('✅ Bookings updated to:', data.bookings.total || 0);
         }
         
         // Update total revenue
         const revenueElement = document.getElementById('total-revenue');
+        console.log('💰 Revenue element found:', !!revenueElement);
         if (revenueElement && data.overview) {
             revenueElement.textContent = `R${(data.overview.totalRevenue || 0).toLocaleString()}`;
+            console.log('✅ Revenue updated to:', data.overview.totalRevenue || 0);
         }
         
         // Update occupancy rate
         const occupancyElement = document.getElementById('occupancy-rate');
+        console.log('🏨 Occupancy element found:', !!occupancyElement);
         if (occupancyElement && data.overview) {
             const rate = data.overview.occupancyRate || 0;
             occupancyElement.textContent = `${rate}%`;
+            console.log('✅ Occupancy updated to:', rate + '%');
         }
     }
 
