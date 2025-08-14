@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 require('dotenv').config();
 
 const app = express();
@@ -14,6 +15,9 @@ app.use((req, res, next) => {
   console.log(`${new Date().toISOString()} - ${req.method} ${req.url}`);
   next();
 });
+
+// Serve frontend static files
+app.use(express.static(path.join(__dirname, 'web')));
 
 // Simple test endpoint
 app.get('/health', (req, res) => {
@@ -47,6 +51,20 @@ app.use('/api/test', require('./routes/test'));
 app.use('/api/advanced-analytics', require('./routes/advancedAnalytics'));
 app.use('/api/ai-chat', require('./routes/ai-chat'));
 
+// Serve frontend routes
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'web/homepage.html'));
+});
+
+app.get('/app', (req, res) => {
+  res.sendFile(path.join(__dirname, 'web/app.html'));
+});
+
+// Catch-all route for frontend
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'web/index.html'));
+});
+
 // Use different port for backend to avoid conflicts with frontend
 const PORT = process.env.BACKEND_PORT || process.env.PORT || 3001;
 app.listen(PORT, () => {
@@ -60,4 +78,5 @@ app.listen(PORT, () => {
   console.log(`💰 Expenses endpoints: http://localhost:${PORT}/api/expenses`);
   console.log(`📊 Analytics endpoints: http://localhost:${PORT}/api/analytics`);
   console.log(`🤖 AI Chat endpoints: http://localhost:${PORT}/api/ai-chat`);
+  console.log(`🌐 Frontend files served from: ${path.join(__dirname, 'web')}`);
 });
