@@ -4,7 +4,8 @@ const cors = require('cors');
 const morgan = require('morgan');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+// Use different port for frontend to avoid conflicts with backend
+const PORT = process.env.FRONTEND_PORT || process.env.PORT || 3000;
 
 // Middleware
 app.use(cors());
@@ -29,7 +30,7 @@ app.get('*', (req, res) => {
 });
 
 app.listen(PORT, () => {
-    console.log(`🌐 Frontend server running on http://localhost:${PORT}`);
+    console.log(`🌐 Frontend server running on port ${PORT}`);
     console.log(`📁 Serving static files from: ${__dirname}`);
-    console.log(`🔗 Backend API should be running on: http://localhost:3001`);
+    console.log(`🔗 Backend API should be running on: ${process.env.BACKEND_PORT || 3001}`);
 }); 

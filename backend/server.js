@@ -47,9 +47,10 @@ app.use('/api/test', require('./routes/test'));
 app.use('/api/advanced-analytics', require('./routes/advancedAnalytics'));
 app.use('/api/ai-chat', require('./routes/ai-chat'));
 
-const PORT = process.env.PORT || 3001;
+// Use different port for backend to avoid conflicts with frontend
+const PORT = process.env.BACKEND_PORT || process.env.PORT || 3001;
 app.listen(PORT, () => {
-  console.log(`🚀 Server running on port ${PORT}`);
+  console.log(`🚀 Backend server running on port ${PORT}`);
   console.log(` Health check: http://localhost:${PORT}/health`);
   console.log(`🧪 Test endpoint: http://localhost:${PORT}/test`);
   console.log(`🔐 Auth endpoints: http://localhost:${PORT}/api/auth`);

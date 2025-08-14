@@ -1,0 +1,20 @@
+{
+  "name": "hosttrack-full-stack",
+  "version": "1.0.0",
+  "description": "HostTrack Property Management - Full Stack Application",
+  "main": "index.js",
+  "scripts": {
+    "start:all": "concurrently \"npm run start:backend\" \"npm run start:frontend\"",
+    "start:backend": "cd backend && npm start",
+    "start:frontend": "cd web && npm start",
+    "install:all": "npm install && cd backend && npm install && cd ../web && npm install",
+    "build": "echo 'No build step required for Node.js'",
+    "test": "echo 'No tests specified'"
+  },
+  "keywords": ["property", "management", "fullstack", "railway"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
