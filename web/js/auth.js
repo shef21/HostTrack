@@ -289,7 +289,7 @@ class AuthManager {
             // Check if backend is available first
             const isBackendAvailable = await apiService.healthCheck();
             if (!isBackendAvailable) {
-                throw new Error('Backend server is not available. Please check if the server is running on port 3001.');
+                throw new Error('Backend server is not available. Please check Railway deployment.');
             }
 
             // Real API call

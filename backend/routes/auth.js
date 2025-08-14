@@ -2,6 +2,27 @@ const express = require('express');
 const { supabaseAuth, createUserClient } = require('../config/supabase');
 const router = express.Router();
 
+// GET /api/auth - Auth endpoints information
+router.get('/', async (req, res) => {
+  try {
+    res.json({
+      message: 'HostTrack Authentication API',
+      status: 'active',
+      endpoints: {
+        'POST /api/auth/register': 'User registration',
+        'POST /api/auth/login': 'User login',
+        'GET /api/auth/me': 'Get current user profile',
+        'PUT /api/auth/profile': 'Update user profile',
+        'POST /api/auth/logout': 'User logout'
+      },
+      timestamp: new Date().toISOString()
+    });
+  } catch (error) {
+    console.error('Auth info error:', error);
+    res.status(500).json({ message: 'Server error' });
+  }
+});
+
 // User Registration
 router.post('/register', async (req, res) => {
   try {

@@ -1,8 +1,8 @@
 // API Service Layer for HostTrack Frontend
 class APIService {
     constructor() {
-        // Use your working Supabase backend
-        this.baseURL = 'https://nasxtkxixjhfuhcptwyb.supabase.co';
+        // Use your Railway backend for production
+        this.baseURL = 'https://hosttrack-production.up.railway.app';
         this.token = null;
         this.user = null;
         this.isAuthenticatedFlag = false;
