@@ -14,11 +14,10 @@ class APIService {
             window.location.hostname.includes('hosttrack') ||
             window.location.hostname !== 'localhost') {
             
-            // Production: Use relative URLs to work with existing backend
-            // This will use whatever backend your HostTrack site is already configured to use
-            const productionURL = '';
+            // Production: Use Supabase backend (your working backend)
+            const productionURL = 'https://nasxtkxixjhfuhcptwyb.supabase.co';
             
-            console.log('🚀 Production environment detected, using relative URLs');
+            console.log('🚀 Production environment detected, using Supabase:', productionURL);
             return productionURL;
         } else {
             // Development: Use local backend
