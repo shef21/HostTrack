@@ -1579,12 +1579,5 @@ router.get('/usage', authenticateUser, (req, res) => {
     }
 });
 
-// Export functions for testing purposes
-module.exports = {
-    router,
-    calculateTrendMetrics,
-    calculatePredictiveInsights,
-    calculateSmartRecommendations,
-    calculateMarketIntelligence,
-    getUserPropertyContext
-};
+// Export the router
+module.exports = router;
