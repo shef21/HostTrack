@@ -9,6 +9,9 @@ router.use(authenticateUser);
 // Dashboard overview data
 router.get('/dashboard', analyticsController.getDashboardData);
 
+// Test endpoint for debugging
+router.get('/test', analyticsController.testDashboardData);
+
 // Revenue analytics
 router.get('/revenue', analyticsController.getRevenueAnalytics);
 

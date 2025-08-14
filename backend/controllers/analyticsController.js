@@ -3,14 +3,23 @@ const { createUserClient } = require('../config/supabase');
 // Get dashboard overview data
 async function getDashboardData(req, res) {
     try {
+        console.log('🔍 getDashboardData called with user:', req.user);
         const userId = req.user.id;
         const userClient = createUserClient(req.user.token);
+        
+        console.log('🔍 User client created, querying properties...');
+        
+        // TEMPORARY: Check if we're getting real data or mock data
+        console.log('🔍 User client type:', typeof userClient);
+        console.log('🔍 User client methods:', Object.keys(userClient));
         
         // Get properties count
         const { count: propertiesCount } = await userClient
             .from('properties')
             .select('*', { count: 'exact', head: true })
             .eq('owner_id', userId);
+        
+        console.log('🔍 Properties count result:', propertiesCount);
 
         // Get bookings count and status breakdown
         const { data: bookings } = await userClient
@@ -189,6 +198,7 @@ async function getDashboardData(req, res) {
             }
         };
 
+        console.log('🔍 Final dashboard data being sent:', JSON.stringify(dashboardData, null, 2));
         res.json(dashboardData);
     } catch (error) {
         console.error('Error fetching dashboard data:', error);
@@ -360,10 +370,49 @@ async function listAllUserData(req, res) {
     }
 }
 
+// Test endpoint to verify frontend chart functionality
+async function testDashboardData(req, res) {
+    console.log('🧪 Test dashboard endpoint called');
+    
+    const testData = {
+        overview: {
+            totalRevenue: 15000,
+            totalBookings: 8,
+            avgBookingValue: 1875,
+            occupancyRate: 75
+        },
+        properties: { 
+            total: 3,
+            names: ['Cape Town Villa', 'Joburg Suite', 'Durban Beach House'],
+            occupancy: [80, 70, 75]
+        },
+        bookings: { 
+            total: 8, 
+            confirmed: 6, 
+            pending: 2 
+        },
+        services: { total: 5 },
+        revenue: {
+            total: 15000,
+            monthly: { '2024-01': 2000, '2024-02': 2500, '2024-03': 3000, '2024-04': 3500, '2024-05': 4000, '2024-06': 0 },
+            months: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+            amounts: [2000, 2500, 3000, 3500, 4000, 0]
+        },
+        occupancy: {
+            rate: 75,
+            weekly: [60, 70, 80, 75, 85, 90, 65]
+        }
+    };
+    
+    console.log('🧪 Sending test data:', JSON.stringify(testData, null, 2));
+    res.json(testData);
+}
+
 module.exports = {
     getDashboardData,
     getRevenueAnalytics,
     getOccupancyAnalytics,
     getExpensesAnalytics,
-    listAllUserData
+    listAllUserData,
+    testDashboardData
 }; 

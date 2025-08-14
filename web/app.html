@@ -29,6 +29,11 @@
     <!-- Meta tags for PWA -->
     <meta name="theme-color" content="#667eea">
     <meta name="description" content="HostTrack - Professional property management dashboard for hosts and property managers">
+    
+    <!-- Prevent caching -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
   </head>
 <body>
     <!-- Loading Screen -->
@@ -1112,29 +1117,57 @@
         }
     </script>
     
-    <!-- Scripts -->
-    <script src="js/api.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/auth.js"></script>
-    <script src="js/dashboard.js"></script>
-    <script src="js/properties.js"></script>
-    <script src="js/bookings.js"></script>
-    <script src="js/analytics.js"></script>
-    <script src="js/charts.js"></script>
-
-    <script src="js/services.js"></script>
-    <script src="js/realtime.js"></script>
-    <script src="js/advancedAnalytics.js"></script>
-    <script src="js/phase3Dashboard.js"></script>
-    
-    <!-- Nathi Chat Widget -->
-    <script src="js/ai-chat.js"></script>
-    
-    <!-- Smart Matching Engine -->
-    <script src="js/smart-matching-engine.js"></script>
-    
-    <!-- CSV Import System -->
-    <script src="js/csv-import.js"></script>
+    <!-- Scripts with cache busting -->
+    <script>
+        // Cache busting function with forced version
+        function loadScript(src) {
+            return new Promise((resolve, reject) => {
+                const script = document.createElement('script');
+                // Force cache busting with a specific version
+                script.src = src + '?v=' + Date.now() + '&force=' + Math.random();
+                script.onload = resolve;
+                script.onerror = reject;
+                document.head.appendChild(script);
+            });
+        }
+        
+        // Load all scripts with cache busting
+        async function loadAllScripts() {
+            try {
+                await loadScript('js/api.js');
+                await loadScript('js/app.js');
+                await loadScript('js/auth.js');
+                await loadScript('js/dashboard.js');
+                await loadScript('js/properties.js');
+                await loadScript('js/bookings.js');
+                await loadScript('js/analytics.js');
+                await loadScript('js/charts.js');
+                await loadScript('js/services.js');
+                await loadScript('js/realtime.js');
+                await loadScript('js/advancedAnalytics.js');
+                await loadScript('js/phase3Dashboard.js');
+                await loadScript('js/ai-chat.js');
+                await loadScript('js/smart-matching-engine.js');
+                await loadScript('js/csv-import.js');
+                console.log('✅ All scripts loaded with cache busting');
+            } catch (error) {
+                console.error('❌ Error loading scripts:', error);
+            }
+        }
+        
+        // Load scripts when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', loadAllScripts);
+        } else {
+            loadAllScripts();
+        }
+        
+        // Force immediate reload of current page to clear cache
+        console.log('🔄 Force reloading page to clear cache and load VERSION 2.0...');
+        if (window.location.search.includes('v2') === false) {
+            window.location.href = window.location.href + (window.location.search ? '&' : '?') + 'v2=' + Date.now();
+        }
+    </script>
 
     <script>
         // Dynamic form population functions

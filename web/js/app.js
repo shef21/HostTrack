@@ -22,7 +22,8 @@ class HostTrackApp {
             return;
         }
         
-        console.log('Initializing HostTrackApp...');
+        console.log('🔧 HostTrackApp VERSION 2.0 initializing...');
+        console.log('🔧 This version should use the new analytics endpoint');
         
         try {
             // Clear any cached sample data from localStorage

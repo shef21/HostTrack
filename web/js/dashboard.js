@@ -1,7 +1,8 @@
-// ===== DASHBOARD JAVASCRIPT =====
+// ===== DASHBOARD JAVASCRIPT VERSION 2.0 (CACHE BUSTED) =====
 
 class DashboardManager {
     constructor() {
+        console.log('🔧 DashboardManager VERSION 2.0 initialized - Mock data generation removed');
         this.charts = {};
         this.refreshInterval = null;
         this.isRefreshing = false;
@@ -18,6 +19,19 @@ class DashboardManager {
             refreshBtn.addEventListener('click', () => {
                 this.refreshDashboard();
             });
+        }
+        
+        // TEMPORARY: Test endpoint button for debugging
+        const testBtn = document.createElement('button');
+        testBtn.textContent = 'Test Charts';
+        testBtn.className = 'btn btn-secondary';
+        testBtn.style.marginLeft = '10px';
+        testBtn.addEventListener('click', () => {
+            this.testChartsWithTestData();
+        });
+        
+        if (refreshBtn && refreshBtn.parentNode) {
+            refreshBtn.parentNode.appendChild(testBtn);
         }
 
         // Auto-refresh toggle
@@ -417,12 +431,12 @@ class DashboardManager {
         const loadingElement = document.getElementById('revenue-chart-loading');
         if (!ctx) return;
 
-        // Initial data structure
+        // Initial data structure - will be updated with real data
         const data = {
-            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+            labels: ['Loading...'],
             datasets: [{
                 label: 'Revenue',
-                data: [0, 0, 0, 0, 0, 0],
+                data: [0],
                 borderColor: '#10B981',
                 backgroundColor: 'rgba(16, 185, 129, 0.1)',
                 borderWidth: 2,
@@ -487,10 +501,10 @@ class DashboardManager {
         if (!ctx) return;
 
         const data = {
-            labels: ['Property 1', 'Property 2', 'Property 3'],
+            labels: ['Loading...'],
             datasets: [{
                 label: 'Occupancy Rate',
-                data: [0, 0, 0],
+                data: [0],
                 backgroundColor: [
                     'rgba(59, 130, 246, 0.8)',
                     'rgba(16, 185, 129, 0.8)',
@@ -547,10 +561,10 @@ class DashboardManager {
         if (!ctx) return;
 
         const data = {
-            labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+            labels: ['Loading...'],
             datasets: [{
                 label: 'This Week',
-                data: [0, 0, 0, 0, 0, 0, 0],
+                data: [0],
                 backgroundColor: 'rgba(16, 185, 129, 0.8)',
                 borderColor: 'rgba(16, 185, 129, 1)',
                 borderWidth: 1
@@ -588,6 +602,17 @@ class DashboardManager {
 
     updateCharts(dashboardData) {
         console.log('📊 updateCharts called with data:', dashboardData);
+        console.log('🔍 Data validation:', {
+            isObject: typeof dashboardData === 'object',
+            isNull: dashboardData === null,
+            isUndefined: dashboardData === undefined,
+            hasRevenue: !!dashboardData?.revenue,
+            hasProperties: !!dashboardData?.properties,
+            hasOccupancy: !!dashboardData?.occupancy,
+            revenueData: dashboardData?.revenue,
+            propertiesData: dashboardData?.properties,
+            occupancyData: dashboardData?.occupancy
+        });
         
         // Validate input data
         if (!dashboardData || typeof dashboardData !== 'object') {
@@ -602,21 +627,34 @@ class DashboardManager {
         // Update revenue chart with monthly data
         if (this.charts.revenue && transformedData.revenue) {
             try {
-                const revenueData = {
-                    labels: transformedData.revenue.months || ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
-                    datasets: [{
-                        label: 'Revenue',
-                        data: transformedData.revenue.amounts || [0, 0, 0, 0, 0, 0],
-                        borderColor: '#10B981',
-                        backgroundColor: 'rgba(16, 185, 129, 0.1)',
-                        borderWidth: 2,
-                        fill: true,
-                        tension: 0.4
-                    }]
-                };
-                this.charts.revenue.data = revenueData;
-                this.charts.revenue.update();
-                console.log('✅ Revenue chart updated');
+                // Check if we have real data, otherwise show "No Data" message
+                if (transformedData.revenue.amounts && transformedData.revenue.amounts.length > 0 && 
+                    transformedData.revenue.amounts.some(amount => amount > 0)) {
+                    
+                    const revenueData = {
+                        labels: transformedData.revenue.months || ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                        datasets: [{
+                            label: 'Revenue',
+                            data: transformedData.revenue.amounts || [0, 0, 0, 0, 0, 0],
+                            borderColor: '#10B981',
+                            backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                            borderWidth: 2,
+                            fill: true,
+                            tension: 0.4
+                        }]
+                    };
+                    this.charts.revenue.data = revenueData;
+                    this.charts.revenue.update();
+                    console.log('✅ Revenue chart updated with real data');
+                } else {
+                    // Show "No Data" state
+                    const noDataLabels = ['No Revenue Data'];
+                    const noDataAmounts = [0];
+                    this.charts.revenue.data.labels = noDataLabels;
+                    this.charts.revenue.data.datasets[0].data = noDataAmounts;
+                    this.charts.revenue.update();
+                    console.log('ℹ️ Revenue chart shows no data state');
+                }
             } catch (error) {
                 console.error('Error updating revenue chart:', error);
             }
@@ -625,27 +663,36 @@ class DashboardManager {
         // Update performance chart with property data
         if (this.charts.performance && transformedData.properties) {
             try {
-                const performanceData = {
-                    labels: transformedData.properties.names || ['Property 1', 'Property 2', 'Property 3'],
-                    datasets: [{
-                        label: 'Occupancy Rate',
-                        data: transformedData.properties.occupancy || [0, 0, 0],
-                        backgroundColor: [
-                            'rgba(59, 130, 246, 0.8)',
-                            'rgba(16, 185, 129, 0.8)',
-                            'rgba(245, 158, 11, 0.8)'
-                        ],
-                        borderColor: [
-                            'rgba(59, 130, 246, 1)',
-                            'rgba(16, 185, 129, 1)',
-                            'rgba(245, 158, 11, 1)'
-                        ],
-                        borderWidth: 1
-                    }]
-                };
-                this.charts.performance.data = performanceData;
-                this.charts.performance.update();
-                console.log('✅ Performance chart updated');
+                // Check if we have real property data
+                if (transformedData.properties.names && transformedData.properties.names.length > 0) {
+                    const performanceData = {
+                        labels: transformedData.properties.names,
+                        datasets: [{
+                            label: 'Occupancy Rate',
+                            data: transformedData.properties.occupancy || [],
+                            backgroundColor: [
+                                'rgba(59, 130, 246, 0.8)',
+                                'rgba(16, 185, 129, 0.8)',
+                                'rgba(245, 158, 11, 0.8)'
+                            ],
+                            borderColor: [
+                                'rgba(59, 130, 246, 1)',
+                                'rgba(16, 185, 129, 1)',
+                                'rgba(245, 158, 11, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    };
+                    this.charts.performance.data = performanceData;
+                    this.charts.performance.update();
+                    console.log('✅ Performance chart updated with real property data');
+                } else {
+                    // Show "No Properties" state
+                    this.charts.performance.data.labels = ['No Properties'];
+                    this.charts.performance.data.datasets[0].data = [0];
+                    this.charts.performance.update();
+                    console.log('ℹ️ Performance chart shows no properties state');
+                }
             } catch (error) {
                 console.error('Error updating performance chart:', error);
             }
@@ -654,19 +701,28 @@ class DashboardManager {
         // Update occupancy chart with weekly data
         if (this.charts.occupancy && transformedData.occupancy) {
             try {
-                const occupancyData = {
-                    labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-                    datasets: [{
-                        label: 'This Week',
-                        data: transformedData.occupancy.weekly || [0, 0, 0, 0, 0, 0, 0],
-                        backgroundColor: 'rgba(16, 185, 129, 0.8)',
-                        borderColor: 'rgba(16, 185, 129, 1)',
-                        borderWidth: 1
-                    }]
-                };
-                this.charts.occupancy.data = occupancyData;
-                this.charts.occupancy.update();
-                console.log('✅ Occupancy chart updated');
+                // Check if we have real weekly occupancy data
+                if (transformedData.occupancy.weekly && transformedData.occupancy.weekly.length > 0) {
+                    const occupancyData = {
+                        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                        datasets: [{
+                            label: 'This Week',
+                            data: transformedData.occupancy.weekly,
+                            backgroundColor: 'rgba(16, 185, 129, 0.8)',
+                            borderColor: 'rgba(16, 185, 129, 1)',
+                            borderWidth: 1
+                        }]
+                    };
+                    this.charts.occupancy.data = occupancyData;
+                    this.charts.occupancy.update();
+                    console.log('✅ Occupancy chart updated with real weekly data');
+                } else {
+                    // Show "No Data" state
+                    this.charts.occupancy.data.labels = ['No Weekly Data'];
+                    this.charts.occupancy.data.datasets[0].data = [0];
+                    this.charts.occupancy.update();
+                    console.log('ℹ️ Occupancy chart shows no weekly data state');
+                }
             } catch (error) {
                 console.error('Error updating occupancy chart:', error);
             }
@@ -674,22 +730,31 @@ class DashboardManager {
     }
 
     transformDataForCharts(dashboardData) {
-        console.log('🔄 Transforming data for charts...');
+        console.log('🔄 VERSION 2.0: Transforming real data for charts (NO MORE MOCK DATA)...');
         
-        // Create mock monthly revenue data based on current revenue
-        const currentRevenue = dashboardData.overview?.totalRevenue || 0;
-        const monthlyRevenue = Array(6).fill(0).map(() => Math.floor(Math.random() * (currentRevenue + 1000)));
+        // Use real monthly revenue data from Supabase
+        const revenueData = dashboardData.revenue || {};
+        const monthlyRevenue = revenueData.amounts || [];
+        const monthlyLabels = revenueData.months || [];
         
-        // Create property performance data
-        const propertyNames = ['Main Property', 'Guest House', 'Vacation Rental'];
-        const propertyOccupancy = [dashboardData.overview?.occupancyRate || 0, 85, 70];
+        // Use real property performance data from Supabase
+        const propertiesData = dashboardData.properties || {};
+        const propertyNames = propertiesData.names || [];
+        const propertyOccupancy = propertiesData.occupancy || [];
         
-        // Create weekly occupancy data
-        const weeklyOccupancy = Array(7).fill(0).map(() => Math.floor(Math.random() * 100));
+        // Use real weekly occupancy data from Supabase
+        const occupancyData = dashboardData.occupancy || {};
+        const weeklyOccupancy = occupancyData.weekly || [0, 0, 0, 0, 0, 0, 0];
+        
+        console.log('📊 Real data for charts:', {
+            revenue: { months: monthlyLabels, amounts: monthlyRevenue },
+            properties: { names: propertyNames, occupancy: propertyOccupancy },
+            occupancy: { weekly: weeklyOccupancy }
+        });
         
         return {
             revenue: {
-                months: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                months: monthlyLabels,
                 amounts: monthlyRevenue
             },
             properties: {
@@ -784,6 +849,16 @@ class DashboardManager {
 
     updateEnhancedMetrics(data) {
         console.log('🔧 DashboardManager.updateEnhancedMetrics called with data:', data);
+        console.log('📊 Data structure analysis:', {
+            hasProperties: !!data.properties,
+            hasBookings: !!data.bookings,
+            hasOverview: !!data.overview,
+            hasRevenue: !!data.revenue,
+            hasOccupancy: !!data.occupancy,
+            propertiesTotal: data.properties?.total,
+            revenueTotal: data.revenue?.total,
+            occupancyRate: data.occupancy?.rate
+        });
         
         // Update total properties with growth indicator
         const propertiesElement = document.getElementById('total-properties');
@@ -941,6 +1016,36 @@ class DashboardManager {
 
         // Add to page
         document.body.appendChild(notification);
+    }
+
+    // TEMPORARY: Test method to verify chart functionality
+    async testChartsWithTestData() {
+        try {
+            console.log('🧪 Testing charts with test data...');
+            
+            // Call the test endpoint
+            const response = await fetch('https://hosttrack-production.up.railway.app/api/analytics/test', {
+                headers: {
+                    'Authorization': `Bearer ${window.apiService?.getToken() || ''}`,
+                    'Content-Type': 'application/json'
+                }
+            });
+            
+            if (response.ok) {
+                const testData = await response.json();
+                console.log('🧪 Test data received:', testData);
+                
+                // Update charts with test data
+                this.updateCharts(testData);
+                this.updateEnhancedMetrics(testData);
+                
+                console.log('🧪 Charts updated with test data');
+            } else {
+                console.error('🧪 Test endpoint failed:', response.status);
+            }
+        } catch (error) {
+            console.error('🧪 Error testing charts:', error);
+        }
     }
 
     destroy() {

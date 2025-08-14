@@ -1,4 +1,4 @@
-// API Service Layer for HostTrack Frontend
+// API Service Layer for HostTrack Frontend - VERSION 2.0 (CACHE BUSTED)
 class APIService {
     constructor() {
         // Use your Railway backend for production
@@ -7,7 +7,8 @@ class APIService {
         this.user = null;
         this.isAuthenticatedFlag = false;
         
-        console.log('🔧 API Service initialized with base URL:', this.baseURL);
+        console.log('🔧 API Service VERSION 2.0 initialized with base URL:', this.baseURL);
+        console.log('🔧 This version should call /api/analytics/dashboard instead of individual endpoints');
     }
 
     // Set authentication token and user
@@ -242,55 +243,35 @@ class APIService {
 
     async getDashboardStats() {
         try {
-            console.log('📊 Fetching dashboard stats from Railway backend...');
+            console.log('📊 VERSION 2.0: Fetching dashboard stats from Railway backend analytics endpoint...');
+            console.log('🌐 Making request to:', `${this.baseURL}/api/analytics/dashboard`);
+            console.log('🔧 This should NOT call individual endpoints anymore');
             
-            // Get data from Railway backend API endpoints
-            const [propertiesResponse, bookingsResponse, servicesResponse] = await Promise.all([
-                this.request('/api/properties'),
-                this.request('/api/bookings'),
-                this.request('/api/services')
-            ]);
-
-            const properties = propertiesResponse || [];
-            const bookings = bookingsResponse || [];
-            const services = servicesResponse || [];
-
-            // Calculate dashboard stats from actual data
-            const totalRevenue = bookings.reduce((sum, booking) => sum + (parseFloat(booking.total_amount) || 0), 0);
-            const avgBookingValue = bookings.length > 0 ? totalRevenue / bookings.length : 0;
-            const confirmedBookings = bookings.filter(b => b.status === 'confirmed').length;
-            const pendingBookings = bookings.filter(b => b.status === 'pending').length;
-
-            console.log('✅ Dashboard stats calculated successfully');
-            return {
-                properties: {
-                    total: properties.length,
-                    active: properties.filter(p => p.status === 'active').length
-                },
-                bookings: {
-                    total: bookings.length,
-                    confirmed: confirmedBookings,
-                    pending: pendingBookings,
-                    revenue: totalRevenue
-                },
-                services: {
-                    total: services.length,
-                    active: services.filter(s => s.status === 'active').length
-                },
-                overview: {
-                    totalRevenue,
-                    avgBookingValue,
-                    occupancyRate: properties.length > 0 ? (confirmedBookings / properties.length) * 100 : 0
-                }
-            };
+            // Get comprehensive dashboard data from the analytics endpoint
+            const dashboardData = await this.request('/api/analytics/dashboard');
+            
+            console.log('✅ VERSION 2.0: Dashboard stats received from analytics endpoint:', dashboardData);
+            console.log('🔍 Data structure analysis:', {
+                hasProperties: !!dashboardData?.properties,
+                hasBookings: !!dashboardData?.bookings,
+                hasOverview: !!dashboardData?.overview,
+                hasRevenue: !!dashboardData?.revenue,
+                hasOccupancy: !!dashboardData?.occupancy,
+                propertiesKeys: dashboardData?.properties ? Object.keys(dashboardData.properties) : [],
+                revenueKeys: dashboardData?.revenue ? Object.keys(dashboardData.revenue) : [],
+                occupancyKeys: dashboardData?.occupancy ? Object.keys(dashboardData.occupancy) : []
+            });
+            return dashboardData;
         } catch (error) {
-            console.error('❌ Error getting dashboard stats from Railway backend:', error);
+            console.error('❌ VERSION 2.0: Error getting dashboard stats from Railway backend:', error);
             // Return default stats if there's an error
             return {
                 properties: { total: 0, active: 0 },
                 bookings: { total: 0, confirmed: 0, pending: 0, revenue: 0 },
                 services: { total: 0, active: 0 },
-                overview: { totalRevenue: 0, avgBookingValue: 0, occupancyRate: 0 }
+                overview: { totalRevenue: 0, avgBookingValue: 0, occupancyRate: 0 },
+                revenue: { total: 0, monthly: {}, months: [], amounts: [] },
+                occupancy: { rate: 0, weekly: [0, 0, 0, 0, 0, 0, 0] }
             };
         }
     }
