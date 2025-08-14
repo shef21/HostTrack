@@ -1161,12 +1161,6 @@
         } else {
             loadAllScripts();
         }
-        
-        // Force immediate reload of current page to clear cache
-        console.log('🔄 Force reloading page to clear cache and load VERSION 2.0...');
-        if (window.location.search.includes('v2') === false) {
-            window.location.href = window.location.href + (window.location.search ? '&' : '?') + 'v2=' + Date.now();
-        }
     </script>
 
     <script>
@@ -1232,9 +1226,9 @@
             // Wait for API service to be available
             setTimeout(() => {
                 populateServiceCategories();
+        }
                 populatePropertyOptions();
             }, 1000);
         });
     </script>
   </body>
-</html>
