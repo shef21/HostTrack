@@ -17,6 +17,24 @@ class SmartMatchingEngine {
             medium: 0.6,    // 60-79% confidence - user confirmation
             low: 0.4        // 40-59% confidence - user review
         };
+        
+        this.cities = null; // Will be populated from database
+        this.areas = null;  // Will be populated from database
+        this.initialized = false; // Track initialization status
+        
+        // Call tracking and debouncing
+        this.isLoadingLocationData = false;
+        this.isRefreshingLocationData = false;
+        this.lastLocationDataLoad = null;
+        this.locationDataLoadTimeout = null;
+        this.refreshDebounceTimeout = null;
+        this.refreshCooldown = 5000; // 5 seconds between refresh calls
+        this.authenticationWaitActive = false;
+        
+        console.log('🚀 Smart Matching Engine initialized (waiting for API service)');
+        
+        // Initialize when ready instead of immediately
+        this.initializeWhenReady();
     }
 
     /**
@@ -253,12 +271,235 @@ class SmartMatchingEngine {
     }
 
     /**
+     * Load location data from database
+     * This replaces hardcoded cities and provinces with real data
+     */
+    async loadLocationData() {
+        // Prevent multiple simultaneous calls
+        if (this.isLoadingLocationData) {
+            console.log('⏳ Location data load already in progress, skipping duplicate call');
+            return;
+        }
+        
+        // Check if we recently loaded data (within last 30 seconds)
+        const now = Date.now();
+        if (this.lastLocationDataLoad && (now - this.lastLocationDataLoad) < 30000) {
+            console.log('⏳ Location data was recently loaded, skipping duplicate call');
+            return;
+        }
+        
+        this.isLoadingLocationData = true;
+        console.log('🔄 Loading location data from database...');
+        
+        try {
+            // Validate API service is available and authenticated
+            if (!window.apiService) {
+                throw new Error('API service not available');
+            }
+            
+            if (!window.apiService.isAuthenticated()) {
+                throw new Error('User not authenticated');
+            }
+            
+            // Get unique cities and provinces from user's properties
+            const properties = await window.apiService.getProperties();
+            
+            if (!properties || !Array.isArray(properties) || properties.length === 0) {
+                console.log('ℹ️ No properties found, using fallback location data');
+                this.useFallbackLocationData();
+                return;
+            }
+            
+            // Extract and validate location data
+            const locationData = this.extractLocationDataFromProperties(properties);
+            
+            if (locationData.cities.length > 0) {
+                this.cities = locationData.cities;
+                console.log('✅ Loaded cities from user properties:', this.cities);
+            } else {
+                console.log('ℹ️ No city data found in properties, using fallback cities');
+                this.cities = this.getFallbackCities();
+            }
+            
+            if (locationData.provinces.length > 0) {
+                this.areas = locationData.provinces;
+                console.log('✅ Loaded provinces from user properties:', this.areas);
+            } else {
+                console.log('ℹ️ No province data found in properties, using fallback provinces');
+                this.areas = this.getFallbackProvinces();
+            }
+            
+            this.lastLocationDataLoad = now;
+            console.log('✅ Location data loaded successfully');
+            
+        } catch (error) {
+            console.warn('⚠️ Could not load location data from database:', error);
+            this.useFallbackLocationData();
+        } finally {
+            this.isLoadingLocationData = false;
+        }
+    }
+
+    /**
+     * Extract location data from properties with validation
+     */
+    extractLocationDataFromProperties(properties) {
+        const cities = new Set();
+        const provinces = new Set();
+        
+        properties.forEach(property => {
+            try {
+                // Extract city from various possible fields
+                let city = null;
+                if (property.city && typeof property.city === 'string') {
+                    city = property.city.trim();
+                } else if (property.location && typeof property.location === 'string') {
+                    const locationParts = property.location.split(',').map(part => part.trim());
+                    city = locationParts[0];
+                } else if (property.address && typeof property.address === 'string') {
+                    const addressParts = property.address.split(',').map(part => part.trim());
+                    city = addressParts[0];
+                }
+                
+                // Validate and add city
+                if (city && city.length > 0 && city.length < 100) {
+                    cities.add(city);
+                }
+                
+                // Extract province from various possible fields
+                let province = null;
+                if (property.province && typeof property.province === 'string') {
+                    province = property.province.trim();
+                } else if (property.location && typeof property.location === 'string') {
+                    const locationParts = property.location.split(',').map(part => part.trim());
+                    province = locationParts[1];
+                } else if (property.region && typeof property.region === 'string') {
+                    province = property.region.trim();
+                }
+                
+                // Validate and add province
+                if (province && province.length > 0 && province.length < 100) {
+                    provinces.add(province);
+                }
+                
+            } catch (propertyError) {
+                console.warn('⚠️ Error processing property location data:', propertyError, property);
+                // Continue with next property
+            }
+        });
+        
+        return {
+            cities: Array.from(cities),
+            provinces: Array.from(provinces)
+        };
+    }
+
+    /**
+     * Get fallback cities for when database data is unavailable
+     */
+    getFallbackCities() {
+        return [
+            'Cape Town', 'Johannesburg', 'Durban', 'Pretoria', 'Port Elizabeth',
+            'Bloemfontein', 'Nelspruit', 'Kimberley', 'Polokwane', 'Stellenbosch',
+            'East London', 'Pietermaritzburg', 'Rustenburg', 'Welkom', 'Vereeniging',
+            'Klerksdorp', 'Potchefstroom', 'Kroonstad', 'Witbank'
+        ];
+    }
+
+    /**
+     * Get fallback provinces for when database data is unavailable
+     */
+    getFallbackProvinces() {
+        return [
+            'Western Cape', 'Gauteng', 'KwaZulu-Natal', 'Eastern Cape',
+            'Free State', 'Mpumalanga', 'Northern Cape', 'Limpopo',
+            'North West'
+        ];
+    }
+
+    /**
+     * Refresh location data (call this when properties are updated)
+     */
+    async refreshLocationData() {
+        // Prevent multiple simultaneous refresh calls
+        if (this.isRefreshingLocationData) {
+            console.log('⏳ Location data refresh already in progress, skipping duplicate call');
+            return;
+        }
+        
+        // Check cooldown period
+        const now = Date.now();
+        if (this.lastLocationDataLoad && (now - this.lastLocationDataLoad) < this.refreshCooldown) {
+            console.log(`⏳ Refresh cooldown active (${Math.ceil((this.refreshCooldown - (now - this.lastLocationDataLoad)) / 1000)}s remaining), skipping refresh`);
+            return;
+        }
+        
+        // Clear any existing debounce timeout
+        if (this.refreshDebounceTimeout) {
+            clearTimeout(this.refreshDebounceTimeout);
+        }
+        
+        // Debounce the refresh call
+        this.refreshDebounceTimeout = setTimeout(async () => {
+            await this.performLocationDataRefresh();
+        }, 300); // 300ms debounce delay
+        
+        console.log('🔄 Location data refresh scheduled (debounced)');
+    }
+
+    /**
+     * Perform the actual location data refresh
+     */
+    async performLocationDataRefresh() {
+        this.isRefreshingLocationData = true;
+        console.log('🔄 Performing location data refresh...');
+        
+        try {
+            if (window.apiService && window.apiService.isAuthenticated()) {
+                await this.loadLocationData();
+                console.log('✅ Location data refreshed successfully');
+            } else {
+                console.log('ℹ️ Cannot refresh location data - API service not ready or user not authenticated');
+            }
+        } catch (error) {
+            console.error('❌ Error refreshing location data:', error);
+            // Keep existing data if refresh fails
+        } finally {
+            this.isRefreshingLocationData = false;
+        }
+    }
+
+    /**
+     * Check if the matching engine is ready to use
+     */
+    isReady() {
+        return this.initialized && this.cities && this.areas;
+    }
+
+    /**
+     * Get current status of the matching engine
+     */
+    getStatus() {
+        return {
+            initialized: this.initialized,
+            hasCities: !!this.cities,
+            hasProvinces: !!this.areas,
+            citiesCount: this.cities ? this.cities.length : 0,
+            provincesCount: this.areas ? this.areas.length : 0,
+            usingFallback: !this.initialized || !this.cities || !this.areas
+        };
+    }
+
+    /**
      * Extract cities from location string
      */
     extractCities(location) {
-        const cities = [
+        // Use dynamically loaded cities if available, otherwise fallback to comprehensive list
+        const cities = this.cities || [
             'Cape Town', 'Johannesburg', 'Durban', 'Pretoria', 'Port Elizabeth',
-            'Bloemfontein', 'Nelspruit', 'Kimberley', 'Polokwane', 'Stellenbosch'
+            'Bloemfontein', 'Nelspruit', 'Kimberley', 'Polokwane', 'Stellenbosch',
+            'East London', 'Pietermaritzburg', 'Rustenburg', 'Welkom', 'Vereeniging',
+            'Klerksdorp', 'Potchefstroom', 'Kroonstad', 'Witbank'
         ];
         
         return cities.filter(city => 
@@ -270,9 +511,11 @@ class SmartMatchingEngine {
      * Extract area names from location string
      */
     extractAreas(location) {
-        const areas = [
+        // Use dynamically loaded provinces if available, otherwise fallback to comprehensive list
+        const areas = this.areas || [
             'Western Cape', 'Gauteng', 'KwaZulu-Natal', 'Eastern Cape',
-            'Free State', 'Mpumalanga', 'Northern Cape', 'Limpopo'
+            'Free State', 'Mpumalanga', 'Northern Cape', 'Limpopo',
+            'North West'
         ];
         
         return areas.filter(area => 
@@ -432,6 +675,223 @@ class SmartMatchingEngine {
         merged.import_source = newProperty.import_source || 'csv_import';
         
         return merged;
+    }
+
+    /**
+     * Initialize the matching engine when the API service is ready.
+     */
+    async initializeWhenReady() {
+        try {
+            console.log('🔄 Initializing Smart Matching Engine...');
+            
+            // Wait for API service to be available
+            let attempts = 0;
+            const maxAttempts = 50; // 5 seconds max wait
+            
+            while (!window.apiService && attempts < maxAttempts) {
+                await new Promise(resolve => setTimeout(resolve, 100));
+                attempts++;
+            }
+            
+            if (window.apiService) {
+                // Wait a bit more for authentication to complete
+                await new Promise(resolve => setTimeout(resolve, 500));
+                
+                if (window.apiService.isAuthenticated()) {
+                    await this.loadLocationData();
+                    this.initialized = true;
+                    this.setupAutoRefresh();
+                    console.log('✅ Smart Matching Engine fully initialized with location data');
+                } else {
+                    console.log('ℹ️ Smart Matching Engine initialized (waiting for authentication)');
+                    // Set up a listener for when authentication happens
+                    this.waitForAuthentication();
+                }
+            } else {
+                console.warn('⚠️ API service not available after timeout. Using fallback location data.');
+                this.useFallbackLocationData();
+                this.initialized = true;
+            }
+        } catch (error) {
+            console.error('❌ Error initializing Smart Matching Engine:', error);
+            this.useFallbackLocationData();
+            this.initialized = true;
+        }
+    }
+
+    /**
+     * Wait for user authentication to complete
+     */
+    waitForAuthentication() {
+        // Prevent multiple authentication wait loops
+        if (this.authenticationWaitActive) {
+            console.log('⏳ Authentication wait already active, skipping duplicate setup');
+            return;
+        }
+        
+        this.authenticationWaitActive = true;
+        console.log('⏳ Setting up authentication wait loop...');
+        
+        const checkAuth = () => {
+            if (window.apiService && window.apiService.isAuthenticated()) {
+                console.log('✅ Authentication detected, loading location data...');
+                this.loadLocationData().then(() => {
+                    this.initialized = true;
+                    this.authenticationWaitActive = false;
+                    console.log('✅ Smart Matching Engine initialized after authentication');
+                }).catch(error => {
+                    console.error('❌ Error loading location data after authentication:', error);
+                    this.useFallbackLocationData();
+                    this.authenticationWaitActive = false;
+                });
+            } else {
+                // Check again in 1 second
+                setTimeout(checkAuth, 1000);
+            }
+        };
+        
+        // Start checking
+        setTimeout(checkAuth, 1000);
+    }
+
+    /**
+     * Use fallback location data if API service is not available
+     */
+    useFallbackLocationData() {
+        console.log('ℹ️ Using fallback location data');
+        this.cities = this.getFallbackCities();
+        this.areas = this.getFallbackProvinces();
+        console.log('✅ Fallback cities loaded:', this.cities.length);
+        console.log('✅ Fallback provinces loaded:', this.areas.length);
+    }
+
+    /**
+     * Handle property updates and refresh location data if needed
+     */
+    handlePropertyUpdate(propertyData, action = 'update') {
+        console.log(`🔄 Property ${action} detected, checking if location data needs refresh...`);
+        
+        // Only refresh if we have location data and this property has location info
+        if (this.isReady() && this.hasLocationData(propertyData)) {
+            console.log('📍 Property has location data, scheduling location cache refresh...');
+            this.refreshLocationData(); // This is now debounced
+        } else {
+            console.log('ℹ️ Property update does not affect location data, skipping refresh');
+        }
+    }
+
+    /**
+     * Check if a property has location data that would affect our cache
+     */
+    hasLocationData(property) {
+        return !!(property.city || property.province || property.location || property.address || property.region);
+    }
+
+    /**
+     * Set up automatic refresh when properties change
+     */
+    setupAutoRefresh() {
+        // Listen for property changes if the app supports it
+        if (window.addEventListener) {
+            // Listen for custom property update events
+            window.addEventListener('propertyUpdated', (event) => {
+                this.handlePropertyUpdate(event.detail, 'update');
+            });
+            
+            window.addEventListener('propertyCreated', (event) => {
+                this.handlePropertyUpdate(event.detail, 'create');
+            });
+            
+            window.addEventListener('propertyDeleted', (event) => {
+                this.handlePropertyUpdate(event.detail, 'delete');
+            });
+            
+            console.log('✅ Auto-refresh listeners set up for property changes');
+        }
+    }
+
+    /**
+     * Manually trigger initialization (useful for testing or manual refresh)
+     */
+    async forceInitialize() {
+        console.log('🔄 Force initializing Smart Matching Engine...');
+        this.initialized = false;
+        await this.initializeWhenReady();
+    }
+
+    /**
+     * Force refresh location data (bypasses cooldown)
+     */
+    async forceRefreshLocationData() {
+        console.log('🔄 Force refreshing location data (bypassing cooldown)...');
+        
+        // Clear cooldown
+        this.lastLocationDataLoad = null;
+        
+        // Clear any existing debounce
+        if (this.refreshDebounceTimeout) {
+            clearTimeout(this.refreshDebounceTimeout);
+            this.refreshDebounceTimeout = null;
+        }
+        
+        // Perform refresh immediately
+        await this.performLocationDataRefresh();
+    }
+
+    /**
+     * Clear refresh cooldown manually
+     */
+    clearRefreshCooldown() {
+        console.log('🔄 Manually clearing refresh cooldown...');
+        this.lastLocationDataLoad = null;
+        console.log('✅ Refresh cooldown cleared');
+    }
+
+    /**
+     * Get a summary of the current state for debugging
+     */
+    getDebugInfo() {
+        return {
+            status: this.getStatus(),
+            apiServiceAvailable: !!window.apiService,
+            apiServiceAuthenticated: window.apiService ? window.apiService.isAuthenticated() : false,
+            timestamp: new Date().toISOString(),
+            memoryUsage: {
+                citiesSize: this.cities ? JSON.stringify(this.cities).length : 0,
+                areasSize: this.areas ? JSON.stringify(this.areas).length : 0
+            },
+            callTracking: {
+                isLoadingLocationData: this.isLoadingLocationData,
+                isRefreshingLocationData: this.isRefreshingLocationData,
+                authenticationWaitActive: this.authenticationWaitActive,
+                lastLocationDataLoad: this.lastLocationDataLoad ? new Date(this.lastLocationDataLoad).toISOString() : null,
+                timeSinceLastLoad: this.lastLocationDataLoad ? Date.now() - this.lastLocationDataLoad : null,
+                refreshCooldownRemaining: this.lastLocationDataLoad ? Math.max(0, this.refreshCooldown - (Date.now() - this.lastLocationDataLoad)) : null
+            }
+        };
+    }
+
+    /**
+     * Get call statistics for monitoring
+     */
+    getCallStats() {
+        return {
+            currentCalls: {
+                loading: this.isLoadingLocationData,
+                refreshing: this.isRefreshingLocationData,
+                authWait: this.authenticationWaitActive
+            },
+            timing: {
+                lastLoad: this.lastLocationDataLoad,
+                cooldownRemaining: this.lastLocationDataLoad ? Math.max(0, this.refreshCooldown - (Date.now() - this.lastLocationDataLoad)) : null,
+                canRefresh: !this.lastLocationDataLoad || (Date.now() - this.lastLocationDataLoad) >= this.refreshCooldown
+            },
+            status: {
+                ready: this.isReady(),
+                initialized: this.initialized,
+                hasData: !!(this.cities && this.areas)
+            }
+        };
     }
 }
 

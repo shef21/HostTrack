@@ -19,6 +19,7 @@ class ServicesManager {
         this.currentFrequencyView = 'all'; // Track current frequency view
         this.nextDueUpdater = null; // Add real-time updater reference
         this.lastNextDueCheck = null; // Track last check time
+        this.serviceCategories = []; // Store service categories
         // Don't auto-initialize - let app.js handle it
     }
 
@@ -51,6 +52,8 @@ class ServicesManager {
         await this.loadServicesData(true);
         // Load properties for dropdown
         await this.loadProperties();
+        // Load service categories
+        await this.loadServiceCategories();
     }
 
     setupEventListeners() {
@@ -188,6 +191,36 @@ class ServicesManager {
             // Display error message to user
             this.showErrorMessage('Failed to load properties. Please refresh the page and try again.');
         }
+    }
+
+    /**
+     * Load service categories dynamically
+     */
+    async loadServiceCategories() {
+        try {
+            // Try to get service categories from database
+            if (window.apiService && window.apiService.isAuthenticated()) {
+                const services = await window.apiService.getServices();
+                if (services && services.length > 0) {
+                    // Extract unique categories from existing services
+                    const categories = [...new Set(services.map(s => s.category).filter(Boolean))];
+                    if (categories.length > 0) {
+                        this.serviceCategories = categories;
+                        console.log('✅ Loaded service categories from database:', categories);
+                        return;
+                    }
+                }
+            }
+        } catch (error) {
+            console.warn('⚠️ Could not load service categories from database:', error);
+        }
+        
+        // Fallback to default categories if database fails
+        this.serviceCategories = [
+            'cleaning', 'insurance', 'maintenance', 'utilities', 
+            'internet', 'security', 'gardening', 'pool', 'laundry'
+        ];
+        console.log('📋 Using fallback service categories:', this.serviceCategories);
     }
 
     populatePropertyDropdown(properties) {

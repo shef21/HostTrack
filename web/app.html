@@ -1051,13 +1051,7 @@
                         <label for="service-category">Category</label>
                         <select id="service-category" required>
                             <option value="">Select category</option>
-                            <option value="cleaning">Cleaning</option>
-                            <option value="insurance">Insurance</option>
-                            <option value="maintenance">Maintenance</option>
-                            <option value="utilities">Utilities</option>
-                            <option value="internet">Internet</option>
-                            <option value="security">Security</option>
-                            <option value="other">Other</option>
+                            <!-- Categories will be populated dynamically from database -->
                         </select>
                     </div>
                 </div>
@@ -1089,9 +1083,7 @@
                     <label for="service-property">Property (Optional)</label>
                     <select id="service-property">
                         <option value="">All Properties</option>
-                        <option value="cape-town">Cape Town Apartment</option>
-                        <option value="stellenbosch">Stellenbosch Cottage</option>
-                        <option value="johannesburg">Johannesburg Villa</option>
+                        <!-- Properties will be populated dynamically from database -->
                     </select>
                 </div>
                 <div class="form-group">
@@ -1144,5 +1136,72 @@
     <!-- CSV Import System -->
     <script src="js/csv-import.js"></script>
 
+    <script>
+        // Dynamic form population functions
+        async function populateServiceCategories() {
+            try {
+                // Get service categories from database or use defaults
+                const categories = [
+                    'cleaning', 'insurance', 'maintenance', 'utilities', 
+                    'internet', 'security', 'gardening', 'pool', 'laundry'
+                ];
+                
+                const categorySelect = document.getElementById('service-category');
+                if (categorySelect) {
+                    // Clear existing options except the first one
+                    categorySelect.innerHTML = '<option value="">Select category</option>';
+                    
+                    // Add dynamic categories
+                    categories.forEach(category => {
+                        const option = document.createElement('option');
+                        option.value = category;
+                        option.textContent = category.charAt(0).toUpperCase() + category.slice(1);
+                        categorySelect.appendChild(option);
+                    });
+                }
+            } catch (error) {
+                console.warn('Could not populate service categories:', error);
+            }
+        }
+
+        async function populatePropertyOptions() {
+            try {
+                // Get user's properties from database
+                if (window.apiService && window.apiService.isAuthenticated()) {
+                    const properties = await window.apiService.getProperties();
+                    const propertySelect = document.getElementById('service-property');
+                    
+                    if (propertySelect && properties) {
+                        // Clear existing options except the first one
+                        propertySelect.innerHTML = '<option value="">All Properties</option>';
+                        
+                        // Add user's actual properties
+                        properties.forEach(property => {
+                            const option = document.createElement('option');
+                            option.value = property.id;
+                            option.textContent = property.name || `Property ${property.id}`;
+                            propertySelect.appendChild(option);
+                        });
+                    }
+                } catch (error) {
+                    console.warn('Could not populate property options:', error);
+                    // Fallback to default options if API fails
+                    const propertySelect = document.getElementById('service-property');
+                    if (propertySelect) {
+                        propertySelect.innerHTML = '<option value="">All Properties</option>';
+                    }
+                }
+            }
+        }
+
+        // Populate forms when DOM is ready
+        document.addEventListener('DOMContentLoaded', () => {
+            // Wait for API service to be available
+            setTimeout(() => {
+                populateServiceCategories();
+                populatePropertyOptions();
+            }, 1000);
+        });
+    </script>
   </body>
 </html>

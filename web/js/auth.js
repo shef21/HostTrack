@@ -117,7 +117,9 @@ class AuthManager {
             const password = document.getElementById('login-password').value;
             
             console.log('📧 Email entered:', email);
-            console.log('🔑 Password entered:', password ? 'Yes' : 'No');
+            console.log('🔑 Password entered:', password ? `Yes (${password.length} characters)` : 'No');
+            console.log('🔑 Password value (first 3 chars):', password ? password.substring(0, 3) + '...' : 'None');
+            console.log('🔑 Full password value:', password);
             
             if (!email || !password) {
                 console.log('❌ Missing email or password');
@@ -162,7 +164,19 @@ class AuthManager {
             }
         } catch (error) {
             console.error('💥 Login error:', error);
-            this.showError('An error occurred during login. Please try again.');
+            
+            // Check if this is a backend error with a specific message
+            if (error.message && error.message.includes('Request failed:')) {
+                // Extract the actual error message from the backend
+                const errorMatch = error.message.match(/Request failed: \d+ .*? - (.+)/);
+                if (errorMatch) {
+                    this.showError(errorMatch[1]);
+                } else {
+                    this.showError('Login failed. Please check your credentials and try again.');
+                }
+            } else {
+                this.showError('An error occurred during login. Please try again.');
+            }
         } finally {
             this.isLoggingIn = false; // Unlock login state
             

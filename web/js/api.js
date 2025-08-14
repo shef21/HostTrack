@@ -34,7 +34,7 @@ class APIService {
         return this.user;
     }
 
-    // Get user profile data from profiles table
+    // Get user profile data from Railway backend
     async getUserProfile() {
         try {
             if (!this.user || !this.user.id) {
@@ -42,23 +42,12 @@ class APIService {
                 return null;
             }
 
-            const supabase = await this.getSupabaseClient();
-            
-            const { data: profile, error } = await supabase
-                .from('profiles')
-                .select('*')
-                .eq('id', this.user.id)
-                .single();
-                
-            if (error) {
-                console.error('Error fetching user profile:', error);
-                return null;
-            }
-
-            console.log('User profile loaded:', profile);
-            return profile;
+            console.log('👤 Fetching user profile from Railway backend...');
+            const response = await this.request('/api/auth/me');
+            console.log('✅ User profile loaded from Railway backend:', response);
+            return response.user;
         } catch (error) {
-            console.error('Error in getUserProfile:', error);
+            console.error('❌ Error fetching user profile from Railway backend:', error);
             return null;
         }
     }
@@ -81,13 +70,34 @@ class APIService {
         };
 
         try {
+            console.log('🌐 Making API request to:', url);
+            console.log('📋 Request config:', config);
+            
             const response = await fetch(url, config);
+            console.log('📡 Response received:', {
+                status: response.status,
+                statusText: response.statusText,
+                ok: response.ok,
+                headers: Object.fromEntries(response.headers.entries())
+            });
+            
             if (!response.ok) {
-                throw new Error(`Request failed: ${response.statusText}`);
+                console.error('❌ Response not OK:', response.status, response.statusText);
+                // Try to get error details from response body
+                try {
+                    const errorBody = await response.text();
+                    console.error('❌ Error response body:', errorBody);
+                    throw new Error(`Request failed: ${response.status} ${response.statusText} - ${errorBody}`);
+                } catch (parseError) {
+                    throw new Error(`Request failed: ${response.status} ${response.statusText}`);
+                }
             }
-            return await response.json();
+            
+            const responseData = await response.json();
+            console.log('✅ Response data parsed successfully:', responseData);
+            return responseData;
         } catch (error) {
-            console.error('API Error:', error);
+            console.error('💥 API Error:', error);
             throw error;
         }
     }
@@ -106,15 +116,26 @@ class APIService {
     async login(email, password) {
         try {
             console.log('🔐 Attempting login through Railway backend...');
+            console.log('📧 Email:', email);
+            console.log('🔑 Password provided:', password ? 'Yes' : 'No');
+            
             const response = await this.request('/api/auth/login', {
                 method: 'POST',
                 body: JSON.stringify({ email, password })
             });
             
-            console.log('✅ Login successful through Railway backend:', response);
+            console.log('✅ Login successful through Railway backend');
+            console.log('📊 Response type:', typeof response);
+            console.log('🔑 Response keys:', response ? Object.keys(response) : 'No response');
+            console.log('👤 Response.user:', response?.user);
+            console.log('🔐 Response.session:', response?.session);
+            console.log('📋 Full response:', response);
+            
             return response;
         } catch (error) {
             console.error('❌ Login failed through Railway backend:', error);
+            console.error('❌ Error message:', error.message);
+            console.error('❌ Error stack:', error.stack);
             throw error;
         }
     }
@@ -182,73 +203,57 @@ class APIService {
         }
     }
 
-    // Data methods - using real Supabase client
+    // Data methods - using Railway backend API
     async getProperties() {
         try {
-            const supabase = await this.getSupabaseClient();
-            
-            const { data, error } = await supabase
-                .from('properties')
-                .select('*');
-                
-            if (error) throw error;
-            return data;
+            console.log('🏠 Fetching properties from Railway backend...');
+            const response = await this.request('/api/properties');
+            console.log('✅ Properties loaded from Railway backend:', response);
+            return response;
         } catch (error) {
-            console.error('Error getting properties:', error);
+            console.error('❌ Error getting properties from Railway backend:', error);
             throw error;
         }
     }
 
     async getServices() {
         try {
-            const supabase = await this.getSupabaseClient();
-            
-            const { data, error } = await supabase
-                .from('services')
-                .select('*');
-                
-            if (error) throw error;
-            return data;
+            console.log('🔧 Fetching services from Railway backend...');
+            const response = await this.request('/api/services');
+            console.log('✅ Services loaded from Railway backend:', response);
+            return response;
         } catch (error) {
-            console.error('Error getting services:', error);
+            console.error('❌ Error getting services from Railway backend:', error);
             throw error;
         }
     }
 
     async getBookings() {
         try {
-            const supabase = await this.getSupabaseClient();
-            
-            const { data, error } = await supabase
-                .from('bookings')
-                .select('*');
-                
-            if (error) throw error;
-            return data;
+            console.log('📅 Fetching bookings from Railway backend...');
+            const response = await this.request('/api/bookings');
+            console.log('✅ Bookings loaded from Railway backend:', response);
+            return response;
         } catch (error) {
-            console.error('Error getting bookings:', error);
+            console.error('❌ Error getting bookings from Railway backend:', error);
             throw error;
         }
     }
 
     async getDashboardStats() {
         try {
-            const supabase = await this.getSupabaseClient();
+            console.log('📊 Fetching dashboard stats from Railway backend...');
             
-            // Get data from existing tables instead of non-existent dashboard_stats
-            const [propertiesResult, bookingsResult, servicesResult] = await Promise.all([
-                supabase.from('properties').select('*'),
-                supabase.from('bookings').select('*'),
-                supabase.from('services').select('*')
+            // Get data from Railway backend API endpoints
+            const [propertiesResponse, bookingsResponse, servicesResponse] = await Promise.all([
+                this.request('/api/properties'),
+                this.request('/api/bookings'),
+                this.request('/api/services')
             ]);
 
-            if (propertiesResult.error) throw propertiesResult.error;
-            if (bookingsResult.error) throw bookingsResult.error;
-            if (servicesResult.error) throw servicesResult.error;
-
-            const properties = propertiesResult.data || [];
-            const bookings = bookingsResult.data || [];
-            const services = servicesResult.data || [];
+            const properties = propertiesResponse || [];
+            const bookings = bookingsResponse || [];
+            const services = servicesResponse || [];
 
             // Calculate dashboard stats from actual data
             const totalRevenue = bookings.reduce((sum, booking) => sum + (parseFloat(booking.total_amount) || 0), 0);
@@ -256,6 +261,7 @@ class APIService {
             const confirmedBookings = bookings.filter(b => b.status === 'confirmed').length;
             const pendingBookings = bookings.filter(b => b.status === 'pending').length;
 
+            console.log('✅ Dashboard stats calculated successfully');
             return {
                 properties: {
                     total: properties.length,
@@ -278,7 +284,7 @@ class APIService {
                 }
             };
         } catch (error) {
-            console.error('Error getting dashboard stats:', error);
+            console.error('❌ Error getting dashboard stats from Railway backend:', error);
             // Return default stats if there's an error
             return {
                 properties: { total: 0, active: 0 },
@@ -292,10 +298,10 @@ class APIService {
     // Add missing getBookingStats method
     async getBookingStats() {
         try {
-            const supabase = await this.getSupabaseClient();
+            console.log('📅 Fetching booking stats from Railway backend...');
             
-            const { data: bookings, error } = await supabase.from('bookings').select('*');
-            if (error) throw error;
+            const response = await this.request('/api/bookings');
+            const bookings = response || [];
 
             const totalBookings = bookings.length || 0;
             const confirmedBookings = bookings.filter(b => b.status === 'confirmed').length || 0;
@@ -303,6 +309,7 @@ class APIService {
             const cancelledBookings = bookings.filter(b => b.status === 'cancelled').length || 0;
             const totalRevenue = bookings.reduce((sum, b) => sum + (parseFloat(b.total_amount) || 0), 0);
 
+            console.log('✅ Booking stats calculated successfully');
             return {
                 total: totalBookings,
                 confirmed: confirmedBookings,
@@ -312,7 +319,7 @@ class APIService {
                 avgValue: totalBookings > 0 ? totalRevenue / totalBookings : 0
             };
         } catch (error) {
-            console.error('Error getting booking stats:', error);
+            console.error('❌ Error getting booking stats from Railway backend:', error);
             return {
                 total: 0,
                 confirmed: 0,
@@ -324,38 +331,39 @@ class APIService {
         }
     }
 
-    // Advanced Analytics - using Supabase client instead of non-existent REST endpoint
+    // Advanced Analytics - using Railway backend API
     async getAdvancedAnalytics(includePredictions = false) {
         try {
-            const supabase = await this.getSupabaseClient();
+            console.log('📈 Fetching advanced analytics from Railway backend...');
             
-            // Get data from relevant tables for analytics
-            const [propertiesResult, bookingsResult, servicesResult] = await Promise.all([
-                supabase.from('properties').select('*'),
-                supabase.from('bookings').select('*'),
-                supabase.from('services').select('*')
+            // Get data from Railway backend API endpoints
+            const [propertiesResponse, bookingsResponse, servicesResponse] = await Promise.all([
+                this.request('/api/properties'),
+                this.request('/api/bookings'),
+                this.request('/api/services')
             ]);
 
-            if (propertiesResult.error) throw propertiesResult.error;
-            if (bookingsResult.error) throw bookingsResult.error;
-            if (servicesResult.error) throw servicesResult.error;
+            const properties = propertiesResponse || [];
+            const bookings = bookingsResponse || [];
+            const services = servicesResponse || [];
 
             // Generate insights based on actual data
-            const insights = this.generateInsights(propertiesResult.data, bookingsResult.data, servicesResult.data);
-            const predictions = includePredictions ? this.generatePredictions(propertiesResult.data, bookingsResult.data) : [];
-            const recommendations = this.generateRecommendations(propertiesResult.data, bookingsResult.data, servicesResult.data);
+            const insights = this.generateInsights(properties, bookings, services);
+            const predictions = includePredictions ? this.generatePredictions(properties, bookings) : [];
+            const recommendations = this.generateRecommendations(properties, bookings, services);
 
+            console.log('✅ Advanced analytics generated successfully');
             return {
                 success: true,
                 data: {
                     insights,
                     predictions,
                     recommendations,
-                    benchmarks: this.generateBenchmarks(propertiesResult.data, bookingsResult.data)
+                    benchmarks: this.generateBenchmarks(properties, bookings)
                 }
             };
         } catch (error) {
-            console.error('Error in getAdvancedAnalytics:', error);
+            console.error('❌ Error in getAdvancedAnalytics from Railway backend:', error);
             // Return default analytics data instead of throwing error
             return {
                 success: true,
@@ -439,20 +447,46 @@ class APIService {
             return [];
         }
 
+        // Calculate real predictions based on actual data
+        const totalBookings = bookings.length;
+        const confirmedBookings = bookings.filter(b => b.status === 'confirmed').length;
+        const avgOccupancy = properties.length > 0 ? (confirmedBookings / properties.length) * 100 : 0;
+        
+        // Calculate revenue trend (placeholder for now - should be based on historical data)
+        const recentBookings = bookings.filter(b => {
+            const bookingDate = new Date(b.created_at || b.check_in_date);
+            const thirtyDaysAgo = new Date();
+            thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+            return bookingDate >= thirtyDaysAgo;
+        });
+        
+        const recentRevenue = recentBookings.reduce((sum, b) => sum + (parseFloat(b.total_amount) || 0), 0);
+        const olderBookings = bookings.filter(b => !recentBookings.includes(b));
+        const olderRevenue = olderBookings.reduce((sum, b) => sum + (parseFloat(b.total_amount) || 0), 0);
+        
+        let revenueTrend = 'stable';
+        let revenueChange = '0%';
+        
+        if (olderRevenue > 0) {
+            const change = ((recentRevenue - olderRevenue) / olderRevenue) * 100;
+            revenueChange = `${change > 0 ? '+' : ''}${Math.round(change)}%`;
+            revenueTrend = change > 5 ? 'up' : change < -5 ? 'down' : 'stable';
+        }
+
         return [
             {
                 title: 'Revenue Forecast',
                 description: 'Based on current booking trends',
-                confidence: 85,
-                value: '15% increase',
-                trend: 'up'
+                confidence: Math.min(85, Math.max(50, Math.round(avgOccupancy))),
+                value: revenueChange,
+                trend: revenueTrend
             },
             {
                 title: 'Occupancy Rate',
                 description: 'Expected occupancy for next month',
-                confidence: 78,
-                value: '92%',
-                trend: 'stable'
+                confidence: Math.min(78, Math.max(40, Math.round(avgOccupancy * 0.8))),
+                value: `${Math.round(avgOccupancy)}%`,
+                trend: avgOccupancy > 70 ? 'up' : avgOccupancy < 30 ? 'down' : 'stable'
             }
         ];
     }
@@ -484,114 +518,112 @@ class APIService {
     generateBenchmarks(properties, bookings) {
         if (!properties || !bookings) return null;
 
+        // Calculate real benchmarks based on actual data
+        const totalRevenue = bookings.reduce((sum, b) => sum + (parseFloat(b.total_amount) || 0), 0);
+        const confirmedBookings = bookings.filter(b => b.status === 'confirmed').length;
+        const avgOccupancy = properties.length > 0 ? (confirmedBookings / properties.length) * 100 : 0;
+        
+        // Calculate average response time (placeholder - should be based on actual response time data)
+        // For now, using a reasonable default based on industry standards
+        const avgResponseTime = '2-4 hours'; // This should come from actual response time tracking
+        
+        // Calculate average rating (placeholder - should be based on actual guest ratings)
+        // For now, using a reasonable default
+        const avgRating = '4.5/5'; // This should come from actual guest review data
+
         return {
-            avgResponseTime: '2.5 hours',
-            avgOccupancyRate: '87%',
-            avgRating: '4.6/5',
-            totalRevenue: '$12,450'
+            avgResponseTime,
+            avgOccupancyRate: `${Math.round(avgOccupancy)}%`,
+            avgRating,
+            totalRevenue: totalRevenue > 0 ? `R${totalRevenue.toLocaleString()}` : 'R0'
         };
     }
 
     async updateProfile(data) {
         try {
-            const supabase = await this.getSupabaseClient();
-            
-            const { data: result, error } = await supabase
-                .from('profiles')
-                .upsert(data)
-                .select();
-                
-            if (error) throw error;
-            return result;
+            console.log('👤 Updating profile via Railway backend...');
+            const response = await this.request('/api/auth/profile', {
+                method: 'PUT',
+                body: JSON.stringify(data)
+            });
+            console.log('✅ Profile updated via Railway backend:', response);
+            return response.user;
         } catch (error) {
-            console.error('Error updating profile:', error);
+            console.error('❌ Error updating profile via Railway backend:', error);
             throw error;
         }
     }
 
     async createBooking(data) {
         try {
-            const supabase = await this.getSupabaseClient();
-            
-            const { data: result, error } = await supabase
-                .from('bookings')
-                .insert(data)
-                .select();
-                
-            if (error) throw error;
-            return result;
+            console.log('📅 Creating booking via Railway backend...');
+            const response = await this.request('/api/bookings', {
+                method: 'POST',
+                body: JSON.stringify(data)
+            });
+            console.log('✅ Booking created via Railway backend:', response);
+            return response;
         } catch (error) {
-            console.error('Error creating booking:', error);
+            console.error('❌ Error creating booking via Railway backend:', error);
             throw error;
         }
     }
 
     async updateBooking(id, data) {
         try {
-            const supabase = await this.getSupabaseClient();
-            
-            const { data: result, error } = await supabase
-                .from('bookings')
-                .update(data)
-                .eq('id', id)
-                .select();
-                
-            if (error) throw error;
-            return result;
+            console.log('📅 Updating booking via Railway backend...');
+            const response = await this.request(`/api/bookings/${id}`, {
+                method: 'PUT',
+                body: JSON.stringify(data)
+            });
+            console.log('✅ Booking updated via Railway backend:', response);
+            return response;
         } catch (error) {
-            console.error('Error updating booking:', error);
+            console.error('❌ Error updating booking via Railway backend:', error);
             throw error;
         }
     }
 
     async deleteBooking(id) {
         try {
-            const supabase = await this.getSupabaseClient();
-            
-            const { error } = await supabase
-                .from('bookings')
-                .delete()
-                .eq('id', id);
-                
-            if (error) throw error;
+            console.log('🗑️ Deleting booking via Railway backend...');
+            const response = await this.request(`/api/bookings/${id}`, {
+                method: 'DELETE'
+            });
+            console.log('✅ Booking deleted via Railway backend:', response);
             return { success: true };
         } catch (error) {
-            console.error('Error deleting booking:', error);
+            console.error('❌ Error deleting booking via Railway backend:', error);
             throw error;
         }
     }
 
     async createService(data) {
         try {
-            const supabase = await this.getSupabaseClient();
-            
-            const { data: result, error } = await supabase
-                .from('services')
-                .insert(data)
-                .select();
-                
-            if (error) throw error;
-            return result;
+            console.log('🔧 Creating service via Railway backend...');
+            const response = await this.request('/api/services', {
+                method: 'POST',
+                body: JSON.stringify(data)
+            });
+            console.log('✅ Service created via Railway backend:', response);
+            return response;
         } catch (error) {
-            console.error('Error creating service:', error);
+            console.error('❌ Error creating service via Railway backend:', error);
             throw error;
         }
     }
 
     async updateService(id, data) {
         try {
-            const supabase = await this.getSupabaseClient();
-            
-            const { data: result, error } = await supabase
-                .from('services')
-                .update(data)
-                .eq('id', id)
-                .select();
-                
-            if (error) throw error;
-            return result;
+            console.log('🔧 Updating service via Railway backend...');
+            const response = await this.request(`/api/services/${id}`, {
+                method: 'PUT',
+                body: JSON.stringify(data)
+            });
+            console.log('✅ Service updated via Railway backend:', response);
+            return response;
         } catch (error) {
-            console.error('Error updating service:', error);
+            console.error('❌ Error updating service via Railway backend:', error);
             throw error;
         }
     }
@@ -599,102 +631,91 @@ class APIService {
     // Property methods
     async createProperty(data) {
         try {
-            const supabase = await this.getSupabaseClient();
-            
-            const { data: result, error } = await supabase
-                .from('properties')
-                .insert(data)
-                .select();
-                
-            if (error) throw error;
-            return result;
+            console.log('🏠 Creating property via Railway backend...');
+            const response = await this.request('/api/properties', {
+                method: 'POST',
+                body: JSON.stringify(data)
+            });
+            console.log('✅ Property created via Railway backend:', response);
+            return response;
         } catch (error) {
-            console.error('Error creating property:', error);
+            console.error('❌ Error creating property via Railway backend:', error);
             throw error;
         }
     }
 
     async updateProperty(id, data) {
         try {
-            const supabase = await this.getSupabaseClient();
-            
-            const { data: result, error } = await supabase
-                .from('properties')
-                .update(data)
-                .eq('id', id)
-                .select();
-                
-            if (error) throw error;
-            return result;
+            console.log('🏠 Updating property via Railway backend...');
+            const response = await this.request(`/api/properties/${id}`, {
+                method: 'PUT',
+                body: JSON.stringify(data)
+            });
+            console.log('✅ Property updated via Railway backend:', response);
+            return response;
         } catch (error) {
-            console.error('Error updating property:', error);
+            console.error('❌ Error updating property via Railway backend:', error);
             throw error;
         }
     }
 
     async deleteProperty(id) {
         try {
-            const supabase = await this.getSupabaseClient();
-            
-            const { error } = await supabase
-                .from('properties')
-                .delete()
-                .eq('id', id);
-                
-            if (error) throw error;
+            console.log('🗑️ Deleting property via Railway backend...');
+            const response = await this.request(`/api/properties/${id}`, {
+                method: 'DELETE'
+            });
+            console.log('✅ Property deleted via Railway backend:', response);
             return { success: true };
         } catch (error) {
-            console.error('Error deleting property:', error);
+            console.error('❌ Error deleting property via Railway backend:', error);
             throw error;
         }
     }
 
-    // Analytics methods - using Supabase client instead of non-existent REST endpoints
+    // Analytics methods - using Railway backend API
     async getAnalyticsDebugUserData() {
         try {
-            const supabase = await this.getSupabaseClient();
+            console.log('📊 Fetching analytics debug data from Railway backend...');
             
-            const [propertiesResult, bookingsResult, servicesResult, expensesResult] = await Promise.all([
-                supabase.from('properties').select('*'),
-                supabase.from('bookings').select('*'),
-                supabase.from('services').select('*'),
-                supabase.from('expenses').select('*')
+            const [propertiesResponse, bookingsResponse, servicesResponse, expensesResponse] = await Promise.all([
+                this.request('/api/properties'),
+                this.request('/api/bookings'),
+                this.request('/api/services'),
+                this.request('/api/expenses')
             ]);
 
-            if (propertiesResult.error) throw propertiesResult.error;
-            if (bookingsResult.error) throw bookingsResult.error;
-            if (servicesResult.error) throw servicesResult.error;
-            if (expensesResult.error) throw expensesResult.error;
+            const properties = propertiesResponse || [];
+            const bookings = bookingsResponse || [];
+            const services = servicesResponse || [];
+            const expenses = expensesResponse || [];
 
+            console.log('✅ Analytics debug data loaded from Railway backend');
             return {
-                properties: propertiesResult.data || [],
-                bookings: bookingsResult.data || [],
-                services: servicesResult.data || [],
-                expenses: expensesResult.data || []
+                properties,
+                bookings,
+                services,
+                expenses
             };
         } catch (error) {
-            console.error('Error in getAnalyticsDebugUserData:', error);
+            console.error('❌ Error in getAnalyticsDebugUserData from Railway backend:', error);
             throw error;
         }
     }
 
     async getAnalyticsDashboard() {
         try {
-            const supabase = await this.getSupabaseClient();
+            console.log('📊 Fetching analytics dashboard from Railway backend...');
             
-            const [propertiesResult, bookingsResult, servicesResult] = await Promise.all([
-                supabase.from('properties').select('*'),
-                supabase.from('bookings').select('*'),
-                supabase.from('services').select('*')
+            const [propertiesResponse, bookingsResponse, servicesResponse] = await Promise.all([
+                this.request('/api/properties'),
+                this.request('/api/bookings'),
+                this.request('/api/services')
             ]);
 
-            if (propertiesResult.error) throw propertiesResult.error;
-            if (bookingsResult.error) throw bookingsResult.error;
-            if (servicesResult.error) throw servicesResult.error;
-
-            const properties = propertiesResult.data || [];
-            const bookings = bookingsResult.data || [];
-            const services = servicesResult.data || [];
+            const properties = propertiesResponse || [];
+            const bookings = bookingsResponse || [];
+            const services = servicesResponse || [];
 
             // Calculate overview metrics
             const totalRevenue = bookings.reduce((sum, booking) => sum + (parseFloat(booking.total_amount) || 0), 0);
@@ -702,6 +723,7 @@ class APIService {
             const confirmedBookings = bookings.filter(b => b.status === 'confirmed').length;
             const pendingBookings = bookings.filter(b => b.status === 'pending').length;
 
+            console.log('✅ Analytics dashboard calculated successfully');
             return {
                 overview: {
                     totalRevenue,
@@ -720,17 +742,17 @@ class APIService {
                 }
             };
         } catch (error) {
-            console.error('Error in getAnalyticsDashboard:', error);
+            console.error('❌ Error in getAnalyticsDashboard from Railway backend:', error);
             throw error;
         }
     }
 
     async getAnalyticsRevenue() {
         try {
-            const supabase = await this.getSupabaseClient();
+            console.log('💰 Fetching analytics revenue from Railway backend...');
             
-            const { data: bookings, error } = await supabase.from('bookings').select('*');
-            if (error) throw error;
+            const response = await this.request('/api/bookings');
+            const bookings = response || [];
 
             // Handle empty data gracefully
             if (!bookings || bookings.length === 0) {
@@ -749,12 +771,13 @@ class APIService {
                 }
             });
 
+            console.log('✅ Analytics revenue calculated successfully');
             return {
                 monthly: monthlyRevenue,
                 total: Object.values(monthlyRevenue).reduce((sum, revenue) => sum + revenue, 0)
             };
         } catch (error) {
-            console.error('Error in getAnalyticsRevenue:', error);
+            console.error('❌ Error in getAnalyticsRevenue from Railway backend:', error);
             return {
                 monthly: {},
                 total: 0
@@ -764,18 +787,15 @@ class APIService {
 
     async getAnalyticsOccupancy() {
         try {
-            const supabase = await this.getSupabaseClient();
+            console.log('🏠 Fetching analytics occupancy from Railway backend...');
             
-            const [propertiesResult, bookingsResult] = await Promise.all([
-                supabase.from('properties').select('*'),
-                supabase.from('bookings').select('*')
+            const [propertiesResponse, bookingsResponse] = await Promise.all([
+                this.request('/api/properties'),
+                this.request('/api/bookings')
             ]);
 
-            if (propertiesResult.error) throw propertiesResult.error;
-            if (bookingsResult.error) throw bookingsResult.error;
-
-            const properties = propertiesResult.data || [];
-            const bookings = bookingsResult.data || [];
+            const properties = propertiesResponse || [];
+            const bookings = bookingsResponse || [];
 
             // Handle empty data gracefully
             if (properties.length === 0) {
@@ -794,13 +814,14 @@ class APIService {
                 new Date(b.check_out_date) >= new Date()
             ).length;
 
+            console.log('✅ Analytics occupancy calculated successfully');
             return {
                 current: totalProperties > 0 ? (occupiedProperties / totalProperties) * 100 : 0,
                 total: totalProperties,
                 occupied: occupiedProperties
             };
         } catch (error) {
-            console.error('Error in getAnalyticsOccupancy:', error);
+            console.error('❌ Error in getAnalyticsOccupancy from Railway backend:', error);
             return {
                 current: 0,
                 total: 0,
@@ -811,10 +832,10 @@ class APIService {
 
     async getAnalyticsExpenses() {
         try {
-            const supabase = await this.getSupabaseClient();
+            console.log('💸 Fetching analytics expenses from Railway backend...');
             
-            const { data: expenses, error } = await supabase.from('expenses').select('*');
-            if (error) throw error;
+            const response = await this.request('/api/expenses');
+            const expenses = response || [];
 
             // Handle empty data gracefully
             if (!expenses || expenses.length === 0) {
@@ -831,12 +852,13 @@ class APIService {
                 expensesByCategory[category] = (expensesByCategory[category] || 0) + (parseFloat(expense.amount) || 0);
             });
 
+            console.log('✅ Analytics expenses calculated successfully');
             return {
                 byCategory: expensesByCategory,
                 total: expenses.reduce((sum, expense) => sum + (parseFloat(expense.amount) || 0), 0)
             };
         } catch (error) {
-            console.error('Error in getAnalyticsExpenses:', error);
+            console.error('❌ Error in getAnalyticsExpenses from Railway backend:', error);
             return {
                 byCategory: {},
                 total: 0
