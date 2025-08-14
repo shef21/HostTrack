@@ -47,12 +47,15 @@ app.get('/debug/files', (req, res) => {
   try {
     const webPath = path.join(__dirname, '../web');
     const jsPath = path.join(webPath, 'js');
+    const rootPath = path.dirname(__dirname);
     
     const webExists = fs.existsSync(webPath);
     const jsExists = fs.existsSync(jsPath);
+    const rootExists = fs.existsSync(rootPath);
     
     let webFiles = [];
     let jsFiles = [];
+    let rootFiles = [];
     
     if (webExists) {
       webFiles = fs.readdirSync(webPath);
@@ -62,6 +65,10 @@ app.get('/debug/files', (req, res) => {
       jsFiles = fs.readdirSync(jsPath);
     }
     
+    if (rootExists) {
+      rootFiles = fs.readdirSync(rootPath);
+    }
+    
     res.json({
       webPath,
       webExists,
@@ -69,6 +76,9 @@ app.get('/debug/files', (req, res) => {
       jsPath,
       jsExists,
       jsFiles,
+      rootPath,
+      rootExists,
+      rootFiles,
       currentDir: __dirname,
       parentDir: path.dirname(__dirname)
     });
