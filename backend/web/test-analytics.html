@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics Test Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .test-button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .test-button:hover {
+            background: #0056b3;
+        }
+        .log-output {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px 0;
+            max-height: 300px;
+            overflow-y: auto;
+            font-family: monospace;
+            font-size: 12px;
+        }
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .status.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .status.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .status.info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+    </style>
+</head>
+<body>
+    <h1>Analytics Test Page</h1>
+    
+    <div class="test-section">
+        <h2>Authentication Status</h2>
+        <div id="auth-status" class="status info">Checking authentication...</div>
+        <button class="test-button" onclick="checkAuth()">Check Auth Status</button>
+        <button class="test-button" onclick="testLogin()">Test Login</button>
+    </div>
+    
+    <div class="test-section">
+        <h2>Analytics Manager Test</h2>
+        <div id="analytics-status" class="status info">Analytics manager not initialized</div>
+        <button class="test-button" onclick="initAnalytics()">Initialize Analytics</button>
+        <button class="test-button" onclick="testGenerateSample()">Test Generate Sample Data</button>
+        <button class="test-button" onclick="testDeleteSample()">Delete Sample Data</button>
+        <button class="test-button" onclick="testLoadAnalytics()">Test Load Analytics</button>
+    </div>
+    
+    <div class="test-section">
+        <h2>API Test</h2>
+        <div id="api-status" class="status info">API status unknown</div>
+        <button class="test-button" onclick="testAPI()">Test API Connection</button>
+        <button class="test-button" onclick="testAnalyticsEndpoint()">Test Analytics Endpoint</button>
+    </div>
+    
+    <div class="test-section">
+        <h2>Console Log</h2>
+        <div id="console-log" class="log-output"></div>
+        <button class="test-button" onclick="clearLog()">Clear Log</button>
+    </div>
+
+    <!-- Load the required scripts -->
+    <script src="js/api.js"></script>
+    <script src="js/analytics.js"></script>
+    
+    <script>
+        // Override console.log to capture output
+        const originalLog = console.log;
+        const originalError = console.error;
+        const logOutput = document.getElementById('console-log');
+        
+        function addToLog(message, type = 'log') {
+            const timestamp = new Date().toLocaleTimeString();
+            const logEntry = document.createElement('div');
+            logEntry.style.color = type === 'error' ? 'red' : 'black';
+            logEntry.textContent = `[${timestamp}] ${message}`;
+            logOutput.appendChild(logEntry);
+            logOutput.scrollTop = logOutput.scrollHeight;
+        }
+        
+        console.log = function(...args) {
+            originalLog.apply(console, args);
+            addToLog(args.join(' '));
+        };
+        
+        console.error = function(...args) {
+            originalError.apply(console, args);
+            addToLog(args.join(' '), 'error');
+        };
+        
+        function updateStatus(elementId, message, type = 'info') {
+            const element = document.getElementById(elementId);
+            element.textContent = message;
+            element.className = `status ${type}`;
+        }
+        
+        function checkAuth() {
+            console.log('=== CHECKING AUTH STATUS ===');
+            const hasApiService = !!window.apiService;
+            const isAuthenticated = hasApiService ? window.apiService.isAuthenticated() : false;
+            const token = hasApiService ? window.apiService.getToken() : null;
+            const user = hasApiService ? window.apiService.getCurrentUser() : null;
+            
+            console.log('API Service available:', hasApiService);
+            console.log('Is authenticated:', isAuthenticated);
+            console.log('Has token:', !!token);
+            console.log('User:', user);
+            
+            if (isAuthenticated) {
+                updateStatus('auth-status', `Authenticated as ${user?.email || 'Unknown'}`, 'success');
+            } else {
+                updateStatus('auth-status', 'Not authenticated', 'error');
+            }
+        }
+        
+        function testLogin() {
+            console.log('=== TESTING LOGIN ===');
+            // You'll need to provide actual credentials
+            const email = prompt('Enter email:');
+            const password = prompt('Enter password:');
+            
+            if (email && password) {
+                window.apiService.login(email, password)
+                    .then(response => {
+                        console.log('Login successful:', response);
+                        updateStatus('auth-status', `Logged in as ${response.user.email}`, 'success');
+                        checkAuth();
+                    })
+                    .catch(error => {
+                        console.error('Login failed:', error);
+                        updateStatus('auth-status', `Login failed: ${error.message}`, 'error');
+                    });
+            }
+        }
+        
+        function initAnalytics() {
+            console.log('=== INITIALIZING ANALYTICS ===');
+            if (!window.analyticsManager) {
+                window.analyticsManager = new AnalyticsManager();
+                updateStatus('analytics-status', 'Analytics manager created', 'success');
+            } else {
+                updateStatus('analytics-status', 'Analytics manager already exists', 'info');
+            }
+            
+            if (window.apiService?.isAuthenticated()) {
+                window.analyticsManager.initAfterAuth();
+                updateStatus('analytics-status', 'Analytics initialized with auth', 'success');
+            } else {
+                updateStatus('analytics-status', 'Analytics initialized but no auth', 'error');
+            }
+        }
+        
+        function testGenerateSample() {
+            console.log('=== TESTING GENERATE SAMPLE DATA ===');
+            if (!window.analyticsManager) {
+                updateStatus('analytics-status', 'Analytics manager not initialized', 'error');
+                return;
+            }
+            
+            if (!window.apiService?.isAuthenticated()) {
+                updateStatus('analytics-status', 'Not authenticated', 'error');
+                return;
+            }
+            
+            window.analyticsManager.generateSampleData();
+        }
+        
+        function testDeleteSample() {
+            console.log('=== TESTING DELETE SAMPLE DATA ===');
+            if (!window.analyticsManager) {
+                updateStatus('analytics-status', 'Analytics manager not initialized', 'error');
+                return;
+            }
+            
+            if (!window.apiService?.isAuthenticated()) {
+                updateStatus('analytics-status', 'Not authenticated', 'error');
+                return;
+            }
+            
+            // Call the cleanup method directly
+            fetch('http://localhost:3001/api/analytics/cleanup-sample-data', {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${window.apiService.getToken()}`,
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => {
+                console.log('Delete sample data response:', response.status);
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error(`HTTP ${response.status}`);
+                }
+            })
+            .then(data => {
+                console.log('Sample data deleted:', data);
+                updateStatus('analytics-status', 'Sample data deleted successfully', 'success');
+            })
+            .catch(error => {
+                console.error('Delete sample data failed:', error);
+                updateStatus('analytics-status', `Delete failed: ${error.message}`, 'error');
+            });
+        }
+        
+        function testLoadAnalytics() {
+            console.log('=== TESTING LOAD ANALYTICS ===');
+            if (!window.analyticsManager) {
+                updateStatus('analytics-status', 'Analytics manager not initialized', 'error');
+                return;
+            }
+            
+            window.analyticsManager.loadAnalyticsData();
+        }
+        
+        function testAPI() {
+            console.log('=== TESTING API CONNECTION ===');
+            window.apiService.healthCheck()
+                .then(isAvailable => {
+                    if (isAvailable) {
+                        updateStatus('api-status', 'API server is available', 'success');
+                    } else {
+                        updateStatus('api-status', 'API server is not available', 'error');
+                    }
+                })
+                .catch(error => {
+                    console.error('API test failed:', error);
+                    updateStatus('api-status', `API test failed: ${error.message}`, 'error');
+                });
+        }
+        
+        function testAnalyticsEndpoint() {
+            console.log('=== TESTING ANALYTICS ENDPOINT ===');
+            if (!window.apiService?.isAuthenticated()) {
+                updateStatus('api-status', 'Not authenticated for endpoint test', 'error');
+                return;
+            }
+            
+            fetch('http://localhost:3001/api/analytics/dashboard', {
+                headers: {
+                    'Authorization': `Bearer ${window.apiService.getToken()}`
+                }
+            })
+            .then(response => {
+                console.log('Analytics endpoint response:', response.status);
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error(`HTTP ${response.status}`);
+                }
+            })
+            .then(data => {
+                console.log('Analytics data:', data);
+                updateStatus('api-status', 'Analytics endpoint working', 'success');
+            })
+            .catch(error => {
+                console.error('Analytics endpoint failed:', error);
+                updateStatus('api-status', `Analytics endpoint failed: ${error.message}`, 'error');
+            });
+        }
+        
+        function clearLog() {
+            logOutput.innerHTML = '';
+        }
+        
+        // Auto-check on page load
+        window.addEventListener('load', () => {
+            console.log('=== TEST PAGE LOADED ===');
+            setTimeout(() => {
+                checkAuth();
+                testAPI();
+            }, 1000);
+        });
+    </script>
+</body>
+</html> 

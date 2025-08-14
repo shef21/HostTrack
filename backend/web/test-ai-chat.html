@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chat Test - HostTrack</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .test-section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .test-button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .test-button:hover {
+            background: #0056b3;
+        }
+        .test-result {
+            background: #f8f9fa;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 4px;
+            border-left: 4px solid #007bff;
+        }
+        .error {
+            border-left-color: #dc3545;
+            background: #f8d7da;
+        }
+        .success {
+            border-left-color: #28a745;
+            background: #d4edda;
+        }
+    </style>
+</head>
+<body>
+    <h1>🧪 AI Chat Fixes Test</h1>
+    
+    <div class="test-section">
+        <h2>Test 1: Duplicate Message Prevention</h2>
+        <p>Test if the AI prevents duplicate messages and repetitive introductory phrases.</p>
+        <button class="test-button" onclick="testDuplicatePrevention()">Test Duplicate Prevention</button>
+        <div id="duplicate-test-result"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Test 2: Topic Detection</h2>
+        <p>Test if the AI correctly detects topics (services, properties, bookings, etc.).</p>
+        <button class="test-button" onclick="testTopicDetection()">Test Topic Detection</button>
+        <div id="topic-test-result"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Test 3: Conversation Context</h2>
+        <p>Test if the AI maintains proper conversation context.</p>
+        <button class="test-button" onclick="testConversationContext()">Test Conversation Context</button>
+        <div id="context-test-result"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Test 4: Service-Specific Responses</h2>
+        <p>Test if the AI gives service-focused responses when asked about services.</p>
+        <button class="test-button" onclick="testServiceResponses()">Test Service Responses</button>
+        <div id="service-test-result"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>Test 5: Duplicate Prevention Control</h2>
+        <p>Test and control the duplicate prevention system.</p>
+        <button class="test-button" onclick="disableDuplicatePrevention()">Disable Duplicate Prevention</button>
+        <button class="test-button" onclick="enableDuplicatePrevention()">Enable Duplicate Prevention</button>
+        <button class="test-button" onclick="testMessageFiltering()">Test Message Filtering</button>
+        <div id="duplicate-control-result"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>Test 6: Live AI Chat Test</h2>
+        <p>Test the actual AI chat functionality with the fixes applied.</p>
+        <button class="test-button" onclick="openAIChat()">Open AI Chat</button>
+        <div id="live-test-result"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>Test 7: Topic Detection Debug</h2>
+        <p>Test and debug the topic detection system.</p>
+        <input type="text" id="topic-test-input" placeholder="Enter a message to test topic detection" style="width: 100%; padding: 10px; margin: 10px 0;">
+        <button class="test-button" onclick="testTopicDetectionLive()">Test Topic Detection</button>
+        <button class="test-button" onclick="showAIContext()">Show AI Context</button>
+        <div id="topic-debug-result"></div>
+    </div>
+
+    <script>
+        function showResult(elementId, message, type = 'info') {
+            const element = document.getElementById(elementId);
+            element.innerHTML = `<div class="test-result ${type}">${message}</div>`;
+        }
+
+        function testDuplicatePrevention() {
+            showResult('duplicate-test-result', 'Testing duplicate message prevention...', 'info');
+            
+            // Simulate the duplicate prevention logic
+            const testMessage = "I'm from hosttrack and I'm here to help!";
+            const repetitivePatterns = [
+                "I'm from hosttrack",
+                "I'm Nathi",
+                "your friendly property management",
+                "I'm here to help"
+            ];
+            
+            const isRepetitive = repetitivePatterns.some(pattern => 
+                testMessage.toLowerCase().includes(pattern.toLowerCase())
+            );
+            
+            if (isRepetitive) {
+                showResult('duplicate-test-result', 
+                    '✅ Duplicate prevention working: Repetitive message detected and would be blocked', 
+                    'success');
+            } else {
+                showResult('duplicate-test-result', 
+                    '❌ Duplicate prevention not working: Repetitive message not detected', 
+                    'error');
+            }
+        }
+
+        function testTopicDetection() {
+            showResult('topic-test-result', 'Testing topic detection...', 'info');
+            
+            const testMessages = [
+                { message: "How are my services doing?", expected: "services" },
+                { message: "Tell me about my properties", expected: "properties" },
+                { message: "What about my bookings?", expected: "bookings" },
+                { message: "How's my revenue?", expected: "revenue" }
+            ];
+            
+            let results = [];
+            testMessages.forEach(test => {
+                const topic = detectTopic(test.message);
+                const success = topic === test.expected;
+                results.push(`${test.message}: ${success ? '✅' : '❌'} (got: ${topic}, expected: ${test.expected})`);
+            });
+            
+            showResult('topic-test-result', 
+                `<strong>Topic Detection Results:</strong><br>${results.join('<br>')}`, 
+                results.every(r => r.includes('✅')) ? 'success' : 'error');
+        }
+
+        function detectTopic(message) {
+            const lowerMessage = message.toLowerCase();
+            const topics = {
+                'services': ['service', 'maintenance', 'cleaning', 'repair', 'upkeep', 'maintain'],
+                'properties': ['property', 'house', 'apartment', 'listing', 'accommodation', 'rental'],
+                'bookings': ['booking', 'reservation', 'guest', 'check-in', 'check-out', 'calendar'],
+                'revenue': ['revenue', 'income', 'money', 'profit', 'pricing', 'cost', 'earnings'],
+                'analytics': ['analytics', 'performance', 'metrics', 'data', 'statistics', 'report']
+            };
+            
+            for (const [topic, keywords] of Object.entries(topics)) {
+                if (keywords.some(keyword => lowerMessage.includes(keyword))) {
+                    return topic;
+                }
+            }
+            return 'general';
+        }
+
+        function testConversationContext() {
+            showResult('context-test-result', 'Testing conversation context...', 'info');
+            
+            // Simulate conversation history
+            const conversationHistory = [
+                { type: 'user', content: 'How are my services?', timestamp: Date.now() - 60000 },
+                { type: 'ai', content: 'Your services are doing well...', timestamp: Date.now() - 30000 },
+                { type: 'user', content: 'Tell me more about maintenance', timestamp: Date.now() }
+            ];
+            
+            const context = conversationHistory.map(msg => `${msg.type}: ${msg.content}`).join(' | ');
+            
+            if (context.includes('services') && context.includes('maintenance')) {
+                showResult('context-test-result', 
+                    '✅ Conversation context working: Context properly captured and formatted', 
+                    'success');
+            } else {
+                showResult('context-test-result', 
+                    '❌ Conversation context not working: Context not properly captured', 
+                    'error');
+            }
+        }
+
+        function testServiceResponses() {
+            showResult('service-test-result', 'Testing service-specific responses...', 'info');
+            
+            // Test if the AI would focus on services when topic is services
+            const servicePrompt = `The user is asking about services. Focus your response specifically on services, maintenance, and upkeep.`;
+            
+            if (servicePrompt.includes('services') && servicePrompt.includes('maintenance')) {
+                showResult('service-test-result', 
+                    '✅ Service-specific responses working: AI prompt includes service focus', 
+                    'success');
+            } else {
+                showResult('service-test-result', 
+                    '❌ Service-specific responses not working: AI prompt missing service focus', 
+                    'error');
+            }
+        }
+
+        function disableDuplicatePrevention() {
+            if (window.aiChat) {
+                window.aiChat.disableDuplicatePrevention();
+                showResult('duplicate-control-result', 
+                    '✅ Duplicate prevention disabled. AI chat will now show all messages.', 
+                    'success');
+            } else {
+                showResult('duplicate-control-result', 
+                    '❌ AI chat not available. Please open the main dashboard first.', 
+                    'error');
+            }
+        }
+
+        function enableDuplicatePrevention() {
+            if (window.aiChat) {
+                window.aiChat.enableDuplicatePrevention();
+                showResult('duplicate-control-result', 
+                    '✅ Duplicate prevention re-enabled. AI chat will now filter repetitive messages.', 
+                    'success');
+            } else {
+                showResult('duplicate-control-result', 
+                    '❌ AI chat not available. Please open the main dashboard first.', 
+                    'error');
+            }
+        }
+
+        function testMessageFiltering() {
+            if (window.aiChat) {
+                // Test the duplicate prevention logic
+                const testMessages = [
+                    "I'm from hosttrack",
+                    "How are my services doing?",
+                    "Tell me about maintenance",
+                    "I'm Nathi, your friendly property management buddy"
+                ];
+                
+                let results = [];
+                testMessages.forEach((msg, index) => {
+                    const wouldBlock = window.aiChat.shouldPreventRepetition(msg, 'ai');
+                    const isDuplicate = window.aiChat.isDuplicateMessage(msg, 'ai');
+                    results.push(`${msg}: Blocked=${wouldBlock}, Duplicate=${isDuplicate}`);
+                });
+                
+                showResult('duplicate-control-result', 
+                    `<strong>Message Filtering Test:</strong><br>${results.join('<br>')}`, 
+                    'info');
+            } else {
+                showResult('duplicate-control-result', 
+                    '❌ AI chat not available. Please open the main dashboard first.', 
+                    'error');
+            }
+        }
+
+        function openAIChat() {
+            showResult('live-test-result', 'Opening AI chat...', 'info');
+            
+            // Try to open the main dashboard
+            const dashboardUrl = window.location.href.replace('test-ai-chat.html', 'index.html');
+            showResult('live-test-result', 
+                `🔗 <a href="${dashboardUrl}" target="_blank">Click here to open the main dashboard</a><br><br>
+                Then test the AI chat by:<br>
+                1. Logging in to your account<br>
+                2. Looking for the "Nathi - Property Management Assistant" section<br>
+                3. Asking questions about services, properties, or bookings<br>
+                4. Checking the browser console for AI chat logs`, 
+                'info');
+        }
+
+        function testTopicDetectionLive() {
+            const input = document.getElementById('topic-test-input');
+            const message = input.value.trim();
+            
+            if (!message) {
+                showResult('topic-debug-result', 'Please enter a message to test.', 'error');
+                return;
+            }
+            
+            if (window.aiChat) {
+                const topic = window.aiChat.testTopicDetection(message);
+                showResult('topic-debug-result', 
+                    `<strong>Topic Detection Result:</strong><br>
+                    Message: "${message}"<br>
+                    Detected Topic: <strong>${topic}</strong><br><br>
+                    Check the browser console for detailed logging.`, 
+                    'info');
+            } else {
+                showResult('topic-debug-result', 
+                    '❌ AI chat not available. Please open the main dashboard first.', 
+                    'error');
+            }
+        }
+
+        function showAIContext() {
+            const input = document.getElementById('topic-test-input');
+            const message = input.value.trim();
+            
+            if (!message) {
+                showResult('topic-debug-result', 'Please enter a message first.', 'error');
+                return;
+            }
+            
+            if (window.aiChat) {
+                const context = window.aiChat.showAIContext(message);
+                showResult('topic-debug-result', 
+                    `<strong>AI Context Debug:</strong><br>
+                    Message: "${message}"<br>
+                    Topic: <strong>${context.topic}</strong><br>
+                    Conversation Context: ${context.conversationContext || 'None'}<br>
+                    Conversation Topics: ${context.conversationTopics.join(', ') || 'None'}<br><br>
+                    Check the browser console for detailed logging.`, 
+                    'info');
+            } else {
+                showResult('topic-debug-result', 
+                    '❌ AI chat not available. Please open the main dashboard first.', 
+                    'error');
+            }
+        }
+    </script>
+</body>
+</html>

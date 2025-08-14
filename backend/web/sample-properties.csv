@@ -1,0 +1,11 @@
+property_name,location,type,price,bedrooms,bathrooms,max_guests,amenities,description
+Cape Town Villa,Cape Town Western Cape,house,2500,3,2,6,"Pool,Garden,View",Beautiful villa with ocean views
+Joburg Suite,Johannesburg Gauteng,apartment,1800,2,1,4,"Gym,Security,Wifi",Modern apartment in city center
+Durban Beach House,Durban KwaZulu-Natal,house,2200,4,3,8,"Beach Access,Pool,Braai",Spacious beach house with private pool
+Stellenbosch Cottage,Stellenbosch Western Cape,cottage,1500,2,1,4,"Garden,Mountain View",Charming cottage in wine country
+Pretoria Penthouse,Pretoria Gauteng,apartment,3000,3,2,6,"Pool,Gym,Concierge",Luxury penthouse with city views
+Port Elizabeth Bungalow,Port Elizabeth Eastern Cape,house,1200,3,2,6,"Garden,BBQ Area",Family-friendly bungalow near the beach
+Bloemfontein Studio,Bloemfontein Free State,studio,800,1,1,2,"Kitchenette,Work Desk",Compact studio for business travelers
+Nelspruit Lodge,Nelspruit Mpumalanga,lodge,1800,2,2,4,"Garden,BBQ,Pool",Peaceful lodge in nature reserve
+Kimberley House,Kimberley Northern Cape,house,1000,3,2,6,"Garden,Secure Parking",Historic house in diamond city
+Polokwane Apartment,Polokwane Limpopo,apartment,1200,2,1,4,"Security,Pool,Gym",Modern apartment with amenities

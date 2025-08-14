@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Smart Matching Engine Test - Railway Production</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-section {
+            background: white;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .test-button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .test-button:hover {
+            background: #0056b3;
+        }
+        .test-button.danger {
+            background: #dc3545;
+        }
+        .test-button.success {
+            background: #28a745;
+        }
+        .test-button.warning {
+            background: #ffc107;
+            color: #212529;
+        }
+        .log-output {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            padding: 15px;
+            margin: 10px 0;
+            max-height: 400px;
+            overflow-y: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            white-space: pre-wrap;
+        }
+        .status-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        .status-ready { background: #28a745; }
+        .status-loading { background: #ffc107; }
+        .status-error { background: #dc3545; }
+        .status-waiting { background: #6c757d; }
+        .test-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .metric-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #007bff;
+        }
+        .metric-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #007bff;
+        }
+        .metric-label {
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .connection-status {
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+        .connection-success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .connection-error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+    </style>
+</head>
+<body>
+    <h1>🧪 Live Smart Matching Engine Test - Railway Production</h1>
+    
+    <div class="test-section">
+        <h2>🌐 Connection Status</h2>
+        <div id="connection-status" class="connection-status">⏳ Testing connection...</div>
+        <button class="test-button" onclick="testConnection()">🔄 Test Connection</button>
+    </div>
+    
+    <div class="test-section">
+        <h2>📊 Live Status</h2>
+        <div class="test-grid">
+            <div class="metric-card">
+                <div class="metric-value" id="status-indicator">⏳</div>
+                <div class="metric-label">Engine Status</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value" id="cities-count">-</div>
+                <div class="metric-label">Cities Loaded</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value" id="provinces-count">-</div>
+                <div class="metric-label">Provinces Loaded</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value" id="cooldown-status">-</div>
+                <div class="metric-label">Refresh Cooldown</div>
+            </div>
+        </div>
+        <button class="test-button" onclick="updateLiveStatus()">🔄 Update Status</button>
+    </div>
+
+    <div class="test-section">
+        <h2>🚀 Live Tests</h2>
+        <button class="test-button" onclick="testLiveInitialization()">Test Live Initialization</button>
+        <button class="test-button" onclick="testLiveRefresh()">Test Live Refresh</button>
+        <button class="test-button" onclick="testMultipleLiveRefresh()">Test Multiple Live Refresh</button>
+        <button class="test-button" onclick="testLivePropertyUpdate()">Test Live Property Update</button>
+    </div>
+
+    <div class="test-section">
+        <h2>🔍 Live Monitoring</h2>
+        <button class="test-button" onclick="showLiveDebugInfo()">Show Live Debug Info</button>
+        <button class="test-button" onclick="showLiveCallStats()">Show Live Call Statistics</button>
+        <button class="test-button" onclick="testLiveProtection()">Test Live Protection</button>
+    </div>
+
+    <div class="test-section">
+        <h2>📋 Live Test Logs</h2>
+        <div class="log-output" id="live-logs">Ready to test live environment...\n</div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/smart-matching-engine.js"></script>
+    <script>
+        let smartMatchingEngine;
+        let testCounter = 0;
+        let isConnected = false;
+
+        // Initialize live test environment
+        window.addEventListener('DOMContentLoaded', function() {
+            log('🧪 Live test environment initializing...');
+            
+            // Test connection first
+            testConnection();
+        });
+
+        function log(message) {
+            const logs = document.getElementById('live-logs');
+            const timestamp = new Date().toLocaleTimeString();
+            logs.textContent += `[${timestamp}] ${message}\n`;
+            logs.scrollTop = logs.scrollHeight;
+        }
+
+        function updateConnectionStatus(connected, message) {
+            const statusDiv = document.getElementById('connection-status');
+            if (connected) {
+                statusDiv.className = 'connection-status connection-success';
+                statusDiv.textContent = '✅ Connected to Railway Production';
+                isConnected = true;
+            } else {
+                statusDiv.className = 'connection-status connection-error';
+                statusDiv.textContent = `❌ Connection failed: ${message}`;
+                isConnected = false;
+            }
+        }
+
+        async function testConnection() {
+            log('🌐 Testing connection to Railway production...');
+            
+            try {
+                const response = await fetch('https://hosttrack-production.up.railway.app/health');
+                if (response.ok) {
+                    const data = await response.json();
+                    log(`✅ Connection successful: ${data.message}`);
+                    updateConnectionStatus(true, 'Connected');
+                    
+                    // Initialize engine after successful connection
+                    initializeLiveEngine();
+                } else {
+                    throw new Error(`HTTP ${response.status}`);
+                }
+            } catch (error) {
+                log(`❌ Connection failed: ${error.message}`);
+                updateConnectionStatus(false, error.message);
+            }
+        }
+
+        function initializeLiveEngine() {
+            if (!isConnected) {
+                log('❌ Cannot initialize engine - not connected');
+                return;
+            }
+
+            log('🚀 Initializing Smart Matching Engine for live environment...');
+            
+            // Create engine instance
+            smartMatchingEngine = new SmartMatchingEngine();
+            log('✅ Smart Matching Engine created');
+            
+            // Update status after initialization
+            setTimeout(updateLiveStatus, 2000);
+        }
+
+        function updateLiveStatus() {
+            if (!smartMatchingEngine) {
+                log('❌ Engine not initialized');
+                return;
+            }
+
+            try {
+                const status = smartMatchingEngine.getStatus();
+                const callStats = smartMatchingEngine.getCallStats();
+                
+                // Update status indicator
+                const statusIndicator = document.getElementById('status-indicator');
+                if (status.initialized && status.hasCities && status.hasProvinces) {
+                    statusIndicator.textContent = '✅';
+                    statusIndicator.className = 'status-ready';
+                } else if (callStats.currentCalls.loading || callStats.currentCalls.refreshing) {
+                    statusIndicator.textContent = '🔄';
+                    statusIndicator.className = 'status-loading';
+                } else if (callStats.currentCalls.authWait) {
+                    statusIndicator.textContent = '⏳';
+                    statusIndicator.className = 'status-waiting';
+                } else {
+                    statusIndicator.textContent = '❌';
+                    statusIndicator.className = 'status-error';
+                }
+
+                // Update metrics
+                document.getElementById('cities-count').textContent = status.citiesCount;
+                document.getElementById('provinces-count').textContent = status.provincesCount;
+                
+                const cooldownStatus = document.getElementById('cooldown-status');
+                if (callStats.timing.cooldownRemaining > 0) {
+                    cooldownStatus.textContent = `${Math.ceil(callStats.timing.cooldownRemaining / 1000)}s`;
+                } else {
+                    cooldownStatus.textContent = 'Ready';
+                }
+
+                log('📊 Live status updated');
+            } catch (error) {
+                log(`❌ Error updating status: ${error.message}`);
+            }
+        }
+
+        function updateLiveStatusSilent() {
+            if (!smartMatchingEngine) {
+                return;
+            }
+
+            try {
+                const status = smartMatchingEngine.getStatus();
+                const callStats = smartMatchingEngine.getCallStats();
+                
+                // Update status indicator silently (no logging)
+                const statusIndicator = document.getElementById('status-indicator');
+                if (status.initialized && status.hasCities && status.hasProvinces) {
+                    statusIndicator.textContent = '✅';
+                    statusIndicator.className = 'status-ready';
+                } else if (callStats.currentCalls.loading || callStats.currentCalls.refreshing) {
+                    statusIndicator.textContent = '🔄';
+                    statusIndicator.className = 'status-loading';
+                } else if (callStats.currentCalls.authWait) {
+                    statusIndicator.textContent = '⏳';
+                    statusIndicator.className = 'status-waiting';
+                } else {
+                    statusIndicator.textContent = '❌';
+                    statusIndicator.className = 'status-error';
+                }
+
+                // Update metrics silently
+                document.getElementById('cities-count').textContent = status.citiesCount;
+                document.getElementById('provinces-count').textContent = status.provincesCount;
+                
+                const cooldownStatus = document.getElementById('cooldown-status');
+                if (callStats.timing.cooldownRemaining > 0) {
+                    cooldownStatus.textContent = `${Math.ceil(callStats.timing.cooldownRemaining / 1000)}s`;
+                } else {
+                    cooldownStatus.textContent = 'Ready';
+                }
+            } catch (error) {
+                // Silent error handling
+            }
+        }
+
+        // Live Test Functions
+        function testLiveInitialization() {
+            log(`\n🧪 Live Test ${++testCounter}: Initialization`);
+            if (!smartMatchingEngine) {
+                log('❌ Engine not initialized');
+                return;
+            }
+            
+            log('🔄 Testing live initialization...');
+            smartMatchingEngine.forceInitialize().then(() => {
+                log('✅ Live initialization completed');
+                updateLiveStatus();
+            }).catch(error => {
+                log(`❌ Live initialization failed: ${error.message}`);
+            });
+        }
+
+        function testLiveRefresh() {
+            log(`\n🧪 Live Test ${++testCounter}: Live Refresh`);
+            if (!smartMatchingEngine) {
+                log('❌ Engine not initialized');
+                return;
+            }
+            
+            log('🔄 Testing live refresh...');
+            smartMatchingEngine.refreshLocationData();
+            log('✅ Live refresh called');
+            updateLiveStatus();
+        }
+
+        function testMultipleLiveRefresh() {
+            log(`\n🧪 Live Test ${++testCounter}: Multiple Live Refresh`);
+            if (!smartMatchingEngine) {
+                log('❌ Engine not initialized');
+                return;
+            }
+            
+            log('🔄 Testing multiple live refresh calls...');
+            for (let i = 0; i < 5; i++) {
+                smartMatchingEngine.refreshLocationData();
+            }
+            log('✅ Multiple live refresh calls made (should be protected)');
+            updateLiveStatus();
+        }
+
+        function testLivePropertyUpdate() {
+            log(`\n🧪 Live Test ${++testCounter}: Live Property Update`);
+            if (!smartMatchingEngine) {
+                log('❌ Engine not initialized');
+                return;
+            }
+            
+            const mockProperty = { city: 'Live Test City', province: 'Live Test Province' };
+            smartMatchingEngine.handlePropertyUpdate(mockProperty, 'create');
+            log('✅ Live property update simulated');
+            updateLiveStatus();
+        }
+
+        function showLiveDebugInfo() {
+            log(`\n🔍 Live Debug Info:`);
+            if (!smartMatchingEngine) {
+                log('❌ Engine not initialized');
+                return;
+            }
+            
+            try {
+                const debug = smartMatchingEngine.getDebugInfo();
+                log(JSON.stringify(debug, null, 2));
+            } catch (error) {
+                log(`❌ Error getting debug info: ${error.message}`);
+            }
+        }
+
+        function showLiveCallStats() {
+            log(`\n📊 Live Call Statistics:`);
+            if (!smartMatchingEngine) {
+                log('❌ Engine not initialized');
+                return;
+            }
+            
+            try {
+                const stats = smartMatchingEngine.getCallStats();
+                log(JSON.stringify(stats, null, 2));
+            } catch (error) {
+                log(`❌ Error getting call stats: ${error.message}`);
+            }
+        }
+
+        function testLiveProtection() {
+            log(`\n🧪 Live Test ${++testCounter}: Protection Verification`);
+            if (!smartMatchingEngine) {
+                log('❌ Engine not initialized');
+                return;
+            }
+            
+            log('🔄 Testing live protection mechanisms...');
+            
+            // Test multiple rapid calls
+            log('📍 Making 3 rapid refresh calls...');
+            smartMatchingEngine.refreshLocationData();
+            smartMatchingEngine.refreshLocationData();
+            smartMatchingEngine.refreshLocationData();
+            
+            // Check protection status
+            setTimeout(() => {
+                try {
+                    const stats = smartMatchingEngine.getCallStats();
+                    log('📊 Protection test results:');
+                    log(`   - Loading: ${stats.currentCalls.loading}`);
+                    log(`   - Refreshing: ${stats.currentCalls.refreshing}`);
+                    log(`   - Cooldown: ${stats.timing.canRefresh ? 'Can refresh' : 'Cooldown active'}`);
+                    
+                    if (stats.timing.cooldownRemaining > 0) {
+                        log(`   - Cooldown remaining: ${Math.ceil(stats.timing.cooldownRemaining / 1000)}s`);
+                    }
+                } catch (error) {
+                    log(`❌ Error checking protection: ${error.message}`);
+                }
+            }, 1000);
+        }
+
+        // Auto-update status every 10 seconds (less frequent)
+        setInterval(() => {
+            if (isConnected && smartMatchingEngine) {
+                updateLiveStatusSilent();
+            }
+        }, 10000);
+    </script>
+</body>
+</html>

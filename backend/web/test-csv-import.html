@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HostTrack - CSV Import Test</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles/csv-import.css">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f3f4f6;
+        }
+        
+        .test-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .test-header {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .test-header h1 {
+            margin: 0 0 0.5rem 0;
+            font-size: 2rem;
+        }
+        
+        .test-header p {
+            margin: 0;
+            opacity: 0.9;
+        }
+        
+        .test-content {
+            padding: 2rem;
+        }
+        
+        .test-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .test-info {
+            background: #f0f9ff;
+            border: 1px solid #0ea5e9;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .test-info h3 {
+            margin: 0 0 0.5rem 0;
+            color: #0c4a6e;
+        }
+        
+        .test-info ul {
+            margin: 0.5rem 0;
+            padding-left: 1.5rem;
+        }
+        
+        .test-info li {
+            margin-bottom: 0.25rem;
+            color: #0c4a6e;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <div class="test-header">
+            <h1>🚀 HostTrack CSV Import Test</h1>
+            <p>Test the new CSV import functionality for bulk property management</p>
+        </div>
+        
+        <div class="test-content">
+            <div class="test-info">
+                <h3>🚀 Phase 2: Smart Property Matching Engine</h3>
+                <ul>
+                    <li><strong>🌐 Cross-Platform Detection:</strong> Find duplicates across Airbnb, Booking.com, VRBO</li>
+                    <li><strong>🔍 Fuzzy Matching:</strong> Intelligent similarity detection using advanced algorithms</li>
+                    <li><strong>📍 Location Intelligence:</strong> Smart geographic matching for nearby properties</li>
+                    <li><strong>🎯 Confidence Scoring:</strong> Rate match quality from 0-100%</li>
+                    <li><strong>🔄 Auto-Merge:</strong> Intelligently combine data from multiple sources</li>
+                    <li><strong>📊 Smart Duplicate Prevention:</strong> No more duplicate properties from cross-platform CSVs</li>
+                </ul>
+                <p><strong>Test with:</strong> Download the "Cross-Platform CSV" to see smart matching in action!</p>
+            </div>
+            
+            <div class="test-actions">
+                <button class="btn btn-secondary" onclick="downloadSampleCSV()">📥 Download Sample CSV</button>
+                <button class="btn btn-secondary" onclick="downloadCrossPlatformCSV()">🌐 Download Cross-Platform CSV</button>
+                <button class="btn btn-primary" onclick="openImportModal()">📁 Test CSV Import</button>
+            </div>
+            
+            <div class="csv-import-container">
+                <div class="import-zone" id="importZone">
+                    <div class="import-placeholder">
+                        <div class="upload-icon">📁</div>
+                        <h4>Drag & Drop CSV File Here</h4>
+                        <p>or click to browse files</p>
+                        <input type="file" id="csvFileInput" accept=".csv" style="display: none;">
+                    </div>
+                </div>
+                
+                <div class="import-options">
+                    <div class="option-group">
+                        <label>
+                            <input type="checkbox" id="hasHeaderRow" checked>
+                            First row contains column headers
+                        </label>
+                    </div>
+                    <div class="option-group">
+                        <label>
+                            <input type="checkbox" id="skipDuplicates" checked>
+                            Skip duplicate properties
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="import-actions">
+                    <button class="btn btn-secondary" onclick="downloadTemplate()">📥 Download Template</button>
+                    <button class="btn btn-primary" id="startImport" disabled>🚀 Start Import</button>
+                </div>
+                
+                <div class="import-progress" id="importProgress" style="display: none;">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <div class="progress-text" id="progressText">Processing...</div>
+                </div>
+                
+                <div class="import-results" id="importResults" style="display: none;">
+                    <div class="results-summary" id="resultsSummary"></div>
+                    <div class="results-details" id="resultsDetails"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Smart Matching Engine -->
+    <script src="js/smart-matching-engine.js"></script>
+    
+    <!-- CSV Import JavaScript -->
+    <script src="js/csv-import.js"></script>
+    
+    <script>
+        // Test functions
+        function openImportModal() {
+            if (window.csvImporter) {
+                window.csvImporter.resetImportState();
+            }
+        }
+        
+        function downloadSampleCSV() {
+            const link = document.createElement('a');
+            link.href = 'sample-properties.csv';
+            link.download = 'sample-properties.csv';
+            link.click();
+        }
+        
+        function downloadCrossPlatformCSV() {
+            const link = document.createElement('a');
+            link.href = 'sample-cross-platform.csv';
+            link.download = 'sample-cross-platform.csv';
+            link.click();
+        }
+        
+        function downloadTemplate() {
+            if (window.csvImporter) {
+                window.csvImporter.downloadTemplate();
+            }
+        }
+        
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('🚀 CSV Import Test Page Loaded!');
+            console.log('📁 Try dragging the sample CSV file onto the import zone');
+        });
+    </script>
+</body>
+</html>
