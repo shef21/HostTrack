@@ -446,7 +446,7 @@ class HostTrackApp {
         console.log('Analytics manager initialized. Real data will load automatically.');
     }
 
-    updateUserInfo() {
+    async updateUserInfo() {
         console.log('=== UPDATE USER INFO DEBUG ===');
         
         // Get user data from the app instance
@@ -457,6 +457,22 @@ class HostTrackApp {
             userData = apiService.user;
             this.user = userData; // Update the instance variable
             console.log('Retrieved user data from API service:', userData);
+        }
+        
+        // Try to get profile data from profiles table
+        if (userData && userData.id) {
+            try {
+                console.log('Fetching user profile data...');
+                const profileData = await apiService.getUserProfile();
+                if (profileData) {
+                    // Merge profile data with user data
+                    userData = { ...userData, ...profileData };
+                    this.user = userData;
+                    console.log('Profile data merged with user data:', userData);
+                }
+            } catch (error) {
+                console.error('Error fetching profile data:', error);
+            }
         }
         
         console.log('Final user data:', userData);
@@ -599,7 +615,7 @@ class HostTrackApp {
         this.showAuth();
     }
 
-    showApp() {
+    async showApp() {
         console.log('🏠 === SHOW APP DEBUG START ===');
         console.log('⏰ showApp() called at:', new Date().toISOString());
         console.log('👤 Current user:', this.user);
@@ -641,7 +657,7 @@ class HostTrackApp {
         
         // Update user information immediately
         console.log('👤 Updating user information...');
-        this.updateUserInfo();
+        await this.updateUserInfo();
         console.log('✅ User information updated');
         
         // Load initial data only if not already loaded and not currently loading

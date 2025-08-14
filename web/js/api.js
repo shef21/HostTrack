@@ -34,6 +34,35 @@ class APIService {
         return this.user;
     }
 
+    // Get user profile data from profiles table
+    async getUserProfile() {
+        try {
+            if (!this.user || !this.user.id) {
+                console.log('No authenticated user, cannot fetch profile');
+                return null;
+            }
+
+            const supabase = await this.getSupabaseClient();
+            
+            const { data: profile, error } = await supabase
+                .from('profiles')
+                .select('*')
+                .eq('id', this.user.id)
+                .single();
+                
+            if (error) {
+                console.error('Error fetching user profile:', error);
+                return null;
+            }
+
+            console.log('User profile loaded:', profile);
+            return profile;
+        } catch (error) {
+            console.error('Error in getUserProfile:', error);
+            return null;
+        }
+    }
+
     // Get token
     getToken() {
         return this.token;

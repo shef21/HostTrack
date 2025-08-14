@@ -198,7 +198,7 @@ class AuthManager {
         }
     }
 
-    handleLoginSuccess(response) {
+    async handleLoginSuccess(response) {
         console.log('🎉 === HANDLE LOGIN SUCCESS DEBUG START ===');
         console.log('📥 Response received:', response);
         
@@ -237,18 +237,18 @@ class AuthManager {
                 window.hostTrackApp.hideLoadingIndicator();
                 console.log('✅ Loading indicator hidden');
                 
-                // CRITICAL: Redirect to the main app dashboard
+                // Redirect to dashboard
                 console.log('🔄 Calling showApp() to redirect to dashboard...');
-                window.hostTrackApp.showApp();
+                await window.hostTrackApp.showApp();
                 console.log('✅ showApp() called successfully');
             } else {
                 console.error('❌ hostTrackApp not available for redirect');
                 // Fallback: try to show app directly
                 console.log('🔄 Attempting fallback redirect...');
-                setTimeout(() => {
+                setTimeout(async () => {
                     if (window.hostTrackApp) {
                         console.log('✅ hostTrackApp found in fallback, calling showApp()...');
-                        window.hostTrackApp.showApp();
+                        await window.hostTrackApp.showApp();
                     } else {
                         console.error('❌ Still cannot find hostTrackApp for redirect');
                     }
