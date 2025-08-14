@@ -745,14 +745,18 @@ class DashboardManager {
     }
 
     updateEnhancedMetrics(data) {
+        console.log('🔧 DashboardManager.updateEnhancedMetrics called with data:', data);
+        
         // Update total properties with growth indicator
         const propertiesElement = document.getElementById('total-properties');
+        console.log('🏠 Properties element found:', !!propertiesElement);
         if (propertiesElement && data.properties) {
             const currentTotal = data.properties.total || 0;
             const previousTotal = data.properties.previousTotal || 0;
             const growth = previousTotal > 0 ? ((currentTotal - previousTotal) / previousTotal * 100).toFixed(1) : 0;
             
             propertiesElement.textContent = currentTotal;
+            console.log('✅ Properties updated to:', currentTotal);
             
             // Update growth indicator
             const growthElement = propertiesElement.parentElement.querySelector('.metric-change');
@@ -765,12 +769,14 @@ class DashboardManager {
         
         // Update total bookings with growth indicator
         const bookingsElement = document.getElementById('total-bookings');
+        console.log('📅 Bookings element found:', !!bookingsElement);
         if (bookingsElement && data.bookings) {
             const currentTotal = data.bookings.total || 0;
             const previousTotal = data.bookings.previousTotal || 0;
             const growth = previousTotal > 0 ? ((currentTotal - previousTotal) / previousTotal * 100).toFixed(1) : 0;
             
             bookingsElement.textContent = currentTotal;
+            console.log('✅ Bookings updated to:', currentTotal);
             
             // Update growth indicator
             const growthElement = bookingsElement.parentElement.querySelector('.metric-change');
@@ -783,12 +789,14 @@ class DashboardManager {
         
         // Update total revenue with growth indicator
         const revenueElement = document.getElementById('total-revenue');
+        console.log('💰 Revenue element found:', !!revenueElement);
         if (revenueElement && data.overview) {
             const currentRevenue = data.overview.totalRevenue || 0;
             const previousRevenue = data.overview.previousRevenue || 0;
             const growth = previousRevenue > 0 ? ((currentRevenue - previousRevenue) / previousRevenue * 100).toFixed(1) : 0;
             
             revenueElement.textContent = `R${currentRevenue.toLocaleString()}`;
+            console.log('✅ Revenue updated to:', currentRevenue);
             
             // Update growth indicator
             const growthElement = revenueElement.parentElement.parentElement.querySelector('.revenue-change');
@@ -801,12 +809,14 @@ class DashboardManager {
         
         // Update occupancy rate with growth indicator
         const occupancyElement = document.getElementById('occupancy-rate');
+        console.log('🏨 Occupancy element found:', !!occupancyElement);
         if (occupancyElement && data.overview) {
             const currentRate = data.overview.occupancyRate || 0;
             const previousRate = data.overview.previousOccupancyRate || 0;
             const growth = previousRate > 0 ? ((currentRate - previousRate) / previousRate * 100).toFixed(1) : 0;
             
             occupancyElement.textContent = `${currentRate}%`;
+            console.log('✅ Occupancy updated to:', currentRate + '%');
             
             // Update growth indicator
             const growthElement = occupancyElement.parentElement.querySelector('.metric-change');
@@ -817,6 +827,8 @@ class DashboardManager {
             }
         }
 
+        console.log('🎯 Dashboard update complete');
+        
         // Update charts with new data
         this.updateCharts(data);
         
