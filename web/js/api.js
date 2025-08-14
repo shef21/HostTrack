@@ -102,34 +102,37 @@ class APIService {
         }
     }
 
-    // Auth methods
+    // Auth methods - using Railway backend
     async login(email, password) {
-        // Use real Supabase auth method with proper headers
-        const response = await fetch(`${this.baseURL}/auth/v1/token?grant_type=password`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5hc3h0a3hpeGpoZnVoY3B0d3liIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTQ0MDkzMDYsImV4cCI6MjA2OTk4NTMwNn0.SViB5UsHFE3GkAByGTvm-hsMPrww375uRrZ0VqYgbRE'
-            },
-            body: JSON.stringify({ email, password })
-        });
-        
-        if (!response.ok) {
-            throw new Error('Login failed');
+        try {
+            console.log('🔐 Attempting login through Railway backend...');
+            const response = await this.request('/api/auth/login', {
+                method: 'POST',
+                body: JSON.stringify({ email, password })
+            });
+            
+            console.log('✅ Login successful through Railway backend:', response);
+            return response;
+        } catch (error) {
+            console.error('❌ Login failed through Railway backend:', error);
+            throw error;
         }
-        
-        const data = await response.json();
-        return {
-            user: data.user,
-            session: { access_token: data.access_token }
-        };
     }
 
     async register(email, password, name, phone) {
-        return this.request('/auth/v1/signup', {
-            method: 'POST',
-            body: JSON.stringify({ email, password, user_metadata: { name, phone } })
-        });
+        try {
+            console.log('📝 Attempting registration through Railway backend...');
+            const response = await this.request('/api/auth/register', {
+                method: 'POST',
+                body: JSON.stringify({ email, password, name, phone })
+            });
+            
+            console.log('✅ Registration successful through Railway backend:', response);
+            return response;
+        } catch (error) {
+            console.error('❌ Registration failed through Railway backend:', error);
+            throw error;
+        }
     }
 
     async logout() {
