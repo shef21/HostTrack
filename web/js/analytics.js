@@ -150,7 +150,7 @@ class AnalyticsManager {
         try {
             console.log('Debug: Listing all user data...');
             
-            const response = await window.apiService.request('/analytics/debug/user-data', { method: 'GET' });
+            const response = await window.apiService.getAnalyticsDebugUserData();
             
             if (response) {
                 console.log('=== USER DATA DEBUG ===');
@@ -181,7 +181,7 @@ class AnalyticsManager {
     // Load dashboard data
     async loadDashboardData() {
         try {
-            const response = await window.apiService.request('/analytics/dashboard', { method: 'GET' });
+            const response = await window.apiService.getAnalyticsDashboard();
             if (response) {
                 this.data.dashboard = response;
                 this.updateDashboardDisplay();
@@ -194,7 +194,7 @@ class AnalyticsManager {
     // Load revenue data
     async loadRevenueData() {
         try {
-            const response = await window.apiService.request('/analytics/revenue', { method: 'GET' });
+            const response = await window.apiService.getAnalyticsRevenue();
             if (response) {
                 this.data.revenue = response;
                 this.updateRevenueChart();
@@ -207,7 +207,7 @@ class AnalyticsManager {
     // Load occupancy data
     async loadOccupancyData() {
         try {
-            const response = await window.apiService.request('/analytics/occupancy', { method: 'GET' });
+            const response = await window.apiService.getAnalyticsOccupancy();
             if (response) {
                 this.data.occupancy = response;
                 this.updateOccupancyChart();
@@ -220,7 +220,7 @@ class AnalyticsManager {
     // Load expenses data
     async loadExpensesData() {
         try {
-            const response = await window.apiService.request('/analytics/expenses', { method: 'GET' });
+            const response = await window.apiService.getAnalyticsExpenses();
             if (response) {
                 this.data.expenses = response;
                 this.updateExpensesChart();

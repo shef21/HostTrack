@@ -335,10 +335,10 @@ class PropertiesManager {
             console.log('Loading properties data...');
             
             // Always load from API, never from localStorage
-            const response = await window.apiService.request('/properties', { method: 'GET' });
+            const response = await window.apiService.getProperties();
             
             if (response) {
-                this.properties = response.properties || response || [];
+                this.properties = response || [];
                 console.log('Properties loaded from API:', this.properties.length);
                 this.renderProperties();
                 this.dataLoaded = true;
@@ -508,10 +508,7 @@ class PropertiesManager {
             
             console.log('📡 Creating property via API...');
             // Create property via API (Supabase with RLS)
-            const response = await window.apiService.request('/properties', {
-                method: 'POST',
-                body: JSON.stringify(property)
-            });
+            const response = await window.apiService.createProperty(property);
             console.log('✅ Property created via API:', response);
             
             // Reload properties from API to ensure consistency
@@ -694,10 +691,7 @@ class PropertiesManager {
 
         try {
             // Update via API
-            const response = await window.apiService.request(`/properties/${propertyId}`, {
-                method: 'PUT',
-                body: JSON.stringify(propertyData)
-            });
+            const response = await window.apiService.updateProperty(propertyId, propertyData);
             console.log('Property updated via API:', response);
             
             // Reload properties from API to ensure consistency
@@ -729,7 +723,7 @@ class PropertiesManager {
 
         try {
             // Try to delete via API
-            await window.apiService.request(`/properties/${propertyId}`, { method: 'DELETE' });
+            await window.apiService.deleteProperty(propertyId);
             console.log('Property deleted via API');
             
             // Reload properties from API to ensure consistency
@@ -824,7 +818,7 @@ class PropertiesManager {
 
         try {
             // Force delete via API
-            await window.apiService.request(`/properties/${propertyId}`, { method: 'DELETE' });
+            await window.apiService.deleteProperty(propertyId);
             console.log('Property and dependencies force deleted via API');
             
             // Reload properties from API to ensure consistency

@@ -48,69 +48,88 @@ class RealtimeService {
         });
     }
 
-    connect() {
+    async connect() {
+        if (this.isConnected) {
+            console.log('🔄 Real-time: Already connected');
+            return;
+        }
+
         try {
-            // Only connect if user is authenticated
+            console.log('🔄 Real-time: Attempting to connect...');
+            
+            // Use Supabase real-time instead of localhost SSE
             if (!window.apiService || !window.apiService.isAuthenticated()) {
                 console.log('🔄 Real-time: User not authenticated, skipping connection');
                 return;
             }
+
+            // Create Supabase client for real-time
+            const supabase = await window.apiService.getSupabaseClient();
+
+            // Subscribe to real-time changes
+            this.setupSupabaseRealtime(supabase);
             
-            console.log('🔄 Real-time: Attempting to connect...');
-            // For now, we'll use Server-Sent Events (SSE) as a fallback
-            // In production, you'd use WebSocket or Socket.io
-            this.setupSSEConnection();
         } catch (error) {
-            console.error('Failed to establish real-time connection:', error);
+            console.error('🔄 Real-time: Connection failed:', error);
             this.fallbackToPolling();
         }
     }
 
-    setupSSEConnection() {
+    setupSupabaseRealtime(supabase) {
         try {
-            // Check if user is authenticated before attempting connection
-            if (!window.apiService || !window.apiService.isAuthenticated()) {
-                console.log('🔄 Real-time: User not authenticated, using polling fallback');
-                this.fallbackToPolling();
-                return;
-            }
+            console.log('🔄 Real-time: Setting up Supabase real-time subscriptions...');
             
-            const eventSource = new EventSource('http://localhost:3001/api/realtime/events');
+            // Subscribe to properties table changes
+            this.propertiesSubscription = supabase
+                .channel('properties-changes')
+                .on('postgres_changes', 
+                    { event: '*', schema: 'public', table: 'properties' },
+                    (payload) => {
+                        console.log('🔄 Real-time: Properties change:', payload);
+                        this.handleRealtimeUpdate({
+                            type: 'property_update',
+                            data: payload
+                        });
+                    }
+                )
+                .subscribe();
+
+            // Subscribe to bookings table changes
+            this.bookingsSubscription = supabase
+                .channel('bookings-changes')
+                .on('postgres_changes', 
+                    { event: '*', schema: 'public', table: 'bookings' },
+                    (payload) => {
+                        console.log('🔄 Real-time: Bookings change:', payload);
+                        this.handleRealtimeUpdate({
+                            type: 'booking_update',
+                            data: payload
+                        });
+                    }
+                )
+                .subscribe();
+
+            // Subscribe to services table changes
+            this.servicesSubscription = supabase
+                .channel('services-changes')
+                .on('postgres_changes', 
+                    { event: '*', schema: 'public', table: 'services' },
+                    (payload) => {
+                        console.log('🔄 Real-time: Services change:', payload);
+                        this.handleRealtimeUpdate({
+                            type: 'service_update',
+                            data: payload
+                        });
+                    }
+                )
+                .subscribe();
+
+            this.isConnected = true;
+            this.notifySubscribers('connection', { status: 'connected' });
+            console.log('🔄 Real-time: Supabase real-time subscriptions active');
             
-            eventSource.onopen = () => {
-                console.log('✅ SSE connection established');
-                this.isConnected = true;
-                this.reconnectAttempts = 0; // Reset reconnect attempts on successful connection
-                this.startHeartbeat();
-                this.notifySubscribers('connection', { status: 'connected' });
-            };
-
-            eventSource.onmessage = (event) => {
-                try {
-                    const data = JSON.parse(event.data);
-                    this.handleRealtimeUpdate(data);
-                } catch (error) {
-                    console.error('Error parsing SSE data:', error);
-                }
-            };
-
-            eventSource.onerror = (error) => {
-                console.error('SSE connection error:', error);
-                this.isConnected = false;
-                this.notifySubscribers('connection', { status: 'disconnected' });
-                
-                // Only attempt reconnection if we haven't exceeded max attempts
-                if (this.reconnectAttempts < this.maxReconnectAttempts) {
-                    this.scheduleReconnect();
-                } else {
-                    console.log('🔄 Real-time: Max reconnection attempts reached, using polling fallback');
-                    this.fallbackToPolling();
-                }
-            };
-
-            this.socket = eventSource;
         } catch (error) {
-            console.error('SSE not supported, falling back to polling:', error);
+            console.error('🔄 Real-time: Failed to setup Supabase real-time:', error);
             this.fallbackToPolling();
         }
     }
@@ -154,18 +173,22 @@ class RealtimeService {
                 return null;
             }
 
-            // Make a lightweight API call to check for updates
-            const response = await fetch('http://localhost:3001/api/realtime/check-updates', {
-                headers: {
-                    'Authorization': `Bearer ${window.apiService.getToken()}`,
-                    'Last-Update': lastUpdate
-                }
-            });
+            // For production, we'll use a lightweight check via Supabase
+            // This is a fallback when real-time isn't working
+            if (window.apiService && window.apiService.isAuthenticated()) {
+                            // Check if there are any recent changes by looking at the last few records
+            const supabase = await window.apiService.getSupabaseClient();
 
-            if (response.ok) {
-                const updates = await response.json();
-                localStorage.setItem('hosttrack_last_update', currentTime.toString());
-                return updates;
+                // Simple check - get count of recent records
+                const { count: recentCount } = await supabase
+                    .from('bookings')
+                    .select('*', { count: 'exact', head: true })
+                    .gte('created_at', new Date(Date.now() - 30000).toISOString());
+
+                if (recentCount > 0) {
+                    localStorage.setItem('hosttrack_last_update', currentTime.toString());
+                    return { hasChanges: true, type: 'polling_update', count: recentCount };
+                }
             }
 
             return null;
@@ -350,23 +373,39 @@ class RealtimeService {
     }
 
     disconnect() {
+        console.log('🔄 Real-time: Disconnecting...');
+        
+        // Clean up Supabase subscriptions
+        if (this.propertiesSubscription) {
+            this.propertiesSubscription.unsubscribe();
+            this.propertiesSubscription = null;
+        }
+        
+        if (this.bookingsSubscription) {
+            this.bookingsSubscription.unsubscribe();
+            this.bookingsSubscription = null;
+        }
+        
+        if (this.servicesSubscription) {
+            this.servicesSubscription.unsubscribe();
+            this.servicesSubscription = null;
+        }
+        
+        // Clean up old SSE connection if it exists
         if (this.socket) {
             this.socket.close();
             this.socket = null;
         }
         
-        if (this.heartbeatInterval) {
-            clearInterval(this.heartbeatInterval);
-            this.heartbeatInterval = null;
-        }
-        
+        // Clean up polling
         if (this.pollingInterval) {
             clearInterval(this.pollingInterval);
             this.pollingInterval = null;
         }
         
         this.isConnected = false;
-        console.log('🔌 Real-time service disconnected');
+        this.notifySubscribers('connection', { status: 'disconnected' });
+        console.log('🔄 Real-time: Disconnected');
     }
 
     showNotification(message, type) {

@@ -44,26 +44,27 @@ class Phase3DashboardManager {
     }
 
     async loadAdvancedAnalytics() {
-        try {
-            console.log('🔍 loadAdvancedAnalytics called');
-            console.log('🔍 Current window.apiService:', window.apiService);
-            console.log('🔍 Current window.apiService.isAuthenticated():', window.apiService?.isAuthenticated());
-            
-            this.isLoading = true;
-            this.showLoadingState();
+        if (this.isLoading) {
+            console.log('🔄 Already loading analytics, skipping...');
+            return;
+        }
 
+        this.isLoading = true;
+        this.showLoadingState();
+
+        try {
+            // Check authentication
             if (!window.apiService || !window.apiService.isAuthenticated()) {
-                console.error('❌ No authentication token found');
-                console.log('🔍 apiService available:', !!window.apiService);
-                console.log('🔍 apiService authenticated:', window.apiService?.isAuthenticated());
-                console.log('🔍 apiService object:', window.apiService);
+                console.log('❌ User not authenticated, skipping analytics load');
+                this.isLoading = false;
+                this.hideLoadingState();
                 return;
             }
 
             console.log('✅ Authentication check passed, making API request...');
-            console.log('🔍 Making request to: /advanced-analytics/advanced?includePredictions=true');
+            console.log('🔍 Making request to: getAdvancedAnalytics with predictions enabled');
             
-            const response = await window.apiService.request('/advanced-analytics/advanced?includePredictions=true', { method: 'GET' });
+            const response = await window.apiService.getAdvancedAnalytics(true);
             console.log('📡 API response received:', response);
 
             if (response.success) {

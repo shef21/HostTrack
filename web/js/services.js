@@ -111,10 +111,10 @@ class ServicesManager {
             console.log('Loading services data...');
             
             // Always load from API, never from localStorage
-            const response = await window.apiService.request('/services', { method: 'GET' });
+            const response = await window.apiService.getServices();
             
             if (response) {
-                this.services = response.services || response || [];
+                this.services = response || [];
                 console.log('Services loaded from API:', this.services.length);
                 this.renderServices();
                 this.renderOverview();
