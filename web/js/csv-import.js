@@ -661,15 +661,24 @@ class CSVImporter {
 
             console.log('📤 Creating property:', propertyPayload);
 
-            // Use the existing Supabase properties API through the API service
-            const response = await window.apiService.request('/properties', {
+            // Use your existing working backend for property creation
+            // This will use whatever backend your HostTrack site is already configured to use
+            const response = await fetch('/api/properties', {
                 method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
                 body: JSON.stringify(propertyPayload)
             });
             
-            // API service already handles response parsing and errors
-            console.log('✅ Property created successfully:', response);
-            return response;
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(`Failed to create property: ${errorData.error || response.statusText}`);
+            }
+            
+            const result = await response.json();
+            console.log('✅ Property created successfully:', result);
+            return result;
             
         } catch (error) {
             console.error('❌ Property creation failed:', error);
