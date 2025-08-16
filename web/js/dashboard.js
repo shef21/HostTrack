@@ -198,11 +198,9 @@ class DashboardManager {
             
             // Create proper chart data structures from real data
             if (data.revenue) {
-                // Create daily revenue data for the current month
-                const dailyRevenueData = this.createDailyRevenueData(data.revenue.total);
-                
-                this.updateRevenueChart(dailyRevenueData);
-                console.log('✅ Revenue chart updated with daily data:', dailyRevenueData);
+                // Use real monthly revenue data from backend
+                console.log('📊 Using real monthly revenue data from backend');
+                this.updateRevenueChartWithMonthlyData(data.revenue);
             }
             
             // Update other metrics
@@ -216,54 +214,82 @@ class DashboardManager {
         }
     }
 
-    createDailyRevenueData(totalRevenue) {
-        const currentDate = new Date();
-        const daysInMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0).getDate();
+    // REMOVED: createDailyRevenueData function that was generating fake data
+    // Revenue chart now uses real monthly data from the backend
+
+    updateRevenueChartWithMonthlyData(revenueData) {
+        console.log('📊 Updating revenue chart with real monthly data:', revenueData);
         
-        // Create labels for each day of the month
-        const labels = [];
-        for (let day = 1; day <= daysInMonth; day++) {
-            labels.push(day.toString());
+        if (!this.charts.revenue) {
+            console.warn('⚠️ Revenue chart not available');
+            return;
         }
-        
-        // Create daily revenue distribution
-        const amounts = new Array(daysInMonth).fill(0);
-        
-        if (totalRevenue > 0) {
-            // For now, distribute revenue across a few days to show variation
-            // In a real implementation, this would come from actual daily booking data
-            
-            // Distribute revenue across multiple days (simulating real booking patterns)
-            const revenuePerDay = Math.floor(totalRevenue / 7); // Spread across 7 days
-            const remainingRevenue = totalRevenue % 7;
-            
-            // Add revenue to first 7 days
-            for (let i = 0; i < 7; i++) {
-                amounts[i] = revenuePerDay;
+
+        try {
+            // Check if we have real monthly data
+            if (revenueData.months && revenueData.amounts && revenueData.amounts.length > 0) {
+                // Format month labels to be more readable (e.g., "2025-08" -> "Aug 2025")
+                const formattedLabels = revenueData.months.map(monthKey => {
+                    const date = new Date(monthKey + '-01');
+                    return date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+                });
+
+                const chartData = {
+                    labels: formattedLabels,
+                    datasets: [{
+                        label: 'Monthly Revenue',
+                        data: revenueData.amounts,
+                        borderColor: '#10B981',
+                        backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                        borderWidth: 2,
+                        fill: true,
+                        tension: 0.4
+                    }]
+                };
+
+                this.charts.revenue.data = chartData;
+                this.charts.revenue.update();
+                console.log('✅ Revenue chart updated with real monthly data:', chartData);
+            } else if (revenueData.total > 0) {
+                // Fallback: show total revenue as single bar if no monthly breakdown
+                const chartData = {
+                    labels: ['Total Revenue'],
+                    datasets: [{
+                        label: 'Revenue',
+                        data: [revenueData.total],
+                        borderColor: '#10B981',
+                        backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                        borderWidth: 2,
+                        fill: true,
+                        tension: 0.4
+                    }]
+                };
+
+                this.charts.revenue.data = chartData;
+                this.charts.revenue.update();
+                console.log('✅ Revenue chart updated with total revenue:', chartData);
+            } else {
+                // Show "No Data" state
+                const chartData = {
+                    labels: ['No Revenue Data'],
+                    datasets: [{
+                        label: 'Revenue',
+                        data: [0],
+                        borderColor: '#10B981',
+                        backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                        borderWidth: 2,
+                        fill: true,
+                        tension: 0.4
+                    }]
+                };
+
+                this.charts.revenue.data = chartData;
+                this.charts.revenue.update();
+                console.log('ℹ️ Revenue chart shows no data state');
             }
-            
-            // Add remaining revenue to first day
-            if (remainingRevenue > 0) {
-                amounts[0] += remainingRevenue;
-            }
-            
-            // Add some variation to make it look more realistic
-            amounts[3] += Math.floor(totalRevenue * 0.1); // 10% bonus on day 4
-            amounts[6] += Math.floor(totalRevenue * 0.05); // 5% bonus on day 7
+        } catch (error) {
+            console.error('❌ Error updating revenue chart with monthly data:', error);
         }
-        
-        return {
-            labels: labels,
-            datasets: [{
-                label: 'Revenue',
-                data: amounts,
-                borderColor: '#10B981',
-                backgroundColor: 'rgba(16, 185, 129, 0.1)',
-                borderWidth: 2,
-                fill: true,
-                tension: 0.4
-            }]
-        };
     }
 
     updateDashboardMetrics(data) {
@@ -930,7 +956,7 @@ class DashboardManager {
                     },
                     title: {
                         display: true,
-                        text: 'Day of Month',
+                        text: 'Month',
                         color: '#374151',
                         font: {
                             size: 14,
