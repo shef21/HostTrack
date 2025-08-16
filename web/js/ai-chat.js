@@ -31,8 +31,6 @@ class RateLimiter {
 
 class AIChatIntegration {
     constructor() {
-        console.log('🔍 AI Chat: Constructor called');
-        
         try {
             this.isLoading = false;
             this.conversationHistory = [];
@@ -44,26 +42,17 @@ class AIChatIntegration {
             // API configuration - Use Supabase instead of localhost backend
             this.apiBaseUrl = ''; // No localhost backend needed
             
-            console.log('🔍 AI Chat: Creating RateLimiter...');
             this.rateLimiter = new RateLimiter(15, 60000); // 15 requests per minute
-            console.log('🔍 AI Chat: RateLimiter created successfully');
             
-            console.log('🔍 AI Chat: Calling init()...');
             this.init();
-            console.log('🔍 AI Chat: Constructor completed successfully');
         } catch (error) {
             console.error('🔍 AI Chat: Constructor error:', error);
-            console.error('🔍 AI Chat: Constructor error stack:', error.stack);
             throw error;
         }
     }
 
     init() {
-        console.log('🔍 AI Chat: Init method called');
-        
         try {
-            console.log('🤖 Nathi Chat Integration: Initializing...');
-            
             // Wait for DOM to be ready
             if (document.readyState === 'loading') {
                 document.addEventListener('DOMContentLoaded', () => {
@@ -72,18 +61,13 @@ class AIChatIntegration {
             } else {
                 this.setupIntegration();
             }
-            
-            console.log('🤖 Nathi Chat Integration: Initialization complete');
         } catch (error) {
             console.error('🔍 AI Chat: Init method error:', error);
-            console.error('🔍 AI Chat: Init method error stack:', error.stack);
             throw error;
         }
     }
 
     setupIntegration() {
-        console.log('🔍 AI Chat: Setting up integration with dashboard...');
-        
         // Clean up any duplicate elements first
         this.cleanupDuplicateElements();
         
@@ -94,15 +78,6 @@ class AIChatIntegration {
             return;
         }
 
-        // Check for any duplicate elements
-        const allAIChats = document.querySelectorAll('.ai-assistant-section, [class*="ai-chat"], [id*="ai-chat"]');
-        console.log('🔍 AI Chat: Found AI chat elements:', allAIChats.length);
-        allAIChats.forEach((el, index) => {
-            console.log(`🔍 AI Chat: Element ${index}:`, el.className, el.id);
-        });
-
-        console.log('🔍 AI Chat: Found integrated chat interface, setting up events...');
-        
         // Setup event handlers
         this.bindEvents();
         
@@ -111,43 +86,29 @@ class AIChatIntegration {
         
         // Set up periodic cleanup to catch any new duplicates
         this.startPeriodicCleanup();
-        
-        console.log('🔍 AI Chat: Integration setup complete');
     }
 
     startPeriodicCleanup() {
-        // Run cleanup every 2 seconds for the first 10 seconds, then every 10 seconds
-        let cleanupCount = 0;
-        const cleanupInterval = setInterval(() => {
+        // Run cleanup once after 5 seconds, then every 30 seconds
+        setTimeout(() => {
             this.cleanupDuplicateElements();
-            cleanupCount++;
             
-            if (cleanupCount >= 5) {
-                // After 5 cleanups (10 seconds), switch to less frequent cleanup
-                clearInterval(cleanupInterval);
-                setInterval(() => {
-                    this.cleanupDuplicateElements();
-                }, 10000); // Every 10 seconds
-            }
-        }, 2000);
+            // Set up periodic cleanup every 30 seconds
+            setInterval(() => {
+                this.cleanupDuplicateElements();
+            }, 30000); // Every 30 seconds
+        }, 5000);
     }
 
     cleanupDuplicateElements() {
-        console.log('🔍 AI Chat: Cleaning up duplicate elements...');
-        
         // Remove any old floating chat widgets
         const oldWidgets = document.querySelectorAll('#ai-chat-widget, .ai-chat-widget');
-        oldWidgets.forEach(widget => {
-            console.log('🔍 AI Chat: Removing old widget:', widget);
-            widget.remove();
-        });
+        oldWidgets.forEach(widget => widget.remove());
         
         // Remove any duplicate AI assistant sections
         const allSections = document.querySelectorAll('.ai-assistant-section');
         if (allSections.length > 1) {
-            console.log('🔍 AI Chat: Found multiple AI assistant sections, keeping only the first one');
             for (let i = 1; i < allSections.length; i++) {
-                console.log('🔍 AI Chat: Removing duplicate section:', allSections[i]);
                 allSections[i].remove();
             }
         }
@@ -155,24 +116,20 @@ class AIChatIntegration {
         // Remove any AI chat sections created by phase3Dashboard
         const phase3AIChat = document.getElementById('ai-chat-section');
         if (phase3AIChat) {
-            console.log('🔍 AI Chat: Removing phase3Dashboard AI chat section:', phase3AIChat);
             phase3AIChat.remove();
         }
         
         // Remove any other AI-related duplicate elements
         const duplicateElements = document.querySelectorAll('[id*="ai-chat"], [class*="ai-chat"]');
-        duplicateElements.forEach((el, index) => {
+        duplicateElements.forEach((el) => {
             if (el.closest('.ai-assistant-section')) {
                 // Keep elements within the main AI assistant section
                 return;
             }
             if (el.id === 'ai-chat-section' || el.className.includes('ai-chat-section')) {
-                console.log('🔍 AI Chat: Removing duplicate AI chat element:', el);
                 el.remove();
             }
         });
-        
-        console.log('🔍 AI Chat: Cleanup complete');
     }
 
     bindEvents() {
@@ -644,13 +601,11 @@ class AIChatIntegration {
                 if (window.hostTrackApp && window.hostTrackApp.getAuthToken) {
                     break;
                 }
-                console.log(`🔍 AI Chat: Waiting for main app initialization... attempt ${attempts + 1}`);
                 await new Promise(resolve => setTimeout(resolve, 500));
                 attempts++;
             }
             
             if (attempts >= maxAttempts) {
-                console.log('🔍 AI Chat: Main app not initialized after timeout, using fallback');
                 this.updateStatus('Ready to chat! 😊');
                 return;
             }
@@ -763,10 +718,8 @@ document.addEventListener('DOMContentLoaded', () => {
 // Fallback initialization
 setTimeout(() => {
     if (!window.aiChat) {
-        console.log('🤖 Nathi Chat: Fallback initialization...');
         try {
             window.aiChat = new AIChatIntegration();
-            console.log('🤖 Nathi Chat: Fallback initialization successful');
         } catch (error) {
             console.error('🤖 Nathi Chat: Fallback initialization failed:', error);
         }

@@ -9,16 +9,43 @@ class ChartsManager {
     init() {
         console.log('Charts manager initialized');
         
-        // Listen for page changes to destroy charts
+        // Listen for page unload to destroy charts (not tab switching)
+        window.addEventListener('beforeunload', () => {
+            this.destroyCharts();
+        });
+        
+        // Listen for page visibility changes but don't destroy charts immediately
         document.addEventListener('visibilitychange', () => {
             if (document.hidden) {
-                this.destroyCharts();
+                console.log('🔍 Page hidden (tab switch), preserving charts');
+                // Don't destroy charts on tab switch, just pause them if needed
+            } else {
+                console.log('🔍 Page visible again, charts should still be available');
+                // Charts should still be available when returning to tab
+                this.ensureChartsAvailable();
             }
         });
     }
 
+    // Method to ensure charts are available when page becomes visible
+    ensureChartsAvailable() {
+        console.log('🔍 Ensuring charts are available...');
+        
+        // Check if any charts exist
+        const hasCharts = Object.keys(this.charts).length > 0;
+        
+        if (!hasCharts) {
+            console.log('⚠️ No charts found, they may need to be recreated');
+            // Trigger a custom event that the dashboard can listen to
+            window.dispatchEvent(new CustomEvent('chartsNeedRecreation'));
+        } else {
+            console.log('✅ Charts are available');
+        }
+    }
+
     // Method to destroy charts when switching pages
     destroyCharts() {
+        console.log('🗑️ Destroying all charts...');
         Object.values(this.charts).forEach(chart => {
             if (chart && typeof chart.destroy === 'function') {
                 chart.destroy();
@@ -30,6 +57,8 @@ class ChartsManager {
         if (window.analyticsManager) {
             window.analyticsManager.destroyCharts();
         }
+        
+        console.log('✅ All charts destroyed');
     }
 
     // Method to create a chart with common options

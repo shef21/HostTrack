@@ -10,6 +10,8 @@ class AuthManager {
         console.log('📝 Login email input exists:', !!document.getElementById('login-email'));
         console.log('📝 Login password input exists:', !!document.getElementById('login-password'));
         console.log('📝 Login submit button exists:', !!document.querySelector('#login-form button[type="submit"]'));
+        console.log('🔧 API Service available:', !!window.apiService);
+        console.log('🔧 API Service base URL:', window.apiService?.baseURL);
         
         this.setupAuthEventListeners();
         this.checkAuthStatus();
@@ -65,9 +67,15 @@ class AuthManager {
             return;
         }
         
+        // Check if API service is available
+        if (!window.apiService) {
+            console.log('API service not available yet, skipping auth check');
+            return;
+        }
+        
         // Check if user is already authenticated
-        if (apiService.isAuthenticated()) {
-            const user = apiService.getCurrentUser();
+        if (window.apiService.isAuthenticated()) {
+            const user = window.apiService.getCurrentUser();
             if (window.hostTrackApp) {
                 window.hostTrackApp.currentUser = user;
                 window.hostTrackApp.showApp();
@@ -105,6 +113,8 @@ class AuthManager {
         
         console.log('🔐 === FRONTEND LOGIN DEBUG START ===');
         console.log('⏰ Login attempt timestamp:', new Date().toISOString());
+        console.log('🔧 API Service available:', !!window.apiService);
+        console.log('🔧 API Service base URL:', window.apiService?.baseURL);
         
         // Show loading state on button
         const submitBtn = document.querySelector('#login-form button[type="submit"]');
@@ -128,6 +138,13 @@ class AuthManager {
             }
 
             console.log('✅ Form validation passed');
+            
+            // Check if API service is available
+            if (!window.apiService) {
+                console.error('❌ API service not available');
+                this.showError('System not ready. Please refresh the page and try again.');
+                return;
+            }
             
             // Check backend availability first
             console.log('🔍 Checking backend availability...');
@@ -191,7 +208,7 @@ class AuthManager {
     async checkBackendAvailability() {
         try {
             console.log('Checking backend availability...');
-            const isBackendAvailable = await apiService.healthCheck();
+            const isBackendAvailable = await window.apiService.healthCheck();
             console.log('Backend available:', isBackendAvailable);
             return isBackendAvailable;
         } catch (error) {
@@ -203,7 +220,7 @@ class AuthManager {
     async makeLoginCall(email, password) {
         try {
             console.log('Making login API call...');
-            const response = await apiService.login(email, password);
+            const response = await window.apiService.login(email, password);
             console.log('Login response:', response);
             return response;
         } catch (error) {
@@ -224,11 +241,17 @@ class AuthManager {
                 console.log('🔑 Session token to store:', response.session.access_token ? 'Yes' : 'No');
                 
                 // Update API service
-                apiService.setAuth(response.session.access_token, response.user);
+                window.apiService.setAuth(response.session.access_token, response.user);
                 
                 console.log('✅ User data stored in API service');
-                console.log('👤 API service user ID:', apiService.user?.id);
-                console.log('🔑 API service token present:', !!apiService.token);
+                console.log('👤 API service user ID:', window.apiService.user?.id);
+                console.log('🔑 API service token present:', !!window.apiService.token);
+                
+                // Also update the app's user data
+                if (window.hostTrackApp) {
+                    window.hostTrackApp.user = response.user;
+                    console.log('✅ Updated hostTrackApp user data');
+                }
             } else {
                 console.log('⚠️ Missing user or session data in response');
                 console.log('👤 Response.user exists:', !!response.user);
@@ -239,14 +262,14 @@ class AuthManager {
             console.log('💬 Showing success message...');
             this.showSuccess('Login successful! Redirecting to dashboard...');
             
-            // DON'T automatically reload data after login - this causes duplicate API calls
-            // Data will be loaded when user navigates to specific pages
-            console.log('ℹ️ Skipping automatic data reload - will load when navigating to pages');
+            // Force a small delay to ensure data is properly stored
+            await new Promise(resolve => setTimeout(resolve, 100));
             
             // Hide loading indicator if app is available
             if (window.hostTrackApp) {
                 console.log('🎯 hostTrackApp found, proceeding with redirect...');
-                console.log('👤 Current app user:', window.hostTrackApp.currentUser);
+                console.log('👤 Current app user:', window.hostTrackApp.user);
+                console.log('🔑 API service authenticated:', window.apiService.isAuthenticated());
                 
                 window.hostTrackApp.hideLoadingIndicator();
                 console.log('✅ Loading indicator hidden');

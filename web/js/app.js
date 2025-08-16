@@ -5,6 +5,9 @@ window.appInitialized = false;
 
 class HostTrackApp {
     constructor() {
+        console.log('🔧 === HOSTTRACKAPP CONSTRUCTOR ===');
+        console.log('🔧 App already initialized:', window.appInitialized);
+        
         this.currentPage = 'dashboard';
         this.user = null;
         this.dataLoaded = false;
@@ -12,7 +15,10 @@ class HostTrackApp {
         
         // Initialize only once
         if (!window.appInitialized) {
+            console.log('🔧 Starting app initialization...');
             this.init();
+        } else {
+            console.log('🔧 App already initialized, skipping init()');
         }
     }
 
@@ -22,27 +28,38 @@ class HostTrackApp {
             return;
         }
         
+        console.log('🔧 === HOSTTRACKAPP INIT START ===');
         console.log('🔧 HostTrackApp VERSION 2.0 initializing...');
         console.log('🔧 This version should use the new analytics endpoint');
         
         try {
+            // Wait for all manager classes to be available
+            console.log('🔧 Waiting for manager classes to load...');
+            await this.waitForManagerClasses();
+            
             // Clear any cached sample data from localStorage
+            console.log('🔧 Clearing cached data...');
             this.clearCachedData();
             
             // Set up event listeners first
+            console.log('🔧 Setting up event listeners...');
             this.setupEventListeners();
             
             // Initialize managers only once
+            console.log('🔧 Initializing managers...');
             this.initializeManagers();
             
             // Check authentication and show appropriate screen
+            console.log('🔧 Checking authentication...');
             const authResult = await this.checkAuth();
             console.log('Auth check result:', authResult);
             
             window.appInitialized = true;
-            console.log('HostTrackApp initialized successfully');
+            console.log('✅ HostTrackApp initialized successfully');
+            console.log('🔧 === HOSTTRACKAPP INIT COMPLETE ===');
         } catch (error) {
-            console.error('Error initializing HostTrackApp:', error);
+            console.error('❌ Error initializing HostTrackApp:', error);
+            console.error('❌ Error stack:', error.stack);
             // Show auth screen on error
             this.showAuth();
         }
@@ -73,23 +90,214 @@ class HostTrackApp {
         }
     }
 
+    async waitForManagerClasses() {
+        console.log('🔧 Waiting for manager classes to be available...');
+        
+        const maxWaitTime = 10000; // 10 seconds max wait
+        const checkInterval = 100; // Check every 100ms
+        let elapsed = 0;
+        
+        while (elapsed < maxWaitTime) {
+            const allClassesAvailable = 
+                typeof PropertiesManager !== 'undefined' &&
+                typeof ServicesManager !== 'undefined' &&
+                typeof AuthManager !== 'undefined' &&
+                typeof ChartsManager !== 'undefined';
+            
+            if (allClassesAvailable) {
+                console.log('✅ All manager classes are now available');
+                return;
+            }
+            
+            console.log('⏳ Waiting for manager classes...', {
+                PropertiesManager: typeof PropertiesManager,
+                ServicesManager: typeof ServicesManager,
+                AuthManager: typeof AuthManager,
+                ChartsManager: typeof ChartsManager
+            });
+            
+            await new Promise(resolve => setTimeout(resolve, checkInterval));
+            elapsed += checkInterval;
+        }
+        
+        throw new Error('Timeout waiting for manager classes to load');
+    }
+
     initializeManagers() {
+        console.log('🔧 === INITIALIZING MANAGERS ===');
+        console.log('🔧 PropertiesManager available:', typeof PropertiesManager);
+        console.log('🔧 ServicesManager available:', typeof ServicesManager);
+        console.log('🔧 AuthManager available:', typeof AuthManager);
+        console.log('🔧 ChartsManager available:', typeof ChartsManager);
+        
         // Initialize managers only once
         if (!window.propertiesManager) {
+            console.log('🔧 Creating PropertiesManager...');
             window.propertiesManager = new PropertiesManager();
         }
         if (!window.servicesManager) {
-            window.servicesManager = new ServicesManager();
+            console.log('🔧 Creating ServicesManager...');
+            try {
+                window.servicesManager = new ServicesManager();
+                console.log('✅ ServicesManager created successfully');
+            } catch (error) {
+                console.error('❌ Error creating ServicesManager:', error);
+            }
         }
         // Initialize AuthManager for handling login/register forms
         if (!window.authManager) {
-            window.authManager = new AuthManager();
+            console.log('🔧 Attempting to initialize AuthManager...');
+            console.log('🔧 API service available:', !!window.apiService);
+            console.log('🔧 AuthManager class available:', typeof AuthManager);
+            
+            // Wait for API service to be available
+            setTimeout(() => {
+                if (window.apiService) {
+                    console.log('🔧 Initializing AuthManager with API service available');
+                    try {
+                        window.authManager = new AuthManager();
+                        console.log('✅ AuthManager initialized successfully');
+                    } catch (error) {
+                        console.error('❌ Error initializing AuthManager:', error);
+                    }
+                } else {
+                    console.log('🔧 API service not available yet, retrying...');
+                    setTimeout(() => {
+                        if (window.apiService) {
+                            console.log('🔧 Initializing AuthManager on retry');
+                            try {
+                                window.authManager = new AuthManager();
+                                console.log('✅ AuthManager initialized successfully on retry');
+                            } catch (error) {
+                                console.error('❌ Error initializing AuthManager on retry:', error);
+                            }
+                        } else {
+                            console.error('❌ API service still not available after retry');
+                        }
+                    }, 1000);
+                }
+            }, 500);
         }
         // Initialize ChartsManager for dashboard charts
         if (!window.chartsManager) {
-            window.chartsManager = new ChartsManager();
+            console.log('🔧 Creating ChartsManager...');
+            try {
+                window.chartsManager = new ChartsManager();
+                console.log('✅ ChartsManager created successfully');
+            } catch (error) {
+                console.error('❌ Error creating ChartsManager:', error);
+            }
         }
+        
+        // Initialize CSV Importer for property imports
+        if (!window.csvImporter && typeof CSVImporter !== 'undefined') {
+            console.log('🔧 Creating CSVImporter...');
+            try {
+                window.csvImporter = new CSVImporter();
+                window.csvImporter.init();
+                console.log('✅ CSVImporter created and initialized successfully');
+            } catch (error) {
+                console.error('❌ Error creating CSVImporter:', error);
+            }
+        }
+        
         // Phase3DashboardManager will be initialized after user authentication
+        
+        // Initialize form population after managers are ready
+        this.initializeFormPopulation();
+        
+        console.log('🔧 === MANAGERS INITIALIZATION COMPLETE ===');
+    }
+    
+    initializeFormPopulation() {
+        // Wait for API service to be available
+        setTimeout(() => {
+            console.log('🔧 Initializing form population...');
+            this.populateServiceCategories();
+            this.populatePropertyOptions();
+            
+            // Debug: Check if AuthManager is available
+            if (window.authManager) {
+                console.log('✅ AuthManager is available:', window.authManager);
+            } else {
+                console.log('❌ AuthManager not found');
+            }
+            
+            // Debug: Check if API service is available
+            if (window.apiService) {
+                console.log('✅ API Service is available:', window.apiService);
+            } else {
+                console.log('❌ API Service not found');
+            }
+            
+            // Initialize CSV Importer if not already done
+            if (!window.csvImporter && typeof CSVImporter !== 'undefined') {
+                console.log('🔧 Initializing CSVImporter in form population...');
+                try {
+                    window.csvImporter = new CSVImporter();
+                    window.csvImporter.init();
+                    console.log('✅ CSVImporter initialized in form population');
+                } catch (error) {
+                    console.error('❌ Error initializing CSVImporter in form population:', error);
+                }
+            }
+        }, 1000);
+    }
+    
+    async populateServiceCategories() {
+        try {
+            // Get service categories from database or use defaults
+            const categories = [
+                'cleaning', 'insurance', 'maintenance', 'utilities', 
+                'internet', 'security', 'gardening', 'pool', 'laundry'
+            ];
+            
+            const categorySelect = document.getElementById('service-category');
+            if (categorySelect) {
+                // Clear existing options except the first one
+                categorySelect.innerHTML = '<option value="">Select category</option>';
+                
+                // Add dynamic categories
+                categories.forEach(category => {
+                    const option = document.createElement('option');
+                    option.value = category;
+                    option.textContent = category.charAt(0).toUpperCase() + category.slice(1);
+                    categorySelect.appendChild(option);
+                });
+            }
+        } catch (error) {
+            console.warn('Could not populate service categories:', error);
+        }
+    }
+    
+    async populatePropertyOptions() {
+        try {
+            // Get user's properties from database
+            if (window.apiService && window.apiService.isAuthenticated()) {
+                const properties = await window.apiService.getProperties();
+                const propertySelect = document.getElementById('service-property');
+                
+                if (propertySelect && properties) {
+                    // Clear existing options except the first one
+                    propertySelect.innerHTML = '<option value="">All Properties</option>';
+                    
+                    // Add user's actual properties
+                    properties.forEach(property => {
+                        const option = document.createElement('option');
+                        option.value = property.id;
+                        option.textContent = property.name || `Property ${property.id}`;
+                        propertySelect.appendChild(option);
+                    });
+                }
+            }
+        } catch (error) {
+            console.warn('Could not populate property options:', error);
+            // Fallback to default options if API fails
+            const propertySelect = document.getElementById('service-property');
+            if (propertySelect) {
+                propertySelect.innerHTML = '<option value="">All Properties</option>';
+            }
+        }
     }
 
     setupEventListeners() {
@@ -814,13 +1022,30 @@ window.openProfileModal = () => window.hostTrackApp?.openProfileModal();
 
 // Initialize app when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('DOM loaded, initializing app...');
+    console.log('🔧 === DOM CONTENT LOADED ===');
+    console.log('🔧 DOM loaded, initializing app...');
+    console.log('🔧 hostTrackApp already exists:', !!window.hostTrackApp);
+    console.log('🔧 appInitialized flag:', window.appInitialized);
+    console.log('🔧 HostTrackApp class defined:', typeof HostTrackApp);
+    console.log('🔧 PropertiesManager class defined:', typeof PropertiesManager);
+    console.log('🔧 ServicesManager class defined:', typeof ServicesManager);
+    console.log('🔧 AuthManager class defined:', typeof AuthManager);
+    
     if (!window.hostTrackApp) {
-        window.hostTrackApp = new HostTrackApp();
+        console.log('🔧 Creating new HostTrackApp instance...');
+        try {
+            window.hostTrackApp = new HostTrackApp();
+            console.log('✅ HostTrackApp created successfully');
+        } catch (error) {
+            console.error('❌ Error creating HostTrackApp:', error);
+        }
+    } else {
+        console.log('🔧 Using existing hostTrackApp instance');
     }
     
     // Fallback: If app doesn't initialize properly, show auth screen after 2 seconds
     setTimeout(() => {
+        console.log('🔧 === FALLBACK CHECK ===');
         const app = document.getElementById('app');
         const authScreen = document.getElementById('auth-screen');
         
@@ -837,6 +1062,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }, 2000);
 });
+
+// Also try immediate initialization if DOM is already ready
+if (document.readyState === 'loading') {
+    console.log('🔧 DOM still loading, waiting for DOMContentLoaded...');
+} else {
+    console.log('🔧 DOM already ready, initializing immediately...');
+    if (!window.hostTrackApp) {
+        console.log('🔧 Creating HostTrackApp immediately...');
+        window.hostTrackApp = new HostTrackApp();
+    }
+}
 
 // Force update user info (for debugging)
 window.forceUpdateUserInfo = () => {

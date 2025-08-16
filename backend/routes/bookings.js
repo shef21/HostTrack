@@ -101,6 +101,46 @@ router.get('/stats', authenticateUser, async (req, res) => {
   }
 });
 
+// Get upcoming bookings for dashboard
+router.get('/upcoming', authenticateUser, async (req, res) => {
+  try {
+    // Create client with user context for RLS
+    const supabase = createUserClient(req.headers.authorization?.split(' ')[1]);
+    
+    // Get confirmed bookings with check-in dates in the future
+    const today = new Date().toISOString().split('T')[0];
+    
+    const { data: upcomingBookings, error } = await supabase
+      .from('bookings')
+      .select(`
+        id,
+        guest_name,
+        guest_email,
+        check_in,
+        check_out,
+        price,
+        status,
+        property:properties(name, location)
+      `)
+      .eq('owner_id', req.user.id)
+      .eq('status', 'confirmed')
+      .gte('check_in', today)
+      .order('check_in', { ascending: true })
+      .limit(5); // Limit to 5 upcoming bookings for dashboard
+    
+    if (error) {
+      console.error('Upcoming bookings fetch error:', error);
+      return res.status(500).json({ message: 'Failed to fetch upcoming bookings' });
+    }
+    
+    res.json(upcomingBookings);
+    
+  } catch (error) {
+    console.error('Upcoming bookings error:', error);
+    res.status(500).json({ message: 'Server error' });
+  }
+});
+
 // Create new booking
 router.post('/', authenticateUser, async (req, res) => {
   try {

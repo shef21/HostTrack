@@ -40,29 +40,71 @@ async function getDashboardData(req, res) {
         // Calculate revenue from confirmed bookings and get monthly breakdown
         const { data: revenueData } = await userClient
             .from('bookings')
-            .select('price, check_in')
+            .select('price, check_in, check_out')
             .eq('owner_id', userId)
             .eq('status', 'confirmed');
 
-        const totalRevenue = revenueData?.reduce((sum, booking) => sum + (booking.price || 0), 0) || 0;
+        console.log('🔍 Revenue data from bookings:', revenueData);
 
-        // Calculate monthly revenue for the last 6 months
+        const totalRevenue = revenueData?.reduce((sum, booking) => sum + (booking.price || 0), 0) || 0;
+        console.log('🔍 Total revenue calculated:', totalRevenue);
+
+        // Calculate monthly revenue for the last 6 months with better date handling
         const monthlyRevenue = {};
         const currentDate = new Date();
+        
+        // Create month keys for the last 6 months INCLUDING current month
         for (let i = 5; i >= 0; i--) {
             const month = new Date(currentDate.getFullYear(), currentDate.getMonth() - i, 1);
             const monthKey = month.toISOString().slice(0, 7);
             monthlyRevenue[monthKey] = 0;
         }
 
+        console.log('🔍 Month keys created:', Object.keys(monthlyRevenue));
+
+        // Distribute revenue across months based on check-in dates
         revenueData?.forEach(booking => {
-            if (booking.check_in) {
-                const month = new Date(booking.check_in).toISOString().slice(0, 7);
-                if (monthlyRevenue[month] !== undefined) {
-                    monthlyRevenue[month] += (booking.price || 0);
+            if (booking.check_in && booking.price) {
+                const checkInDate = new Date(booking.check_in);
+                const monthKey = checkInDate.toISOString().slice(0, 7);
+                
+                console.log('🔍 Processing booking:', {
+                    checkIn: booking.check_in,
+                    monthKey: monthKey,
+                    price: booking.price,
+                    monthExists: monthlyRevenue[monthKey] !== undefined
+                });
+                
+                // If the month is in our 6-month range, add the revenue
+                if (monthlyRevenue[monthKey] !== undefined) {
+                    monthlyRevenue[monthKey] += (booking.price || 0);
+                    console.log('🔍 Added revenue to month:', monthKey, 'New total:', monthlyRevenue[monthKey]);
+                } else {
+                    // If the month is not in our range, add it dynamically
+                    monthlyRevenue[monthKey] = (monthlyRevenue[monthKey] || 0) + (booking.price || 0);
+                    console.log('🔍 Added new month:', monthKey, 'Revenue:', monthlyRevenue[monthKey]);
                 }
             }
         });
+
+        console.log('🔍 Monthly revenue after distribution:', monthlyRevenue);
+
+        // Sort months chronologically
+        const sortedMonths = Object.keys(monthlyRevenue).sort();
+        const sortedAmounts = sortedMonths.map(month => monthlyRevenue[month]);
+
+        console.log('🔍 Sorted months:', sortedMonths);
+        console.log('🔍 Sorted amounts:', sortedAmounts);
+
+        // If no revenue was distributed to months but we have total revenue,
+        // distribute it to the current month as a fallback
+        if (totalRevenue > 0 && Object.values(monthlyRevenue).every(amount => amount === 0)) {
+            const currentMonthKey = currentDate.toISOString().slice(0, 7);
+            if (monthlyRevenue[currentMonthKey] !== undefined) {
+                monthlyRevenue[currentMonthKey] = totalRevenue;
+                console.log('🔍 Fallback: Distributed total revenue to current month:', currentMonthKey);
+            }
+        }
 
         // Calculate occupancy rate for current month
         const currentMonth = new Date().toISOString().slice(0, 7);
@@ -189,8 +231,8 @@ async function getDashboardData(req, res) {
             revenue: {
                 total: totalRevenue,
                 monthly: monthlyRevenue,
-                months: Object.keys(monthlyRevenue),
-                amounts: Object.values(monthlyRevenue)
+                months: sortedMonths,
+                amounts: sortedAmounts
             },
             occupancy: {
                 rate: occupancyRate,
