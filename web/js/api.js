@@ -1,14 +1,16 @@
 // API Service Layer for HostTrack Frontend - VERSION 2.0 (CACHE BUSTED)
 class APIService {
     constructor() {
-        // Use your Railway backend for production
-        this.baseURL = 'https://hosttrack-production.up.railway.app';
+        // Use local backend for development, Railway for production
+        this.baseURL = window.location.hostname === 'localhost' 
+            ? 'http://localhost:3001' 
+            : 'https://hosttrack-production.up.railway.app';
         this.token = null;
         this.user = null;
         this.isAuthenticatedFlag = false;
         
         console.log('🔧 API Service VERSION 2.0 initialized with base URL:', this.baseURL);
-        console.log('🔧 This version should call /api/analytics/dashboard instead of individual endpoints');
+        console.log('🔧 Environment detected:', window.location.hostname === 'localhost' ? 'LOCAL' : 'PRODUCTION');
     }
 
     // Set authentication token and user

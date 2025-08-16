@@ -3,6 +3,12 @@
 class PropertiesManager {
     constructor() {
         this.properties = [];
+        this.currentTab = 'all-properties';
+        this.filters = {
+            search: '',
+            type: '',
+            status: ''
+        };
         this.initialized = false;
         this.initializing = false;
         this.dataLoaded = false;
@@ -27,6 +33,54 @@ class PropertiesManager {
             this.properties = [];
             this.setupEventListeners();
             this.initialized = true;
+        } finally {
+            this.initializing = false;
+        }
+    }
+
+    async loadPropertiesData(forceReload = false) {
+        try {
+            console.log('🔍 Loading properties from backend...');
+            
+            // Use the API service for consistent base URL handling
+            if (window.apiService) {
+                const response = await window.apiService.request('/api/properties');
+                this.properties = response.properties || response || [];
+                console.log('✅ Properties loaded successfully:', this.properties.length);
+                console.log('🔍 Properties data structure:', this.properties);
+                
+                // Log each property for debugging
+                this.properties.forEach((prop, index) => {
+                    console.log(`🔍 Property ${index + 1}:`, {
+                        id: prop.id,
+                        name: prop.name,
+                        status: prop.status,
+                        is_featured: prop.is_featured,
+                        occupancy_rate: prop.occupancy_rate,
+                        type: prop.type,
+                        platforms: prop.platforms,
+                        hasPlatforms: prop.hasOwnProperty('platforms'),
+                        platformsType: typeof prop.platforms,
+                        platformsLength: Array.isArray(prop.platforms) ? prop.platforms.length : 'N/A'
+                    });
+                });
+                
+                // Initialize tab system after properties are loaded
+                this.setupTabListeners();
+                this.setupFilterListeners();
+                this.updateTabCounts();
+                
+                // Render with current tab and filters
+                this.applyFilters();
+                
+                this.initialized = true;
+            } else {
+                throw new Error('API service not available');
+            }
+        } catch (error) {
+            console.error('❌ Error loading properties:', error);
+            this.properties = [];
+            this.renderProperties([]);
         } finally {
             this.initializing = false;
         }
@@ -330,54 +384,54 @@ class PropertiesManager {
         }
     }
 
-    async loadPropertiesData(forceReload = false) {
-        try {
-            console.log('Loading properties data...');
-            
-            // Always load from API, never from localStorage
-            const response = await window.apiService.getProperties();
-            
-            if (response) {
-                this.properties = response || [];
-                console.log('Properties loaded from API:', this.properties.length);
-                this.renderProperties();
-                this.dataLoaded = true;
-            } else {
-                console.log('No properties data received from API');
-                this.properties = [];
-                this.renderProperties();
-                this.dataLoaded = true;
-            }
-        } catch (error) {
-            console.error('Error loading properties:', error);
-            // Show error to user instead of falling back to localStorage
-            this.showErrorMessage('Failed to load properties. Please try again.');
-            this.properties = [];
-            this.renderProperties();
-            this.dataLoaded = true;
+    async loadProperties() {
+        if (this.initializing) {
+            console.log('Properties loading already in progress...');
+            return;
         }
-    }
 
-    savePropertiesToLocalStorage() {
-        try {
-            localStorage.setItem('hosttrack_properties', JSON.stringify(this.properties));
-        } catch (error) {
-            console.error('Error saving properties to localStorage:', error);
-        }
-    }
+        this.initializing = true;
+        console.log('🔍 Loading properties from Supabase...');
 
-    loadPropertiesFromLocalStorage() {
         try {
-            const stored = localStorage.getItem('hosttrack_properties');
-            if (stored) {
-                this.properties = JSON.parse(stored);
-                console.log('Loaded properties from localStorage:', this.properties);
-            } else {
-                this.properties = [];
+            // Use API service for consistent authentication
+            if (!window.apiService || !window.apiService.isAuthenticated()) {
+                throw new Error('API service not available or user not authenticated');
             }
+            
+            const data = await window.apiService.request('/api/properties');
+            this.properties = data.properties || data || [];
+            console.log('✅ Properties loaded successfully via API service:', this.properties.length);
+            
+            console.log('🔍 Properties data structure:', this.properties);
+            
+            // Log each property for debugging
+            this.properties.forEach((prop, index) => {
+                console.log(`🔍 Property ${index + 1}:`, {
+                    id: prop.id,
+                    name: prop.name,
+                    status: prop.status,
+                    is_featured: prop.is_featured,
+                    occupancy_rate: prop.occupancy_rate,
+                    type: prop.type
+                });
+            });
+            
+            // Initialize tab system after properties are loaded
+            this.setupTabListeners();
+            this.setupFilterListeners();
+            this.updateTabCounts();
+            
+            // Render with current tab and filters
+            this.applyFilters();
+            
+            this.initialized = true;
         } catch (error) {
-            console.error('Error loading properties from localStorage:', error);
+            console.error('❌ Error loading properties:', error);
             this.properties = [];
+            this.renderProperties([]);
+        } finally {
+            this.initializing = false;
         }
     }
 
@@ -512,7 +566,7 @@ class PropertiesManager {
             console.log('✅ Property created via API:', response);
             
             // Reload properties from API to ensure consistency
-            await this.loadPropertiesData(true);
+            await this.loadProperties();
             
             // Close modal and reset form
             this.closeModal('add-property-modal');
@@ -695,7 +749,7 @@ class PropertiesManager {
             console.log('Property updated via API:', response);
             
             // Reload properties from API to ensure consistency
-            await this.loadPropertiesData(true);
+            await this.loadProperties();
             
             // Close modal and reset form
             this.closeModal('add-property-modal');
@@ -727,7 +781,7 @@ class PropertiesManager {
             console.log('Property deleted via API');
             
             // Reload properties from API to ensure consistency
-            await this.loadPropertiesData(true);
+            await this.loadProperties();
             
             // Refresh all property dropdowns across the application
             if (window.hostTrackApp) {
@@ -822,7 +876,7 @@ class PropertiesManager {
             console.log('Property and dependencies force deleted via API');
             
             // Reload properties from API to ensure consistency
-            await this.loadPropertiesData(true);
+            await this.loadProperties();
             
             // Refresh all property dropdowns across the application
             if (window.hostTrackApp) {
@@ -852,27 +906,81 @@ class PropertiesManager {
 
     renderProperties(propertiesToRender = null) {
         const container = document.getElementById('properties-grid');
-        if (!container) {
-            console.log('Properties grid container not found');
-            return;
-        }
+        if (!container) return;
 
+        // Use provided properties or fall back to all properties
         const properties = propertiesToRender || this.properties;
-        console.log('Rendering properties:', properties);
+        console.log('Rendering properties:', properties.length, 'Current tab:', this.currentTab);
 
         if (properties.length === 0) {
+            // Show different empty states based on current tab and filters
+            let emptyMessage = '';
+            let emptyIcon = '🏠';
+            
+            if (this.filters.search || this.filters.type || this.filters.status) {
+                // Filters applied but no results
+                emptyMessage = 'No properties match your current filters';
+                emptyIcon = '🔍';
+            } else {
+                // No properties at all
+                switch (this.currentTab) {
+                    case 'active-properties':
+                        emptyMessage = 'No active properties found';
+                        emptyIcon = '✅';
+                        break;
+                    case 'featured-properties':
+                        emptyMessage = 'No featured properties yet';
+                        emptyIcon = '⭐';
+                        break;
+                    case 'low-occupancy':
+                        emptyMessage = 'All properties have good occupancy rates!';
+                        emptyIcon = '📈';
+                        break;
+                    default:
+                        emptyMessage = 'No properties yet';
+                        emptyIcon = '🏠';
+                }
+            }
+
             container.innerHTML = `
                 <div class="empty-state">
-                    <div class="empty-state-icon">🏠</div>
-                    <h3>No properties yet</h3>
-                    <p>Add your first property to get started</p>
+                    <div class="empty-state-icon">${emptyIcon}</div>
+                    <h3>${emptyMessage}</h3>
+                    <p>${this.filters.search || this.filters.type || this.filters.status ? 
+                        'Try adjusting your filters or add a new property to get started' : 
+                        'Add your first property to get started'}</p>
                     <button class="button-primary" onclick="window.hostTrackApp.openModal('add-property-modal')">
                         Add Property
                     </button>
+                    ${(this.filters.search || this.filters.type || this.filters.status) ? 
+                        `<button class="button-secondary" onclick="window.propertiesManager.clearFilters()">
+                            Clear Filters
+                        </button>` : ''
+                    }
                 </div>
             `;
             return;
         }
+
+        // Debug logging for platforms
+        properties.forEach((prop, index) => {
+            console.log(`🎨 Rendering Property ${index + 1}:`, {
+                name: prop.name,
+                platforms: prop.platforms,
+                hasPlatforms: prop.hasOwnProperty('platforms'),
+                platformsType: typeof prop.platforms,
+                platformsLength: Array.isArray(prop.platforms) ? prop.platforms.length : 'N/A',
+                platformsCondition: prop.platforms && prop.platforms.length > 0
+            });
+            
+            // Log the actual HTML that will be generated for platforms
+            if (prop.platforms && prop.platforms.length > 0) {
+                const platformsHTML = prop.platforms.map(platform => `
+                    <span class="platform-tag">${platform}</span>
+                `).join('');
+                console.log(`🏷️ Platforms HTML for ${prop.name}:`, platformsHTML);
+            }
+        });
 
         container.innerHTML = properties.map(property => `
             <div class="property-card">
@@ -882,6 +990,7 @@ class PropertiesManager {
                          onerror="this.src='https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=400'"
                          style="object-fit: cover; width: 100%; height: 100%;">
                     ${property.is_featured ? '<div class="property-badge">Featured</div>' : ''}
+                    ${property.status && property.status !== 'active' ? `<div class="property-status-badge ${property.status}">${property.status}</div>` : ''}
                 </div>
                 <div class="property-content">
                     <h3 class="property-title">${property.name}</h3>
@@ -904,16 +1013,16 @@ class PropertiesManager {
                             <span class="property-stat-label">Max Guests</span>
                         </div>
                     </div>
-                    ${property.platforms && property.platforms.length > 0 ? `
-                    <div class="property-platforms">
-                        <span class="platforms-label">Platforms:</span>
-                        <div class="platform-tags">
-                            ${property.platforms.map(platform => `
-                                <span class="platform-tag">${platform}</span>
-                            `).join('')}
-                        </div>
+                                    ${property.platforms && property.platforms.length > 0 ? `
+                <div class="property-platforms">
+                    <span class="platforms-label">Platforms:</span>
+                    <div class="platform-tags">
+                        ${property.platforms.map(platform => `
+                            <span class="platform-tag">${platform}</span>
+                        `).join('')}
                     </div>
-                    ` : ''}
+                </div>
+                ` : ''}
                     <div class="property-actions">
                         <button class="button-secondary edit-property-btn" data-property-id="${property.id}" style="cursor: pointer; z-index: 10; position: relative; pointer-events: auto;" onclick="console.log('Edit button clicked directly!', '${property.id}'); window.propertiesManager.updateProperty('${property.id}');">
                             Edit
@@ -959,6 +1068,433 @@ class PropertiesManager {
         }
         
         console.log('Property lists refreshed successfully');
+    }
+
+    setupTabListeners() {
+        const tabButtons = document.querySelectorAll('.property-tab');
+        tabButtons.forEach(tab => {
+            tab.addEventListener('click', () => {
+                this.switchTab(tab.dataset.tab);
+            });
+        });
+    }
+
+    setupFilterListeners() {
+        // Search input
+        const searchInput = document.querySelector('.property-search-input');
+        if (searchInput) {
+            searchInput.addEventListener('input', (e) => {
+                this.filters.search = e.target.value;
+                this.applyFilters();
+            });
+        }
+
+        // Type filter
+        const typeFilter = document.getElementById('property-type-filter');
+        if (typeFilter) {
+            typeFilter.addEventListener('change', (e) => {
+                this.filters.type = e.target.value;
+                this.applyFilters();
+            });
+        }
+
+        // Status filter
+        const statusFilter = document.getElementById('property-status-filter');
+        if (statusFilter) {
+            statusFilter.addEventListener('change', (e) => {
+                this.filters.status = e.target.value;
+                this.applyFilters();
+            });
+        }
+    }
+
+    switchTab(tabName) {
+        console.log('🔧 Switching to tab:', tabName);
+        
+        // Update active tab styling
+        const tabButtons = document.querySelectorAll('.property-tab');
+        tabButtons.forEach(tab => {
+            tab.classList.remove('active');
+            if (tab.dataset.tab === tabName) {
+                tab.classList.add('active');
+            }
+        });
+        
+        this.currentTab = tabName;
+        this.applyFilters();
+        this.updateTabCounts();
+    }
+
+    applyFilters() {
+        console.log('🔧 Applying filters:', this.filters, 'Current tab:', this.currentTab);
+        console.log('🔍 Total properties available:', this.properties.length);
+        
+        let filteredProperties = this.properties;
+        
+        // Apply tab-based filtering first
+        switch (this.currentTab) {
+            case 'active-properties':
+                // Show properties that are explicitly active OR don't have a status (assume active)
+                filteredProperties = this.properties.filter(p => {
+                    const isActive = p.status === 'active' || !p.status || p.status === undefined;
+                    console.log(`🔍 Property "${p.name}" status: "${p.status}" -> isActive: ${isActive}`);
+                    return isActive;
+                });
+                break;
+            case 'featured-properties':
+                // Show properties that are explicitly featured
+                filteredProperties = this.properties.filter(p => {
+                    const isFeatured = p.is_featured === true;
+                    console.log(`🔍 Property "${p.name}" is_featured: ${p.is_featured} -> isFeatured: ${isFeatured}`);
+                    return isFeatured;
+                });
+                break;
+            case 'low-occupancy':
+                // Show properties with low occupancy OR no occupancy data (assume needs attention)
+                filteredProperties = this.properties.filter(p => {
+                    const hasLowOccupancy = (p.occupancy_rate !== undefined && p.occupancy_rate < 50) || 
+                                           (p.occupancy_rate === undefined || p.occupancy_rate === null);
+                    console.log(`🔍 Property "${p.name}" occupancy_rate: ${p.occupancy_rate} -> hasLowOccupancy: ${hasLowOccupancy}`);
+                    return hasLowOccupancy;
+                });
+                break;
+            default: // 'all-properties'
+                // Show all properties
+                filteredProperties = this.properties;
+                console.log('🔍 Showing all properties (no tab filtering)');
+        }
+        
+        console.log(`🔍 After tab filtering: ${filteredProperties.length} properties`);
+        
+        // Apply search filter
+        if (this.filters.search) {
+            const searchTerm = this.filters.search.toLowerCase();
+            filteredProperties = filteredProperties.filter(p => 
+                p.name.toLowerCase().includes(searchTerm) ||
+                p.location.toLowerCase().includes(searchTerm) ||
+                p.type.toLowerCase().includes(searchTerm)
+            );
+            console.log(`🔍 After search filtering: ${filteredProperties.length} properties`);
+        }
+        
+        // Apply type filter
+        if (this.filters.type) {
+            filteredProperties = filteredProperties.filter(p => p.type === this.filters.type);
+            console.log(`🔍 After type filtering: ${filteredProperties.length} properties`);
+        }
+        
+        // Apply status filter
+        if (this.filters.status) {
+            filteredProperties = filteredProperties.filter(p => p.status === this.filters.status);
+            console.log(`🔍 After status filtering: ${filteredProperties.length} properties`);
+        }
+        
+        console.log('🔧 Final filtered properties:', filteredProperties.length, 'out of', this.properties.length);
+        console.log('🔍 Properties to display:', filteredProperties.map(p => p.name));
+        
+        this.renderProperties(filteredProperties);
+    }
+
+    clearFilters() {
+        console.log('🔧 Clearing all filters');
+        
+        // Reset filter values
+        this.filters = {
+            search: '',
+            type: '',
+            status: ''
+        };
+        
+        // Reset UI elements
+        const searchInput = document.querySelector('.property-search-input');
+        if (searchInput) searchInput.value = '';
+        
+        const typeFilter = document.getElementById('property-type-filter');
+        if (typeFilter) typeFilter.value = '';
+        
+        const statusFilter = document.getElementById('property-status-filter');
+        if (statusFilter) statusFilter.value = '';
+        
+        // Reapply filters
+        this.applyFilters();
+    }
+
+    updateTabCounts() {
+        const counts = {
+            'all-properties': this.properties.length,
+            'active-properties': this.properties.filter(p => p.status === 'active' || !p.status).length,
+            'featured-properties': this.properties.filter(p => p.is_featured).length,
+            'low-occupancy': this.properties.filter(p => p.occupancy_rate < 50 || !p.occupancy_rate).length
+        };
+        
+        // Update count displays
+        Object.keys(counts).forEach(tabName => {
+            const countElement = document.getElementById(`${tabName}-count`);
+            if (countElement) {
+                countElement.textContent = counts[tabName];
+            }
+        });
+        
+        console.log('🔧 Tab counts updated:', counts);
+    }
+
+    // Helper method to update trend item styling
+    updateTrendItemStatus(element, status) {
+        const trendItem = element.closest('.trend-item');
+        if (trendItem) {
+            // Remove existing status classes
+            trendItem.classList.remove('positive', 'negative', 'neutral');
+            // Add new status class
+            trendItem.classList.add(status);
+        }
+    }
+
+    // Create sample properties for testing and development
+    async createSampleProperties() {
+        console.log('🏠 Creating sample properties in Supabase database...');
+        
+        const sampleProperties = [
+            {
+                name: 'Cape Town Beach Villa',
+                location: 'Cape Town, Western Cape',
+                type: 'house',
+                price: 2500,
+                bedrooms: 3,
+                bathrooms: 2,
+                max_guests: 6,
+                image_url: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=400',
+                is_featured: true,
+                status: 'active',
+                platforms: ['Airbnb', 'Booking.com'],
+                occupancy_rate: 85
+            },
+            {
+                name: 'Johannesburg Business Suite',
+                location: 'Johannesburg, Gauteng',
+                type: 'apartment',
+                price: 1800,
+                bedrooms: 2,
+                bathrooms: 1,
+                max_guests: 4,
+                image_url: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=400',
+                is_featured: false,
+                status: 'active',
+                platforms: ['Airbnb'],
+                occupancy_rate: 72
+            },
+            {
+                name: 'Durban Coastal Apartment',
+                location: 'Durban, KwaZulu-Natal',
+                type: 'apartment',
+                price: 1200,
+                bedrooms: 1,
+                bathrooms: 1,
+                max_guests: 2,
+                image_url: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=400',
+                is_featured: false,
+                status: 'active',
+                platforms: ['Booking.com', 'VRBO'],
+                occupancy_rate: 45
+            },
+            {
+                name: 'Pretoria Garden Cottage',
+                location: 'Pretoria, Gauteng',
+                type: 'cottage',
+                price: 1500,
+                bedrooms: 2,
+                bathrooms: 1,
+                max_guests: 4,
+                image_url: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=400',
+                is_featured: true,
+                status: 'maintenance',
+                platforms: ['Airbnb'],
+                occupancy_rate: 0
+            },
+            {
+                name: 'Port Elizabeth Studio',
+                location: 'Port Elizabeth, Eastern Cape',
+                type: 'studio',
+                price: 800,
+                bedrooms: 0,
+                bathrooms: 1,
+                max_guests: 2,
+                image_url: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=400',
+                is_featured: false,
+                status: 'inactive',
+                platforms: [],
+                occupancy_rate: 0
+            }
+        ];
+        
+        try {
+            // Create properties in Supabase database
+            const createdProperties = [];
+            
+            for (const propertyData of sampleProperties) {
+                try {
+                    if (!window.apiService || !window.apiService.isAuthenticated()) {
+                        throw new Error('API service not available or user not authenticated');
+                    }
+                    
+                    const createdProperty = await window.apiService.createProperty(propertyData);
+                    createdProperties.push(createdProperty);
+                    console.log('✅ Created property:', createdProperty.name);
+                } catch (error) {
+                    console.error('❌ Error creating property:', propertyData.name, error);
+                }
+            }
+            
+            if (createdProperties.length > 0) {
+                // Reload properties from database
+                await this.loadProperties();
+                
+                // Show success notification
+                this.showNotification(`Successfully created ${createdProperties.length} sample properties in Supabase!`, 'success');
+                
+                console.log('✅ Sample properties created in Supabase:', createdProperties.length);
+                return createdProperties;
+            } else {
+                throw new Error('No properties were created');
+            }
+            
+        } catch (error) {
+            console.error('❌ Error creating sample properties:', error);
+            this.showNotification('Failed to create sample properties. Please check your connection.', 'error');
+            throw error;
+        }
+    }
+
+    // Clear all properties from Supabase (use with caution)
+    async clearAllProperties() {
+        if (confirm('⚠️ Are you sure you want to delete ALL properties from Supabase? This action cannot be undone.')) {
+            console.log('🗑️ Clearing all properties from Supabase...');
+            
+            try {
+                // Get all properties first using API service
+                if (!window.apiService || !window.apiService.isAuthenticated()) {
+                    throw new Error('API service not available or user not authenticated');
+                }
+                
+                const data = await window.apiService.request('/api/properties');
+                const properties = data.properties || data || [];
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    const properties = data.properties || [];
+                    
+                    if (properties.length === 0) {
+                        this.showNotification('No properties to delete', 'info');
+                        return;
+                    }
+                    
+                    // Delete each property
+                    let deletedCount = 0;
+                    for (const property of properties) {
+                        try {
+                            await window.apiService.request(`/api/properties/${property.id}`, {
+                                method: 'DELETE'
+                            });
+                            
+                            deletedCount++;
+                            console.log('✅ Deleted property:', property.name);
+                        } catch (error) {
+                            console.error('❌ Error deleting property:', property.name, error);
+                        }
+                    }
+                    
+                    // Reload properties
+                    await this.loadProperties();
+                    
+                    this.showNotification(`Deleted ${deletedCount} properties from Supabase`, 'info');
+                    console.log('✅ Properties cleared from Supabase:', deletedCount);
+                    
+                } else {
+                    throw new Error('Failed to fetch properties for deletion');
+                }
+                
+            } catch (error) {
+                console.error('❌ Error clearing properties:', error);
+                this.showNotification('Failed to clear properties. Please check your connection.', 'error');
+            }
+        }
+    }
+
+    // Show notification
+    showNotification(message, type = 'info') {
+        // Create a simple notification system
+        const notification = document.createElement('div');
+        notification.className = `notification notification-${type}`;
+        notification.innerHTML = `
+            <span class="notification-message">${message}</span>
+            <button class="notification-close" onclick="this.parentElement.remove()">×</button>
+        `;
+        
+        // Add to page
+        document.body.appendChild(notification);
+        
+        // Auto-remove after 5 seconds
+        setTimeout(() => {
+            if (notification.parentElement) {
+                notification.remove();
+            }
+        }, 5000);
+    }
+
+    // Debug properties - troubleshoot loading issues
+    async debugProperties() {
+        console.log('🐛 === PROPERTIES DEBUG MODE ===');
+        
+        // Check authentication
+        const token = localStorage.getItem('accessToken');
+        console.log('🔑 Authentication token exists:', !!token);
+        if (token) {
+            try {
+                const payload = JSON.parse(atob(token.split('.')[1]));
+                const expiry = new Date(payload.exp * 1000);
+                console.log('🔑 Token expiry:', expiry.toISOString());
+                console.log('🔑 Token valid:', expiry > new Date());
+            } catch (error) {
+                console.error('🔑 Token parsing error:', error);
+            }
+        }
+        
+        // Check current properties state
+        console.log('📊 Current properties state:', {
+            totalProperties: this.properties.length,
+            initialized: this.initialized,
+            currentTab: this.currentTab,
+            filters: this.filters
+        });
+        
+        // Check DOM elements
+        console.log('🏗️ DOM elements check:', {
+            propertiesGrid: !!document.getElementById('properties-grid'),
+            propertyTabs: !!document.querySelector('.property-tabs'),
+            tabCounts: {
+                all: !!document.getElementById('all-properties-count'),
+                active: !!document.getElementById('active-properties-count'),
+                featured: !!document.getElementById('featured-properties-count'),
+                lowOccupancy: !!document.getElementById('low-occupancy-count')
+            }
+        });
+        
+        // Force reload properties
+        console.log('🔄 Force reloading properties...');
+        await this.loadProperties();
+        
+        // Check tab counts
+        this.updateTabCounts();
+        
+        // Show debug info in notification
+        const debugInfo = `
+            Properties: ${this.properties.length}
+            Tab: ${this.currentTab}
+            Filters: ${JSON.stringify(this.filters)}
+        `;
+        
+        this.showNotification(`Debug complete. Check console for details. Properties: ${this.properties.length}`, 'info');
+        
+        console.log('🐛 === DEBUG COMPLETE ===');
     }
 }
 

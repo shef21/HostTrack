@@ -59,11 +59,16 @@ router.get('/:id', authenticateUser, async (req, res) => {
 // Create new property
 router.post('/', authenticateUser, async (req, res) => {
   try {
+    console.log('🔍 Creating property with data:', req.body);
+    console.log('🔍 User ID:', req.user.id);
+    
     const propertyData = {
       ...req.body,
       owner_id: req.user.id,
       created_at: new Date().toISOString()
     };
+    
+    console.log('🔍 Final property data:', propertyData);
     
     // Create client with user context for RLS
     const supabase = createUserClient(req.headers.authorization?.split(' ')[1]);
@@ -76,7 +81,18 @@ router.post('/', authenticateUser, async (req, res) => {
     
     if (error) {
       console.error('Create property error:', error);
-      return res.status(500).json({ message: 'Failed to create property' });
+      console.error('Error details:', {
+        code: error.code,
+        message: error.message,
+        details: error.details,
+        hint: error.hint,
+        stack: error.stack
+      });
+      return res.status(500).json({ 
+        message: 'Failed to create property',
+        error: error.message,
+        code: error.code
+      });
     }
     
     res.status(201).json(property);

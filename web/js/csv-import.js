@@ -640,11 +640,6 @@ class CSVImporter {
      */
     async createProperty(propertyData) {
         try {
-            // Add platform IDs if they exist
-            const platformIds = {};
-            if (propertyData.airbnb_id) platformIds.airbnb_id = propertyData.airbnb_id;
-            if (propertyData.booking_id) platformIds.booking_id = propertyData.booking_id;
-            if (propertyData.vrbo_id) platformIds.vrbo_id = propertyData.vrbo_id;
 
             const propertyPayload = {
                 name: propertyData.name,
@@ -655,28 +650,17 @@ class CSVImporter {
                 bathrooms: propertyData.bathrooms,
                 max_guests: propertyData.max_guests,
                 amenities: propertyData.amenities,
-                description: propertyData.description,
-                platform_ids: platformIds
+                description: propertyData.description
             };
 
             console.log('📤 Creating property:', propertyPayload);
 
-            // Use your existing working backend for property creation
-            // This will use whatever backend your HostTrack site is already configured to use
-            const response = await fetch('/api/properties', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(propertyPayload)
-            });
-            
-            if (!response.ok) {
-                const errorData = await response.json();
-                throw new Error(`Failed to create property: ${errorData.error || response.statusText}`);
+            // Use the API service for property creation to ensure proper authentication
+            if (!window.apiService || !window.apiService.isAuthenticated()) {
+                throw new Error('User not authenticated. Please log in to import properties.');
             }
             
-            const result = await response.json();
+            const result = await window.apiService.createProperty(propertyPayload);
             console.log('✅ Property created successfully:', result);
             return result;
             
@@ -905,8 +889,7 @@ class CSVImporter {
                 price: 2500,
                 bedrooms: 3,
                 bathrooms: 2,
-                amenities: ['Pool', 'Garden', 'View'],
-                platform_ids: { airbnb_id: 'CT001', booking_id: 'CT001' }
+                amenities: ['Pool', 'Garden', 'View']
             },
             {
                 id: 2,
@@ -916,8 +899,7 @@ class CSVImporter {
                 price: 1800,
                 bedrooms: 2,
                 bathrooms: 1,
-                amenities: ['Gym', 'Security', 'Wifi'],
-                platform_ids: { airbnb_id: 'JB001' }
+                amenities: ['Gym', 'Security', 'Wifi']
             },
             {
                 id: 3,
@@ -927,8 +909,7 @@ class CSVImporter {
                 price: 2200,
                 bedrooms: 4,
                 bathrooms: 3,
-                amenities: ['Beach Access', 'Pool', 'Braai'],
-                platform_ids: { booking_id: 'DB001' }
+                amenities: ['Beach Access', 'Pool', 'Braai']
             }
         ];
         console.log('📋 Mock existing properties loaded:', this.existingProperties.length);
