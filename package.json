@@ -8,6 +8,10 @@
     "start:backend": "cd backend && npm start",
     "start:frontend": "cd web && npm start",
     "install:all": "npm install && cd backend && npm install && cd ../web && npm install",
+    "dev": "node start-local.js",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd web && npm run dev",
+    "test:local": "node test-local-setup.js",
     "build": "echo 'No build step required for Node.js'",
     "test": "echo 'No tests specified'"
   },

@@ -133,21 +133,14 @@ class AIChatIntegration {
     }
 
     cleanupDuplicateElements() {
-        console.log('🔍 AI Chat: Cleaning up duplicate elements...');
-        
         // Remove any old floating chat widgets
         const oldWidgets = document.querySelectorAll('#ai-chat-widget, .ai-chat-widget');
-        oldWidgets.forEach(widget => {
-            console.log('🔍 AI Chat: Removing old widget:', widget);
-            widget.remove();
-        });
+        oldWidgets.forEach(widget => widget.remove());
         
         // Remove any duplicate AI assistant sections
         const allSections = document.querySelectorAll('.ai-assistant-section');
         if (allSections.length > 1) {
-            console.log('🔍 AI Chat: Found multiple AI assistant sections, keeping only the first one');
             for (let i = 1; i < allSections.length; i++) {
-                console.log('🔍 AI Chat: Removing duplicate section:', allSections[i]);
                 allSections[i].remove();
             }
         }
@@ -155,24 +148,20 @@ class AIChatIntegration {
         // Remove any AI chat sections created by phase3Dashboard
         const phase3AIChat = document.getElementById('ai-chat-section');
         if (phase3AIChat) {
-            console.log('🔍 AI Chat: Removing phase3Dashboard AI chat section:', phase3AIChat);
             phase3AIChat.remove();
         }
         
         // Remove any other AI-related duplicate elements
         const duplicateElements = document.querySelectorAll('[id*="ai-chat"], [class*="ai-chat"]');
-        duplicateElements.forEach((el, index) => {
+        duplicateElements.forEach((el) => {
             if (el.closest('.ai-assistant-section')) {
                 // Keep elements within the main AI assistant section
                 return;
             }
             if (el.id === 'ai-chat-section' || el.className.includes('ai-chat-section')) {
-                console.log('🔍 AI Chat: Removing duplicate AI chat element:', el);
                 el.remove();
             }
         });
-        
-        console.log('🔍 AI Chat: Cleanup complete');
     }
 
     bindEvents() {

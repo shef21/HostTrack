@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const cors = require('cors');
 const morgan = require('morgan');
+const { createProxyMiddleware } = require('http-proxy-middleware');
 
 const app = express();
 // Use different port for frontend to avoid conflicts with backend
@@ -10,6 +11,13 @@ const PORT = process.env.FRONTEND_PORT || process.env.PORT || 3000;
 // Middleware
 app.use(cors());
 app.use(morgan('combined'));
+
+// Proxy API requests to backend
+app.use('/api', createProxyMiddleware({
+    target: 'http://localhost:3001',
+    changeOrigin: true,
+    logLevel: 'debug'
+}));
 
 // Serve static files
 app.use(express.static(path.join(__dirname)));

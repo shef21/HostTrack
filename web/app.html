@@ -271,11 +271,23 @@
                     <!-- Upcoming Bookings -->
                     <div class="upcoming-bookings">
                         <div class="section-header">
-                            <h3>Upcoming Bookings</h3>
-                            <button class="view-all-button">View All</button>
+                            <div class="header-left">
+                                <div class="section-icon">📅</div>
+                                <div class="header-text">
+                                    <h3>Upcoming & Recent Bookings</h3>
+                                    <p>Your confirmed reservations (upcoming & recent)</p>
+                                </div>
+                            </div>
+                            
                         </div>
                         <div id="upcoming-bookings-list" class="bookings-list">
-                            <!-- Bookings will be loaded here -->
+                            <div class="bookings-loading">
+                                <div class="loading-spinner"></div>
+                                <p>Loading upcoming bookings...</p>
+                                <button onclick="window.getDashboardManager().forceRefreshBookings()" class="btn btn-secondary btn-sm" style="margin-top: 10px;">
+                                    Force Refresh
+                                </button>
+                            </div>
                         </div>
                     </div>
                     
@@ -293,7 +305,13 @@
                     <!-- Weekly Occupancy -->
                     <div class="weekly-occupancy">
                         <div class="section-header">
-                            <h3>Weekly Occupancy</h3>
+                            <div class="header-left">
+                                <h3>Weekly Occupancy</h3>
+                                <p class="section-subtitle">Current week's property utilization rates</p>
+                            </div>
+                            <div class="week-info">
+                                <span id="current-week-range" class="week-range">This Week</span>
+                            </div>
                         </div>
                         <div id="occupancy-chart-container">
                             <div id="occupancy-chart-loading" class="chart-loading">Loading occupancy data...</div>
@@ -311,24 +329,24 @@
                                 <div class="trend-icon">📈</div>
                                 <div class="trend-content">
                                     <h4>Revenue Growth</h4>
-                                    <div class="trend-value">+12.5%</div>
-                                    <div class="trend-period">vs last month</div>
+                                    <div id="revenue-growth-value" class="trend-value">Loading...</div>
+                                    <div id="revenue-growth-period" class="trend-period">vs last month</div>
                                 </div>
                             </div>
                             <div class="trend-item neutral">
                                 <div class="trend-icon">🏠</div>
                                 <div class="trend-content">
                                     <h4>Property Utilization</h4>
-                                    <div class="trend-value">78%</div>
-                                    <div class="trend-period">average occupancy</div>
+                                    <div id="property-utilization-value" class="trend-value">Loading...</div>
+                                    <div id="property-utilization-period" class="trend-period">average occupancy</div>
                                 </div>
                             </div>
                             <div class="trend-item positive">
                                 <div class="trend-icon">⭐</div>
                                 <div class="trend-content">
                                     <h4>Guest Satisfaction</h4>
-                                    <div class="trend-value">4.8/5</div>
-                                    <div class="trend-period">average rating</div>
+                                    <div id="guest-satisfaction-value" class="trend-value">Loading...</div>
+                                    <div id="guest-satisfaction-period" class="trend-period">average rating</div>
                                 </div>
                             </div>
                         </div>
@@ -487,11 +505,76 @@
                 <div class="page-header">
                     <h2>Properties</h2>
                     <div class="properties-actions">
-                        <button class="btn btn-secondary" onclick="window.csvImporter.showImportModal()">
+                        <button class="btn btn-warning" onclick="window.propertiesManager.debugProperties()">
+                            🐛 Debug Properties
+                        </button>
+                        <button class="btn btn-info" onclick="window.propertiesManager.createSampleProperties()">
+                            🧪 Create Sample Properties
+                        </button>
+                        <button class="btn btn-secondary" onclick="if(window.csvImporter) { window.csvImporter.showImportModal(); } else { alert('CSV Import not ready yet. Please wait a moment and try again.'); }">
                             📁 Import CSV
+                        </button>
+                        <button class="btn btn-warning" onclick="if(typeof CSVImporter !== 'undefined') { window.csvImporter = new CSVImporter(); window.csvImporter.init(); alert('CSV Importer manually initialized!'); } else { alert('CSVImporter class not found. Check if csv-import.js is loaded.'); }">
+                            🔧 Init CSV Import
                         </button>
                         <button class="add-button" onclick="window.hostTrackApp.openModal('add-property-modal')">
                             + Add Property
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Property Tabs -->
+                <div class="property-tabs-container">
+                    <div class="property-tabs">
+                        <button class="property-tab active" data-tab="all-properties">
+                            <span class="tab-icon">🏠</span>
+                            <span class="tab-text">All Properties</span>
+                            <span class="tab-count" id="all-properties-count">0</span>
+                        </button>
+                        <button class="property-tab" data-tab="active-properties">
+                            <span class="tab-icon">✅</span>
+                            <span class="tab-text">Active</span>
+                            <span class="tab-count" id="active-properties-count">0</span>
+                        </button>
+                        <button class="property-tab" data-tab="featured-properties">
+                            <span class="tab-icon">⭐</span>
+                            <span class="tab-text">Featured</span>
+                            <span class="tab-count" id="featured-properties-count">0</span>
+                        </button>
+                        <button class="property-tab" data-tab="low-occupancy">
+                            <span class="tab-icon">📉</span>
+                            <span class="tab-text">Low Occupancy</span>
+                            <span class="tab-count" id="low-occupancy-count">0</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Property Filters -->
+                <div class="property-filters">
+                    <div class="filter-group">
+                        <input type="text" placeholder="Search properties..." class="property-search-input">
+                    </div>
+                    <div class="filter-group">
+                        <select class="property-filter-select" id="property-type-filter">
+                            <option value="">All Types</option>
+                            <option value="apartment">Apartment</option>
+                            <option value="house">House</option>
+                            <option value="cottage">Cottage</option>
+                            <option value="villa">Villa</option>
+                            <option value="studio">Studio</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <select class="property-filter-select" id="property-status-filter">
+                            <option value="">All Status</option>
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
+                            <option value="maintenance">Maintenance</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <button class="filter-clear-btn" onclick="window.propertiesManager.clearFilters()">
+                            🗑️ Clear Filters
                         </button>
                     </div>
                 </div>
@@ -973,7 +1056,7 @@
     <div id="csv-import-modal" class="modal hidden">
         <div class="modal-header">
             <h3>📁 Import Properties from CSV</h3>
-            <button class="modal-close" onclick="window.csvImporter.closeModal()">×</button>
+            <button class="modal-close" onclick="if(window.csvImporter) { window.csvImporter.closeModal(); } else { document.getElementById('csv-import-modal').classList.add('hidden'); }">×</button>
         </div>
         <div class="modal-content">
             <div class="csv-import-container">
@@ -1002,7 +1085,7 @@
                 </div>
                 
                 <div class="import-actions">
-                    <button class="btn btn-secondary" onclick="window.csvImporter.downloadTemplate()">📥 Download Template</button>
+                    <button class="btn btn-secondary" onclick="if(window.csvImporter) { window.csvImporter.downloadTemplate(); } else { alert('CSV Import not ready yet. Please wait a moment and try again.'); }">📥 Download Template</button>
                     <button class="btn btn-primary" id="startImport" disabled>🚀 Start Import</button>
                 </div>
                 
@@ -1146,62 +1229,7 @@
     </script>
 
     <script>
-        // Dynamic form population functions
-        async function populateServiceCategories() {
-            try {
-                // Get service categories from database or use defaults
-                const categories = [
-                    'cleaning', 'insurance', 'maintenance', 'utilities', 
-                    'internet', 'security', 'gardening', 'pool', 'laundry'
-                ];
-                
-                const categorySelect = document.getElementById('service-category');
-                if (categorySelect) {
-                    // Clear existing options except the first one
-                    categorySelect.innerHTML = '<option value="">Select category</option>';
-                    
-                    // Add dynamic categories
-                    categories.forEach(category => {
-                        const option = document.createElement('option');
-                        option.value = category;
-                        option.textContent = category.charAt(0).toUpperCase() + category.slice(1);
-                        categorySelect.appendChild(option);
-                    });
-                }
-            } catch (error) {
-                console.warn('Could not populate service categories:', error);
-            }
-        }
-
-        async function populatePropertyOptions() {
-            try {
-                // Get user's properties from database
-                if (window.apiService && window.apiService.isAuthenticated()) {
-                    const properties = await window.apiService.getProperties();
-                    const propertySelect = document.getElementById('service-property');
-                    
-                    if (propertySelect && properties) {
-                        // Clear existing options except the first one
-                        propertySelect.innerHTML = '<option value="">All Properties</option>';
-                        
-                        // Add user's actual properties
-                        properties.forEach(property => {
-                            const option = document.createElement('option');
-                            option.value = property.id;
-                            option.textContent = property.name || `Property ${property.id}`;
-                            propertySelect.appendChild(option);
-                        });
-                    }
-                } catch (error) {
-                    console.warn('Could not populate property options:', error);
-                    // Fallback to default options if API fails
-                    const propertySelect = document.getElementById('service-property');
-                    if (propertySelect) {
-                        propertySelect.innerHTML = '<option value="">All Properties</option>';
-                    }
-                }
-            }
-        }
+        // Form population functions moved to app.js for proper initialization sequence
 
         // Tab switching function
         function switchAuthTab(tab) {
@@ -1222,30 +1250,7 @@
             console.log('✅ Tab switched to:', tab);
         }
 
-        // Populate forms when DOM is ready
-        document.addEventListener('DOMContentLoaded', () => {
-            console.log('🔧 DOM Content Loaded - Setting up authentication...');
-            
-            // Wait for API service to be available
-            setTimeout(() => {
-                console.log('🔧 Initializing form population...');
-                populateServiceCategories();
-                populatePropertyOptions();
-                
-                // Debug: Check if AuthManager is available
-                if (window.authManager) {
-                    console.log('✅ AuthManager is available:', window.authManager);
-                } else {
-                    console.log('❌ AuthManager not found');
-                }
-                
-                // Debug: Check if API service is available
-                if (window.apiService) {
-                    console.log('✅ API Service is available:', window.apiService);
-                } else {
-                    console.log('❌ API Service not found');
-                }
-            }, 1000);
-        });
+        // Populate forms when scripts are loaded (moved to app.js initialization)
+        // This prevents duplicate DOMContentLoaded event listeners
     </script>
   </body>

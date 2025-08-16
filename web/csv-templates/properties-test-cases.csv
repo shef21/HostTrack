@@ -1,0 +1,11 @@
+property_name,location,type,price,bedrooms,bathrooms,max_guests,amenities,description,airbnb_id,booking_id,platforms,status,is_featured,occupancy_rate
+Test Property 1,Cape Town Western Cape,house,2500,3,2,6,"Pool,Garden",Standard test property,CT001,CT001,"airbnb,booking",active,false,75
+Test Property 2,Johannesburg Gauteng,apartment,1800,2,1,4,"Gym,Security",Test apartment,JB001,JB001,"airbnb",active,true,80
+Test Property 3,Durban KwaZulu-Natal,house,2200,4,3,8,"Beach Access,Pool",Test beach house,DB001,DB001,"manual",active,false,70
+Test Property 4,Stellenbosch Western Cape,cottage,1500,2,1,4,"Garden,Mountain View",Test cottage,ST001,ST001,"booking,manual",inactive,false,0
+Test Property 5,Pretoria Gauteng,apartment,3000,3,2,6,"Pool,Gym",Test penthouse,PT001,PT001,"airbnb,booking,manual",active,true,90
+Test Property 6,Port Elizabeth Eastern Cape,house,1200,3,2,6,"Garden,BBQ",Test bungalow,PE001,PE001,"airbnb",active,false,65
+Test Property 7,Bloemfontein Free State,studio,800,1,1,2,"Kitchenette",Test studio,BF001,BF001,"manual",active,false,55
+Test Property 8,Nelspruit Mpumalanga,lodge,1800,2,2,4,"Garden,BBQ",Test lodge,NL001,NL001,"airbnb,booking",active,false,75
+Test Property 9,Kimberley Northern Cape,house,1000,3,2,6,"Garden",Test historic house,KM001,KM001,"airbnb",active,false,60
+Test Property 10,Polokwane Limpopo,apartment,1200,2,1,4,"Security,Pool",Test modern apartment,PL001,PL001,"booking,manual",active,true,85

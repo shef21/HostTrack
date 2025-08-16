@@ -1,0 +1,11 @@
+property_name,location,type,price,bedrooms,bathrooms,max_guests,amenities,description,airbnb_id,booking_id,platforms
+Cape Town Luxury Villa,Cape Town Western Cape,house,4500,5,4,10,"Pool,Ocean View,Garden,Braai,Chef Kitchen",Ultra-luxury villa with panoramic ocean views and chef's kitchen,CT001,CT001,"airbnb,booking,manual"
+Joburg Executive Suite,Johannesburg Gauteng,apartment,3200,3,2,6,"Gym,Security,Wifi,Pool,Concierge",Executive suite in premium Sandton location,JB001,JB001,"airbnb,booking"
+Durban Beachfront House,Durban KwaZulu-Natal,house,3800,4,3,8,"Beach Access,Pool,Garden,BBQ",Beachfront property with direct beach access,DB001,DB001,"airbnb,manual"
+Stellenbosch Wine Estate,Stellenbosch Western Cape,cottage,2500,3,2,6,"Mountain View,Garden,Wine Tasting,Pool",Luxury cottage on working wine estate,ST001,ST001,"booking,manual"
+Pretoria Sky Penthouse,Pretoria Gauteng,apartment,5200,4,3,8,"Pool,Gym,Concierge,City View,Helipad",Sky-high penthouse with helipad access,PT001,PT001,"airbnb,booking,manual"
+Port Elizabeth Beach House,Port Elizabeth Eastern Cape,house,2200,4,3,8,"Garden,BBQ Area,Secure Parking,Beach View",Family beach house with ocean views,PE001,PE001,"airbnb,manual"
+Bloemfontein Executive Studio,Bloemfontein Free State,studio,1800,1,1,2,"Kitchenette,Work Desk,Wifi,Gym",Executive studio for business travelers,BF001,BF001,"booking,manual"
+Nelspruit Safari Lodge,Nelspruit Mpumalanga,lodge,3200,3,3,6,"Garden,BBQ,Pool,Mountain View,Safari",Safari lodge with wildlife viewing,NL001,NL001,"airbnb,booking,manual"
+Kimberley Diamond House,Kimberley Northern Cape,house,2000,4,3,8,"Garden,Secure Parking,Historic,Pool",Historic house with modern amenities,KM001,KM001,"airbnb,manual"
+Polokwane Premium Apartment,Polokwane Limpopo,apartment,2200,3,2,6,"Security,Pool,Gym,Modern,Concierge",Premium apartment with luxury features,PL001,PL001,"booking,manual"

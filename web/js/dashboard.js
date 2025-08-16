@@ -12,8 +12,7 @@ class DashboardManager {
         // REMOVED: chartsNeedRecreation event listener that was causing resets
         // REMOVED: visibilitychange event listener that was triggering chart recreation
         
-        // Add click handler for View All button
-        this.setupViewAllButton();
+
         
         // Setup dashboard event listeners and initialize charts
         this.setupDashboardEventListeners();
@@ -1899,43 +1898,9 @@ class DashboardManager {
         }
     }
 
-    // Toggle upcoming bookings visibility
-    toggleBookingsVisibility() {
-        console.log('🔧 Toggling upcoming bookings visibility...');
-        
-        const upcomingList = document.getElementById('upcoming-bookings-list');
-        const toggleText = document.getElementById('bookings-toggle-text');
-        
-        if (!upcomingList || !toggleText) {
-            console.warn('⚠️ Upcoming bookings elements not found');
-            return;
-        }
-        
-        // Toggle visibility
-        if (upcomingList.style.display === 'none') {
-            // Show bookings
-            upcomingList.style.display = 'block';
-            toggleText.textContent = 'Hide';
-            console.log('✅ Upcoming bookings section shown');
-        } else {
-            // Hide bookings
-            upcomingList.style.display = 'none';
-            toggleText.textContent = 'Show';
-            console.log('✅ Upcoming bookings section hidden');
-        }
-    }
 
-    // Setup View All button click handler
-    setupViewAllButton() {
-        const viewAllButton = document.querySelector('.upcoming-bookings .view-all-button');
-        if (viewAllButton) {
-            viewAllButton.addEventListener('click', () => {
-                console.log('🔧 View All button clicked, navigating to bookings...');
-                // Navigate to bookings page
-                window.location.href = '/bookings.html';
-            });
-        }
-    }
+
+
 
     // Manual refresh method for upcoming bookings
     async refreshUpcomingBookings() {
@@ -2026,13 +1991,18 @@ class DashboardManager {
                 
                 const allBookings = await window.apiService.getBookings();
                 if (allBookings && Array.isArray(allBookings)) {
-                    // Filter for upcoming bookings (check-in date is in the future)
+                    // Filter for upcoming and recent bookings (check-in date is in the future or within last 30 days)
                     bookings = allBookings.filter(booking => {
                         if (!booking.check_in) return false;
                         const checkInDate = new Date(booking.check_in);
                         const today = new Date();
                         today.setHours(0, 0, 0, 0); // Start of today
-                        return checkInDate >= today;
+                        
+                        // Include future bookings and recent past bookings (last 30 days)
+                        const thirtyDaysAgo = new Date(today);
+                        thirtyDaysAgo.setDate(today.getDate() - 30);
+                        
+                        return checkInDate >= thirtyDaysAgo;
                     });
                     
                     // Sort by check-in date (earliest first)
@@ -2060,13 +2030,18 @@ class DashboardManager {
                     console.log('🔧 All bookings loaded:', allBookings?.length || 0);
                     
                     if (allBookings && Array.isArray(allBookings)) {
-                        // Filter for upcoming bookings (check-in date is in the future)
+                        // Filter for upcoming and recent bookings (check-in date is in the future or within last 30 days)
                         bookings = allBookings.filter(booking => {
                             if (!booking.check_in) return false;
                             const checkInDate = new Date(booking.check_in);
                             const today = new Date();
                             today.setHours(0, 0, 0, 0); // Start of today
-                            return checkInDate >= today;
+                            
+                            // Include future bookings and recent past bookings (last 30 days)
+                            const thirtyDaysAgo = new Date(today);
+                            thirtyDaysAgo.setDate(today.getDate() - 30);
+                            
+                            return checkInDate >= thirtyDaysAgo;
                         });
                         
                         // Sort by check-in date (earliest first)
@@ -2112,10 +2087,33 @@ class DashboardManager {
             // Update the upcoming bookings list with whatever we got
             if (bookings && Array.isArray(bookings) && bookings.length > 0) {
                 console.log('✅ Final bookings data:', bookings);
+                console.log('🔍 Booking details:');
+                bookings.forEach((booking, index) => {
+                    console.log(`  Booking ${index + 1}:`, {
+                        id: booking.id,
+                        check_in: booking.check_in,
+                        check_out: booking.check_out,
+                        property_name: booking.property?.name || booking.property_name,
+                        guest_name: booking.guest_name,
+                        price: booking.price,
+                        status: booking.status
+                    });
+                });
                 this.updateUpcomingBookingsListWithData(bookings);
             } else {
                 console.warn('⚠️ No valid upcoming bookings data received');
-                this.updateUpcomingBookingsListWithData([]);
+                console.log('🔍 Debug info:');
+                console.log('  - All bookings from API:', allBookings);
+                console.log('  - Filtered bookings:', bookings);
+                console.log('  - Current date:', new Date().toISOString());
+                
+                // Fallback: Show all bookings if no upcoming/recent ones found
+                if (allBookings && Array.isArray(allBookings) && allBookings.length > 0) {
+                    console.log('🔄 Fallback: Showing all available bookings');
+                    this.updateUpcomingBookingsListWithData(allBookings);
+                } else {
+                    this.updateUpcomingBookingsListWithData([]);
+                }
             }
             
         } catch (error) {
@@ -2199,7 +2197,7 @@ class DashboardManager {
             // Show "no upcoming bookings" message
             upcomingList.innerHTML = `
                 <div class="no-bookings">
-                    <p>No upcoming bookings</p>
+                    <p>No upcoming or recent bookings</p>
                     <p class="subtitle">Great! This means you have time to prepare for future guests</p>
                 </div>
             `;

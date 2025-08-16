@@ -1,0 +1,11 @@
+property_name,location,type,price,bedrooms,bathrooms,max_guests
+Cape Town Studio,Cape Town Western Cape,studio,1200,1,1,2
+Joburg Apartment,Johannesburg Gauteng,apartment,1800,2,1,4
+Durban House,Durban KwaZulu-Natal,house,2000,3,2,6
+Stellenbosch Cottage,Stellenbosch Western Cape,cottage,1500,2,1,4
+Pretoria Flat,Pretoria Gauteng,apartment,2200,2,2,4
+Port Elizabeth Home,Port Elizabeth Eastern Cape,house,1400,3,2,6
+Bloemfontein Room,Bloemfontein Free State,studio,800,1,1,2
+Nelspruit House,Nelspruit Mpumalanga,house,1600,2,2,4
+Kimberley Home,Kimberley Northern Cape,house,1200,3,2,6
+Polokwane Flat,Polokwane Limpopo,apartment,1400,2,1,4

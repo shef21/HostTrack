@@ -1,8 +1,10 @@
 // API Service Layer for HostTrack Frontend - VERSION 2.0 (CACHE BUSTED)
 class APIService {
     constructor() {
-        // Use your Railway backend for production
-        this.baseURL = 'https://hosttrack-production.up.railway.app';
+        // Use local backend for development, Railway for production
+        this.baseURL = window.location.hostname === 'localhost' 
+            ? 'http://localhost:3001' 
+            : 'https://hosttrack-production.up.railway.app';
         this.token = null;
         this.user = null;
         this.isAuthenticatedFlag = false;

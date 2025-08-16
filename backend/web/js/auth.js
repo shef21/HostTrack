@@ -191,7 +191,7 @@ class AuthManager {
     async checkBackendAvailability() {
         try {
             console.log('Checking backend availability...');
-            const isBackendAvailable = await apiService.healthCheck();
+            const isBackendAvailable = await window.apiService.healthCheck();
             console.log('Backend available:', isBackendAvailable);
             return isBackendAvailable;
         } catch (error) {
@@ -203,7 +203,7 @@ class AuthManager {
     async makeLoginCall(email, password) {
         try {
             console.log('Making login API call...');
-            const response = await apiService.login(email, password);
+            const response = await window.apiService.login(email, password);
             console.log('Login response:', response);
             return response;
         } catch (error) {
