@@ -74,9 +74,47 @@ app.post('/api/chat/', async (req, res) => {
       return res.status(400).json({ error: 'Message is required' });
     }
 
-    // For now, return a simple response until we integrate OpenAI
+    // Check if OpenAI API key is configured
+    if (!process.env.OPENAI_API_KEY) {
+      return res.status(500).json({ 
+        error: 'OpenAI API key not configured',
+        response: 'Sorry, AI services are temporarily unavailable. Please try again later.'
+      });
+    }
+
+    // Import OpenAI dynamically
+    const { OpenAI } = require('openai');
+    const openai = new OpenAI({
+      apiKey: process.env.OPENAI_API_KEY,
+    });
+
+    // Prepare the system prompt for property intelligence
+    const systemPrompt = `You are Nathi, an AI Property Intelligence assistant specialized in real estate investment, short-term rental optimization, and property portfolio management. 
+
+You help users with:
+- Property investment analysis and ROI calculations
+- Market trends and pricing strategies
+- Airbnb and short-term rental optimization
+- Portfolio management and diversification
+- Real estate market insights for South Africa, particularly Cape Town
+
+Always provide helpful, accurate, and actionable advice. Be conversational but professional. If you need more information to give a good answer, ask clarifying questions.`;
+
+    // Call OpenAI API
+    const completion = await openai.chat.completions.create({
+      model: "gpt-4o-mini",
+      messages: [
+        { role: "system", content: systemPrompt },
+        { role: "user", content: message }
+      ],
+      max_tokens: 1000,
+      temperature: 0.7
+    });
+
+    const aiResponse = completion.choices[0].message.content;
+
     const response = {
-      response: `I received your message: "${message}". This is a placeholder response. OpenAI integration will be added soon.`,
+      response: aiResponse,
       conversation_id: conversation_id || `conv_${Date.now()}`,
       timestamp: new Date().toISOString()
     };
@@ -84,7 +122,15 @@ app.post('/api/chat/', async (req, res) => {
     res.json(response);
   } catch (error) {
     console.error('Chat endpoint error:', error);
-    res.status(500).json({ error: 'Internal server error' });
+    
+    // Fallback response if OpenAI fails
+    const fallbackResponse = {
+      response: "I'm having trouble connecting to my AI services right now. Please try again in a moment, or contact support if the issue persists.",
+      conversation_id: conversation_id || `conv_${Date.now()}`,
+      timestamp: new Date().toISOString()
+    };
+    
+    res.status(500).json(fallbackResponse);
   }
 });
 
