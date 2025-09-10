@@ -16,7 +16,7 @@ class Settings(BaseSettings):
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 30
     
     # CORS Configuration
-    FRONTEND_URL: str = "https://host-track.vercel.app"
+    FRONTEND_URL: str = "https://hosttrack.co.za"
     
     # Environment
     ENVIRONMENT: str = "development"
