@@ -58,14 +58,14 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStartChat, onSignIn, onSign
   ];
 
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-hidden">
+    <div className="min-h-screen bg-gray-50 text-gray-900 overflow-hidden">
       {/* Background Effects */}
-      <div className="fixed inset-0 bg-mesh bg-grid opacity-30"></div>
-      <div className="fixed inset-0 bg-gradient-to-br from-transparent via-transparent to-primary/5"></div>
+      <div className="fixed inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-100"></div>
+      <div className="fixed inset-0 bg-grid opacity-20"></div>
       
       {/* Header */}
       <motion.header 
-        className="relative z-50 glass-header"
+        className="relative z-50 bg-white/80 backdrop-blur-sm border-b border-gray-200 shadow-sm"
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
@@ -83,10 +83,10 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStartChat, onSignIn, onSign
                   <Home className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h1 className="text-2xl font-bold text-white">
+                  <h1 className="text-2xl font-bold text-gray-900">
                     HostTrack
                   </h1>
-                  <p className="text-muted-foreground text-sm font-medium">
+                  <p className="text-gray-600 text-sm font-medium">
                     Smart Portfolio Manager
                   </p>
                 </div>
@@ -100,7 +100,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStartChat, onSignIn, onSign
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               <button 
-                className="text-muted-foreground hover:text-white transition-colors px-4 py-2"
+                className="text-gray-600 hover:text-gray-900 transition-colors px-4 py-2"
                 onClick={onPricing}
               >
                 Pricing
@@ -118,11 +118,11 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStartChat, onSignIn, onSign
       </motion.header>
 
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center px-4 relative overflow-hidden">
+      <section className="min-h-screen flex items-start justify-center px-4 relative overflow-hidden pt-20">
         {/* Animated Background Elements */}
         <div className="absolute inset-0">
           <motion.div 
-            className="absolute top-20 left-10 w-32 h-32 gradient-primary rounded-full blur-3xl opacity-20"
+            className="absolute top-20 left-10 w-32 h-32 bg-emerald-200 rounded-full blur-3xl opacity-30"
             animate={{ 
               scale: [1, 1.2, 1],
               opacity: [0.2, 0.4, 0.2]
@@ -134,7 +134,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStartChat, onSignIn, onSign
             }}
           />
           <motion.div 
-            className="absolute bottom-20 right-10 w-40 h-40 gradient-primary rounded-full blur-3xl opacity-15"
+            className="absolute bottom-20 right-10 w-40 h-40 bg-blue-200 rounded-full blur-3xl opacity-25"
             animate={{ 
               scale: [1, 1.3, 1],
               opacity: [0.15, 0.3, 0.15]
@@ -147,7 +147,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStartChat, onSignIn, onSign
             }}
           />
           <motion.div 
-            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-60 h-60 gradient-primary rounded-full blur-3xl opacity-10"
+            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-60 h-60 bg-purple-200 rounded-full blur-3xl opacity-20"
             animate={{ 
               scale: [1, 1.1, 1],
               opacity: [0.1, 0.2, 0.1]
@@ -173,21 +173,21 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStartChat, onSignIn, onSign
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="inline-flex items-center px-4 py-2 rounded-full glass mb-8"
+              className="inline-flex items-center px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm border border-gray-200 shadow-sm mb-8"
             >
-              <Star className="w-4 h-4 text-yellow-400 mr-2" />
-              <span className="text-sm font-medium text-muted-foreground">Trusted by 500+ Property Intelligence Professionals</span>
+              <Star className="w-4 h-4 text-yellow-500 mr-2" />
+              <span className="text-sm font-medium text-gray-700">Trusted by 500+ Property Intelligence Professionals</span>
             </motion.div>
 
-            <h1 className="text-6xl md:text-7xl lg:text-8xl font-black text-white mb-8 leading-tight">
+            <h1 className="text-6xl md:text-7xl lg:text-8xl font-black text-gray-900 mb-8 leading-tight">
               <span className="gradient-text">Nathi</span>
               <br />
-              <span className="text-4xl md:text-5xl lg:text-6xl text-muted-foreground font-light">
+              <span className="text-4xl md:text-5xl lg:text-6xl text-gray-600 font-light">
                 AI Property Intelligence
               </span>
             </h1>
             
-            <p className="text-xl text-muted-foreground mb-12 leading-relaxed max-w-2xl">
+            <p className="text-xl text-gray-600 mb-12 leading-relaxed max-w-2xl">
               Transform your property portfolio with AI-powered insights, real-time market data, and intelligent automation. Try Nathi live below!
             </p>
 
@@ -234,11 +234,11 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStartChat, onSignIn, onSign
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-5xl md:text-6xl font-black text-white mb-6">
+            <h2 className="text-5xl md:text-6xl font-black text-gray-900 mb-6">
               Everything You Need to
               <span className="gradient-text block">Succeed</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Powerful AI-driven tools designed for property investors, Airbnb hosts, and real estate professionals.
             </p>
           </motion.div>
@@ -259,19 +259,19 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStartChat, onSignIn, onSign
                   whileHover={{ y: -8, scale: 1.02 }}
                   className="group"
                 >
-                  <Card className="glass-card hover-lift hover-glow h-full">
+                  <Card className="bg-white border border-gray-200 shadow-sm hover:shadow-md hover-lift hover-glow h-full">
                     <CardContent className="p-8 h-full flex flex-col">
                       <div className="w-16 h-16 gradient-primary rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                         <Icon className="w-8 h-8 text-white" />
                       </div>
-                      <h3 className="text-xl font-bold text-white mb-4 group-hover:text-primary transition-colors">
+                      <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-emerald-600 transition-colors">
                         {feature.title}
                       </h3>
-                      <p className="text-muted-foreground leading-relaxed flex-grow">
+                      <p className="text-gray-600 leading-relaxed flex-grow">
                         {feature.desc}
                       </p>
                       <div className="mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <ArrowRight className="w-5 h-5 text-primary group-hover:translate-x-1 transition-transform" />
+                        <ArrowRight className="w-5 h-5 text-emerald-600 group-hover:translate-x-1 transition-transform" />
                       </div>
                     </CardContent>
                   </Card>
@@ -292,10 +292,10 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStartChat, onSignIn, onSign
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-5xl md:text-6xl font-black text-white mb-6">
+            <h2 className="text-5xl md:text-6xl font-black text-gray-900 mb-6">
               Trusted by <span className="gradient-text">Industry Leaders</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Join hundreds of property managers who have transformed their business with Nathi.
             </p>
           </motion.div>
@@ -311,19 +311,19 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStartChat, onSignIn, onSign
               <motion.div
                 key={index}
                 variants={staggerItem}
-                className="glass-card rounded-3xl p-8 hover-lift"
+                className="bg-white border border-gray-200 shadow-sm rounded-3xl p-8 hover-lift hover:shadow-md"
               >
                 <div className="flex items-center mb-6">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+                    <Star key={i} className="w-5 h-5 text-yellow-500 fill-current" />
                   ))}
                 </div>
-                <p className="text-muted-foreground text-lg mb-6 italic">
+                <p className="text-gray-600 text-lg mb-6 italic">
                   "{testimonial.content}"
                 </p>
                 <div>
-                  <div className="font-semibold text-white">{testimonial.name}</div>
-                  <div className="text-sm text-muted-foreground">{testimonial.role}</div>
+                  <div className="font-semibold text-gray-900">{testimonial.name}</div>
+                  <div className="text-sm text-gray-500">{testimonial.role}</div>
                 </div>
               </motion.div>
             ))}
@@ -339,12 +339,12 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStartChat, onSignIn, onSign
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="glass-card rounded-3xl p-12"
+            className="bg-white border border-gray-200 shadow-sm rounded-3xl p-12"
           >
-            <h2 className="text-5xl md:text-6xl font-black text-white mb-6">
+            <h2 className="text-5xl md:text-6xl font-black text-gray-900 mb-6">
               Ready to <span className="gradient-text">Transform</span> Your Portfolio?
             </h2>
-            <p className="text-xl text-muted-foreground mb-12 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-600 mb-12 max-w-2xl mx-auto">
               Join thousands of property managers who are already using AI to maximize their returns.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
@@ -363,7 +363,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStartChat, onSignIn, onSign
       </section>
 
       {/* Footer */}
-      <footer className="py-16 px-4 border-t border-white/10">
+      <footer className="py-16 px-4 border-t border-gray-200 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center space-x-3 mb-6 md:mb-0">
@@ -371,18 +371,18 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStartChat, onSignIn, onSign
                 <Home className="w-5 h-5 text-white" />
               </div>
               <div>
-                <div className="text-xl font-bold text-white">HostTrack</div>
-                <div className="text-sm text-muted-foreground">Smart Portfolio Manager</div>
+                <div className="text-xl font-bold text-gray-900">HostTrack</div>
+                <div className="text-sm text-gray-600">Smart Portfolio Manager</div>
               </div>
             </div>
             
             <div className="flex space-x-8 mb-6 md:mb-0">
-              <button className="text-muted-foreground hover:text-white transition-colors">About</button>
-              <button className="text-muted-foreground hover:text-white transition-colors">Contact</button>
-              <button className="text-muted-foreground hover:text-white transition-colors">Privacy</button>
+              <button className="text-gray-600 hover:text-gray-900 transition-colors">About</button>
+              <button className="text-gray-600 hover:text-gray-900 transition-colors">Contact</button>
+              <button className="text-gray-600 hover:text-gray-900 transition-colors">Privacy</button>
             </div>
             
-            <p className="text-muted-foreground text-sm">© 2025 AI Nathi Property Intelligence. All rights reserved.</p>
+            <p className="text-gray-500 text-sm">© 2025 AI Nathi Property Intelligence. All rights reserved.</p>
           </div>
         </div>
       </footer>

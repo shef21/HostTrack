@@ -17,8 +17,11 @@ const MainLayout: React.FC = () => {
   const mainContentRef = useRef<HTMLDivElement>(null);
   const { isAuthenticated, isLoading } = useAuth();
 
-  // GSAP animations
+  // Scroll to top on tab change and GSAP animations
   useEffect(() => {
+    // Always scroll to top when changing tabs
+    window.scrollTo(0, 0);
+    
     if (mainContentRef.current) {
       gsap.fromTo(mainContentRef.current, 
         { opacity: 0, y: 20 },
@@ -26,6 +29,11 @@ const MainLayout: React.FC = () => {
       );
     }
   }, [activeTab]);
+
+  // Ensure page loads at top on initial mount
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const handleTabChange = (tab: string) => {
     setActiveTab(tab as TabType);

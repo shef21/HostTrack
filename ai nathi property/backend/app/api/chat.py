@@ -27,15 +27,32 @@ async def chat_endpoint(message: ChatMessage):
         # Generate conversation ID if not provided
         conversation_id = message.conversation_id or str(uuid.uuid4())
         
-        # For now, we'll work without storing conversation history
-        # This allows us to provide real-time insights immediately
+        # Store conversation history and retrieve context
         supabase = supabase_client.get_client()
         
-        # Prepare messages for OpenAI (just current message for now)
-        messages = [{
+        # Store the user message
+        user_message_data = {
+            "id": str(uuid.uuid4()),
+            "conversation_id": conversation_id,
+            "user_id": message.user_id,
             "role": "user",
-            "content": message.message
-        }]
+            "content": message.message,
+            "timestamp": datetime.utcnow().isoformat()
+        }
+        supabase.table("conversation_messages").insert(user_message_data).execute()
+        
+        # Retrieve conversation history
+        history_result = supabase.table("conversation_messages").select("*").eq(
+            "conversation_id", conversation_id
+        ).order("timestamp").execute()
+        
+        # Prepare messages for OpenAI with full conversation history
+        messages = []
+        for msg in history_result.data:
+            messages.append({
+                "role": msg["role"],
+                "content": msg["content"]
+            })
         
         # Get relevant context from user memory and scraped data
         context = await get_relevant_context(message.message, message.user_id)
@@ -46,6 +63,17 @@ async def chat_endpoint(message: ChatMessage):
         # Add Host Track upgrade prompt to responses
         if "price" in message.message.lower() or "market" in message.message.lower() or "analytics" in message.message.lower():
             ai_response += "\n\n🚀 Want detailed analytics for your properties? Get comprehensive insights with Host Track!"
+        
+        # Store the AI response
+        ai_message_data = {
+            "id": str(uuid.uuid4()),
+            "conversation_id": conversation_id,
+            "user_id": message.user_id,
+            "role": "assistant",
+            "content": ai_response,
+            "timestamp": datetime.utcnow().isoformat()
+        }
+        supabase.table("conversation_messages").insert(ai_message_data).execute()
         
         return ChatResponse(
             response=ai_response,

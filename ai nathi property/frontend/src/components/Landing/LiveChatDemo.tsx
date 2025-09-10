@@ -15,7 +15,7 @@ const LiveChatDemo: React.FC = () => {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
-      text: "Hi! I'm Nathi, your AI Property Intelligence assistant. I'm connected to real AI and can help with property investment, market analysis, and portfolio optimization. Try asking me anything!",
+      text: "Hi! I'm Nathi, your AI Property Intelligence assistant. I'm connected to real-time daily data unlike ChatGPT, giving you the most current market insights for property investment, analysis, and portfolio optimization. Try asking me anything!",
       sender: 'ai',
       timestamp: new Date()
     }
@@ -23,9 +23,12 @@ const LiveChatDemo: React.FC = () => {
   const [inputText, setInputText] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const messagesContainerRef = useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    if (messagesContainerRef.current) {
+      messagesContainerRef.current.scrollTop = messagesContainerRef.current.scrollHeight;
+    }
   };
 
   useEffect(() => {
@@ -97,7 +100,10 @@ const LiveChatDemo: React.FC = () => {
         </div>
         
         {/* Chat Messages */}
-        <div className="h-80 overflow-y-auto space-y-4 mb-6 scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent">
+        <div 
+          ref={messagesContainerRef}
+          className="h-80 overflow-y-auto space-y-4 mb-6 scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent"
+        >
           {messages.map((message) => (
             <motion.div
               key={message.id}
