@@ -357,5 +357,6 @@ app.listen(PORT, () => {
   console.log(`💰 Expenses endpoints: http://localhost:${PORT}/api/expenses`);
   console.log(`📊 Analytics endpoints: http://localhost:${PORT}/api/analytics`);
   console.log(`🤖 AI Chat with real-time data: http://localhost:${PORT}/api/chat`);
+  console.log(`🔑 OpenAI API Key: ${process.env.OPENAI_API_KEY ? 'Configured' : 'Missing'}`);
   console.log(`🌐 Frontend files served from: ${path.join(__dirname, 'web')}`);
 });
