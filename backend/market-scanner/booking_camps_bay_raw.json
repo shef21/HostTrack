@@ -1,0 +1,582 @@
+[
+  {
+    "external_id": null,
+    "title": "The Bay Hotel\nOpens in new window",
+    "url": "https://www.booking.com/hotel/za/the-bay.en-gb.html?aid=304142&label=gen173nr-10CAQoggJCCmRpc3RyaWN0X1hICVgEaPsBiAEBmAEzuAEHyAEM2AED6AEB-AEBiAIBqAIBuAK63pvFBsACAdICJGRjYjI3OTQ1LTk3NTEtNDdhMC05MDAzLWM0NzgyZTI0ZjI5N9gCAeACAQ&ucfs=1&arphpl=1&checkin=2025-08-28&checkout=2025-08-29&group_adults=2&req_adults=2&no_rooms=1&group_children=0&req_children=0&hpos=1&hapos=1&sr_order=popularity&srpvid=430046dd187c05fc&srepoch=1755770685&all_sr_blocks=1511601_366146229_2_1_0_687758&highlighted_blocks=1511601_366146229_2_1_0_687758&matching_block_id=1511601_366146229_2_1_0_687758&sr_pri_blocks=1511601_366146229_2_1_0_687758_391565&from=searchresults",
+    "images": [
+      "https://cf.bstatic.com/xdata/images/hotel/square600/598328474.webp?k=278f23e5f58c64280b06a8147063f012ee75f52eb88e2d9cabde834fc78e5c43&o="
+    ],
+    "amenities": [
+      "air_conditioning",
+      "elevator",
+      "pool",
+      "balcony",
+      "kitchen",
+      "view",
+      "laundry",
+      "wifi"
+    ],
+    "coordinates": null,
+    "rating": 8.6,
+    "review_count": 965,
+    "current_price": 3916,
+    "max_guests": null,
+    "bedrooms": 2,
+    "bathrooms": 1
+  },
+  {
+    "external_id": null,
+    "title": "South Beach Camps Bay Boutique Hotel\nOpens in new window",
+    "url": "https://www.booking.com/hotel/za/south-beach-camps-bay.en-gb.html?aid=304142&label=gen173nr-10CAQoggJCCmRpc3RyaWN0X1hICVgEaPsBiAEBmAEzuAEHyAEM2AED6AEB-AEBiAIBqAIBuAK63pvFBsACAdICJGRjYjI3OTQ1LTk3NTEtNDdhMC05MDAzLWM0NzgyZTI0ZjI5N9gCAeACAQ&ucfs=1&arphpl=1&checkin=2025-08-28&checkout=2025-08-29&group_adults=2&req_adults=2&no_rooms=1&group_children=0&req_children=0&hpos=2&hapos=2&sr_order=popularity&srpvid=430046dd187c05fc&srepoch=1755770710&all_sr_blocks=106543104_284998352_0_2_0&highlighted_blocks=106543104_284998352_0_2_0&matching_block_id=106543104_284998352_0_2_0&sr_pri_blocks=106543104_284998352_0_2_0__365000&from=searchresults",
+    "images": [
+      "https://cf.bstatic.com/xdata/images/hotel/square600/333862664.webp?k=1db0bdcdb5bd437c9208d7938a4c6f133a4a7db94fce30160bf1941fb6a502e1&o="
+    ],
+    "amenities": [
+      "air_conditioning",
+      "elevator",
+      "parking",
+      "pool",
+      "balcony",
+      "kitchen",
+      "view",
+      "laundry",
+      "wifi"
+    ],
+    "coordinates": null,
+    "rating": 9.1,
+    "review_count": 829,
+    "current_price": 3650,
+    "max_guests": null,
+    "bedrooms": 1,
+    "bathrooms": 1
+  },
+  {
+    "external_id": null,
+    "title": "Stone Cottages - Camps Bay Village\nOpens in new window",
+    "url": "https://www.booking.com/hotel/za/camps-bay-village-stone-cottages.en-gb.html?aid=304142&label=gen173nr-10CAQoggJCCmRpc3RyaWN0X1hICVgEaPsBiAEBmAEzuAEHyAEM2AED6AEB-AEBiAIBqAIBuAK63pvFBsACAdICJGRjYjI3OTQ1LTk3NTEtNDdhMC05MDAzLWM0NzgyZTI0ZjI5N9gCAeACAQ&ucfs=1&arphpl=1&checkin=2025-08-28&checkout=2025-08-29&group_adults=2&req_adults=2&no_rooms=1&group_children=0&req_children=0&hpos=3&hapos=3&sr_order=popularity&srpvid=430046dd187c05fc&srepoch=1755770730&all_sr_blocks=128163401_386551078_2_0_0_707546&highlighted_blocks=128163401_386551078_2_0_0_707546&matching_block_id=128163401_386551078_2_0_0_707546&sr_pri_blocks=128163401_386551078_2_0_0_707546_88200&from=searchresults",
+    "images": [
+      "https://cf.bstatic.com/xdata/images/hotel/square600/620225513.webp?k=13aa815e773e4fb3555f5a10c61571697b8d401c62273ee17bfeb1c4dd7dd206&o="
+    ],
+    "amenities": [
+      "kitchen",
+      "pool",
+      "balcony",
+      "view",
+      "laundry",
+      "wifi"
+    ],
+    "coordinates": null,
+    "rating": 8.0,
+    "review_count": 576,
+    "current_price": 882,
+    "max_guests": null,
+    "bedrooms": 0,
+    "bathrooms": 1
+  },
+  {
+    "external_id": null,
+    "title": "Camps Bay Village\nOpens in new window",
+    "url": "https://www.booking.com/hotel/za/camps-bay-village.en-gb.html?aid=304142&label=gen173nr-10CAQoggJCCmRpc3RyaWN0X1hICVgEaPsBiAEBmAEzuAEHyAEM2AED6AEB-AEBiAIBqAIBuAK63pvFBsACAdICJGRjYjI3OTQ1LTk3NTEtNDdhMC05MDAzLWM0NzgyZTI0ZjI5N9gCAeACAQ&ucfs=1&arphpl=1&checkin=2025-08-28&checkout=2025-08-29&group_adults=2&req_adults=2&no_rooms=1&group_children=0&req_children=0&hpos=4&hapos=4&sr_order=popularity&srpvid=430046dd187c05fc&srepoch=1755770750&all_sr_blocks=1511813_122908194_0_0_0&highlighted_blocks=1511813_122908194_0_0_0&matching_block_id=1511813_122908194_0_0_0&sr_pri_blocks=1511813_122908194_0_0_0__107100&from=searchresults",
+    "images": [
+      "https://cf.bstatic.com/xdata/images/hotel/square600/518843737.webp?k=c6d11b58ab1d03a58ba4769d07fe472f458867e31b88c42ffce9007125804914&o="
+    ],
+    "amenities": [
+      "kitchen",
+      "pool",
+      "beach_access",
+      "view",
+      "wifi"
+    ],
+    "coordinates": null,
+    "rating": 8.6,
+    "review_count": 367,
+    "current_price": 1071,
+    "max_guests": null,
+    "bedrooms": 0,
+    "bathrooms": 1
+  },
+  {
+    "external_id": null,
+    "title": "Vetho Villa\nOpens in new window",
+    "url": "https://www.booking.com/hotel/za/vetho-villa.en-gb.html?aid=304142&label=gen173nr-10CAQoggJCCmRpc3RyaWN0X1hICVgEaPsBiAEBmAEzuAEHyAEM2AED6AEB-AEBiAIBqAIBuAK63pvFBsACAdICJGRjYjI3OTQ1LTk3NTEtNDdhMC05MDAzLWM0NzgyZTI0ZjI5N9gCAeACAQ&ucfs=1&arphpl=1&checkin=2025-08-28&checkout=2025-08-29&group_adults=2&req_adults=2&no_rooms=1&group_children=0&req_children=0&hpos=5&hapos=5&sr_order=popularity&srpvid=430046dd187c05fc&srepoch=1755770770&all_sr_blocks=38202309_394365870_2_1_0_684991&highlighted_blocks=38202309_394365870_2_1_0_684991&matching_block_id=38202309_394365870_2_1_0_684991&sr_pri_blocks=38202309_394365870_2_1_0_684991_108000&from=searchresults",
+    "images": [
+      "https://cf.bstatic.com/xdata/images/hotel/square600/484070115.webp?k=22fec1d0e0461d6a357d3c22cfec962f2d858f31ed83b60af9ff4e42543d8914&o="
+    ],
+    "amenities": [
+      "view",
+      "air_conditioning",
+      "balcony",
+      "parking"
+    ],
+    "coordinates": null,
+    "rating": 8.7,
+    "review_count": 446,
+    "current_price": 1080,
+    "max_guests": null,
+    "bedrooms": 1,
+    "bathrooms": 1
+  },
+  {
+    "external_id": null,
+    "title": "Ocean View House\nOpens in new window",
+    "url": "https://www.booking.com/hotel/za/ocean-view-house.en-gb.html?aid=304142&label=gen173nr-10CAQoggJCCmRpc3RyaWN0X1hICVgEaPsBiAEBmAEzuAEHyAEM2AED6AEB-AEBiAIBqAIBuAK63pvFBsACAdICJGRjYjI3OTQ1LTk3NTEtNDdhMC05MDAzLWM0NzgyZTI0ZjI5N9gCAeACAQ&ucfs=1&arphpl=1&checkin=2025-08-28&checkout=2025-08-29&group_adults=2&req_adults=2&no_rooms=1&group_children=0&req_children=0&hpos=6&hapos=6&sr_order=popularity&srpvid=430046dd187c05fc&srepoch=1755770790&all_sr_blocks=1538701_253233823_2_1_0_248868&highlighted_blocks=1538701_253233823_2_1_0_248868&matching_block_id=1538701_253233823_2_1_0_248868&sr_pri_blocks=1538701_253233823_2_1_0_248868_280170&from=searchresults",
+    "images": [
+      "https://cf.bstatic.com/xdata/images/hotel/square600/405080867.webp?k=0e0d7961b9d435fdee1e7c8feda598ed65a7ff30065075774885159b1405d0c6&o="
+    ],
+    "amenities": [
+      "air_conditioning",
+      "parking",
+      "pool",
+      "balcony",
+      "kitchen",
+      "view",
+      "laundry",
+      "wifi"
+    ],
+    "coordinates": null,
+    "rating": 9.4,
+    "review_count": 731,
+    "current_price": 2802,
+    "max_guests": null,
+    "bedrooms": 1,
+    "bathrooms": 1
+  },
+  {
+    "external_id": null,
+    "title": "Royal Boutique Hotel\nOpens in new window",
+    "url": "https://www.booking.com/hotel/za/royal-boutique.en-gb.html?aid=304142&label=gen173nr-10CAQoggJCCmRpc3RyaWN0X1hICVgEaPsBiAEBmAEzuAEHyAEM2AED6AEB-AEBiAIBqAIBuAK63pvFBsACAdICJGRjYjI3OTQ1LTk3NTEtNDdhMC05MDAzLWM0NzgyZTI0ZjI5N9gCAeACAQ&ucfs=1&arphpl=1&checkin=2025-08-28&checkout=2025-08-29&group_adults=2&req_adults=2&no_rooms=1&group_children=0&req_children=0&hpos=7&hapos=7&sr_order=popularity&srpvid=430046dd187c05fc&srepoch=1755770810&all_sr_blocks=765700101_334038063_2_1_0_376466&highlighted_blocks=765700101_334038063_2_1_0_376466&matching_block_id=765700101_334038063_2_1_0_376466&sr_pri_blocks=765700101_334038063_2_1_0_376466_207500&from=searchresults",
+    "images": [
+      "https://cf.bstatic.com/xdata/images/hotel/square600/322287713.webp?k=13fc6c30d4377a17114562f82a5be7f45b124e55e550c15e601fe1ec84cd443f&o="
+    ],
+    "amenities": [
+      "air_conditioning",
+      "elevator",
+      "pool",
+      "balcony",
+      "view",
+      "laundry",
+      "wifi"
+    ],
+    "coordinates": null,
+    "rating": 8.3,
+    "review_count": 849,
+    "current_price": 2075,
+    "max_guests": null,
+    "bedrooms": 2,
+    "bathrooms": 1
+  },
+  {
+    "external_id": null,
+    "title": "Azamare Guest House\nOpens in new window",
+    "url": "https://www.booking.com/hotel/za/azamare-guest-house.en-gb.html?aid=304142&label=gen173nr-10CAQoggJCCmRpc3RyaWN0X1hICVgEaPsBiAEBmAEzuAEHyAEM2AED6AEB-AEBiAIBqAIBuAK63pvFBsACAdICJGRjYjI3OTQ1LTk3NTEtNDdhMC05MDAzLWM0NzgyZTI0ZjI5N9gCAeACAQ&ucfs=1&arphpl=1&checkin=2025-08-28&checkout=2025-08-29&group_adults=2&req_adults=2&no_rooms=1&group_children=0&req_children=0&hpos=8&hapos=8&sr_order=popularity&srpvid=430046dd187c05fc&srepoch=1755770830&all_sr_blocks=77314206_295818529_2_1_0_106208&highlighted_blocks=77314206_295818529_2_1_0_106208&matching_block_id=77314206_295818529_2_1_0_106208&sr_pri_blocks=77314206_295818529_2_1_0_106208_320436&from=searchresults",
+    "images": [
+      "https://cf.bstatic.com/xdata/images/hotel/square600/56564955.webp?k=110ed3de65adc95d92e5143b61ee2cbd8a412e56495fc449dec4977291c9081a&o="
+    ],
+    "amenities": [
+      "air_conditioning",
+      "elevator",
+      "parking",
+      "balcony",
+      "view",
+      "laundry",
+      "wifi"
+    ],
+    "coordinates": null,
+    "rating": 9.1,
+    "review_count": 372,
+    "current_price": 3204,
+    "max_guests": null,
+    "bedrooms": 1,
+    "bathrooms": 1
+  },
+  {
+    "external_id": null,
+    "title": "Atlantic Gold\nOpens in new window",
+    "url": "https://www.booking.com/hotel/za/atlantic-gold.en-gb.html?aid=304142&label=gen173nr-10CAQoggJCCmRpc3RyaWN0X1hICVgEaPsBiAEBmAEzuAEHyAEM2AED6AEB-AEBiAIBqAIBuAK63pvFBsACAdICJGRjYjI3OTQ1LTk3NTEtNDdhMC05MDAzLWM0NzgyZTI0ZjI5N9gCAeACAQ&ucfs=1&arphpl=1&checkin=2025-08-28&checkout=2025-08-29&group_adults=2&req_adults=2&no_rooms=1&group_children=0&req_children=0&hpos=9&hapos=9&sr_order=popularity&srpvid=430046dd187c05fc&srepoch=1755770850&all_sr_blocks=32928101_335373642_2_0_0_709812&highlighted_blocks=32928101_335373642_2_0_0_709812&matching_block_id=32928101_335373642_2_0_0_709812&sr_pri_blocks=32928101_335373642_2_0_0_709812_248000&from=searchresults",
+    "images": [
+      "https://cf.bstatic.com/xdata/images/hotel/square600/40335566.webp?k=6401c9c810ced2d9fba13b04ff54dc8a8fb1e517663c356ebcda8e8b6ee45a65&o="
+    ],
+    "amenities": [
+      "air_conditioning",
+      "parking",
+      "kitchen",
+      "balcony",
+      "view",
+      "laundry",
+      "wifi"
+    ],
+    "coordinates": null,
+    "rating": 9.5,
+    "review_count": 278,
+    "current_price": 2480,
+    "max_guests": null,
+    "bedrooms": 1,
+    "bathrooms": 1
+  },
+  {
+    "external_id": null,
+    "title": "Living Hotel Lion's Eye\nOpens in new window",
+    "url": "https://www.booking.com/hotel/za/houghton-view-boutique-guest-house.en-gb.html?aid=304142&label=gen173nr-10CAQoggJCCmRpc3RyaWN0X1hICVgEaPsBiAEBmAEzuAEHyAEM2AED6AEB-AEBiAIBqAIBuAK63pvFBsACAdICJGRjYjI3OTQ1LTk3NTEtNDdhMC05MDAzLWM0NzgyZTI0ZjI5N9gCAeACAQ&ucfs=1&arphpl=1&checkin=2025-08-28&checkout=2025-08-29&group_adults=2&req_adults=2&no_rooms=1&group_children=0&req_children=0&hpos=10&hapos=10&sr_order=popularity&srpvid=430046dd187c05fc&srepoch=1755770870&all_sr_blocks=133306805_415527885_2_41_0&highlighted_blocks=133306805_415527885_2_41_0&matching_block_id=133306805_415527885_2_41_0&sr_pri_blocks=133306805_415527885_2_41_0__375000&from=searchresults",
+    "images": [
+      "https://cf.bstatic.com/xdata/images/hotel/square600/134893235.webp?k=004e123f89e47e2dede4d7bb3aac62849df383dd55e5fdfd9c2fb4b07706b936&o="
+    ],
+    "amenities": [
+      "air_conditioning",
+      "elevator",
+      "pool",
+      "balcony",
+      "view",
+      "laundry",
+      "wifi"
+    ],
+    "coordinates": null,
+    "rating": 9.2,
+    "review_count": 440,
+    "current_price": 3750,
+    "max_guests": null,
+    "bedrooms": 1,
+    "bathrooms": 1
+  },
+  {
+    "external_id": null,
+    "title": "Camps Bay Retreat Hotel\nOpens in new window",
+    "url": "https://www.booking.com/hotel/za/camps-bay-retreat.en-gb.html?aid=304142&label=gen173nr-10CAQoggJCCmRpc3RyaWN0X1hICVgEaPsBiAEBmAEzuAEHyAEM2AED6AEB-AEBiAIBqAIBuAK63pvFBsACAdICJGRjYjI3OTQ1LTk3NTEtNDdhMC05MDAzLWM0NzgyZTI0ZjI5N9gCAeACAQ&ucfs=1&arphpl=1&checkin=2025-08-28&checkout=2025-08-29&group_adults=2&req_adults=2&no_rooms=1&group_children=0&req_children=0&hpos=11&hapos=11&sr_order=popularity&srpvid=430046dd187c05fc&srepoch=1755770890&all_sr_blocks=1511732_95139795_2_1_0_687759&highlighted_blocks=1511732_95139795_2_1_0_687759&matching_block_id=1511732_95139795_2_1_0_687759&sr_pri_blocks=1511732_95139795_2_1_0_687759_396700&from=searchresults",
+    "images": [
+      "https://cf.bstatic.com/xdata/images/hotel/square600/507281477.webp?k=f9ffa7dadc77f2b69c446ee6bf6b235e0f92854d3b255a0d38c61920170e6dfa&o="
+    ],
+    "amenities": [
+      "air_conditioning",
+      "kitchen",
+      "balcony",
+      "view",
+      "laundry",
+      "wifi"
+    ],
+    "coordinates": null,
+    "rating": 8.8,
+    "review_count": 352,
+    "current_price": 3967,
+    "max_guests": null,
+    "bedrooms": 0,
+    "bathrooms": 1
+  },
+  {
+    "external_id": null,
+    "title": "Sea Five Boutique Hotel\nOpens in new window",
+    "url": "https://www.booking.com/hotel/za/sea-five-boutique-cape-town.en-gb.html?aid=304142&label=gen173nr-10CAQoggJCCmRpc3RyaWN0X1hICVgEaPsBiAEBmAEzuAEHyAEM2AED6AEB-AEBiAIBqAIBuAK63pvFBsACAdICJGRjYjI3OTQ1LTk3NTEtNDdhMC05MDAzLWM0NzgyZTI0ZjI5N9gCAeACAQ&ucfs=1&arphpl=1&checkin=2025-08-28&checkout=2025-08-29&group_adults=2&req_adults=2&no_rooms=1&group_children=0&req_children=0&hpos=12&hapos=12&sr_order=popularity&srpvid=430046dd187c05fc&srepoch=1755770911&all_sr_blocks=829083801_347509144_2_1_0&highlighted_blocks=829083801_347509144_2_1_0&matching_block_id=829083801_347509144_2_1_0&sr_pri_blocks=829083801_347509144_2_1_0__345600&from=searchresults",
+    "images": [
+      "https://cf.bstatic.com/xdata/images/hotel/square600/345536241.webp?k=980c162c3577070adc36b777475f87f4d989b531cf368af6133c3395464d0b65&o="
+    ],
+    "amenities": [
+      "view",
+      "air_conditioning",
+      "laundry"
+    ],
+    "coordinates": null,
+    "rating": 9.8,
+    "review_count": 27,
+    "current_price": 3456,
+    "max_guests": null,
+    "bedrooms": 1,
+    "bathrooms": 1
+  },
+  {
+    "external_id": null,
+    "title": "61 on Camps Bay\nOpens in new window",
+    "url": "https://www.booking.com/hotel/za/61-on-camps-bay.en-gb.html?aid=304142&label=gen173nr-10CAQoggJCCmRpc3RyaWN0X1hICVgEaPsBiAEBmAEzuAEHyAEM2AED6AEB-AEBiAIBqAIBuAK63pvFBsACAdICJGRjYjI3OTQ1LTk3NTEtNDdhMC05MDAzLWM0NzgyZTI0ZjI5N9gCAeACAQ&ucfs=1&arphpl=1&checkin=2025-08-28&checkout=2025-08-29&group_adults=2&req_adults=2&no_rooms=1&group_children=0&req_children=0&hpos=13&hapos=13&sr_order=popularity&srpvid=430046dd187c05fc&srepoch=1755770931&all_sr_blocks=28853703_326834221_0_1_0_244401&highlighted_blocks=28853703_326834221_0_1_0_244401&matching_block_id=28853703_326834221_0_1_0_244401&sr_pri_blocks=28853703_326834221_0_1_0_244401_162000&from=searchresults",
+    "images": [
+      "https://cf.bstatic.com/xdata/images/hotel/square600/171440004.webp?k=6eb3e1bb54ca0e44c0ed88300d220e89855ce00a9f36ca84454ce60b6c8104f1&o="
+    ],
+    "amenities": [
+      "kitchen",
+      "pool",
+      "balcony",
+      "view",
+      "laundry",
+      "wifi"
+    ],
+    "coordinates": null,
+    "rating": 7.5,
+    "review_count": 801,
+    "current_price": 1620,
+    "max_guests": null,
+    "bedrooms": 1,
+    "bathrooms": 1
+  },
+  {
+    "external_id": null,
+    "title": "Bayview Penthouses and Rooms\nOpens in new window",
+    "url": "https://www.booking.com/hotel/za/bayview-penthouses.en-gb.html?aid=304142&label=gen173nr-10CAQoggJCCmRpc3RyaWN0X1hICVgEaPsBiAEBmAEzuAEHyAEM2AED6AEB-AEBiAIBqAIBuAK63pvFBsACAdICJGRjYjI3OTQ1LTk3NTEtNDdhMC05MDAzLWM0NzgyZTI0ZjI5N9gCAeACAQ&ucfs=1&arphpl=1&checkin=2025-08-28&checkout=2025-08-29&group_adults=2&req_adults=2&no_rooms=1&group_children=0&req_children=0&hpos=14&hapos=14&sr_order=popularity&srpvid=430046dd187c05fc&srepoch=1755770951&all_sr_blocks=32927803_335373640_2_0_0_709859&highlighted_blocks=32927803_335373640_2_0_0_709859&matching_block_id=32927803_335373640_2_0_0_709859&sr_pri_blocks=32927803_335373640_2_0_0_709859_192000&from=searchresults",
+    "images": [
+      "https://cf.bstatic.com/xdata/images/hotel/square600/5246591.webp?k=9a5355c71ee309fd456a7eb7ea8e165ac433f29b3d2360d5afb97a257457d14f&o="
+    ],
+    "amenities": [
+      "air_conditioning",
+      "parking",
+      "pool",
+      "balcony",
+      "kitchen",
+      "view",
+      "laundry",
+      "wifi"
+    ],
+    "coordinates": null,
+    "rating": 9.3,
+    "review_count": 212,
+    "current_price": 1920,
+    "max_guests": null,
+    "bedrooms": 1,
+    "bathrooms": 1
+  },
+  {
+    "external_id": null,
+    "title": "POD Camps Bay by The Oyster Collection\nOpens in new window",
+    "url": "https://www.booking.com/hotel/za/pod-camps-bay.en-gb.html?aid=304142&label=gen173nr-10CAQoggJCCmRpc3RyaWN0X1hICVgEaPsBiAEBmAEzuAEHyAEM2AED6AEB-AEBiAIBqAIBuAK63pvFBsACAdICJGRjYjI3OTQ1LTk3NTEtNDdhMC05MDAzLWM0NzgyZTI0ZjI5N9gCAeACAQ&ucfs=1&arphpl=1&checkin=2025-08-28&checkout=2025-08-29&group_adults=2&req_adults=2&no_rooms=1&group_children=0&req_children=0&hpos=15&hapos=15&sr_order=popularity&srpvid=430046dd187c05fc&srepoch=1755770971&all_sr_blocks=26312410_387684844_2_1_0_731622&highlighted_blocks=26312410_387684844_2_1_0_731622&matching_block_id=26312410_387684844_2_1_0_731622&sr_pri_blocks=26312410_387684844_2_1_0_731622_651000&from=searchresults",
+    "images": [
+      "https://cf.bstatic.com/xdata/images/hotel/square600/511914879.webp?k=42cf277113f9bffc6ef80a9fef02b11c97a45d1b927b754e6fdff3a33dd80b97&o="
+    ],
+    "amenities": [
+      "air_conditioning",
+      "parking",
+      "balcony",
+      "view",
+      "laundry",
+      "wifi"
+    ],
+    "coordinates": null,
+    "rating": 9.4,
+    "review_count": 484,
+    "current_price": 6510,
+    "max_guests": null,
+    "bedrooms": 2,
+    "bathrooms": 1
+  },
+  {
+    "external_id": null,
+    "title": "Sea Castle Hotel Camps Bay\nOpens in new window",
+    "url": "https://www.booking.com/hotel/za/primi-seacastle.en-gb.html?aid=304142&label=gen173nr-10CAQoggJCCmRpc3RyaWN0X1hICVgEaPsBiAEBmAEzuAEHyAEM2AED6AEB-AEBiAIBqAIBuAK63pvFBsACAdICJGRjYjI3OTQ1LTk3NTEtNDdhMC05MDAzLWM0NzgyZTI0ZjI5N9gCAeACAQ&ucfs=1&arphpl=1&checkin=2025-08-28&checkout=2025-08-29&group_adults=2&req_adults=2&no_rooms=1&group_children=0&req_children=0&hpos=16&hapos=16&sr_order=popularity&srpvid=430046dd187c05fc&srepoch=1755770991&all_sr_blocks=1552405_357596757_2_1_0_557308&highlighted_blocks=1552405_357596757_2_1_0_557308&matching_block_id=1552405_357596757_2_1_0_557308&sr_pri_blocks=1552405_357596757_2_1_0_557308_270000&from=searchresults",
+    "images": [
+      "https://cf.bstatic.com/xdata/images/hotel/square600/437778649.webp?k=6fd03f9d7ea3e8cb63758973d86756e796ab43acc5bfb15955649a4da7bb03d8&o="
+    ],
+    "amenities": [
+      "air_conditioning",
+      "parking",
+      "view",
+      "laundry",
+      "wifi"
+    ],
+    "coordinates": null,
+    "rating": 8.6,
+    "review_count": 747,
+    "current_price": 2700,
+    "max_guests": null,
+    "bedrooms": 2,
+    "bathrooms": 1
+  },
+  {
+    "external_id": null,
+    "title": "Beachwood Camps Bay\nOpens in new window",
+    "url": "https://www.booking.com/hotel/za/beachwood-camps-bay.en-gb.html?aid=304142&label=gen173nr-10CAQoggJCCmRpc3RyaWN0X1hICVgEaPsBiAEBmAEzuAEHyAEM2AED6AEB-AEBiAIBqAIBuAK63pvFBsACAdICJGRjYjI3OTQ1LTk3NTEtNDdhMC05MDAzLWM0NzgyZTI0ZjI5N9gCAeACAQ&ucfs=1&arphpl=1&checkin=2025-08-28&checkout=2025-08-29&group_adults=2&req_adults=2&no_rooms=1&group_children=0&req_children=0&hpos=17&hapos=17&sr_order=popularity&srpvid=430046dd187c05fc&srepoch=1755771011&all_sr_blocks=926472916_364428438_0_2_0&highlighted_blocks=926472916_364428438_0_2_0&matching_block_id=926472916_364428438_0_2_0&sr_pri_blocks=926472916_364428438_0_2_0__137700&from=searchresults",
+    "images": [
+      "https://cf.bstatic.com/xdata/images/hotel/square600/589218182.webp?k=1dcab57bf5b9d119977b5a0b3885c670c8e4463a682c0832e78969922a79cb13&o="
+    ],
+    "amenities": [
+      "air_conditioning",
+      "pool",
+      "balcony",
+      "kitchen",
+      "view",
+      "laundry",
+      "wifi"
+    ],
+    "coordinates": null,
+    "rating": 8.4,
+    "review_count": 638,
+    "current_price": 1377,
+    "max_guests": null,
+    "bedrooms": 1,
+    "bathrooms": 1
+  },
+  {
+    "external_id": null,
+    "title": "Swiss Cottage Guest House\nOpens in new window",
+    "url": "https://www.booking.com/hotel/za/swiss-cottage-guest-house.en-gb.html?aid=304142&label=gen173nr-10CAQoggJCCmRpc3RyaWN0X1hICVgEaPsBiAEBmAEzuAEHyAEM2AED6AEB-AEBiAIBqAIBuAK63pvFBsACAdICJGRjYjI3OTQ1LTk3NTEtNDdhMC05MDAzLWM0NzgyZTI0ZjI5N9gCAeACAQ&ucfs=1&arphpl=1&checkin=2025-08-28&checkout=2025-08-29&group_adults=2&req_adults=2&no_rooms=1&group_children=0&req_children=0&hpos=18&hapos=18&sr_order=popularity&srpvid=430046dd187c05fc&srepoch=1755771031&all_sr_blocks=28387908_335369508_0_0_0&highlighted_blocks=28387908_335369508_0_0_0&matching_block_id=28387908_335369508_0_0_0&sr_pri_blocks=28387908_335369508_0_0_0__78400&from=searchresults",
+    "images": [
+      "https://cf.bstatic.com/xdata/images/hotel/square600/504618533.webp?k=7d052737169414fb370d38e02ad0f4f72caefef0703dd41747ac6795c4d3942d&o="
+    ],
+    "amenities": [
+      "air_conditioning",
+      "kitchen",
+      "balcony",
+      "view",
+      "laundry",
+      "wifi"
+    ],
+    "coordinates": null,
+    "rating": 8.5,
+    "review_count": 145,
+    "current_price": 784,
+    "max_guests": null,
+    "bedrooms": 1,
+    "bathrooms": 1
+  },
+  {
+    "external_id": null,
+    "title": "The Marly Boutique Hotel\nOpens in new window",
+    "url": "https://www.booking.com/hotel/za/the-marly.en-gb.html?aid=304142&label=gen173nr-10CAQoggJCCmRpc3RyaWN0X1hICVgEaPsBiAEBmAEzuAEHyAEM2AED6AEB-AEBiAIBqAIBuAK63pvFBsACAdICJGRjYjI3OTQ1LTk3NTEtNDdhMC05MDAzLWM0NzgyZTI0ZjI5N9gCAeACAQ&ucfs=1&arphpl=1&checkin=2025-08-28&checkout=2025-08-29&group_adults=2&req_adults=2&no_rooms=1&group_children=0&req_children=0&hpos=19&hapos=19&sr_order=popularity&srpvid=430046dd187c05fc&srepoch=1755771052&all_sr_blocks=77600802_387801127_2_1_0_303288&highlighted_blocks=77600802_387801127_2_1_0_303288&matching_block_id=77600802_387801127_2_1_0_303288&sr_pri_blocks=77600802_387801127_2_1_0_303288_1007400&from=searchresults",
+    "images": [
+      "https://cf.bstatic.com/xdata/images/hotel/square600/257979479.webp?k=450dac7d9bac77d0d2069bd31f5161885b72f1fe81f0834a8e742ca2dd57e154&o="
+    ],
+    "amenities": [
+      "air_conditioning",
+      "parking",
+      "balcony",
+      "view",
+      "wifi"
+    ],
+    "coordinates": null,
+    "rating": 9.1,
+    "review_count": 365,
+    "current_price": 10074,
+    "max_guests": null,
+    "bedrooms": 1,
+    "bathrooms": 1
+  },
+  {
+    "external_id": null,
+    "title": "Neighbourgood 1st Crescent\nOpens in new window",
+    "url": "https://www.booking.com/hotel/za/1st-crescent-campsbay.en-gb.html?aid=304142&label=gen173nr-10CAQoggJCCmRpc3RyaWN0X1hICVgEaPsBiAEBmAEzuAEHyAEM2AED6AEB-AEBiAIBqAIBuAK63pvFBsACAdICJGRjYjI3OTQ1LTk3NTEtNDdhMC05MDAzLWM0NzgyZTI0ZjI5N9gCAeACAQ&ucfs=1&arphpl=1&checkin=2025-08-28&checkout=2025-08-29&group_adults=2&req_adults=2&no_rooms=1&group_children=0&req_children=0&hpos=20&hapos=20&sr_order=popularity&srpvid=430046dd187c05fc&srepoch=1755771072&all_sr_blocks=1181448701_390581785_2_1_0_640392&highlighted_blocks=1181448701_390581785_2_1_0_640392&matching_block_id=1181448701_390581785_2_1_0_640392&sr_pri_blocks=1181448701_390581785_2_1_0_640392_185710&from=searchresults",
+    "images": [
+      "https://cf.bstatic.com/xdata/images/hotel/square600/606232312.webp?k=3b2e97a561585947738142cee63f342eac922d40cb3deb0ed51b774708204e40&o="
+    ],
+    "amenities": [
+      "air_conditioning",
+      "pool",
+      "balcony",
+      "view",
+      "wifi"
+    ],
+    "coordinates": null,
+    "rating": 8.2,
+    "review_count": 263,
+    "current_price": 1857,
+    "max_guests": null,
+    "bedrooms": 2,
+    "bathrooms": 1
+  },
+  {
+    "external_id": null,
+    "title": "C Bay 58\nOpens in new window",
+    "url": "https://www.booking.com/hotel/za/villa-c-bay-58.en-gb.html?aid=304142&label=gen173nr-10CAQoggJCCmRpc3RyaWN0X1hICVgEaPsBiAEBmAEzuAEHyAEM2AED6AEB-AEBiAIBqAIBuAK63pvFBsACAdICJGRjYjI3OTQ1LTk3NTEtNDdhMC05MDAzLWM0NzgyZTI0ZjI5N9gCAeACAQ&ucfs=1&arphpl=1&checkin=2025-08-28&checkout=2025-08-29&group_adults=2&req_adults=2&no_rooms=1&group_children=0&req_children=0&hpos=21&hapos=21&sr_order=popularity&srpvid=430046dd187c05fc&srepoch=1755771092&all_sr_blocks=193107204_278121151_2_0_0_281430&highlighted_blocks=193107204_278121151_2_0_0_281430&matching_block_id=193107204_278121151_2_0_0_281430&sr_pri_blocks=193107204_278121151_2_0_0_281430_104625&from=searchresults",
+    "images": [
+      "https://cf.bstatic.com/xdata/images/hotel/square600/567928559.webp?k=624e2bd9c0a9dbd5b16f68ed32b6a50a34aa062a46a2283c5e3ee89fbcdebeae&o="
+    ],
+    "amenities": [
+      "air_conditioning",
+      "pool",
+      "balcony",
+      "view",
+      "wifi"
+    ],
+    "coordinates": null,
+    "rating": 7.6,
+    "review_count": 190,
+    "current_price": 1046,
+    "max_guests": null,
+    "bedrooms": 1,
+    "bathrooms": 1
+  },
+  {
+    "external_id": null,
+    "title": "Finchley Guesthouse in Camps Bay\nOpens in new window",
+    "url": "https://www.booking.com/hotel/za/finchley-guesthouse.en-gb.html?aid=304142&label=gen173nr-10CAQoggJCCmRpc3RyaWN0X1hICVgEaPsBiAEBmAEzuAEHyAEM2AED6AEB-AEBiAIBqAIBuAK63pvFBsACAdICJGRjYjI3OTQ1LTk3NTEtNDdhMC05MDAzLWM0NzgyZTI0ZjI5N9gCAeACAQ&ucfs=1&arphpl=1&checkin=2025-08-28&checkout=2025-08-29&group_adults=2&req_adults=2&no_rooms=1&group_children=0&req_children=0&hpos=22&hapos=22&sr_order=popularity&srpvid=430046dd187c05fc&srepoch=1755771112&all_sr_blocks=120085103_326840335_2_1_0_244394&highlighted_blocks=120085103_326840335_2_1_0_244394&matching_block_id=120085103_326840335_2_1_0_244394&sr_pri_blocks=120085103_326840335_2_1_0_244394_153000&from=searchresults",
+    "images": [
+      "https://cf.bstatic.com/xdata/images/hotel/square600/427004207.webp?k=4b74c4aec099ac2bc5e2b329447c0b38f1e04ec729c4ab9d3aecefbe82a6b8fa&o="
+    ],
+    "amenities": [
+      "air_conditioning",
+      "pool",
+      "balcony",
+      "view",
+      "laundry",
+      "wifi"
+    ],
+    "coordinates": null,
+    "rating": 8.3,
+    "review_count": 591,
+    "current_price": 1530,
+    "max_guests": null,
+    "bedrooms": 1,
+    "bathrooms": 1
+  },
+  {
+    "external_id": null,
+    "title": "Atlanticview Cape Town Boutique Hotel\nOpens in new window",
+    "url": "https://www.booking.com/hotel/za/atlanticview-cape-town-boutique.en-gb.html?aid=304142&label=gen173nr-10CAQoggJCCmRpc3RyaWN0X1hICVgEaPsBiAEBmAEzuAEHyAEM2AED6AEB-AEBiAIBqAIBuAK63pvFBsACAdICJGRjYjI3OTQ1LTk3NTEtNDdhMC05MDAzLWM0NzgyZTI0ZjI5N9gCAeACAQ&ucfs=1&arphpl=1&checkin=2025-08-28&checkout=2025-08-29&group_adults=2&req_adults=2&no_rooms=1&group_children=0&req_children=0&hpos=23&hapos=23&sr_order=popularity&srpvid=430046dd187c05fc&srepoch=1755771133&all_sr_blocks=131275102_91660372_2_41_0_417215&highlighted_blocks=131275102_91660372_2_41_0_417215&matching_block_id=131275102_91660372_2_41_0_417215&sr_pri_blocks=131275102_91660372_2_41_0_417215_521776&from=searchresults",
+    "images": [
+      "https://cf.bstatic.com/xdata/images/hotel/square600/682502975.webp?k=1c63c03112ff9f9c29f1d42f3e06b7823b0fa3889876351b0ef17e5de5fc8afd&o="
+    ],
+    "amenities": [
+      "air_conditioning",
+      "parking",
+      "pool",
+      "balcony",
+      "kitchen",
+      "view",
+      "laundry",
+      "wifi"
+    ],
+    "coordinates": null,
+    "rating": 9.0,
+    "review_count": 348,
+    "current_price": 5218,
+    "max_guests": null,
+    "bedrooms": 1,
+    "bathrooms": 1
+  },
+  {
+    "external_id": null,
+    "title": "Brighton Court in Campsbay on the beach.\nOpens in new window",
+    "url": "https://www.booking.com/hotel/za/brighton-court-in-campsbay-on-the-beach.en-gb.html?aid=304142&label=gen173nr-10CAQoggJCCmRpc3RyaWN0X1hICVgEaPsBiAEBmAEzuAEHyAEM2AED6AEB-AEBiAIBqAIBuAK63pvFBsACAdICJGRjYjI3OTQ1LTk3NTEtNDdhMC05MDAzLWM0NzgyZTI0ZjI5N9gCAeACAQ&ucfs=1&arphpl=1&checkin=2025-08-28&checkout=2025-08-29&group_adults=2&req_adults=2&no_rooms=1&group_children=0&req_children=0&hpos=24&hapos=24&sr_order=popularity&srpvid=430046dd187c05fc&srepoch=1755771159&all_sr_blocks=1060839501_389182526_2_0_0&highlighted_blocks=1060839501_389182526_2_0_0&matching_block_id=1060839501_389182526_2_0_0&sr_pri_blocks=1060839501_389182526_2_0_0__112860&from=searchresults",
+    "images": [
+      "https://cf.bstatic.com/xdata/images/hotel/square600/484550867.webp?k=23c1fa53b274b968cdde5fc14c8a62844a2f379c05ccc5dc04858e8048ca4acb&o="
+    ],
+    "amenities": [
+      "view",
+      "kitchen",
+      "balcony",
+      "wifi"
+    ],
+    "coordinates": null,
+    "rating": 8.8,
+    "review_count": 17,
+    "current_price": 1129,
+    "max_guests": null,
+    "bedrooms": 1,
+    "bathrooms": 1
+  },
+  {
+    "external_id": null,
+    "title": "Sea Star Rocks Boutique Hotel\nOpens in new window",
+    "url": "https://www.booking.com/hotel/za/sea-star-rocks-bakoven.en-gb.html?aid=304142&label=gen173nr-10CAQoggJCCmRpc3RyaWN0X1hICVgEaPsBiAEBmAEzuAEHyAEM2AED6AEB-AEBiAIBqAIBuAK63pvFBsACAdICJGRjYjI3OTQ1LTk3NTEtNDdhMC05MDAzLWM0NzgyZTI0ZjI5N9gCAeACAQ&ucfs=1&arphpl=1&checkin=2025-08-28&checkout=2025-08-29&group_adults=2&req_adults=2&no_rooms=1&group_children=0&req_children=0&hpos=25&hapos=25&sr_order=popularity&srpvid=430046dd187c05fc&srepoch=1755771179&all_sr_blocks=163567201_326845126_2_1_0_396723&highlighted_blocks=163567201_326845126_2_1_0_396723&matching_block_id=163567201_326845126_2_1_0_396723&sr_pri_blocks=163567201_326845126_2_1_0_396723_550000&from=searchresults",
+    "images": [
+      "https://cf.bstatic.com/xdata/images/hotel/square600/527465940.webp?k=eb86543460680944b920bdffea7fdcb746d371356d237497ab448691edb68479&o="
+    ],
+    "amenities": [
+      "air_conditioning",
+      "pool",
+      "balcony",
+      "kitchen",
+      "view",
+      "laundry",
+      "wifi"
+    ],
+    "coordinates": null,
+    "rating": 9.5,
+    "review_count": 265,
+    "current_price": 5500,
+    "max_guests": null,
+    "bedrooms": 1,
+    "bathrooms": 1
+  }
+]

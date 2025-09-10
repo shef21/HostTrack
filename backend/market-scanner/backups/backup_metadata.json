@@ -1,0 +1,15 @@
+{
+  "timestamp": "2025-08-21T12:45:58.620Z",
+  "backupPaths": {
+    "cape_town_competitors": "/Users/shinolingovender/Desktop/hosttrack-dev 2/backend/market-scanner/backups/cape_town_competitors_2025-08-21T12-45-57-186Z.json",
+    "cape_town_market_data": "/Users/shinolingovender/Desktop/hosttrack-dev 2/backend/market-scanner/backups/cape_town_market_data_2025-08-21T12-45-57-697Z.json",
+    "cape_town_market_trends": "/Users/shinolingovender/Desktop/hosttrack-dev 2/backend/market-scanner/backups/cape_town_market_trends_2025-08-21T12-45-58-165Z.json",
+    "cape_town_area_stats": "/Users/shinolingovender/Desktop/hosttrack-dev 2/backend/market-scanner/backups/cape_town_area_stats_2025-08-21T12-45-58-620Z.json"
+  },
+  "tables": [
+    "cape_town_competitors",
+    "cape_town_market_data",
+    "cape_town_market_trends",
+    "cape_town_area_stats"
+  ]
+}

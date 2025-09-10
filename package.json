@@ -15,10 +15,22 @@
     "build": "echo 'No build step required for Node.js'",
     "test": "echo 'No tests specified'"
   },
-  "keywords": ["property", "management", "fullstack", "railway"],
+  "keywords": [
+    "property",
+    "management",
+    "fullstack",
+    "railway"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "concurrently": "^8.2.2"
+    "@supabase/supabase-js": "^2.55.0",
+    "concurrently": "^8.2.2",
+    "dotenv": "^17.2.1",
+    "puppeteer": "^24.17.0"
+  },
+  "devDependencies": {
+    "chai": "^5.3.1",
+    "mocha": "^11.7.1"
   }
 }

@@ -271,11 +271,23 @@
                     <!-- Upcoming Bookings -->
                     <div class="upcoming-bookings">
                         <div class="section-header">
-                            <h3>Upcoming Bookings</h3>
-                            <button class="view-all-button">View All</button>
+                            <div class="header-left">
+                                <div class="section-icon">📅</div>
+                                <div class="header-text">
+                                    <h3>Upcoming & Recent Bookings</h3>
+                                    <p>Your confirmed reservations (upcoming & recent)</p>
+                                </div>
+                            </div>
+                            
                         </div>
                         <div id="upcoming-bookings-list" class="bookings-list">
-                            <!-- Bookings will be loaded here -->
+                            <div class="bookings-loading">
+                                <div class="loading-spinner"></div>
+                                <p>Loading upcoming bookings...</p>
+                                <button onclick="window.getDashboardManager().forceRefreshBookings()" class="btn btn-secondary btn-sm" style="margin-top: 10px;">
+                                    Force Refresh
+                                </button>
+                            </div>
                         </div>
                     </div>
                     
@@ -293,7 +305,13 @@
                     <!-- Weekly Occupancy -->
                     <div class="weekly-occupancy">
                         <div class="section-header">
-                            <h3>Weekly Occupancy</h3>
+                            <div class="header-left">
+                                <h3>Weekly Occupancy</h3>
+                                <p class="section-subtitle">Current week's property utilization rates</p>
+                            </div>
+                            <div class="week-info">
+                                <span id="current-week-range" class="week-range">This Week</span>
+                            </div>
                         </div>
                         <div id="occupancy-chart-container">
                             <div id="occupancy-chart-loading" class="chart-loading">Loading occupancy data...</div>
@@ -311,174 +329,140 @@
                                 <div class="trend-icon">📈</div>
                                 <div class="trend-content">
                                     <h4>Revenue Growth</h4>
-                                    <div class="trend-value">+12.5%</div>
-                                    <div class="trend-period">vs last month</div>
+                                    <div id="revenue-growth-value" class="trend-value">Loading...</div>
+                                    <div id="revenue-growth-period" class="trend-period">vs last month</div>
                                 </div>
                             </div>
                             <div class="trend-item neutral">
                                 <div class="trend-icon">🏠</div>
                                 <div class="trend-content">
                                     <h4>Property Utilization</h4>
-                                    <div class="trend-value">78%</div>
-                                    <div class="trend-period">average occupancy</div>
+                                    <div id="property-utilization-value" class="trend-value">Loading...</div>
+                                    <div id="property-utilization-period" class="trend-period">average occupancy</div>
                                 </div>
                             </div>
                             <div class="trend-item positive">
                                 <div class="trend-icon">⭐</div>
                                 <div class="trend-content">
                                     <h4>Guest Satisfaction</h4>
-                                    <div class="trend-value">4.8/5</div>
-                                    <div class="trend-period">average rating</div>
+                                    <div id="guest-satisfaction-value" class="trend-value">Loading...</div>
+                                    <div id="guest-satisfaction-period" class="trend-period">average rating</div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Nathi - Property Management Assistant -->
-                    <div class="ai-assistant-section">
+                    <!-- Service Providers Section -->
+                    <div class="service-providers-section">
                         <div class="section-header">
                             <div class="header-left">
-                                <div class="ai-icon">👩‍💼</div>
+                                <div class="service-icon">🔧</div>
                                 <div class="header-text">
-                                    <h3>Nathi - Property Management Assistant</h3>
-                                    <p>Chat with your friendly AI buddy for instant help with property management, pricing strategies, and business insights! 🚀</p>
+                                    <h3>Trusted Service Providers</h3>
+                                    <p>Connect with verified professionals for all your property maintenance needs</p>
                                 </div>
-                            </div>
-                            <div class="ai-status">
-                                <div class="status-dot"></div>
-                                <span id="ai-chat-status-text" class="status-text">Ready</span>
                             </div>
                         </div>
                         
-                        <div class="ai-chat-container">
-                            <div class="chat-sidebar">
-                                <div class="quick-actions">
-                                    <h4>Quick Actions - Let's Get Started! 🚀</h4>
-                                                               <div class="action-buttons">
-                               <button class="action-btn" data-action="analyze-performance">
-                                   <span class="action-icon">📊</span>
-                                   <span>Let's Analyze Your Performance!</span>
-                               </button>
-                               <button class="action-btn" data-action="optimize-pricing">
-                                   <span class="action-icon">💰</span>
-                                   <span>Boost Your Pricing Strategy!</span>
-                               </button>
-                               <button class="action-btn" data-action="booking-insights">
-                                   <span class="action-icon">📅</span>
-                                   <span>Discover Booking Secrets!</span>
-                               </button>
-                               <button class="action-btn" data-action="property-tips">
-                                   <span class="action-icon">🏠</span>
-                                   <span>Get Pro Property Tips!</span>
-                               </button>
-                               <button class="action-btn" data-action="trend-analysis">
-                                   <span class="action-icon">🚀</span>
-                                   <span>Analyze 6-Month Trends!</span>
-                               </button>
-                               <button class="action-btn" data-action="revenue-forecast">
-                                   <span class="action-icon">🔮</span>
-                                   <span>Revenue Forecast (3-6 months)</span>
-                               </button>
-                               <button class="action-btn" data-action="occupancy-prediction">
-                                   <span class="action-icon">📅</span>
-                                   <span>Occupancy Prediction</span>
-                               </button>
-                               <button class="action-btn" data-action="expense-forecast">
-                                   <span class="action-icon">💰</span>
-                                   <span>Expense Forecast</span>
-                               </button>
-                               <button class="action-btn" data-action="smart-pricing">
-                                   <span class="action-icon">💰</span>
-                                   <span>Smart Pricing Engine</span>
-                               </button>
-                               <button class="action-btn" data-action="marketing-strategy">
-                                   <span class="action-icon">📢</span>
-                                   <span>Marketing Strategy</span>
-                               </button>
-                               <button class="action-btn" data-action="property-improvements">
-                                   <span class="action-icon">🏠</span>
-                                   <span>Property Improvements ROI</span>
-                               </button>
-                               <button class="action-btn" data-action="investment-opportunities">
-                                   <span class="action-icon">🚀</span>
-                                   <span>Investment Opportunities</span>
-                               </button>
-                               <button class="action-btn" data-action="competitor-analysis">
-                                   <span class="action-icon">🏆</span>
-                                   <span>Competitor Analysis</span>
-                               </button>
-                               <button class="action-btn" data-action="market-trends">
-                                   <span class="action-icon">📈</span>
-                                   <span>Market Trends</span>
-                               </button>
-                               <button class="action-btn" data-action="competitive-advantages">
-                                   <span class="action-icon">⭐</span>
-                                   <span>Competitive Advantages</span>
-                               </button>
-                               <button class="action-btn" data-action="market-opportunities">
-                                   <span class="action-icon">🎯</span>
-                                   <span>Market Opportunities</span>
-                               </button>
-                           </div>
+                        <div class="service-cards-grid">
+                            <div class="service-card">
+                                <div class="service-icon">🔧</div>
+                                <h4>Property Maintenance</h4>
+                                <p>General repairs, maintenance, and upkeep services</p>
+                                <div class="service-rating">
+                                    <span class="stars">⭐⭐⭐⭐⭐</span>
+                                    <span class="rating-text">4.9/5 (127 reviews)</span>
                                 </div>
+                                <div class="service-features">
+                                    <span class="feature-tag">24/7 Emergency</span>
+                                    <span class="feature-tag">Licensed</span>
+                                    <span class="feature-tag">Insured</span>
+                                </div>
+                                <button class="service-btn">Contact Now</button>
                             </div>
-                            
-                            <div class="chat-main">
-                                <div id="ai-chat-messages" class="ai-chat-messages">
-                                                   <div class="ai-chat-message ai-message">
-                   <div class="ai-chat-avatar">👩‍💼</div>
-                   <div class="ai-chat-content">
-                                            <div class="message-header">
-                                                <span class="sender-name">Nathi</span>
-                                                <span class="message-time">Just now</span>
-                                            </div>
-                                                                   <div class="message-text">
-                           Hey there! 👋 I'm Nathi, your friendly property management buddy! I'm here to make your hosting journey easier and more fun! Here's what I can help you with:
-                           <ul>
-                               <li>📊 Crunching those numbers to show you how awesome your properties are performing</li>
-                               <li>📅 Keeping your calendar organized so you never miss a booking</li>
-                               <li>💰 Finding ways to boost your revenue (who doesn't love that?)</li>
-                               <li>🏠 Sharing insider tips to make your properties shine</li>
-                               <li>🚀 **NEW**: Analyze your 6-month trends and seasonal patterns!</li>
-                               <li>🔮 **PREDICTIVE**: Forecast revenue, occupancy, and expenses for the next 3-6 months!</li>
-                               <li>🎯 **SMART RECOMMENDATIONS**: Get automated pricing optimization, marketing strategies, and ROI calculations!</li>
-                               <li>🏆 **MARKET INTELLIGENCE**: Get competitor analysis, market trends, and competitive advantage insights!</li>
-                           </ul>
-                           What would you like to chat about today? I'm all ears! 😊
-                       </div>
-                                        </div>
-                                    </div>
+
+                            <div class="service-card">
+                                <div class="service-icon">🚿</div>
+                                <h4>Plumbing Services</h4>
+                                <p>Professional plumbing repairs and installations</p>
+                                <div class="service-rating">
+                                    <span class="stars">⭐⭐⭐⭐⭐</span>
+                                    <span class="rating-text">4.8/5 (89 reviews)</span>
                                 </div>
-                                
-                                <div id="ai-chat-typing" class="ai-chat-typing hidden">
-                                    <div class="ai-chat-avatar">🤖</div>
-                                    <div class="ai-chat-content">
-                                        <div class="typing-indicator">
-                                            <span></span>
-                                            <span></span>
-                                            <span></span>
-                                        </div>
-                                    </div>
+                                <div class="service-features">
+                                    <span class="feature-tag">Same Day Service</span>
+                                    <span class="feature-tag">Free Quotes</span>
+                                    <span class="feature-tag">Warranty</span>
                                 </div>
-                                
-                                <div class="ai-chat-input-container">
-                                    <div class="input-wrapper">
-                                        <textarea 
-                                            id="ai-chat-input" 
-                                            class="ai-chat-input" 
-                                            placeholder="Ask me about property management, bookings, revenue optimization, or anything else..."
-                                            rows="1"
-                                        ></textarea>
-                                        <button id="ai-chat-send" class="ai-chat-send">
-                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
-                                            </svg>
-                                        </button>
-                                    </div>
+                                <button class="service-btn">Get Quote</button>
+                            </div>
+
+                            <div class="service-card">
+                                <div class="service-icon">⚡</div>
+                                <h4>Electrical Services</h4>
+                                <p>Electrical repairs, installations, and safety checks</p>
+                                <div class="service-rating">
+                                    <span class="stars">⭐⭐⭐⭐⭐</span>
+                                    <span class="rating-text">4.9/5 (156 reviews)</span>
                                 </div>
+                                <div class="service-features">
+                                    <span class="feature-tag">Certified Electricians</span>
+                                    <span class="feature-tag">Emergency Call</span>
+                                    <span class="feature-tag">Code Compliant</span>
+                                </div>
+                                <button class="service-btn">Book Service</button>
+                            </div>
+
+                            <div class="service-card">
+                                <div class="service-icon">🧹</div>
+                                <h4>Cleaning Services</h4>
+                                <p>Professional cleaning between guests and deep cleans</p>
+                                <div class="service-rating">
+                                    <span class="stars">⭐⭐⭐⭐⭐</span>
+                                    <span class="rating-text">4.7/5 (203 reviews)</span>
+                                </div>
+                                <div class="service-features">
+                                    <span class="feature-tag">Eco-Friendly</span>
+                                    <span class="feature-tag">Flexible Schedule</span>
+                                    <span class="feature-tag">Bonded</span>
+                                </div>
+                                <button class="service-btn">Schedule</button>
+                            </div>
+
+                            <div class="service-card">
+                                <div class="service-icon">🌿</div>
+                                <h4>Landscaping</h4>
+                                <p>Garden maintenance, pool care, and outdoor spaces</p>
+                                <div class="service-rating">
+                                    <span class="stars">⭐⭐⭐⭐⭐</span>
+                                    <span class="rating-text">4.6/5 (78 reviews)</span>
+                                </div>
+                                <div class="service-features">
+                                    <span class="feature-tag">Weekly Maintenance</span>
+                                    <span class="feature-tag">Pool Care</span>
+                                    <span class="feature-tag">Garden Design</span>
+                                </div>
+                                <button class="service-btn">View Services</button>
+                            </div>
+
+                            <div class="service-card">
+                                <div class="service-icon">🔐</div>
+                                <h4>Security Services</h4>
+                                <p>Security systems, cameras, and monitoring solutions</p>
+                                <div class="service-rating">
+                                    <span class="stars">⭐⭐⭐⭐⭐</span>
+                                    <span class="rating-text">4.8/5 (92 reviews)</span>
+                                </div>
+                                <div class="service-features">
+                                    <span class="feature-tag">24/7 Monitoring</span>
+                                    <span class="feature-tag">Smart Systems</span>
+                                    <span class="feature-tag">Mobile App</span>
+                                </div>
+                                <button class="service-btn">Learn More</button>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
 
@@ -487,11 +471,76 @@
                 <div class="page-header">
                     <h2>Properties</h2>
                     <div class="properties-actions">
-                        <button class="btn btn-secondary" onclick="window.csvImporter.showImportModal()">
+                        <button class="btn btn-warning" onclick="window.propertiesManager.debugProperties()">
+                            🐛 Debug Properties
+                        </button>
+                        <button class="btn btn-info" onclick="window.propertiesManager.createSampleProperties()">
+                            🧪 Create Sample Properties
+                        </button>
+                        <button class="btn btn-secondary" onclick="if(window.csvImporter) { window.csvImporter.showImportModal(); } else { alert('CSV Import not ready yet. Please wait a moment and try again.'); }">
                             📁 Import CSV
+                        </button>
+                        <button class="btn btn-warning" onclick="if(typeof CSVImporter !== 'undefined') { window.csvImporter = new CSVImporter(); window.csvImporter.init(); alert('CSV Importer manually initialized!'); } else { alert('CSVImporter class not found. Check if csv-import.js is loaded.'); }">
+                            🔧 Init CSV Import
                         </button>
                         <button class="add-button" onclick="window.hostTrackApp.openModal('add-property-modal')">
                             + Add Property
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Property Tabs -->
+                <div class="property-tabs-container">
+                    <div class="property-tabs">
+                        <button class="property-tab active" data-tab="all-properties">
+                            <span class="tab-icon">🏠</span>
+                            <span class="tab-text">All Properties</span>
+                            <span class="tab-count" id="all-properties-count">0</span>
+                        </button>
+                        <button class="property-tab" data-tab="active-properties">
+                            <span class="tab-icon">✅</span>
+                            <span class="tab-text">Active</span>
+                            <span class="tab-count" id="active-properties-count">0</span>
+                        </button>
+                        <button class="property-tab" data-tab="featured-properties">
+                            <span class="tab-icon">⭐</span>
+                            <span class="tab-text">Featured</span>
+                            <span class="tab-count" id="featured-properties-count">0</span>
+                        </button>
+                        <button class="property-tab" data-tab="low-occupancy">
+                            <span class="tab-icon">📉</span>
+                            <span class="tab-text">Low Occupancy</span>
+                            <span class="tab-count" id="low-occupancy-count">0</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Property Filters -->
+                <div class="property-filters">
+                    <div class="filter-group">
+                        <input type="text" placeholder="Search properties..." class="property-search-input">
+                    </div>
+                    <div class="filter-group">
+                        <select class="property-filter-select" id="property-type-filter">
+                            <option value="">All Types</option>
+                            <option value="apartment">Apartment</option>
+                            <option value="house">House</option>
+                            <option value="cottage">Cottage</option>
+                            <option value="villa">Villa</option>
+                            <option value="studio">Studio</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <select class="property-filter-select" id="property-status-filter">
+                            <option value="">All Status</option>
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
+                            <option value="maintenance">Maintenance</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <button class="filter-clear-btn" onclick="window.propertiesManager.clearFilters()">
+                            🗑️ Clear Filters
                         </button>
                     </div>
                 </div>
@@ -973,7 +1022,7 @@
     <div id="csv-import-modal" class="modal hidden">
         <div class="modal-header">
             <h3>📁 Import Properties from CSV</h3>
-            <button class="modal-close" onclick="window.csvImporter.closeModal()">×</button>
+            <button class="modal-close" onclick="if(window.csvImporter) { window.csvImporter.closeModal(); } else { document.getElementById('csv-import-modal').classList.add('hidden'); }">×</button>
         </div>
         <div class="modal-content">
             <div class="csv-import-container">
@@ -1002,7 +1051,7 @@
                 </div>
                 
                 <div class="import-actions">
-                    <button class="btn btn-secondary" onclick="window.csvImporter.downloadTemplate()">📥 Download Template</button>
+                    <button class="btn btn-secondary" onclick="if(window.csvImporter) { window.csvImporter.downloadTemplate(); } else { alert('CSV Import not ready yet. Please wait a moment and try again.'); }">📥 Download Template</button>
                     <button class="btn btn-primary" id="startImport" disabled>🚀 Start Import</button>
                 </div>
                 
@@ -1128,7 +1177,6 @@
                 await loadScript('js/realtime.js');
                 await loadScript('js/advancedAnalytics.js');
                 await loadScript('js/phase3Dashboard.js');
-                await loadScript('js/ai-chat.js');
                 await loadScript('js/smart-matching-engine.js');
                 await loadScript('js/csv-import.js');
                 console.log('✅ All scripts loaded with cache busting');
@@ -1146,62 +1194,7 @@
     </script>
 
     <script>
-        // Dynamic form population functions
-        async function populateServiceCategories() {
-            try {
-                // Get service categories from database or use defaults
-                const categories = [
-                    'cleaning', 'insurance', 'maintenance', 'utilities', 
-                    'internet', 'security', 'gardening', 'pool', 'laundry'
-                ];
-                
-                const categorySelect = document.getElementById('service-category');
-                if (categorySelect) {
-                    // Clear existing options except the first one
-                    categorySelect.innerHTML = '<option value="">Select category</option>';
-                    
-                    // Add dynamic categories
-                    categories.forEach(category => {
-                        const option = document.createElement('option');
-                        option.value = category;
-                        option.textContent = category.charAt(0).toUpperCase() + category.slice(1);
-                        categorySelect.appendChild(option);
-                    });
-                }
-            } catch (error) {
-                console.warn('Could not populate service categories:', error);
-            }
-        }
-
-        async function populatePropertyOptions() {
-            try {
-                // Get user's properties from database
-                if (window.apiService && window.apiService.isAuthenticated()) {
-                    const properties = await window.apiService.getProperties();
-                    const propertySelect = document.getElementById('service-property');
-                    
-                    if (propertySelect && properties) {
-                        // Clear existing options except the first one
-                        propertySelect.innerHTML = '<option value="">All Properties</option>';
-                        
-                        // Add user's actual properties
-                        properties.forEach(property => {
-                            const option = document.createElement('option');
-                            option.value = property.id;
-                            option.textContent = property.name || `Property ${property.id}`;
-                            propertySelect.appendChild(option);
-                        });
-                    }
-                } catch (error) {
-                    console.warn('Could not populate property options:', error);
-                    // Fallback to default options if API fails
-                    const propertySelect = document.getElementById('service-property');
-                    if (propertySelect) {
-                        propertySelect.innerHTML = '<option value="">All Properties</option>';
-                    }
-                }
-            }
-        }
+        // Form population functions moved to app.js for proper initialization sequence
 
         // Tab switching function
         function switchAuthTab(tab) {
@@ -1222,30 +1215,7 @@
             console.log('✅ Tab switched to:', tab);
         }
 
-        // Populate forms when DOM is ready
-        document.addEventListener('DOMContentLoaded', () => {
-            console.log('🔧 DOM Content Loaded - Setting up authentication...');
-            
-            // Wait for API service to be available
-            setTimeout(() => {
-                console.log('🔧 Initializing form population...');
-                populateServiceCategories();
-                populatePropertyOptions();
-                
-                // Debug: Check if AuthManager is available
-                if (window.authManager) {
-                    console.log('✅ AuthManager is available:', window.authManager);
-                } else {
-                    console.log('❌ AuthManager not found');
-                }
-                
-                // Debug: Check if API service is available
-                if (window.apiService) {
-                    console.log('✅ API Service is available:', window.apiService);
-                } else {
-                    console.log('❌ API Service not found');
-                }
-            }, 1000);
-        });
+        // Populate forms when scripts are loaded (moved to app.js initialization)
+        // This prevents duplicate DOMContentLoaded event listeners
     </script>
   </body>

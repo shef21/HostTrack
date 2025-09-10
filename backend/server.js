@@ -127,7 +127,6 @@ app.use('/api/analytics', require('./routes/analytics'));
 app.use('/api/realtime', require('./routes/realtime'));
 app.use('/api/test', require('./routes/test'));
 app.use('/api/advanced-analytics', require('./routes/advancedAnalytics'));
-app.use('/api/ai-chat', require('./routes/ai-chat'));
 
 // Serve frontend routes
 app.get('/', (req, res) => {
@@ -155,6 +154,5 @@ app.listen(PORT, () => {
   console.log(`📅 Bookings endpoints: http://localhost:${PORT}/api/bookings`);
   console.log(`💰 Expenses endpoints: http://localhost:${PORT}/api/expenses`);
   console.log(`📊 Analytics endpoints: http://localhost:${PORT}/api/analytics`);
-  console.log(`🤖 AI Chat endpoints: http://localhost:${PORT}/api/ai-chat`);
   console.log(`🌐 Frontend files served from: ${path.join(__dirname, 'web')}`);
 });

@@ -74,8 +74,7 @@ function testSmartRecommendations() {
     console.log('🧪 Testing Smart Recommendations Function...');
     
     try {
-        // Import the function from ai-chat.js
-        const { calculateSmartRecommendations } = require('./routes/ai-chat.js');
+        // AI chat functionality removed - using separate AI agent
         
         if (!calculateSmartRecommendations) {
             console.log('❌ calculateSmartRecommendations function not found');
@@ -180,7 +179,7 @@ function testROICalculations() {
     console.log('\n🧪 Testing ROI Calculations...');
     
     try {
-        const { calculateSmartRecommendations } = require('./routes/ai-chat.js');
+        // AI chat functionality removed - using separate AI agent
         
         const result = calculateSmartRecommendations(
             mockTrendMetrics,

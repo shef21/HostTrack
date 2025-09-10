@@ -1,0 +1,1051 @@
+[
+  {
+    "room_id": 9852809,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 double bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 double bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "Garden flat in Higgovale",
+    "title": "Apartment in Gardens",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 1198.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R1,197.09 ZAR",
+          "amount": 1197.0,
+          "currency": "R.09 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 4.92,
+      "reviewCount": "107"
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/42645e00-af20-4dc3-a7ca-fa814fd31a83.jpg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/d41c964e-23a1-41ef-8f89-8c03ba0ce29d.jpg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/1d05f7bb-3241-4411-bf7b-4f9e263214f5.jpg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/29961d7e-3ade-440f-826a-deb8550569a3.jpg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/8c3e62e4-b4b6-4f7e-b2da-703c817e62b6.jpg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-9852809/original/a0fcf2e1-1df4-4217-897e-36ce4b3dc53e.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.94258,
+      "longitud": 18.40471
+    }
+  },
+  {
+    "room_id": 675841683228678016,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "2 beds",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "2 beds",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "The Coach House on Camden",
+    "title": "Home in Tamboerskloof",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 1940.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R1,940.00 ZAR",
+          "amount": 1940.0,
+          "currency": "R.00 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 5.0,
+      "reviewCount": "10"
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6Njc1ODQxNjgzMjI4Njc4MDE2/original/cff882be-37aa-465b-9eb2-ae164cbc56ac.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-675841683228678016/original/61c2dac5-054d-4bea-b221-a221daf34499.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6Njc1ODQxNjgzMjI4Njc4MDE2/original/25b6ee0d-89cb-4dfc-b782-6c4202b6812f.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-675841683228678016/original/e6619c3f-41a0-4862-ba5f-7bb691ec00d8.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6Njc1ODQxNjgzMjI4Njc4MDE2/original/649cae90-5688-43f7-ac4b-c66fc3d28bcd.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-675841683228678016/original/0d5e63ee-daf0-4f26-9ad0-a455f6e59511.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.9299,
+      "longitud": 18.4037
+    }
+  },
+  {
+    "room_id": 1724734,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 king bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 king bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "Abracadabra Loft",
+    "title": "Loft in Tamboerskloof",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 4675.0,
+        "discount": 4161.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R4,160.73 ZAR",
+          "amount": 4160.0,
+          "currency": "R.73 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 4.98,
+      "reviewCount": "40"
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTcyNDczNA%3D%3D/original/1e392241-b6e1-4c74-a2e4-d87e5c49ef4b.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTcyNDczNA%3D%3D/original/7f09e09b-fb62-4209-a800-35408982a966.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTcyNDczNA%3D%3D/original/b2d9c482-3933-40bf-a8a8-52641d4fa4f9.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTcyNDczNA%3D%3D/original/955d00f4-b627-4daf-90e5-ee5309c06720.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTcyNDczNA%3D%3D/original/1d33a3e9-e98d-4f3c-ab34-40c6f2be0850.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTcyNDczNA%3D%3D/original/620be1ae-7432-4364-9377-c32803deba08.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.9312,
+      "longitud": 18.4022
+    }
+  },
+  {
+    "room_id": 1247979370050036673,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "4 beds",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "4 beds",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "Luxury Villa with Ocean Views in Fresnaye",
+    "title": "Villa in Sea Point",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 9050.0,
+        "discount": 7614.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R7,614.00 ZAR",
+          "amount": 7614.0,
+          "currency": "R.00 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 4.82,
+      "reviewCount": "11"
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTI0Nzk3OTM3MDA1MDAzNjY3Mw%3D%3D/original/9294c921-edb4-4e61-916b-4abac65b97fe.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTI0Nzk3OTM3MDA1MDAzNjY3Mw%3D%3D/original/98221cbb-4e85-40ac-944f-a65430856df5.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTI0Nzk3OTM3MDA1MDAzNjY3Mw%3D%3D/original/a40bb30e-9997-41a7-95a4-0aea8aa9ab72.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTI0Nzk3OTM3MDA1MDAzNjY3Mw%3D%3D/original/c8f9eed8-81a8-4128-85fa-1d79b6a76af1.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTI0Nzk3OTM3MDA1MDAzNjY3Mw%3D%3D/original/e1ad467d-2b57-4b72-a973-dc396becc090.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTI0Nzk3OTM3MDA1MDAzNjY3Mw%3D%3D/original/5c9b4a95-9e8d-418f-8b40-342e6ddd262c.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.9259,
+      "longitud": 18.3861
+    }
+  },
+  {
+    "room_id": 776812714376097793,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "2 king beds",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "2 king beds",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "Table Mountain cottage",
+    "title": "Cottage in Gardens",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 1952.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R1,951.41 ZAR",
+          "amount": 1951.0,
+          "currency": "R.41 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 4.94,
+      "reviewCount": "16"
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6Nzc2ODEyNzE0Mzc2MDk3Nzkz/original/5457e193-3d8f-4142-8aca-3c084f977151.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6Nzc2ODEyNzE0Mzc2MDk3Nzkz/original/815b52ae-dfce-4c9c-b0be-ca4b23a56143.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6Nzc2ODEyNzE0Mzc2MDk3Nzkz/original/4c213d1e-f203-40dd-b618-afa57f4863df.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6Nzc2ODEyNzE0Mzc2MDk3Nzkz/original/c8ddf8c6-1ca8-413c-b443-0808759e8d08.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6Nzc2ODEyNzE0Mzc2MDk3Nzkz/original/41e9c45a-a310-4d6c-ab8c-82f7b326faae.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6Nzc2ODEyNzE0Mzc2MDk3Nzkz/original/997ddc5d-e08e-4b0d-92dd-543ed6395e55.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.93996,
+      "longitud": 18.40024
+    }
+  },
+  {
+    "room_id": 1475366751180046204,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "5 beds",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "5 beds",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [
+      {
+        "__typename": "PaymentMessage",
+        "text": "Free cancellation",
+        "type": "FREE_CANCELLATION_HIGHLIGHT"
+      }
+    ],
+    "kind": "",
+    "name": "Family Villa with Sunset Views",
+    "title": "Home in Sea Point",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 19629.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R19,628.24 ZAR",
+          "amount": 19628.0,
+          "currency": "R.24 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 0,
+      "reviewCount": 0
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1475366751180046204/original/4cdc8309-7296-4ba6-8ef1-959b861c638a.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1475366751180046204/original/21d55756-03a6-477c-96d4-a9fe92876d67.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1475366751180046204/original/46cc83c5-c8bd-45e2-b390-a5c77542bc71.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1475366751180046204/original/4e835619-b744-4a3b-89f2-bd5576430fc2.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1475366751180046204/original/6a68d607-e735-440e-bb14-d91e6c149271.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1475366751180046204/original/2a04dc15-c9dd-4b6d-a802-87b36263830c.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.9284,
+      "longitud": 18.38601
+    }
+  },
+  {
+    "room_id": 1342059966762058258,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "4 beds",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "4 beds",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "Quarry Estate Duplex apartment11",
+    "title": "Apartment in Gardens",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 9164.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R9,163.65 ZAR",
+          "amount": 9163.0,
+          "currency": "R.65 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 0,
+      "reviewCount": 0
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1342059966762058258/original/890fdf51-f188-4cd3-be81-fec4a9287a11.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1342059966762058258/original/f34965f8-64a6-480d-a4b7-25df78782245.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1342059966762058258/original/adf36c38-d9f4-45b9-a052-a443fe298e49.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1342059966762058258/original/1dcebdcf-ce07-487f-b2c2-bc59509299e1.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1342059966762058258/original/87af7251-d6ba-4b7d-8390-db84eb21ff2e.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1342059966762058258/original/361db144-ff6b-4a36-adfc-95104cfe157a.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.93916003082748,
+      "longitud": 18.399043840475404
+    }
+  },
+  {
+    "room_id": 1451459860427516423,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "3 beds",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "3 beds",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "Leafy Views",
+    "title": "Apartment in Gardens",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 7235.0,
+        "discount": 5935.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R7,234.12 ZAR",
+          "amount": 7234.0,
+          "currency": "R.12 ZAR"
+        },
+        {
+          "description": "Special offer",
+          "amount": -1300.0,
+          "currency": "R.00 ZAR"
+        },
+        {
+          "description": "Price after discount",
+          "amount": 5934.0,
+          "currency": "R.12 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 0,
+      "reviewCount": 0
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1451459860427516423/original/25ff6523-59c8-4f89-acf9-a2bd6f9d05b1.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1451459860427516423/original/9eee5700-4989-4671-bcc2-cd224410e964.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1451459860427516423/original/9815be85-bbfe-46ff-b8a7-8c22eb79bbc7.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1451459860427516423/original/5d3e2cc9-85d3-4bd3-a76f-c6c4b775a1eb.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1451459860427516423/original/c58d842f-eac3-43d3-92a9-d564d63ab0a6.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1451459860427516423/original/1b8bf34b-b188-457c-908c-9e9679edd424.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.93883,
+      "longitud": 18.40109
+    }
+  },
+  {
+    "room_id": 1182286248623261823,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [
+      {
+        "__typename": "PaymentMessage",
+        "text": "Free cancellation",
+        "type": "FREE_CANCELLATION_HIGHLIGHT"
+      }
+    ],
+    "kind": "",
+    "name": "Gardens Studio Apartment",
+    "title": "Apartment in Tamboerskloof",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 799.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R798.82 ZAR",
+          "amount": 798.0,
+          "currency": "R.82 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 0,
+      "reviewCount": 0
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1182286248623261823/original/8b0e14d6-29da-477f-9475-3f3e8be05052.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1182286248623261823/original/3e1a7aea-6b02-4536-96bd-1ddf74ca774b.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1182286248623261823/original/cc367fec-735f-4521-82ae-41c3afef1e6c.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1182286248623261823/original/5456451e-10a1-48e3-a00f-d40055197149.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1182286248623261823/original/0ea5e5fe-dea2-4802-8c25-21b655187672.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1182286248623261823/original/ba32c0e8-08bc-4f72-918b-eefd08c70fc5.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.93186,
+      "longitud": 18.40092
+    }
+  },
+  {
+    "room_id": 1020925013159778248,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "18 beds",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "18 beds",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "Cape Town Panorama Villa",
+    "title": "Villa in Tamboerskloof",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 8701.0,
+        "discount": 7532.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R7,531.77 ZAR",
+          "amount": 7531.0,
+          "currency": "R.77 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 4.43,
+      "reviewCount": "7"
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTAyMDkyNTAxMzE1OTc3ODI0OA==/original/02ea1ad7-1c6e-4bd6-be3a-eae8cfde59b3.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1020925013159778248/original/d04f82fa-39a1-44d5-9e32-7f9852fd67a4.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1020925013159778248/original/4711f4cc-c8fe-42c7-ab89-a49326296057.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1020925013159778248/original/1e66f96b-c619-48a0-ad9f-a8df4a74f29e.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1020925013159778248/original/bee1d9ba-26b3-432a-b4fe-0ff8dfd26f80.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1020925013159778248/original/2129bcd9-6ea2-4abd-a14d-0d782c340b8f.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.933,
+      "longitud": 18.4013
+    }
+  },
+  {
+    "room_id": 1390532100263686451,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "5 beds",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "5 beds",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "Botany House",
+    "title": "Home in Gardens",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 38000.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R38,000.00 ZAR",
+          "amount": 38000.0,
+          "currency": "R.00 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 0,
+      "reviewCount": 0
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1390532100263686451/original/9f1ef6b9-e548-4adf-82e1-7ec3187bed44.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1390532100263686451/original/7018ac99-28f3-43a2-b726-79a1fe083b4d.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1390532100263686451/original/3179a79a-d9ea-4ed9-bf7e-81e125e419b2.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1390532100263686451/original/72a4a135-4f4a-41d4-ad9a-15b36239f89a.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1390532100263686451/original/b3782848-8068-4a95-a35f-97c028b564f1.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1390532100263686451/original/73f4127e-a220-4db8-9804-7e7262ef56d3.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.93487976353098,
+      "longitud": 18.4033967973952
+    }
+  }
+]

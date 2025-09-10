@@ -1,0 +1,1632 @@
+[
+  {
+    "room_id": 1169976822294298405,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "Striped Horse Guest Cottage",
+    "title": "Guest suite in Kenilworth",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 987.0,
+        "discount": 834.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R833.06 ZAR",
+          "amount": 833.0,
+          "currency": "R.06 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 4.94,
+      "reviewCount": "79"
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1169976822294298405/original/fd003759-90cc-409d-a619-1af803e86a20.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1169976822294298405/original/9aaaa6ee-73d9-4dec-a0f4-52b0fc6f3c77.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1169976822294298405/original/cec5dea9-0b46-4cd3-a56f-7c418baaaf12.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1169976822294298405/original/dac00f2b-ae33-412a-897f-7a777ec2a0d6.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1169976822294298405/original/501e61e6-dea8-4cbd-be06-a6e37b9ca9fc.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1169976822294298405/original/1a407c19-0aff-41f8-950b-fe682084af40.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.9941,
+      "longitud": 18.4721
+    }
+  },
+  {
+    "room_id": 25672541,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 queen bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 queen bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [
+      {
+        "__typename": "PaymentMessage",
+        "text": "Free cancellation",
+        "type": "FREE_CANCELLATION_HIGHLIGHT"
+      }
+    ],
+    "kind": "",
+    "name": "The Bergzicht Guest Suite",
+    "title": "Guest suite in Newlands",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 1256.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R1,255.29 ZAR",
+          "amount": 1255.0,
+          "currency": "R.29 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 4.77,
+      "reviewCount": "118"
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/4c7efe0d-ff04-4a38-af9d-fb9b46906b80.jpg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/6b77dc9f-d267-4ba0-9760-f89d0003082d.jpg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/44c032c5-c9f0-4055-bdcc-2d12a6fa6abf.jpg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/4ff38eca-a5b2-4b00-89c4-eec6d7aa02ba.jpg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/bb0fb2dc-7ec3-4da9-9bac-457e3910b919.jpg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/3f4274ad-ac8e-41a1-a45d-6873c99b86aa.jpg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.97616,
+      "longitud": 18.4688
+    }
+  },
+  {
+    "room_id": 28138114,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "2 beds",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "2 beds",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "Luxury,  self contained,  cosy studio space in the heart  of Newlands Village.",
+    "title": "Apartment in Newlands",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 1575.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R1,574.82 ZAR",
+          "amount": 1574.0,
+          "currency": "R.82 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 4.9,
+      "reviewCount": "134"
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-28138114/original/204b6c82-6d08-4f37-9a9a-4c01c9925003.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-28138114/original/c07c751d-e99e-4696-934b-c4e5b501bf2e.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/1927dadd-c488-42b7-bca1-b4061cd6e954.jpg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/7e116eb5-9dbd-41e9-b6ec-e77a736aa882.jpg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/1d36a354-d60e-499f-bf38-f440c2d786c7.jpg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-28138114/original/d5dba26d-a0fd-4e18-a5a6-5a6acb84a30c.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.97542,
+      "longitud": 18.45763
+    }
+  },
+  {
+    "room_id": 1441336518119734132,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [
+      {
+        "__typename": "PaymentMessage",
+        "text": "Free cancellation",
+        "type": "FREE_CANCELLATION_HIGHLIGHT"
+      }
+    ],
+    "kind": "",
+    "name": "Apart-hotel in Newlands",
+    "title": "Apartment in Newlands",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 1096.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R1,095.53 ZAR",
+          "amount": 1095.0,
+          "currency": "R.53 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 4.6,
+      "reviewCount": "5"
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1441336518119734132/original/130be027-ae6c-4e33-9203-554bfe2688ab.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1441336518119734132/original/676122a6-82cb-449c-9b69-5b355a15ebeb.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1441336518119734132/original/07e5bfb2-cfe6-4cee-96b1-1fd5401d2091.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1441336518119734132/original/b25acb3a-4834-4130-80c2-0bb47bc2f9fa.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1441336518119734132/original/4e91320e-8929-48cd-ab16-020747f51f53.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1441336518119734132/original/dc57e468-fdf3-4037-8569-1aee3874c83a.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.97637,
+      "longitud": 18.46574
+    }
+  },
+  {
+    "room_id": 43738020,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 king bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 king bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "Condominium 5 - Authentic Newlands",
+    "title": "Condo in Newlands",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 825.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R825.00 ZAR",
+          "amount": 825.0,
+          "currency": "R.00 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 4.69,
+      "reviewCount": "26"
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/892c7dcf-dbe7-4fb0-bdf7-b1288d73ac49.jpg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/43253b31-dd03-432f-8ed7-e6bfbf985b92.jpg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/d84a8ff4-bc51-410a-bc57-fd7dd7df1c29.jpg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/52578224-de5f-4c8e-a7ce-78abc7718e3a.jpg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/71504096-c341-428e-9f11-6d84fd214ef6.jpg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/7ec9903c-0d89-4983-a29e-0a365fe4f59c.jpg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.97748,
+      "longitud": 18.46353
+    }
+  },
+  {
+    "room_id": 28631966,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "2 beds",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "2 beds",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "Condominium  2 - Authentic Newlands",
+    "title": "Condo in Newlands",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 850.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R850.00 ZAR",
+          "amount": 850.0,
+          "currency": "R.00 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 4.69,
+      "reviewCount": "94"
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/fa68a477-359a-4f44-bc39-b8298943a62f.jpg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/be1ed37d-1c23-4a3c-aa08-d6583d5c93e4.jpg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/7c0aaeb9-f1f0-4b1a-b9d4-1b3655b5590c.jpg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/d136e0dc-92e3-491b-af60-4548f2d0125c.jpg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/3406287d-8239-4825-b26b-61b84c905940.jpg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/8be82ddf-4d4c-49da-843a-e6dbd7451fa8.jpg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.9777,
+      "longitud": 18.4627
+    }
+  },
+  {
+    "room_id": 1486024089704787606,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "Newlands Peak Studio with Aircon",
+    "title": "Apartment in Newlands",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 1130.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R1,129.77 ZAR",
+          "amount": 1129.0,
+          "currency": "R.77 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 0,
+      "reviewCount": 0
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1486024089704787606/original/fb891d20-496d-4455-af84-67ed10f39821.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1486024089704787606/original/0100de34-3f04-4c80-b678-7e0422a66586.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1486024089704787606/original/7fd2f3b0-fdf7-4e53-b5fc-720fb2d01f82.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1486024089704787606/original/31d587c4-f941-4d23-87aa-878073a9251a.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1486024089704787606/original/ea40c7ae-9ece-48f2-858d-8a0abd683e05.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1486024089704787606/original/682afabf-1314-42c8-a91c-8411baef64f5.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.97651,
+      "longitud": 18.46513
+    }
+  },
+  {
+    "room_id": 1491331576648064059,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "Studio with Mountain Views",
+    "title": "Apartment in Claremont",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 1370.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R1,369.41 ZAR",
+          "amount": 1369.0,
+          "currency": "R.41 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 0,
+      "reviewCount": 0
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1491331576648064059/original/1b29b148-86fc-46e1-be2b-a58887dd3cde.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1491331576648064059/original/4cfc78e1-1a71-4983-af86-64fd29b46a51.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1491331576648064059/original/77f153f0-8a20-4581-9026-1d5447af94ec.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1491331576648064059/original/17db73cd-588e-408b-9f12-a189c71f970e.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1491331576648064059/original/94b0c6ef-b11d-4eaf-8fe4-abfa7b5854ed.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1491331576648064059/original/d14edc88-b10b-4d7f-8700-3a8242dbe55b.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.975061072081516,
+      "longitud": 18.473490430650315
+    }
+  },
+  {
+    "room_id": 908082469011440438,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [
+      {
+        "__typename": "PaymentMessage",
+        "text": "Free cancellation",
+        "type": "FREE_CANCELLATION_HIGHLIGHT"
+      }
+    ],
+    "kind": "",
+    "name": "Newlands Peak",
+    "title": "Apartment in Newlands",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 1484.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R1,483.53 ZAR",
+          "amount": 1483.0,
+          "currency": "R.53 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 0,
+      "reviewCount": 0
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-908082469011440438/original/df822c50-f9e7-42a4-ae79-a9c306e7ec6a.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-908082469011440438/original/de75b062-3cd0-4f32-87ac-12c6cd747d8f.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-908082469011440438/original/eab343c3-66b2-4166-a84c-8014eb4e8db3.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-908082469011440438/original/b97ce7f4-54ae-4154-8d00-ce4c1ec7caef.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-908082469011440438/original/c64d2c95-4770-4170-b66a-ca20f29db14c.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-908082469011440438/original/61a3ebe8-910c-4aaf-b732-7f349527062a.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.9763,
+      "longitud": 18.4663
+    }
+  },
+  {
+    "room_id": 1446263205673610647,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [
+      {
+        "__typename": "PaymentMessage",
+        "text": "Free cancellation",
+        "type": "FREE_CANCELLATION_HIGHLIGHT"
+      }
+    ],
+    "kind": "",
+    "name": "Apartment in Newlands Peak",
+    "title": "Apartment in Newlands",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 1119.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R1,118.35 ZAR",
+          "amount": 1118.0,
+          "currency": "R.35 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 4.0,
+      "reviewCount": "3"
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1446263205673610647/original/6e1b0142-d99e-4659-9b06-4a9cfb5ed055.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1446263205673610647/original/88b930d7-3775-4422-94fd-c37fe18e786f.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1446263205673610647/original/baee81bc-716f-4ce4-9ded-518dce5bb78c.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1446263205673610647/original/fcb6eb26-a45f-4343-b31e-4f1ee01807cc.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1446263205673610647/original/ae18c7cb-32d8-44a7-ad2b-c9e5fd203801.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1446263205673610647/original/e4087964-e95a-4fc0-9b83-dda746739b9d.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.97588,
+      "longitud": 18.46589
+    }
+  },
+  {
+    "room_id": 1399878002483274410,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [
+      {
+        "__typename": "PaymentMessage",
+        "text": "Free cancellation",
+        "type": "FREE_CANCELLATION_HIGHLIGHT"
+      }
+    ],
+    "kind": "",
+    "name": "The Snug",
+    "title": "Home in Kenilworth",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 1016.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R1,015.65 ZAR",
+          "amount": 1015.0,
+          "currency": "R.65 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 0,
+      "reviewCount": 0
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1399878002483274410/original/7412366f-a4b2-464a-b2f0-6f04d9085892.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1399878002483274410/original/ce26e548-4f79-4a4c-9ef6-c45b8162dc92.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1399878002483274410/original/4d8b1206-59e7-4937-9ead-688493574a21.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1399878002483274410/original/60e1d8ad-5667-4662-a226-8c1f1fd761bb.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1399878002483274410/original/130295c8-7518-456f-b3d8-9a17a75be01b.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1399878002483274410/original/d106eb0e-8abf-4eee-a82c-069d98254d34.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.9938796772094,
+      "longitud": 18.467987771153933
+    }
+  },
+  {
+    "room_id": 1163810422834087105,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [
+      {
+        "__typename": "PaymentMessage",
+        "text": "Free cancellation",
+        "type": "FREE_CANCELLATION_HIGHLIGHT"
+      }
+    ],
+    "kind": "",
+    "name": "1 Bedroom Apartement",
+    "title": "Apartment in Newlands",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 2055.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R2,054.12 ZAR",
+          "amount": 2054.0,
+          "currency": "R.12 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 0,
+      "reviewCount": 0
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1163810422834087105/original/f2959b18-170f-44c8-af5a-3f2c4cb10d04.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1163810422834087105/original/02dd7215-aa89-400a-8a1c-c27d9538a1ac.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1163810422834087105/original/124e61d3-894f-4610-9153-058816625189.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1163810422834087105/original/a04426c7-c987-42eb-bdc8-c149cfeb82e0.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1163810422834087105/original/50de774c-d83a-418f-877d-d748d7cf32cb.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1163810422834087105/original/9dbe84c3-86dc-485a-ab5c-9a9d8fd3e428.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.97695,
+      "longitud": 18.46665
+    }
+  },
+  {
+    "room_id": 1239807273615885516,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [
+      {
+        "__typename": "PaymentMessage",
+        "text": "Free cancellation",
+        "type": "FREE_CANCELLATION_HIGHLIGHT"
+      }
+    ],
+    "kind": "",
+    "name": "Apartment in Newlands",
+    "title": "Apartment in Newlands",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 1096.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R1,095.53 ZAR",
+          "amount": 1095.0,
+          "currency": "R.53 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 4.24,
+      "reviewCount": "21"
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1239807273615885516/original/28bdbea0-4e9b-414f-9316-d979c42be69e.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1239807273615885516/original/55e38a6d-c418-4ab0-b01a-04a6638fc82a.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1239807273615885516/original/c7f3513a-c57d-48c5-92ff-aee03cd70f5e.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1239807273615885516/original/67b7302e-45a2-4f85-abeb-82f8448c6d45.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1239807273615885516/original/05f85360-0ea1-4edc-b112-2c4e07954990.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1239807273615885516/original/afbcdc78-2064-4d62-9d74-159f94785b06.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.976,
+      "longitud": 18.4662
+    }
+  },
+  {
+    "room_id": 989018873011831769,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "Luxury apartment in Newlands",
+    "title": "Apartment in Newlands",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 1119.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R1,118.35 ZAR",
+          "amount": 1118.0,
+          "currency": "R.35 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 4.5,
+      "reviewCount": "34"
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6OTg5MDE4ODczMDExODMxNzY5/original/d6430e0e-f6eb-4a4f-9cb0-146c249d608f.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-989018873011831769/original/00014e6d-86f5-4d59-9caf-a0d5746f01e1.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6OTg5MDE4ODczMDExODMxNzY5/original/b6aeb48f-c283-42b8-9205-c66f75c35008.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6OTg5MDE4ODczMDExODMxNzY5/original/69053748-275f-47be-825c-3bf27157e113.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6OTg5MDE4ODczMDExODMxNzY5/original/d2b3c5b6-5e15-47d6-a02a-61b1d49e8e0b.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-989018873011831769/original/6fe54ba1-1796-4fa0-9bf0-b225c01b5d11.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.9761,
+      "longitud": 18.4658
+    }
+  },
+  {
+    "room_id": 1486026530770786664,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "Newlands Peak Studio",
+    "title": "Apartment in Newlands",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 1130.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R1,129.77 ZAR",
+          "amount": 1129.0,
+          "currency": "R.77 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 0,
+      "reviewCount": 0
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1486026530770786664/original/e6e3a975-aa99-4c33-ac33-198588d39b63.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1486026530770786664/original/22b38e24-0004-4d4a-9d2a-2bfaac72bcfc.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1486026530770786664/original/4d62b793-6ad6-4cb5-9820-002cd9d0522e.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1486026530770786664/original/38483092-592f-4ef1-8df7-cda9da86127a.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1486026530770786664/original/98bc062e-0fec-4fe8-9343-3a1a91fbf36f.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1486026530770786664/original/9479cb6e-c04d-45c1-9e21-fdaa162cedb1.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.97512,
+      "longitud": 18.46678
+    }
+  },
+  {
+    "room_id": 1486020863663713743,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "Newlands Peak Deluxe 1 Bedroom",
+    "title": "Apartment in Newlands",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 1444.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R1,443.59 ZAR",
+          "amount": 1443.0,
+          "currency": "R.59 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 0,
+      "reviewCount": 0
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1486020863663713743/original/6b668b02-6bf2-49c7-9f10-c270ab64b741.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1486020863663713743/original/bc6e6688-e1d0-4157-ac44-ae750f7a87ad.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1486020863663713743/original/441e68dc-00c5-4891-a077-3780d825fc6b.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1486020863663713743/original/e43e40d4-c375-4d70-9d86-8e8f40ae8715.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1486020863663713743/original/7319e305-7f4b-4eeb-ba60-df9c066be248.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1486020863663713743/original/ffdc02d2-86e6-4718-8429-025efb1f8a01.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.97724,
+      "longitud": 18.4665
+    }
+  },
+  {
+    "room_id": 1445105533020736148,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [
+      {
+        "__typename": "PaymentMessage",
+        "text": "Free cancellation",
+        "type": "FREE_CANCELLATION_HIGHLIGHT"
+      }
+    ],
+    "kind": "",
+    "name": "Apart-hotel in newlands",
+    "title": "Apartment in Newlands",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 1016.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R1,015.65 ZAR",
+          "amount": 1015.0,
+          "currency": "R.65 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 0,
+      "reviewCount": 0
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1445105533020736148/original/a4f1055b-56d1-43e9-a067-c22f4dd7a4bc.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1445105533020736148/original/3b3f781c-bbc3-444f-a14a-18fa014cec9c.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1445105533020736148/original/364313de-f196-4d1d-a917-850882daaa56.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1445105533020736148/original/0dc09b7f-5e88-44c3-b4cc-02637a80ea63.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1445105533020736148/original/343feae4-ddba-400d-a66e-86164fac11f1.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1445105533020736148/original/1fd0e19a-9f38-4378-98db-08f5230358f7.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.97548,
+      "longitud": 18.4666
+    }
+  }
+]

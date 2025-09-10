@@ -1,0 +1,385 @@
+[
+  {
+    "room_id": 1028297933060546442,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "Bishopscourt cottage",
+    "title": "Guesthouse in Cape Town",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 1392.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R1,391.09 ZAR",
+          "amount": 1391.0,
+          "currency": "R.09 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 4.8,
+      "reviewCount": "45"
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1028297933060546442/original/ba75dfaa-343d-4b8a-822b-4d321c7a3e81.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1028297933060546442/original/10e2a706-b14d-4419-9332-651652ba8236.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1028297933060546442/original/b73d5ea4-a13c-404c-a662-76be83957fdf.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1028297933060546442/original/4e60a0a7-0573-41c3-9a31-2831364fd849.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1028297933060546442/original/c44d9182-34bb-48bc-86b4-a8babd9ac523.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1028297933060546442/original/fe5a8f3b-5b07-4d26-a977-03fa11f8725c.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.98487,
+      "longitud": 18.45037
+    }
+  },
+  {
+    "room_id": 28138114,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "2 beds",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "2 beds",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "Luxury,  self contained,  cosy studio space in the heart  of Newlands Village.",
+    "title": "Apartment in Cape Town",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 1575.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R1,574.82 ZAR",
+          "amount": 1574.0,
+          "currency": "R.82 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 4.9,
+      "reviewCount": "134"
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-28138114/original/204b6c82-6d08-4f37-9a9a-4c01c9925003.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-28138114/original/c07c751d-e99e-4696-934b-c4e5b501bf2e.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/1927dadd-c488-42b7-bca1-b4061cd6e954.jpg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/7e116eb5-9dbd-41e9-b6ec-e77a736aa882.jpg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/1d36a354-d60e-499f-bf38-f440c2d786c7.jpg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-28138114/original/d5dba26d-a0fd-4e18-a5a6-5a6acb84a30c.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.97542,
+      "longitud": 18.45763
+    }
+  },
+  {
+    "room_id": 758371318302931261,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "Gorgeous, private cottage in prestigious Newlands.",
+    "title": "Vacation home in Cape Town",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 1769.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R1,768.82 ZAR",
+          "amount": 1768.0,
+          "currency": "R.82 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 4.89,
+      "reviewCount": "36"
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-758371318302931261/original/c29126b3-4ac5-4d00-80cb-0865e3e4bc84.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-758371318302931261/original/dedcfd38-b7ef-4f10-90f4-e2d84b21d310.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-758371318302931261/original/ffb5ddac-d887-4804-b10d-72daffb0977d.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-758371318302931261/original/5f71579c-2741-4f61-893c-38161b3e7802.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-758371318302931261/original/e764f9eb-2dd5-4151-a7eb-a3837cd74194.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-758371318302931261/original/2d29e067-8fc0-4d73-819e-25ff2ccea5d1.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.98086,
+      "longitud": 18.45109
+    }
+  },
+  {
+    "room_id": 1398569936108520933,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "6 beds",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "6 beds",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "Villa Ravensberg",
+    "title": "Home in Cape Town",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 6700.0,
+        "discount": 5496.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R6,699.91 ZAR",
+          "amount": 6699.0,
+          "currency": "R.91 ZAR"
+        },
+        {
+          "description": "Special offer",
+          "amount": -1204.0,
+          "currency": "R.00 ZAR"
+        },
+        {
+          "description": "Price after discount",
+          "amount": 5495.0,
+          "currency": "R.91 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 0,
+      "reviewCount": 0
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1020018536122537482/original/6082ae9b-1c55-47ce-853b-bfa9f1735e2b.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1020018536122537482/original/f6c8e478-f8a1-41f4-bfec-8f4408772b47.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1020018536122537482/original/5f64cdbf-50f6-4720-b5bb-ebd6fd773f0a.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1020018536122537482/original/bfb91b83-acf0-48bd-9c2b-65e162dfac18.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1020018536122537482/original/8d259f5d-72bd-483b-b26e-7fec676396a6.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1020018536122537482/original/245132f0-cc02-46b4-87aa-850fd48b7ee2.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.9781,
+      "longitud": 18.4535
+    }
+  }
+]

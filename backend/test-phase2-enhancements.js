@@ -41,8 +41,7 @@ function testPredictiveAnalytics() {
     console.log('🧪 Testing Predictive Analytics Function...');
     
     try {
-        // Import the function from ai-chat.js
-        const calculatePredictiveInsights = require('./routes/ai-chat.js').calculatePredictiveInsights;
+        // AI chat functionality removed - using separate AI agent
         
         if (!calculatePredictiveInsights) {
             console.log('❌ calculatePredictiveInsights function not found');

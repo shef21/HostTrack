@@ -1,0 +1,38 @@
+{
+  "airbnb": {
+    "source": "airbnb",
+    "total_listings": 140,
+    "complete_listings": "118/140 (84.3%)",
+    "avg_completeness": "96.1%",
+    "fields_present": {
+      "title": "140/140 (100.0%)",
+      "current_price": "140/140 (100.0%)",
+      "bedrooms": "140/140 (100.0%)",
+      "bathrooms": "140/140 (100.0%)",
+      "rating": "118/140 (84.3%)",
+      "review_count": "118/140 (84.3%)",
+      "url": "140/140 (100.0%)",
+      "amenities": "140/140 (100.0%)"
+    },
+    "price_range": "R694.48 - R12,767.86",
+    "rating_range": "4.2 - 5.0"
+  },
+  "booking": {
+    "source": "booking",
+    "total_listings": 25,
+    "complete_listings": "25/25 (100.0%)",
+    "avg_completeness": "100.0%",
+    "fields_present": {
+      "title": "25/25 (100.0%)",
+      "current_price": "25/25 (100.0%)",
+      "bedrooms": "25/25 (100.0%)",
+      "bathrooms": "25/25 (100.0%)",
+      "rating": "25/25 (100.0%)",
+      "review_count": "25/25 (100.0%)",
+      "url": "25/25 (100.0%)",
+      "amenities": "25/25 (100.0%)"
+    },
+    "price_range": "R3,942.00 - R18,640.00",
+    "rating_range": "6.2 - 9.9"
+  }
+}

@@ -1,0 +1,845 @@
+[
+  {
+    "room_id": 1186167132401461039,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "4 beds",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "4 beds",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "104 - 2 Bedroom with Loft",
+    "title": "Apartment in Durbanville",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 4200.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R4,200.00 ZAR",
+          "amount": 4200.0,
+          "currency": "R.00 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 4.82,
+      "reviewCount": "28"
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1186167132401461039/original/45cdb876-0d01-4820-98ab-420f5f3a149c.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1186167132401461039/original/c0b9b8af-ab5a-46cf-8817-a8783ebeed2c.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1186167132401461039/original/1bc4dbf2-44af-4f95-bc00-8d8bb7416114.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTE4NjE2NzEzMjQwMTQ2MTAzOQ%3D%3D/original/921ef9fd-fcea-42e0-b4d4-c1e60e08d006.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTE4NjE2NzEzMjQwMTQ2MTAzOQ%3D%3D/original/fdc804bb-88ea-4ed5-8196-5022f8b4e940.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTE4NjE2NzEzMjQwMTQ2MTAzOQ%3D%3D/original/055bc7c3-f071-4992-9c0d-00cdceec4c19.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.8331,
+      "longitud": 18.6464
+    }
+  },
+  {
+    "room_id": 1186159572980252854,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "3 beds",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "3 beds",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "113 - 3 Bedroom",
+    "title": "Apartment in Durbanville",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 2940.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R2,940.00 ZAR",
+          "amount": 2940.0,
+          "currency": "R.00 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 4.88,
+      "reviewCount": "8"
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1186159572980252854/original/2a43501b-cb1c-4be6-bcf1-d4d1ad403dd4.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1186159572980252854/original/9ecd9675-ad91-4631-ac6e-fe10c21f06f1.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1186159572980252854/original/31c64f24-c950-4f36-b51c-806016eba577.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1186159572980252854/original/3771dc5b-e180-43f2-9bcb-bcff4f0ebb17.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1186159572980252854/original/1a2f0159-6e0d-4ee3-8bfd-7075cfdc5823.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1186159572980252854/original/b08e9537-41fd-4eab-8bc8-7a5051d61052.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.8331,
+      "longitud": 18.6464
+    }
+  },
+  {
+    "room_id": 816481840595888490,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 double bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 double bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "Durbanville Pool House-No Loadshedding",
+    "title": "Guest suite in Durbanville",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 988.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R987.12 ZAR",
+          "amount": 987.0,
+          "currency": "R.12 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 5.0,
+      "reviewCount": "3"
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-816481840595888490/original/c7bfbae5-72a1-4dfb-a7d5-c5ec5ea34194.png"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-816481840595888490/original/456e531a-8884-425d-a9ab-1fcc454cc45d.png"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-816481840595888490/original/02266f8c-29fb-421f-9bde-76a63eb49bcb.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-816481840595888490/original/fb2d4631-ab4e-4c35-9a00-f4db66bdfd4f.png"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-816481840595888490/original/a6bb14a7-3280-4765-922c-3e9decda1af6.png"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-816481840595888490/original/ce124b02-8fa0-4b4d-97b4-74075debb0d7.png"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.8397,
+      "longitud": 18.6521
+    }
+  },
+  {
+    "room_id": 1186100314745081992,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "5 single beds",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "5 single beds",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "101 - Bachelor with Loft",
+    "title": "Apartment in Durbanville",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 2030.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R2,030.00 ZAR",
+          "amount": 2030.0,
+          "currency": "R.00 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 4.0,
+      "reviewCount": "3"
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1186100314745081992/original/47f6396b-1eab-471e-a954-0b32743ca721.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1186100314745081992/original/67c87390-6b9e-4619-bc95-693ae558add5.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1186100314745081992/original/ee9212ad-a6e4-43b7-976c-380b949b00ab.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1186100314745081992/original/efd6c5f5-ffdf-4734-9ed2-7ae471d6f166.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTE4NjEwMDMxNDc0NTA4MTk5Mg%3D%3D/original/9054583e-6d45-4822-be80-e0c0847067e2.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTE4NjEwMDMxNDc0NTA4MTk5Mg%3D%3D/original/5a655f1f-780d-4cf1-8b86-ac86da04f816.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.833,
+      "longitud": 18.6463
+    }
+  },
+  {
+    "room_id": 1186141579169841151,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "4 beds",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "4 beds",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "107 - Bachelor with Loft",
+    "title": "Apartment in Durbanville",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 2030.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R2,030.00 ZAR",
+          "amount": 2030.0,
+          "currency": "R.00 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 0,
+      "reviewCount": 0
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1186141579169841151/original/77cbb65d-95b6-4bd5-8f2a-84bf10134971.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1186141579169841151/original/aa73d67d-0f8d-428e-8818-90bdd8f69997.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1186141579169841151/original/c1fddc83-12fd-46ed-a48f-91ae931a5d26.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1186141579169841151/original/e3b9667f-4ac2-4f30-b9a6-a5069165861e.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1186141579169841151/original/4a61b084-0255-473f-8315-3a347408b71f.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTE4NjE0MTU3OTE2OTg0MTE1MQ%3D%3D/original/af076a5e-5584-49af-9bc4-4a575fa34ad3.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.8331,
+      "longitud": 18.6464
+    }
+  },
+  {
+    "room_id": 13273132,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "4 beds",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "4 beds",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "Durbanville Stay: 3 bedroom apartment",
+    "title": "Apartment in Durbanville",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 1484.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R1,483.53 ZAR",
+          "amount": 1483.0,
+          "currency": "R.53 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 4.72,
+      "reviewCount": "39"
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-13273132/original/4455a1d3-fca9-45f2-ac2f-cd650d25cba9.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/76b0ba0d-45eb-4ecf-971e-d700a35d4014.jpg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/4087317d-72a3-4f15-8c5a-98056bbf7b6c.jpg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/acbc0c15-69a6-4128-9fc4-87415ad75dad.jpg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/bc524163-5fd4-4d12-97e4-879045556b3b.jpg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/18f50e6a-b67f-421f-bd35-8bfe8d65338a.jpg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.84369,
+      "longitud": 18.64805
+    }
+  },
+  {
+    "room_id": 622839501231425614,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [
+      {
+        "__typename": "PaymentMessage",
+        "text": "Free cancellation",
+        "type": "FREE_CANCELLATION_HIGHLIGHT"
+      }
+    ],
+    "kind": "",
+    "name": "Lovely 1-bedroom rental with a pool",
+    "title": "Apartment in Durbanville",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 1016.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R1,015.65 ZAR",
+          "amount": 1015.0,
+          "currency": "R.65 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 4.33,
+      "reviewCount": "6"
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-622839501231425614/original/b17d0682-5c21-4503-af4f-ca30a59e3a15.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-622839501231425614/original/225ed58d-a4db-4edc-a007-6c1a367d61d3.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-622839501231425614/original/87601274-4177-4143-834b-098e82bd6071.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-622839501231425614/original/7b95c022-7492-4f23-b770-d9bc8eaae762.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-622839501231425614/original/6399c113-d9a1-4fb1-9e44-11a87677534b.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-622839501231425614/original/87c36352-f913-42fa-9cd3-b5a6140a7600.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.83811,
+      "longitud": 18.65484
+    }
+  },
+  {
+    "room_id": 1186154172561083103,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "3 beds",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "3 beds",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "112 - 3 Bedroom",
+    "title": "Apartment in Durbanville",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 2940.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R2,940.00 ZAR",
+          "amount": 2940.0,
+          "currency": "R.00 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 4.5,
+      "reviewCount": "4"
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1186154172561083103/original/71a218a2-247f-495c-8868-9464be00bfa1.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1186154172561083103/original/69764a7a-a286-4d8c-8e65-cb32f53e5578.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1186154172561083103/original/d3a6e73b-788a-4c5f-9482-290e53d15c02.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1186154172561083103/original/0596d42b-55bd-44e8-9670-1e41f1d1449d.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1186154172561083103/original/db4f8e67-57bb-4ffc-8a0b-7762ef54b038.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1186154172561083103/original/5e673d1a-63fd-46f3-acf4-bd7feaa12d90.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.8331,
+      "longitud": 18.6464
+    }
+  },
+  {
+    "room_id": 1186679070509028585,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 queen bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 queen bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "105 - 1 Bedroom with Loft",
+    "title": "Apartment in Durbanville",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 2240.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R2,240.00 ZAR",
+          "amount": 2240.0,
+          "currency": "R.00 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 0,
+      "reviewCount": 0
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1186679070509028585/original/eda64a2a-31b7-4c34-991b-d3e676399646.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1186679070509028585/original/87d6ad13-41aa-4e89-ba24-eea0055f01bc.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1186679070509028585/original/6252faa2-2b93-4f41-90ae-4e81588bdb30.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1186679070509028585/original/748b57b3-ff25-4fa5-932f-f16c46356c58.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1186679070509028585/original/171d6b64-bf75-4b41-99ae-8b2b3f3ef303.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTE4NjY3OTA3MDUwOTAyODU4NQ%3D%3D/original/3ad266af-267a-4cac-8e62-8491b0efb768.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.8331,
+      "longitud": 18.6464
+    }
+  }
+]

@@ -1,0 +1,2860 @@
+[
+  {
+    "room_id": 1436837370567740884,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 double bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 double bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "Chic and Cozy Studio Apartment in Prime Location",
+    "title": "Apartment in Cape Town",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 951.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R950.90 ZAR",
+          "amount": 950.0,
+          "currency": "R.90 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 5.0,
+      "reviewCount": "5"
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1436837370567740884/original/e17f93df-d22e-4c71-8581-08fbaffa2829.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1436837370567740884/original/e14bf315-e938-43ee-bae7-137f0b6dbbaa.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1436837370567740884/original/25ef8b80-6506-4c2b-94e0-54be5af63e96.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1436837370567740884/original/93217ef1-7635-41ff-bad2-4de424ba7aa6.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1436837370567740884/original/0f232257-f578-4ba1-9f8b-cbe393b34861.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1436837370567740884/original/915bfee1-64df-4f23-81be-730e3d6a7452.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.9144,
+      "longitud": 18.3912
+    }
+  },
+  {
+    "room_id": 1469343994709446140,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "Three Anchor Heart - Unit 1 (Queen)",
+    "title": "Apartment in Cape Town",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 860.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R860.00 ZAR",
+          "amount": 860.0,
+          "currency": "R.00 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 4.86,
+      "reviewCount": "7"
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1469343994709446140/original/13ecdec3-0ee1-435e-b667-5a14f04945ef.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1469343994709446140/original/8708f1ba-3453-4a8c-bd45-9abdbc457767.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1469343994709446140/original/9b229710-b6d0-40f5-a801-c7ba653051e4.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1469343994709446140/original/4d853f6f-3a80-463f-9abc-09badf8b7270.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1469343994709446140/original/254be032-6d9e-49af-aa0b-ba5202826525.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1469343994709446140/original/99996315-0007-4bc6-aaac-44240613837b.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.91,
+      "longitud": 18.398
+    }
+  },
+  {
+    "room_id": 46229729,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "Stylish Studio by the Sea Side",
+    "title": "Apartment in Cape Town",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 1479.0,
+        "discount": 1330.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R1,329.47 ZAR",
+          "amount": 1329.0,
+          "currency": "R.47 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 4.71,
+      "reviewCount": "329"
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/43025130-a77f-479d-8f20-31d5e1b1d533.jpg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/a42ebdd2-30e3-4b50-8f1c-8803fa94d3f7.jpg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/86682db7-54db-4778-aa3f-b70d28cefe71.jpg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/41d83291-a421-40af-9565-603d11065d0b.jpg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/0fab1f0d-6e0a-45df-a19c-bea3968da187.jpg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/16f2143d-5187-47ae-83d3-f040f9964fe1.jpg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.9029,
+      "longitud": 18.3995
+    }
+  },
+  {
+    "room_id": 1396359880287129961,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 double bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 double bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "Sun-Kissed Studio – Coastal Living Elevated",
+    "title": "Apartment in Cape Town",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 1296.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R1,295.90 ZAR",
+          "amount": 1295.0,
+          "currency": "R.90 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 4.87,
+      "reviewCount": "15"
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1396359880287129961/original/dc2caebf-ad0c-470c-b0f4-b5eb241a7acb.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1396359880287129961/original/b78aa554-99f0-4e8f-b1f4-579438c16258.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1396359880287129961/original/aaa09e54-f022-41f5-bec7-1a55409b02b1.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1396359880287129961/original/d28b1c87-0e9b-4492-a92d-773d279c74a5.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1396359880287129961/original/20853f0e-dedb-4a27-97f3-ecfb83239699.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1396359880287129961/original/8d7cfd87-4beb-4ac9-981c-c213aa780dfe.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.915,
+      "longitud": 18.3921
+    }
+  },
+  {
+    "room_id": 1071000415143110152,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 double bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 double bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "Check In and Relax  Sea Point Must Stay Apartment",
+    "title": "Apartment in Sea Point",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 1011.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R1,010.55 ZAR",
+          "amount": 1010.0,
+          "currency": "R.55 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 4.81,
+      "reviewCount": "21"
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1071000415143110152/original/e54ccc2a-99ea-471f-8112-259f13eddc40.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1071000415143110152/original/9621262a-910c-48d2-8db7-699a65388a80.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1071000415143110152/original/0e690997-717b-4516-b39d-bceefb464878.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1071000415143110152/original/2d1c0fbb-f674-48b8-8fa0-f433d4aa77ef.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1071000415143110152/original/3c9cb713-0b75-4b4a-a2a1-3736d91eaee6.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1071000415143110152/original/4348f260-bf46-4cca-b904-a32eaad029d5.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.9129,
+      "longitud": 18.3919
+    }
+  },
+  {
+    "room_id": 867883849232988803,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 double bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 double bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "Beautifully Designed Studio Close to Promenade",
+    "title": "Apartment in Cape Town",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 1043.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R1,042.28 ZAR",
+          "amount": 1042.0,
+          "currency": "R.28 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 4.88,
+      "reviewCount": "43"
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-867883849232988803/original/5b93b007-88d7-4db4-9a47-94e98c8cdd9f.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-867883849232988803/original/7bb961ff-6f51-4833-a11d-514cdb0514e7.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-867883849232988803/original/e2e87a5f-0934-487c-8d82-f243190aaf7e.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-867883849232988803/original/fac11f96-949e-4952-aaa1-c1f378170aa8.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-867883849232988803/original/5c312c08-bef5-4929-95c0-c3bbfe45de0d.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-867883849232988803/original/1114422a-9f3d-48df-b03a-fe16bb46a62a.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.911,
+      "longitud": 18.3923
+    }
+  },
+  {
+    "room_id": 1469734226176483842,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "Three Anchor Heart - Unit 2 (Single)",
+    "title": "Apartment in Cape Town",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 712.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R712.00 ZAR",
+          "amount": 712.0,
+          "currency": "R.00 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 0,
+      "reviewCount": 0
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1469734226176483842/original/4e495c59-0804-4396-ad74-6f923d9a5000.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1469734226176483842/original/00c50232-e74c-41bf-b7d7-47f3f978def2.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1469734226176483842/original/909359d6-be08-4741-9d1f-dde8d8b6d273.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1469734226176483842/original/4db5ed04-f24d-4730-a441-6069bb35c1dc.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1469734226176483842/original/b7fbca99-cfd1-4fce-a8af-2f3fe0f80e06.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1469734226176483842/original/89bf974d-9c71-40c6-9477-d04c8333c883.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.90985140550341,
+      "longitud": 18.398597044272858
+    }
+  },
+  {
+    "room_id": 1033379156760836730,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "3 beds",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "3 beds",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "Seaside Apartment with Promenade views.",
+    "title": "Apartment in Cape Town",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 3407.0,
+        "discount": 2947.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R2,947.00 ZAR",
+          "amount": 2947.0,
+          "currency": "R.00 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 4.46,
+      "reviewCount": "67"
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1033379156760836730/original/4cae5dfc-e46e-4c6a-acc3-7f0282dd8a1e.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1033379156760836730/original/b8ac1b75-da5e-4411-a6de-2be255a3f37b.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1033379156760836730/original/e35a83d5-e80c-4f95-a8e0-f4adf2bbab9e.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1033379156760836730/original/8959da4e-c0b6-4f17-9b1f-c1b15a3df2b9.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1033379156760836730/original/61a2a5a0-c296-484f-8794-f2466fde5cd6.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1033379156760836730/original/30c94c23-45c0-4ee7-8690-7285ff75f460.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.9076,
+      "longitud": 18.3967
+    }
+  },
+  {
+    "room_id": 1411325711704738669,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "3 beds",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "3 beds",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [
+      {
+        "__typename": "PaymentMessage",
+        "text": "Free cancellation",
+        "type": "FREE_CANCELLATION_HIGHLIGHT"
+      }
+    ],
+    "kind": "",
+    "name": "2 Bedroom Haven in Ocean View Drive",
+    "title": "Condo in Cape Town",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 1681.0,
+        "discount": 1577.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R1,680.04 ZAR",
+          "amount": 1680.0,
+          "currency": "R.04 ZAR"
+        },
+        {
+          "description": "Special offer",
+          "amount": -103.0,
+          "currency": "R.50 ZAR"
+        },
+        {
+          "description": "Price after discount",
+          "amount": 1576.0,
+          "currency": "R.54 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 5.0,
+      "reviewCount": "8"
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1411325711704738669/original/3e4a3f7a-6b9e-4912-8aeb-16101db88872.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1411325711704738669/original/dae1a387-eab6-4fd6-94a2-712675fd19e1.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1411325711704738669/original/10532a86-4848-413e-8ad1-40c6de77d987.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1411325711704738669/original/99fcdffb-78c6-465d-8dee-fd18faf25fd4.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1411325711704738669/original/df003c73-fbd3-429a-b067-1ce0a079e233.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1411325711704738669/original/f92122ed-8623-4a8b-8c2a-f1eaca1b68cf.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.9188,
+      "longitud": 18.3933
+    }
+  },
+  {
+    "room_id": 1475198551907799551,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 queen bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 queen bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "Modern Studio Near Beach + Rooftop Pool",
+    "title": "Apartment in Cape Town",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 1464.0,
+        "discount": 1240.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R1,463.70 ZAR",
+          "amount": 1463.0,
+          "currency": "R.70 ZAR"
+        },
+        {
+          "description": "Special offer",
+          "amount": -223.0,
+          "currency": "R.74 ZAR"
+        },
+        {
+          "description": "Price after discount",
+          "amount": 1239.0,
+          "currency": "R.96 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 0,
+      "reviewCount": 0
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1475198551907799551/original/e3b3ae8c-6ce4-458d-8a01-a71f5f8923c0.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1475198551907799551/original/5555c0d4-a92b-4cb3-8ca8-a4a412a9ee15.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1475198551907799551/original/7f40c36e-5889-4414-a5ea-410f7a4d6011.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1475198551907799551/original/39a646d1-b146-4194-90d6-bed83678ff21.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1475198551907799551/original/83cb951b-5ceb-4aff-998c-cb2798e7ee87.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1475198551907799551/original/48389bf8-5f6e-412a-9ff1-36c7b96f063c.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.9101,
+      "longitud": 18.3942
+    }
+  },
+  {
+    "room_id": 974347832579048491,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "Modern top floor Sea Point apartment",
+    "title": "Apartment in Cape Town",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 1460.0,
+        "discount": 1364.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R1,363.71 ZAR",
+          "amount": 1363.0,
+          "currency": "R.71 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 4.89,
+      "reviewCount": "137"
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-974347832579048491/original/091daedc-48f4-475f-b414-8a4a1ff0382b.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-974347832579048491/original/400ab49a-f634-45b9-b75e-7cf80b86e5fc.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-974347832579048491/original/c1756f9a-9fbb-4f8b-872a-36119aea5989.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-974347832579048491/original/d58955c7-14f7-4725-a865-8ddf16688028.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-974347832579048491/original/f0e43a72-5444-475e-b8fa-f60e5f9702ca.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-974347832579048491/original/6e4d95ba-3e12-4a7a-bbf1-ff98fe543703.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.9146,
+      "longitud": 18.3904
+    }
+  },
+  {
+    "room_id": 1449763584263434381,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [
+      {
+        "__typename": "PaymentMessage",
+        "text": "Free cancellation",
+        "type": "FREE_CANCELLATION_HIGHLIGHT"
+      }
+    ],
+    "kind": "",
+    "name": "Ocean Breeze: 1BR in Sea Point",
+    "title": "Apartment in Cape Town",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 1723.0,
+        "discount": 1558.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R1,558.00 ZAR",
+          "amount": 1558.0,
+          "currency": "R.00 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 5.0,
+      "reviewCount": "4"
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1449763584263434381/original/1fe5a112-38f4-4f71-8969-6f06b7e8568a.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1449763584263434381/original/8fbed228-969e-4a57-86fb-596265b5163c.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1449763584263434381/original/03c178dd-3de4-4fbf-9171-5cbf6addd0e3.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1449763584263434381/original/3fd9704c-14bd-4f0b-91eb-fa153597c05d.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1449763584263434381/original/9fccac26-c842-4a6e-983f-d67d2f8f7210.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1449763584263434381/original/e68df11b-e84d-44cb-a34c-ddbb93146933.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.9164,
+      "longitud": 18.3903
+    }
+  },
+  {
+    "room_id": 4629835,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 queen bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 queen bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "Safe and Modern Apartment - Great Location!",
+    "title": "Apartment in Cape Town",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 1999.0,
+        "discount": 1340.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R1,339.74 ZAR",
+          "amount": 1339.0,
+          "currency": "R.74 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 4.77,
+      "reviewCount": "354"
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6NDYyOTgzNQ==/original/cb7ccece-920b-42fd-96b3-92a63af9d3cd.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6NDYyOTgzNQ==/original/12473ccd-ff5c-4ed0-a4b5-5a939a1ee200.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6NDYyOTgzNQ==/original/a8f87e44-9f9b-4fbb-97f4-e6cf2d03d097.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6NDYyOTgzNQ==/original/f9a317ec-2c5c-4530-ad99-70456099e409.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6NDYyOTgzNQ==/original/b72279c1-147a-413c-947c-5ae356b2ac07.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6NDYyOTgzNQ==/original/e1eec3ff-10ff-496a-bec1-47b14c2d2ef4.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.90914,
+      "longitud": 18.40308
+    }
+  },
+  {
+    "room_id": 1165823982400125014,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "2 king beds",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "2 king beds",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "Joe’s Abode \n301 The Odyssey \nGreen Point CapeTown",
+    "title": "Apartment in Cape Town",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 3881.0,
+        "discount": 3286.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R3,880.48 ZAR",
+          "amount": 3880.0,
+          "currency": "R.48 ZAR"
+        },
+        {
+          "description": "Special offer",
+          "amount": -594.0,
+          "currency": "R.80 ZAR"
+        },
+        {
+          "description": "Price after discount",
+          "amount": 3285.0,
+          "currency": "R.68 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 4.97,
+      "reviewCount": "34"
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1165823982400125014/original/e55cac1c-f5ad-4bf4-bedb-6bea933e84eb.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1165823982400125014/original/7d58b9bb-070a-441a-9fd9-ddbc9410c006.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1165823982400125014/original/24798b43-4a3c-41dc-b37f-3bf8bf55a1b4.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1165823982400125014/original/53dd0239-21ef-4a63-95ac-80ad52a4fadb.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTE2NTgyMzk4MjQwMDEyNTAxNA%3D%3D/original/1432486e-0479-4529-b959-cfe5f0fd2844.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1165823982400125014/original/a9ef3947-5855-49ba-bb8b-8622c5d5e7ba.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.9082,
+      "longitud": 18.4023
+    }
+  },
+  {
+    "room_id": 1233952010458023068,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 king bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 king bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "C'Vue_modern luxury in Greenpoint",
+    "title": "Guest suite in Cape Town",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 2625.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R2,624.71 ZAR",
+          "amount": 2624.0,
+          "currency": "R.71 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 4.98,
+      "reviewCount": "48"
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTIzMzk1MjAxMDQ1ODAyMzA2OA%3D%3D/original/c2102593-70e7-4574-b811-ee4efea6c8cf.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTIzMzk1MjAxMDQ1ODAyMzA2OA%3D%3D/original/d4ed6244-b388-4cb8-9b9c-c2de665e63af.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTIzMzk1MjAxMDQ1ODAyMzA2OA%3D%3D/original/f274966b-d039-44b9-9409-684986cdb0a2.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTIzMzk1MjAxMDQ1ODAyMzA2OA%3D%3D/original/8c41c9c7-ca55-4651-a2dc-f7f9a70d37ef.png"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTIzMzk1MjAxMDQ1ODAyMzA2OA%3D%3D/original/f0f9fe16-72ee-405d-9bee-a2c72c008b9f.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTIzMzk1MjAxMDQ1ODAyMzA2OA%3D%3D/original/bf2a2eef-088d-44b7-b2c2-c7b2150be993.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.9112,
+      "longitud": 18.4043
+    }
+  },
+  {
+    "room_id": 1186724352779117897,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "Stylish Sea Point apartment",
+    "title": "Apartment in Cape Town",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 700.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R700.00 ZAR",
+          "amount": 700.0,
+          "currency": "R.00 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 4.23,
+      "reviewCount": "31"
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1186724352779117897/original/728e6df8-51b1-44c8-803f-c389a935d555.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1186724352779117897/original/5d328010-610d-4ffd-a7bc-626637187843.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1186724352779117897/original/1f4881ab-ea23-45eb-ba54-f4118d5f7210.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1186724352779117897/original/1e737410-3c0b-43b7-8739-9aa33ea223c1.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1186724352779117897/original/f57cbc24-ac00-42c0-84c9-dd380b9a1979.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1186724352779117897/original/c99d9854-fd63-4007-ba03-de3b16a04341.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.91558,
+      "longitud": 18.39091
+    }
+  },
+  {
+    "room_id": 1195759689675544024,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 queen bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 queen bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "Stunning Seapoint Studio with epic Sunset views",
+    "title": "Condo in Cape Town",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 1737.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R1,736.87 ZAR",
+          "amount": 1736.0,
+          "currency": "R.87 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 0,
+      "reviewCount": 0
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTE5NTc1OTY4OTY3NTU0NDAyNA==/original/07a9eb32-9400-41bd-8993-87fb8bf7f56c.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTE5NTc1OTY4OTY3NTU0NDAyNA==/original/e48edd6a-f2f5-4d26-8faf-68fee4f9e67a.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTE5NTc1OTY4OTY3NTU0NDAyNA==/original/ff36c764-de5f-48a3-b4a8-eda48337de2a.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTE5NTc1OTY4OTY3NTU0NDAyNA==/original/f7133e19-3f35-4705-948e-4d0be94e3f77.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTE5NTc1OTY4OTY3NTU0NDAyNA==/original/24b1234a-6e2c-4f5e-8b6f-178eefd0855f.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTE5NTc1OTY4OTY3NTU0NDAyNA==/original/b6440570-eb68-4e3b-b729-eda151ccbe65.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.91503,
+      "longitud": 18.39455
+    }
+  },
+  {
+    "room_id": 1249175544265072272,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [
+      {
+        "__typename": "PaymentMessage",
+        "text": "Free cancellation",
+        "type": "FREE_CANCELLATION_HIGHLIGHT"
+      }
+    ],
+    "kind": "",
+    "name": "Centrally located cosy apartment",
+    "title": "Apartment in Cape Town",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 1113.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R1,112.65 ZAR",
+          "amount": 1112.0,
+          "currency": "R.65 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 4.9,
+      "reviewCount": "10"
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1249175544265072272/original/be144fa6-3a38-4b59-8411-dcd5243f1cac.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1249175544265072272/original/ae626973-71f2-4642-b633-f09bacdef1e2.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1249175544265072272/original/bbcf757a-ee0f-4d92-9496-7aaeee055fca.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1249175544265072272/original/73f97ee2-56f3-4495-9a88-aefbb6a40005.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1249175544265072272/original/4ea99b06-b1b6-4f4b-b573-0051bab6081a.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1249175544265072272/original/11c0d59c-c455-498d-99ea-6a891490f501.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.91064718640512,
+      "longitud": 18.39693894344402
+    }
+  },
+  {
+    "room_id": 1469746064713463522,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "Three Anchor Heart - Unit 3 (Queen)",
+    "title": "Apartment in Cape Town",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 916.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R916.00 ZAR",
+          "amount": 916.0,
+          "currency": "R.00 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 0,
+      "reviewCount": 0
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1469746064713463522/original/39571e86-f0a6-4157-b9d5-8ae601b50d6a.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1469746064713463522/original/2494db2d-7571-466d-887e-9161078768b7.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1469746064713463522/original/a40b4f88-03de-4016-a1ce-e5bb5a0fd3be.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1469746064713463522/original/2cbbf4d9-daa4-460b-8c36-d06eb927e68d.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1469746064713463522/original/e6c293cd-92cc-4d36-baf1-cab11d278aa1.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1469746064713463522/original/07f99332-1790-42f0-a1a1-c71157ac08ad.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.9096,
+      "longitud": 18.3979
+    }
+  },
+  {
+    "room_id": 1097551575397409214,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 double bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 double bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "Fresh and Stylish * Sea Point Apartment",
+    "title": "Apartment in Cape Town",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 1011.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R1,010.55 ZAR",
+          "amount": 1010.0,
+          "currency": "R.55 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 4.62,
+      "reviewCount": "13"
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1097551575397409214/original/88d9246e-486b-4605-9dae-1d0cdbbdc32e.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1097551575397409214/original/12eeae67-c869-4c52-8663-f59917f54d4f.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1097551575397409214/original/828a112c-57ec-44ea-86d0-8baf845a70a9.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1097551575397409214/original/30927864-e15a-467a-aee7-e1f27a95f4dd.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1097551575397409214/original/350269df-6b12-468d-8c65-af8ea020f154.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1097551575397409214/original/c83bdef3-3663-4a82-8730-6837f83b081f.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.9129,
+      "longitud": 18.3919
+    }
+  },
+  {
+    "room_id": 1064985952293474120,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 queen bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 queen bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "Modern 1BR with Views, Shops & Eateries Nearby",
+    "title": "Apartment in Cape Town",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 1960.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R1,959.90 ZAR",
+          "amount": 1959.0,
+          "currency": "R.90 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 4.79,
+      "reviewCount": "24"
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1064985952293474120/original/5cf05157-0a5b-4f37-9550-50d6cded5a8b.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1064985952293474120/original/a1e08616-084e-45e2-82fc-ec06a347f228.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1064985952293474120/original/929fc66c-1a25-4ae3-841f-aa5bbd3277c4.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1064985952293474120/original/0960a36f-a738-416c-99a1-1b93a3c1af7e.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1064985952293474120/original/7a3b657a-cccb-46c9-9fde-6344b63e346e.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1064985952293474120/original/8d830d8e-e493-471e-8193-e0a3357de91f.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.9129,
+      "longitud": 18.3919
+    }
+  },
+  {
+    "room_id": 1484207575635399900,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "Unit 4 (Apartment-Double)",
+    "title": "Apartment in Cape Town",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 956.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R956.00 ZAR",
+          "amount": 956.0,
+          "currency": "R.00 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 0,
+      "reviewCount": 0
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1484207575635399900/original/541b520d-3a4c-413b-a444-387387ba2149.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1484207575635399900/original/35c05f6c-3db2-452b-b1d6-6b8eb1ed4546.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1484207575635399900/original/37ab1858-cbfb-432f-904a-2857c38b8325.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1484207575635399900/original/90c0dc7a-93aa-4247-b73b-b2017bbd132f.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1484207575635399900/original/213e07ea-04be-406b-bd86-414e5ccc27fe.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1484207575635399900/original/d56486ef-5f76-4c99-bb06-9a1b4a8ec982.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.9089,
+      "longitud": 18.3977
+    }
+  },
+  {
+    "room_id": 1469750681237023948,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "Three Anchor Heart - Unit 5 (King)",
+    "title": "Apartment in Cape Town",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 956.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R956.00 ZAR",
+          "amount": 956.0,
+          "currency": "R.00 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 4.75,
+      "reviewCount": "4"
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1469750681237023948/original/da84e1e8-61f8-49a9-9d26-20e4cea0158d.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1469750681237023948/original/f23e9956-475f-4313-b8a9-f0d04f595ca3.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1469750681237023948/original/f4b003e9-d1ac-4beb-aec3-ec2b38c331bd.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1469750681237023948/original/2c8d6f22-764e-45e7-b7c9-490e08f318a7.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1469750681237023948/original/8959806c-1131-47e9-9c8a-aaa3d9534728.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1469750681237023948/original/3748782f-f040-416b-818a-92bd1c7f0bd7.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.909,
+      "longitud": 18.3976
+    }
+  },
+  {
+    "room_id": 1127260739578731598,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 double bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 double bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "Sea Point Apartment - Walk to the beach",
+    "title": "Apartment in Cape Town",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 1011.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R1,010.55 ZAR",
+          "amount": 1010.0,
+          "currency": "R.55 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 4.64,
+      "reviewCount": "25"
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1127260739578731598/original/e0908dbc-2b38-4719-9085-67cef4e80454.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1127260739578731598/original/8629b202-edf6-4589-9667-009a561d705b.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1127260739578731598/original/4dfc63a3-b0fb-4a1b-879b-c4c5aaccde78.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1127260739578731598/original/c52c9529-2ada-4f28-bfb1-53e418777f56.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1127260739578731598/original/2790e52f-b719-488a-82cf-9434368233f2.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1127260739578731598/original/73a0e655-9c74-4235-9cfa-3ba5e3528b57.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.9129,
+      "longitud": 18.392
+    }
+  },
+  {
+    "room_id": 779931955345221485,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 double bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 double bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "Sea Point Studio Retreat - Rooftop Pool View",
+    "title": "Apartment in Cape Town",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 1043.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R1,042.28 ZAR",
+          "amount": 1042.0,
+          "currency": "R.28 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 4.83,
+      "reviewCount": "18"
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-779931955345221485/original/53df4d8d-d635-47cf-a7c8-e81f4d244369.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-779931955345221485/original/2d1ada79-624e-477e-bb51-3bd5ed15de05.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-779931955345221485/original/8624886e-6a5d-4a16-bc3b-912cebaa74ba.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-779931955345221485/original/7f4cdfa9-da87-42ee-8ddb-894d29b9f608.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-779931955345221485/original/6d5f8ebb-4422-4c6e-8f31-1799e1d3f8ff.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-779931955345221485/original/4d8d44d4-f99d-4e6f-bf86-7a3be1cf0343.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.911,
+      "longitud": 18.3923
+    }
+  },
+  {
+    "room_id": 1473172160873970177,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 double bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 double bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "Charming Urban Nest - Balcony Bliss, Fast Wi-Fi",
+    "title": "Apartment in Cape Town",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 1318.0,
+        "discount": 1124.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R1,317.90 ZAR",
+          "amount": 1317.0,
+          "currency": "R.90 ZAR"
+        },
+        {
+          "description": "Special offer",
+          "amount": -194.0,
+          "currency": "R.58 ZAR"
+        },
+        {
+          "description": "Price after discount",
+          "amount": 1123.0,
+          "currency": "R.32 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 0,
+      "reviewCount": 0
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1473172160873970177/original/0841d8b8-7f58-452c-a9b7-44831d792a96.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1473172160873970177/original/aaf5a577-0c54-4e60-bfde-ec9efdf88853.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1473172160873970177/original/cb499080-175f-4eb4-8ce7-91ef42eeb181.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1473172160873970177/original/d4d2190a-3b85-43a3-a6ec-8c858762cde3.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1473172160873970177/original/034dc3e3-2753-463a-ad2a-80d8c35e7126.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1473172160873970177/original/04f76399-bb3f-4ecd-a422-507713006382.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.9101,
+      "longitud": 18.3942
+    }
+  },
+  {
+    "room_id": 1115662464310336290,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "2 beds",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "2 beds",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "Simplex Penthouse - 8th Floor with Views",
+    "title": "Apartment in Cape Town",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 3348.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R3,347.60 ZAR",
+          "amount": 3347.0,
+          "currency": "R.60 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 4.91,
+      "reviewCount": "11"
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1115662464310336290/original/6248da94-46f7-4302-8cf9-5c3915d19ac1.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1115662464310336290/original/011310d2-f391-4415-ad2e-e4822f647b40.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1115662464310336290/original/d5979689-8fd0-4813-b6b0-d926f4ec1cf9.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1115662464310336290/original/13275e1f-46fc-47f4-9e07-bed7d9dabd06.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1115662464310336290/original/67795c88-bcc7-4fcc-925e-e577d69f9fb5.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1115662464310336290/original/05b6fa23-0052-41e3-8bd3-ca0eb9614872.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.9129,
+      "longitud": 18.392
+    }
+  },
+  {
+    "room_id": 1041204787711995649,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "Bohemian, Neutral Studio Close to Promenade!",
+    "title": "Apartment in Cape Town",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 1523.0,
+        "discount": 1427.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R1,426.47 ZAR",
+          "amount": 1426.0,
+          "currency": "R.47 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 5.0,
+      "reviewCount": "13"
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTA0MTIwNDc4NzcxMTk5NTY0OQ%3D%3D/original/e1f29e97-d285-49fb-a066-a22ecb4e52df.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1041204787711995649/original/eaa500be-b866-41bd-93bf-56927771439e.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTA0MTIwNDc4NzcxMTk5NTY0OQ%3D%3D/original/d6447de6-6b88-4a1d-967b-984c17e8353a.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTA0MTIwNDc4NzcxMTk5NTY0OQ%3D%3D/original/9b8bb6af-5113-4773-9bfc-178f72ed0b81.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1041204787711995649/original/12ae7e1b-af0b-4ad5-867b-edfb2c0e6b36.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTA0MTIwNDc4NzcxMTk5NTY0OQ%3D%3D/original/07682e15-12bd-45f1-b9b2-f333e1e34053.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.9089,
+      "longitud": 18.3996
+    }
+  },
+  {
+    "room_id": 1359444409620634990,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 double bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 double bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "Wave Whisperer Studio With Rooftop Pool & WIFI",
+    "title": "Apartment in Cape Town",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 1296.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R1,295.90 ZAR",
+          "amount": 1295.0,
+          "currency": "R.90 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 0,
+      "reviewCount": 0
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1359444409620634990/original/b9409e54-403b-4dad-93b9-30d8eba3a915.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1359444409620634990/original/04f70508-fd63-44f4-939b-a0def6be8b99.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1359444409620634990/original/614d4c32-9853-4c0f-b46d-2a94bd446d4c.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1359444409620634990/original/3788ab24-6c94-4a10-b4b3-ed8a74dec924.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1359444409620634990/original/df7430c4-0797-4c77-a723-9d823c1c95cc.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1359444409620634990/original/57f822ac-5f6f-4a29-bd4f-cb7dd2bc7b2e.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.915,
+      "longitud": 18.3921
+    }
+  },
+  {
+    "room_id": 1442546684656352192,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "2 king beds",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "2 king beds",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "Bright Coastal Apartment in Sea Point with Balcony",
+    "title": "Apartment in Cape Town",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 3430.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R3,429.45 ZAR",
+          "amount": 3429.0,
+          "currency": "R.45 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 4.8,
+      "reviewCount": "5"
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1442546684656352192/original/8464e230-cea2-45e8-86a7-0fd650a8e36b.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1442546684656352192/original/0adfee01-aa13-4871-8354-9eb0701e20c0.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1442546684656352192/original/8045c71f-e83c-44a0-84a7-16111168eac3.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1442546684656352192/original/1bbe3720-5b72-42f4-9096-4fd38a70fa1d.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1442546684656352192/original/b2391663-b720-431b-bb11-b1e2bfcbecfc.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1442546684656352192/original/9394fd8d-b550-472c-a725-03269b8c34fe.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.9143,
+      "longitud": 18.3913
+    }
+  }
+]

@@ -1616,9 +1616,6 @@
 }
 
 /* AI Chat Container */
-.ai-chat-container {
-  margin-top: var(--spacing-4);
-}
 
 .chat-sidebar {
   background: var(--card-dark);

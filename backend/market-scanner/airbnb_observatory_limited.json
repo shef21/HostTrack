@@ -1,0 +1,403 @@
+[
+  {
+    "room_id": 776665217605978825,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "4 double beds",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "4 double beds",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [
+      {
+        "__typename": "PaymentMessage",
+        "text": "Free cancellation",
+        "type": "FREE_CANCELLATION_HIGHLIGHT"
+      }
+    ],
+    "kind": "",
+    "name": "Modern 8-sleeper home in trendy Observatory.",
+    "title": "Home in Observatory",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 3185.0,
+        "discount": 1804.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R3,184.13 ZAR",
+          "amount": 3184.0,
+          "currency": "R.13 ZAR"
+        },
+        {
+          "description": "Special offer",
+          "amount": -1380.0,
+          "currency": "R.50 ZAR"
+        },
+        {
+          "description": "Price after discount",
+          "amount": 1803.0,
+          "currency": "R.63 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 4.78,
+      "reviewCount": "87"
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-776665217605978825/original/677d5c64-b2db-4e4d-8679-8ed667f3d904.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-776665217605978825/original/8ccade2b-65db-43bd-98ce-e34eb639f27e.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-776665217605978825/original/f2dff37f-f2b4-4201-99bd-506118ef2d2a.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-776665217605978825/original/3951bda5-5428-460c-99db-bfd84c177905.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-776665217605978825/original/ce097824-f060-4898-8d5e-c1284ada90a5.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-776665217605978825/original/fa4075ea-4249-4182-8afa-e8bca5b4d64e.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.9408,
+      "longitud": 18.468
+    }
+  },
+  {
+    "room_id": 1153245493618798797,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 queen bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 queen bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [
+      {
+        "__typename": "PaymentMessage",
+        "text": "Free cancellation",
+        "type": "FREE_CANCELLATION_HIGHLIGHT"
+      }
+    ],
+    "kind": "",
+    "name": "Secure corner one bedroom flat",
+    "title": "Apartment in Observatory",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 1370.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R1,369.41 ZAR",
+          "amount": 1369.0,
+          "currency": "R.41 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 4.89,
+      "reviewCount": "37"
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1153245493618798797/original/af819300-2977-4570-bd04-f9155f5819e5.png"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1153245493618798797/original/3dd4bee4-6a96-4662-974e-d68b57cf3c9c.png"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1153245493618798797/original/b55aabda-c474-4585-ab04-0304d971050c.png"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1153245493618798797/original/317eec61-dbb3-4e82-964e-2349ba5f87c6.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1153245493618798797/original/4cab700f-81df-4d79-909d-e6e72c5929ce.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1153245493618798797/original/78724602-c475-472b-b0a3-5a1b91d8ef6c.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.9433,
+      "longitud": 18.4701
+    }
+  },
+  {
+    "room_id": 17808314,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "Charming Garden Cottage",
+    "title": "Home in Observatory",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 1313.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R1,312.35 ZAR",
+          "amount": 1312.0,
+          "currency": "R.35 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 4.91,
+      "reviewCount": "76"
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/1ba5f59e-1d07-49d9-88b5-c05ea6c63873.jpg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/cdfedb8c-91e2-4771-a852-383cbaff1b7d.jpg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/50e612a1-0d9f-48d1-b435-3af9d37b57e6.jpg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/aed94dd2-b936-408b-bfd0-c227679d6817.jpg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/c0e677c7-7bd0-46d2-b5cd-efbc85a2e868.jpg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/4c767957-239a-42d5-95b9-3c284e4a8c61.jpg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.93803,
+      "longitud": 18.47396
+    }
+  },
+  {
+    "room_id": 1304049754717363219,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "2 beds",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "2 beds",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [
+      {
+        "__typename": "PaymentMessage",
+        "text": "Free cancellation",
+        "type": "FREE_CANCELLATION_HIGHLIGHT"
+      }
+    ],
+    "kind": "",
+    "name": "Cozy victorian cottage",
+    "title": "Home in Observatory",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 1712.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R1,711.77 ZAR",
+          "amount": 1711.0,
+          "currency": "R.77 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 3.33,
+      "reviewCount": "3"
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1304049754717363219/original/e02b8cff-d403-4b84-b6ca-0c5736cb84ab.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1304049754717363219/original/106831d6-d2cd-4fa7-9dd8-2e82669e98bf.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1304049754717363219/original/9f4f56d6-6711-4ec2-b4f5-446426077fcd.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1304049754717363219/original/79038193-e98e-4e2f-b719-c416cf2935ad.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1304049754717363219/original/5603a245-3925-4e9d-85d3-e21447cbec49.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1304049754717363219/original/ab1d2f7c-3b83-49bc-a050-a0f786ddabba.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -33.93625829404413,
+      "longitud": 18.466660480762272
+    }
+  }
+]

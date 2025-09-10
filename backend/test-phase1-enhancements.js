@@ -62,8 +62,7 @@ function testTrendCalculation() {
     console.log('🧪 Testing Trend Calculation Function...');
     
     try {
-        // Import the function from ai-chat.js
-        const { calculateTrendMetrics } = require('./routes/ai-chat.js');
+        // AI chat functionality removed - using separate AI agent
         
         if (!calculateTrendMetrics) {
             console.log('❌ calculateTrendMetrics function not found');

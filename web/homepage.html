@@ -58,20 +58,28 @@
     <section class="hero-section">
         <div class="hero-container">
             <div class="hero-content">
-                <h1 class="hero-title">AI-Powered Property Market Intelligence</h1>
-                <p class="hero-subtitle">The world's first integrated platform combining property management with AI market insights, competitor analysis, and ROI recommendations. Make data-driven decisions that maximize your property returns.</p>
+                <h1 class="hero-title">Ask Nathi a question</h1>
+                <p class="hero-subtitle">Get instant AI-powered insights about property markets, pricing strategies, and investment opportunities. Nathi has access to real-time market data and can help you make smarter property decisions.</p>
+                
+                <!-- Chat Interface -->
+                <div class="chat-container">
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="message nathi-message">
+                            <div class="message-avatar">🤖</div>
+                            <div class="message-content">
+                                <p>Hi! I'm Nathi, your AI property assistant. Ask me anything about property markets, pricing, or investment strategies. I have access to real-time Cape Town market data to help you make informed decisions.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chat-input-container">
+                        <input type="text" id="chatInput" placeholder="Ask Nathi about property markets, pricing, or investments..." class="chat-input">
+                        <button id="sendButton" class="chat-send-btn">Send</button>
+                    </div>
+                </div>
+                
                 <div class="hero-actions">
-                    <a href="/app" class="btn btn-primary btn-large">Try AI Market Intelligence Free</a>
-                    <a href="#features" class="btn btn-secondary btn-large">See AI Features</a>
+                    <a href="#features" class="btn btn-secondary btn-large">Learn More About Host Track</a>
                 </div>
-                <div class="hero-badges">
-                    <span class="badge">🤖 AI-Powered</span>
-                    <span class="badge">🏆 Market Intelligence</span>
-                    <span class="badge">🎯 ROI Focused</span>
-                </div>
-            </div>
-            <div class="hero-image">
-                <img src="icons/Host.png" alt="HostTrack AI Platform" class="dashboard-preview">
             </div>
         </div>
     </section>
@@ -591,10 +599,7 @@
         .hero-container {
             max-width: 1200px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
+            text-align: center;
         }
 
         .hero-title {
@@ -609,6 +614,159 @@
             margin-bottom: 2rem;
             opacity: 0.9;
             line-height: 1.6;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Chat Interface Styles */
+        .chat-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 800px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .chat-messages {
+            max-height: 400px;
+            overflow-y: auto;
+            margin-bottom: 1.5rem;
+            padding-right: 0.5rem;
+        }
+
+        .message {
+            display: flex;
+            margin-bottom: 1rem;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .nathi-message {
+            justify-content: flex-start;
+        }
+
+        .user-message {
+            justify-content: flex-end;
+        }
+
+        .message-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .user-message .message-avatar {
+            background: linear-gradient(135deg, #10b981, #059669);
+        }
+
+        .message-content {
+            background: rgba(255, 255, 255, 0.9);
+            color: #1f2937;
+            padding: 1rem 1.25rem;
+            border-radius: 1rem;
+            max-width: 70%;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .user-message .message-content {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: white;
+        }
+
+        .message-content p {
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        .chat-input-container {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 0.75rem;
+            background: rgba(255, 255, 255, 0.9);
+            color: #1f2937;
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.2s;
+        }
+
+        .chat-input:focus {
+            border-color: rgba(255, 255, 255, 0.6);
+            background: white;
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+
+        .chat-input::placeholder {
+            color: #6b7280;
+        }
+
+        .chat-send-btn {
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: white;
+            border: none;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+        }
+
+        .chat-send-btn:hover {
+            background: linear-gradient(135deg, #5855eb, #7c3aed);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(99, 102, 241, 0.4);
+        }
+
+        .chat-send-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .typing-indicator {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-style: italic;
+        }
+
+        .typing-dots {
+            display: flex;
+            gap: 0.25rem;
+        }
+
+        .typing-dots span {
+            width: 6px;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            animation: typing 1.4s infinite ease-in-out;
+        }
+
+        .typing-dots span:nth-child(1) { animation-delay: -0.32s; }
+        .typing-dots span:nth-child(2) { animation-delay: -0.16s; }
+
+        @keyframes typing {
+            0%, 80%, 100% { transform: scale(0.8); opacity: 0.5; }
+            40% { transform: scale(1); opacity: 1; }
         }
 
         .hero-actions {
@@ -957,7 +1115,157 @@
                 flex-direction: column;
                 align-items: center;
             }
+
+            .chat-container {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+
+            .message-content {
+                max-width: 85%;
+            }
         }
     </style>
+
+    <!-- Chat JavaScript -->
+    <script>
+        // Configuration - Update this URL when you deploy the AI service
+        const AI_API_URL = 'https://your-ai-service.railway.app/api/chat/';
+        
+        class NathiChat {
+            constructor() {
+                this.chatMessages = document.getElementById('chatMessages');
+                this.chatInput = document.getElementById('chatInput');
+                this.sendButton = document.getElementById('sendButton');
+                this.conversationId = null;
+                
+                this.initializeEventListeners();
+            }
+            
+            initializeEventListeners() {
+                this.sendButton.addEventListener('click', () => this.sendMessage());
+                this.chatInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        this.sendMessage();
+                    }
+                });
+            }
+            
+            async sendMessage() {
+                const message = this.chatInput.value.trim();
+                if (!message) return;
+                
+                // Add user message to chat
+                this.addMessage(message, 'user');
+                this.chatInput.value = '';
+                this.setLoading(true);
+                
+                try {
+                    const response = await fetch(AI_API_URL, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            message: message,
+                            conversation_id: this.conversationId,
+                            user_id: 'homepage_user'
+                        })
+                    });
+                    
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    
+                    const data = await response.json();
+                    this.conversationId = data.conversation_id;
+                    
+                    // Add Nathi's response
+                    this.addMessage(data.response, 'nathi');
+                    
+                } catch (error) {
+                    console.error('Chat error:', error);
+                    this.addMessage('Sorry, I\'m having trouble connecting right now. Please try again in a moment.', 'nathi');
+                } finally {
+                    this.setLoading(false);
+                }
+            }
+            
+            addMessage(content, sender) {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `message ${sender}-message`;
+                
+                const avatar = sender === 'nathi' ? '🤖' : '👤';
+                const avatarClass = sender === 'nathi' ? 'nathi-avatar' : 'user-avatar';
+                
+                messageDiv.innerHTML = `
+                    <div class="message-avatar ${avatarClass}">${avatar}</div>
+                    <div class="message-content">
+                        <p>${this.formatMessage(content)}</p>
+                    </div>
+                `;
+                
+                this.chatMessages.appendChild(messageDiv);
+                this.scrollToBottom();
+            }
+            
+            formatMessage(content) {
+                // Basic formatting for better readability
+                return content
+                    .replace(/\n/g, '<br>')
+                    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                    .replace(/\*(.*?)\*/g, '<em>$1</em>');
+            }
+            
+            setLoading(loading) {
+                this.sendButton.disabled = loading;
+                this.chatInput.disabled = loading;
+                
+                if (loading) {
+                    this.showTypingIndicator();
+                } else {
+                    this.hideTypingIndicator();
+                }
+            }
+            
+            showTypingIndicator() {
+                const typingDiv = document.createElement('div');
+                typingDiv.className = 'message nathi-message typing-indicator';
+                typingDiv.id = 'typingIndicator';
+                typingDiv.innerHTML = `
+                    <div class="message-avatar">🤖</div>
+                    <div class="message-content">
+                        <div class="typing-indicator">
+                            Nathi is typing
+                            <div class="typing-dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                this.chatMessages.appendChild(typingDiv);
+                this.scrollToBottom();
+            }
+            
+            hideTypingIndicator() {
+                const typingIndicator = document.getElementById('typingIndicator');
+                if (typingIndicator) {
+                    typingIndicator.remove();
+                }
+            }
+            
+            scrollToBottom() {
+                this.chatMessages.scrollTop = this.chatMessages.scrollHeight;
+            }
+        }
+        
+        // Initialize chat when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            new NathiChat();
+        });
+    </script>
 </body>
 </html>

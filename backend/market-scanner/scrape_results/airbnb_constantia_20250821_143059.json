@@ -1,0 +1,496 @@
+[
+  {
+    "room_id": 1385989272444984423,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [
+      {
+        "__typename": "PaymentMessage",
+        "text": "Free cancellation",
+        "type": "FREE_CANCELLATION_HIGHLIGHT"
+      }
+    ],
+    "kind": "",
+    "name": "Summer House",
+    "title": "Cottage in Constantia",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 1746.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R1,746.00 ZAR",
+          "amount": 1746.0,
+          "currency": "R.00 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 5.0,
+      "reviewCount": "6"
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTM4NTk4OTI3MjQ0NDk4NDQyMw==/original/4dea20f3-9db4-490e-b09f-5cef74443b78.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTM4NTk4OTI3MjQ0NDk4NDQyMw==/original/404b5d41-3143-48ec-9561-a49e38893d86.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTM4NTk4OTI3MjQ0NDk4NDQyMw==/original/802a466e-8dfe-461c-9c51-e08b90c6a1c6.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTM4NTk4OTI3MjQ0NDk4NDQyMw==/original/df27da9b-d837-4050-86d0-dc922b2dbeba.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTM4NTk4OTI3MjQ0NDk4NDQyMw==/original/f75f5934-5f6f-452d-8da5-cd6c1d60f0d8.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTM4NTk4OTI3MjQ0NDk4NDQyMw==/original/1ea38882-b033-4588-8915-f057d5d0dbee.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -34.03030926815458,
+      "longitud": 18.43494779013867
+    }
+  },
+  {
+    "room_id": 12258820,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "2 beds",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "2 beds",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "Charming GuestSuite -Leafy Constantia Guest House",
+    "title": "Guest suite in Constantia",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 1571.0,
+        "discount": 1420.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R1,420.00 ZAR",
+          "amount": 1420.0,
+          "currency": "R.00 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 4.96,
+      "reviewCount": "303"
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-12258820/original/a1d8764f-37db-4b5b-93a3-0af36d7b7043.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-12258820/original/29f657d0-ee48-46fb-bb3c-35f39dd19be3.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-12258820/original/8582b546-55a4-4793-a385-0aa3e6df97bf.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-12258820/original/5c0db7e7-5311-49de-9707-71c62667ef92.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-12258820/original/9cd45772-af73-406e-a146-83667fab8ee7.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-12258820/original/dbd1c230-cf14-48e2-8b14-edbe901c441b.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -34.032,
+      "longitud": 18.4345
+    }
+  },
+  {
+    "room_id": 1362286634513336551,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "2 beds",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "2 beds",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "Clan Constancia Cottage Winelands & Greenbelt",
+    "title": "Guesthouse in Constantia",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 1304.0,
+        "discount": 1132.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R1,303.93 ZAR",
+          "amount": 1303.0,
+          "currency": "R.93 ZAR"
+        },
+        {
+          "description": "Special offer",
+          "amount": -172.0,
+          "currency": "R.80 ZAR"
+        },
+        {
+          "description": "Price after discount",
+          "amount": 1131.0,
+          "currency": "R.13 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 0,
+      "reviewCount": 0
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1362286634513336551/original/20056e5d-d147-4fd8-98af-47f75113196e.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1362286634513336551/original/4739a0d6-6dd1-42e9-9d01-f858f666f39f.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1362286634513336551/original/25df8bea-dc0b-4e5a-8d20-0449ed1f3642.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1362286634513336551/original/f66fcc1c-1e69-437c-8a5e-4dc681aeb8f3.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1362286634513336551/original/0dffba81-c624-4f15-8758-c58e432cf2f8.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1362286634513336551/original/59dde7a6-c56b-454d-a468-8a1b0c75218c.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -34.0352,
+      "longitud": 18.4259
+    }
+  },
+  {
+    "room_id": 822317960157173737,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "2 beds",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "2 beds",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "Constantia View Parisian Suite- two bed, one bath",
+    "title": "Guesthouse in Constantia",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 2112.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R2,111.18 ZAR",
+          "amount": 2111.0,
+          "currency": "R.18 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 5.0,
+      "reviewCount": "11"
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-822317960157173737/original/7e9f4967-d9fa-4d46-8dca-1f160fa757de.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-822317960157173737/original/9636239c-39ed-4aac-bed5-bb80fa1e7093.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-822317960157173737/original/e27e323b-d351-43a9-9d39-cb4730702942.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/a8527903-d09f-4440-9331-5f7bbec961ef.jpg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/db4c14f4-21ab-477b-bcf1-dfad0aa768eb.jpg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-822317960157173737/original/8eff65c2-7055-4a60-9a8a-5adf5ea649e6.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -34.0253,
+      "longitud": 18.4197
+    }
+  },
+  {
+    "room_id": 1470441804308689797,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "5 beds",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "5 beds",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "WinOne Constantia's best B& B",
+    "title": "Home in Constantia",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 6854.0,
+        "discount": 5684.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R6,853.06 ZAR",
+          "amount": 6853.0,
+          "currency": "R.06 ZAR"
+        },
+        {
+          "description": "Special offer",
+          "amount": -1170.0,
+          "currency": "R.00 ZAR"
+        },
+        {
+          "description": "Price after discount",
+          "amount": 5683.0,
+          "currency": "R.06 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 0,
+      "reviewCount": 0
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1470441804308689797/original/5821541e-ea6a-4a9e-ba8f-345b5d1542d6.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1470441804308689797/original/30d02957-4342-4135-bafc-826d99eca4d2.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1470441804308689797/original/391ac9d4-7d0b-4a74-9fb6-57943e37acb2.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1470441804308689797/original/27b30cd1-7dd6-4e18-9726-4dc98bd22e40.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1470441804308689797/original/cd4018b4-94b3-42bf-b5c4-07d4fd10de01.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1470441804308689797/original/631ba3d6-fa64-4233-81ce-27b0d2994cf4.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -34.03806,
+      "longitud": 18.43482
+    }
+  }
+]

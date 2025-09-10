@@ -1,0 +1,1145 @@
+[
+  {
+    "room_id": 28656609,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "2 beds",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "2 beds",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "kingsize (default) or 2 single beds (if requested)",
+    "title": "Apartment in Marina Da Gama",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 900.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R900.00 ZAR",
+          "amount": 900.0,
+          "currency": "R.00 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 4.86,
+      "reviewCount": "690"
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/1071131f-9a08-440f-9a3d-ef54edb8a3b4.jpg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/1a48dbdf-f08d-4a6b-8645-0aed2a7f901c.jpg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/806b97aa-f119-4c87-b249-0f8ede8baa1a.jpg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/0187971d-196e-454d-8511-31244b962214.jpg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/29e9544b-3dd2-4f65-957e-d168fb6e3ebd.jpg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/72f747f1-d9e2-40e3-87f0-77f094dc9ece.jpg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -34.0947,
+      "longitud": 18.4742
+    }
+  },
+  {
+    "room_id": 1484132971008436651,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 king bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 king bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "Vlei Cove Guesthouse - The Pool Deck",
+    "title": "Home in Marina Da Gama",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 990.0,
+        "discount": 792.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R990.00 ZAR",
+          "amount": 990.0,
+          "currency": "R.00 ZAR"
+        },
+        {
+          "description": "Special offer",
+          "amount": -198.0,
+          "currency": "R.00 ZAR"
+        },
+        {
+          "description": "Price after discount",
+          "amount": 792.0,
+          "currency": "R.00 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 0,
+      "reviewCount": 0
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1484132971008436651/original/a879c7d6-0c13-4a73-b1c1-1971650566d5.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1484132971008436651/original/1376cdd2-0e23-4e43-9c0a-40c2f234e993.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1484132971008436651/original/f09d5cb0-09bc-4ef3-b557-af2a2f1528b8.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1484132971008436651/original/901c11e3-e141-43bc-9da7-b06bcd97c24d.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1484132971008436651/original/a788a2f3-d745-4719-ab9b-6a0cfffcee3c.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1484132971008436651/original/0b304168-39be-46d9-8444-eb66521fab2b.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -34.09469,
+      "longitud": 18.4731
+    }
+  },
+  {
+    "room_id": 855570466620039055,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 queen bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 queen bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "Island Breeze Guest Cottage",
+    "title": "Home in Marina Da Gama",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 1250.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R1,249.59 ZAR",
+          "amount": 1249.0,
+          "currency": "R.59 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 4.98,
+      "reviewCount": "53"
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-855570466620039055/original/757bbe1a-d951-49da-999e-a565a12e2a64.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-855570466620039055/original/de9084e0-01da-4bf8-b4ff-34f53cb09d77.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-855570466620039055/original/6382319e-4d41-4778-a39e-80ad663b39f8.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-855570466620039055/original/6e972135-e54b-4fdb-9073-1476fed7d9f6.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-855570466620039055/original/b961d9c2-b40d-4dd8-80e0-b038d542bbbb.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-855570466620039055/original/153dc438-9d9c-409d-bfef-ebcf2997e062.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -34.0885,
+      "longitud": 18.4771
+    }
+  },
+  {
+    "room_id": 730329489740726679,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "4 beds",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "4 beds",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "Nature's gift",
+    "title": "Home in Muizenberg",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 1697.0,
+        "discount": 1541.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R1,540.59 ZAR",
+          "amount": 1540.0,
+          "currency": "R.59 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 4.69,
+      "reviewCount": "144"
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/1b2c59dc-77e2-4b1b-ae0a-5493d9707ad6.jpg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/56f375b9-3885-4cf2-98a4-490c909c60b3.jpg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/5897b9c7-8058-40b2-b7c9-83a2aa4dc315.jpg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/bfc267e0-7625-4e85-abce-b77f4f912e8c.jpg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/9069f297-c890-4328-aa4b-1b2ec1a2e365.jpg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/69c40a48-b4b9-4ce7-93e0-596dd348ba23.jpg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -34.09903,
+      "longitud": 18.47912
+    }
+  },
+  {
+    "room_id": 1038778476655830322,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 queen bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 queen bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [
+      {
+        "__typename": "PaymentMessage",
+        "text": "Free cancellation",
+        "type": "FREE_CANCELLATION_HIGHLIGHT"
+      }
+    ],
+    "kind": "",
+    "name": "Bohemian Stay On The Water",
+    "title": "Guesthouse in Muizenberg",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 1199.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R1,198.24 ZAR",
+          "amount": 1198.0,
+          "currency": "R.24 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 4.83,
+      "reviewCount": "42"
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1038778476655830322/original/fd30a316-458d-4c70-aac4-fb2e1e1bddcb.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1038778476655830322/original/edd517ee-51f6-4af5-8099-971340ea44fb.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1038778476655830322/original/2789a1e9-5786-434f-b85d-41ab7cb4ee48.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1038778476655830322/original/061eede0-d034-4c49-95ab-b51c686141ad.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1038778476655830322/original/931214f3-2fa0-4f17-8d46-02e5718f237c.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1038778476655830322/original/b09ae104-da15-42ae-b7f5-340668208319.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -34.09096,
+      "longitud": 18.47785
+    }
+  },
+  {
+    "room_id": 1481657969847728698,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "Salisbury Suite.",
+    "title": "Home in Muizenberg",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 1468.0,
+        "discount": 1256.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R1,467.79 ZAR",
+          "amount": 1467.0,
+          "currency": "R.79 ZAR"
+        },
+        {
+          "description": "Special offer",
+          "amount": -212.0,
+          "currency": "R.50 ZAR"
+        },
+        {
+          "description": "Price after discount",
+          "amount": 1255.0,
+          "currency": "R.29 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 0,
+      "reviewCount": 0
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ4MTY1Nzk2OTg0NzcyODY5OA==/original/253b6b2a-4211-4787-8e9c-a71555a4a7dc.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1481657969847728698/original/12a2ff9a-89a7-4ebe-ab13-19108f9bd737.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1481657969847728698/original/1a4b9036-3bff-41a9-8eff-4a3bd31e3b75.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ4MTY1Nzk2OTg0NzcyODY5OA==/original/82fc2251-d8e9-4618-8734-b7f21218577d.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1481657969847728698/original/75be63ad-6ce7-4f1a-b512-f0df69e7ee6a.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ4MTY1Nzk2OTg0NzcyODY5OA==/original/a082dcde-40aa-4f27-9ffb-23c1091dca29.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -34.105,
+      "longitud": 18.4689
+    }
+  },
+  {
+    "room_id": 684624818397721995,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "3 beds",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "3 beds",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "Mountainside ocean view apartment in Muizenberg",
+    "title": "Condo in Muizenberg",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 1950.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R1,950.00 ZAR",
+          "amount": 1950.0,
+          "currency": "R.00 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 4.63,
+      "reviewCount": "41"
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-684624818397721995/original/63a13594-0206-4cba-9d20-63044f6068f7.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-684624818397721995/original/49ddb06a-4249-4407-8a8b-67694336e39d.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-684624818397721995/original/be2f5932-4d4f-4217-8900-afa24dd320a9.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-684624818397721995/original/6e0e7ac4-111c-428e-a4a1-0bd7c2fc4aa8.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-684624818397721995/original/baaf0a1c-d3d1-4c93-9ac2-d871954ebe02.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-684624818397721995/original/b4884b8f-7d06-4535-8d6e-5ac06bdf7892.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -34.10162,
+      "longitud": 18.46697
+    }
+  },
+  {
+    "room_id": 34058973,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 double bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 double bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "Seaside Getaway @ Swallow House Suite #1",
+    "title": "Guest suite in Muizenberg",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 959.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R958.59 ZAR",
+          "amount": 958.0,
+          "currency": "R.59 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 4.79,
+      "reviewCount": "61"
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MzQwNTg5NzM%3D/original/4e9efb58-31f9-4a25-8ce5-f410d76821a1.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MzQwNTg5NzM%3D/original/93de96c8-f56f-49cd-a5bd-aa095806359e.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MzQwNTg5NzM%3D/original/7b155a7a-1c36-4f89-be98-9f740901a582.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MzQwNTg5NzM%3D/original/f4e13c39-0fe1-4da2-a801-7dbc664ba7d6.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MzQwNTg5NzM%3D/original/cd0703e1-8d57-4298-a1db-6c3dc1aa5f3f.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MzQwNTg5NzM%3D/original/c92cc43a-bb0f-4331-9e02-76a75738836c.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -34.1036,
+      "longitud": 18.47239
+    }
+  },
+  {
+    "room_id": 760461889736035487,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 queen bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "1 queen bed",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "Heart of the village: Boho chic 1 bed apartment",
+    "title": "Apartment in Muizenberg",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 1697.0,
+        "discount": 1608.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R1,696.82 ZAR",
+          "amount": 1696.0,
+          "currency": "R.82 ZAR"
+        },
+        {
+          "description": "Special offer",
+          "amount": -89.0,
+          "currency": "R.70 ZAR"
+        },
+        {
+          "description": "Price after discount",
+          "amount": 1607.0,
+          "currency": "R.12 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 0,
+      "reviewCount": 0
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-760461889736035487/original/ecd53424-424c-476f-bd40-9546a44a5e3d.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/dea7bc2c-9cc3-49c9-826b-ba3cd863800f.jpg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/e7a23e29-50fa-4b88-a13c-ec8dfa0e766a.jpg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/a93095b8-e150-4730-b373-df16339a1a7d.jpg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/d0cb63d1-606c-4d35-b85e-f71d9c457c62.jpg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-760461889736035487/original/cab48aa0-b9ce-4873-913c-642e6c2968d9.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -34.10166,
+      "longitud": 18.47085
+    }
+  },
+  {
+    "room_id": 628698740214756040,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "2 beds",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "2 beds",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "The White house",
+    "title": "Townhouse in Muizenberg",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 3253.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R3,252.35 ZAR",
+          "amount": 3252.0,
+          "currency": "R.35 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 4.38,
+      "reviewCount": "24"
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/f30e7141-853a-4009-9312-deb53e500586.jpg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/981c5a93-296b-4e72-9d8c-aac8437ab5de.jpg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/7fc5144a-4e50-45d0-a56a-736e38b68f02.jpg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/662af9c6-4925-4f65-baf1-0162628b5178.jpg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/8bba2650-5d00-4f3d-b90f-4bb483355d83.jpg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/c89e878a-24b2-45e7-abca-32134b0ea28c.jpg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -34.092,
+      "longitud": 18.4796
+    }
+  },
+  {
+    "room_id": 1146913129356336296,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "8 beds",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "mapSecondaryLine": [],
+      "primaryLine": [
+        {
+          "__typename": "MainSectionMessage",
+          "body": "8 beds",
+          "bodyA11yLabel": null,
+          "bodyType": null,
+          "fontWeight": null,
+          "headline": null,
+          "type": "BEDINFO"
+        }
+      ],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [
+      {
+        "__typename": "PaymentMessage",
+        "text": "Free cancellation",
+        "type": "FREE_CANCELLATION_HIGHLIGHT"
+      }
+    ],
+    "kind": "",
+    "name": "Axminster House",
+    "title": "Home in Muizenberg",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 8559.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R8,558.83 ZAR",
+          "amount": 8558.0,
+          "currency": "R.83 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 0,
+      "reviewCount": 0
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1146913129356336296/original/6414045b-13c1-4419-8cb6-65e02788421e.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1146913129356336296/original/900eb636-91da-43ec-b386-f640d2e0d20f.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1146913129356336296/original/2a65e393-c633-48f2-81e9-85b1ad7b889f.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1146913129356336296/original/5d0f452e-a2bd-4608-8c10-50d5adbba441.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1146913129356336296/original/922f76b9-697a-4dd0-af3c-b7d09b086de4.jpeg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1146913129356336296/original/997d0538-1577-4c2c-8b26-f998826cfe35.jpeg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -34.103,
+      "longitud": 18.4756
+    }
+  },
+  {
+    "room_id": 1170949662701550970,
+    "category": "",
+    "structuredContent": {
+      "__typename": "ExploreStructuredContent",
+      "distance": [],
+      "mapCategoryInfo": [],
+      "mapPrimaryLine": [],
+      "mapSecondaryLine": [],
+      "primaryLine": [],
+      "secondaryLine": [],
+      "reviewSnippet": null,
+      "explanation": []
+    },
+    "passportData": {},
+    "paymentMessages": [],
+    "kind": "",
+    "name": "Magical Muizenberg",
+    "title": "Home in Muizenberg",
+    "type": "",
+    "long_stay_discount": {},
+    "fee": {
+      "airbnb": {},
+      "cleaning": {}
+    },
+    "price": {
+      "unit": {
+        "qualifier": "for 1 night",
+        "curency_symbol": "R ZAR",
+        "amount": 2643.0,
+        "discount": 2169.0
+      },
+      "total": {
+        "currency_symbol": "",
+        "amount": 0
+      },
+      "break_down": [
+        {
+          "description": "1 night x R2,168.24 ZAR",
+          "amount": 2168.0,
+          "currency": "R.24 ZAR"
+        }
+      ]
+    },
+    "rating": {
+      "value": 0,
+      "reviewCount": 0
+    },
+    "images": [
+      {
+        "url": "https://a0.muscache.com/im/pictures/1b2c59dc-77e2-4b1b-ae0a-5493d9707ad6.jpg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/56f375b9-3885-4cf2-98a4-490c909c60b3.jpg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/5897b9c7-8058-40b2-b7c9-83a2aa4dc315.jpg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/bfc267e0-7625-4e85-abce-b77f4f912e8c.jpg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/9069f297-c890-4328-aa4b-1b2ec1a2e365.jpg"
+      },
+      {
+        "url": "https://a0.muscache.com/im/pictures/69c40a48-b4b9-4ce7-93e0-596dd348ba23.jpg"
+      }
+    ],
+    "badges": [],
+    "coordinates": {
+      "latitude": -34.09896,
+      "longitud": 18.4787
+    }
+  }
+]
