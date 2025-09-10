@@ -7,9 +7,10 @@ import MemoryManager from '../MemoryManager';
 import LandingPage from '../Landing/LandingPage';
 import Dashboard from '../Dashboard/Dashboard';
 import AuthPage from '../Auth/AuthPage';
+import PricingPage from '../Pricing/PricingPage';
 import { cn } from '../../lib/utils';
 
-type TabType = 'landing' | 'chat' | 'memory' | 'analytics' | 'settings' | 'auth';
+type TabType = 'landing' | 'chat' | 'memory' | 'analytics' | 'settings' | 'auth' | 'pricing';
 
 const MainLayout: React.FC = () => {
   const [activeTab, setActiveTab] = useState<TabType>('landing');
@@ -38,6 +39,14 @@ const MainLayout: React.FC = () => {
     setActiveTab('auth');
   };
 
+  const handlePricing = () => {
+    setActiveTab('pricing');
+  };
+
+  const handleHome = () => {
+    setActiveTab('landing');
+  };
+
   const renderContent = () => {
     switch (activeTab) {
       case 'auth':
@@ -50,11 +59,19 @@ const MainLayout: React.FC = () => {
         return <Dashboard />;
       case 'settings':
         return <div className="p-6">Settings Coming Soon...</div>;
+      case 'pricing':
+        return <PricingPage 
+          onStartChat={() => setActiveTab('chat')} 
+          onSignUp={handleSignUp}
+          onSignIn={handleSignIn}
+          onHome={handleHome}
+        />;
       default:
         return <LandingPage 
           onStartChat={() => setActiveTab('chat')} 
           onSignIn={handleSignIn}
           onSignUp={handleSignUp}
+          onPricing={handlePricing}
         />;
     }
   };
@@ -77,8 +94,8 @@ const MainLayout: React.FC = () => {
     <div className="min-h-screen bg-background">
       {/* Main Content - Full Width */}
       <div className="flex-1 flex flex-col">
-        {/* Header - only show for non-landing pages */}
-        {activeTab !== 'landing' && (
+        {/* Header - only show for authenticated pages */}
+        {activeTab !== 'landing' && activeTab !== 'pricing' && (
           <Header onSearch={() => console.log('Search clicked')} />
         )}
 

@@ -188,7 +188,7 @@ const ModernChatInterface: React.FC = () => {
                 Chat with Nathi
                 <Sparkles className="w-4 h-4 text-emerald-500" />
               </h2>
-              <p className="text-sm text-gray-600">Your AI Property Manager</p>
+              <p className="text-sm text-gray-600">Your AI Property Intelligence</p>
             </div>
           </div>
         </div>

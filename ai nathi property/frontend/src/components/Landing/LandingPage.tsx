@@ -3,14 +3,16 @@ import { motion } from 'framer-motion';
 import { Home, BarChart, TrendingUp, Lightbulb, Calculator, Play, Sparkles, ArrowRight, Star, Zap } from 'lucide-react';
 import { Button } from '../ui/button';
 import { Card, CardContent } from '../ui/card';
+import LiveChatDemo from './LiveChatDemo';
 
 interface LandingPageProps {
   onStartChat: () => void;
   onSignIn: () => void;
   onSignUp: () => void;
+  onPricing?: () => void;
 }
 
-const LandingPage: React.FC<LandingPageProps> = ({ onStartChat, onSignIn, onSignUp }) => {
+const LandingPage: React.FC<LandingPageProps> = ({ onStartChat, onSignIn, onSignUp, onPricing }) => {
   // Animation variants for framer-motion
   const staggerContainer = {
     animate: {
@@ -50,7 +52,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStartChat, onSignIn, onSign
   ];
 
   const testimonials = [
-    { name: "Sarah Chen", role: "Property Manager", content: "Nathi transformed how I manage my 15 properties. Revenue up 40%." },
+    { name: "Sarah Chen", role: "Property Intelligence Manager", content: "Nathi transformed how I manage my 15 properties. Revenue up 40%." },
     { name: "Mike Rodriguez", role: "Real Estate Investor", content: "The AI insights are game-changing. Best investment I've made." },
     { name: "Emma Thompson", role: "Airbnb Host", content: "Finally, a tool that actually understands the market dynamics." }
   ];
@@ -82,7 +84,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStartChat, onSignIn, onSign
                 </div>
                 <div>
                   <h1 className="text-2xl font-bold text-white">
-                    AI Nathi Property
+                    HostTrack
                   </h1>
                   <p className="text-muted-foreground text-sm font-medium">
                     Smart Portfolio Manager
@@ -97,6 +99,12 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStartChat, onSignIn, onSign
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
+              <button 
+                className="text-muted-foreground hover:text-white transition-colors px-4 py-2"
+                onClick={onPricing}
+              >
+                Pricing
+              </button>
               <Button variant="outline" onClick={onSignIn} className="btn-outline-modern">
                 Sign In
               </Button>
@@ -168,19 +176,19 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStartChat, onSignIn, onSign
               className="inline-flex items-center px-4 py-2 rounded-full glass mb-8"
             >
               <Star className="w-4 h-4 text-yellow-400 mr-2" />
-              <span className="text-sm font-medium text-muted-foreground">Trusted by 500+ Property Managers</span>
+              <span className="text-sm font-medium text-muted-foreground">Trusted by 500+ Property Intelligence Professionals</span>
             </motion.div>
 
             <h1 className="text-6xl md:text-7xl lg:text-8xl font-black text-white mb-8 leading-tight">
               <span className="gradient-text">Nathi</span>
               <br />
               <span className="text-4xl md:text-5xl lg:text-6xl text-muted-foreground font-light">
-                AI Property Manager
+                AI Property Intelligence
               </span>
             </h1>
             
             <p className="text-xl text-muted-foreground mb-12 leading-relaxed max-w-2xl">
-              Transform your property portfolio with AI-powered insights, real-time market data, and intelligent automation.
+              Transform your property portfolio with AI-powered insights, real-time market data, and intelligent automation. Try Nathi live below!
             </p>
 
             <motion.div 
@@ -201,7 +209,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStartChat, onSignIn, onSign
             </motion.div>
           </motion.div>
 
-          {/* Right Visual - Modern Dashboard Preview */}
+          {/* Right Visual - Live Nathi Chat Demo */}
           <motion.div 
             className="hidden lg:block"
             initial={{ opacity: 0, x: 50 }}
@@ -209,72 +217,8 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStartChat, onSignIn, onSign
             transition={{ duration: 0.8, delay: 0.5 }}
           >
             <div className="relative">
-              {/* Main Dashboard Card */}
-              <div className="glass-card rounded-3xl p-8 shadow-2xl">
-                <div className="flex items-center justify-between mb-6">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-3 h-3 bg-red-400 rounded-full"></div>
-                    <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
-                    <div className="w-3 h-3 bg-green-400 rounded-full"></div>
-                  </div>
-                  <div className="text-sm text-muted-foreground">Portfolio Dashboard</div>
-                </div>
-                
-                {/* Chart Area */}
-                <div className="space-y-4">
-                  <div className="h-32 bg-gradient-to-r from-primary/20 to-primary/5 rounded-2xl flex items-end justify-between p-4">
-                    {[40, 60, 35, 80, 45, 70, 55].map((height, i) => (
-                      <motion.div
-                        key={i}
-                        className="bg-gradient-to-t from-primary to-primary/60 rounded-t-lg"
-                        style={{ width: '12px', height: `${height}%` }}
-                        initial={{ height: 0 }}
-                        animate={{ height: `${height}%` }}
-                        transition={{ duration: 1, delay: 1 + i * 0.1 }}
-                      />
-                    ))}
-                  </div>
-                  
-                  {/* Stats Grid */}
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="glass rounded-2xl p-4">
-                      <div className="text-2xl font-bold text-white">R2.4M</div>
-                      <div className="text-sm text-muted-foreground">Total Revenue</div>
-                    </div>
-                    <div className="glass rounded-2xl p-4">
-                      <div className="text-2xl font-bold text-green-400">+23%</div>
-                      <div className="text-sm text-muted-foreground">vs Last Month</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Floating Elements */}
-              <motion.div 
-                className="absolute -top-4 -right-4 w-8 h-8 gradient-primary rounded-full shadow-lg"
-                animate={{ 
-                  y: [0, -10, 0],
-                  scale: [1, 1.1, 1]
-                }}
-                transition={{ 
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-              />
-              <motion.div 
-                className="absolute top-1/2 -left-8 w-6 h-6 gradient-primary rounded-full shadow-lg"
-                animate={{ 
-                  y: [0, 10, 0],
-                  scale: [1, 1.2, 1]
-                }}
-                transition={{ 
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 1
-                }}
-              />
+              {/* Live Chat Demo */}
+              <LiveChatDemo />
             </div>
           </motion.div>
         </div>
@@ -427,19 +371,18 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStartChat, onSignIn, onSign
                 <Home className="w-5 h-5 text-white" />
               </div>
               <div>
-                <div className="text-xl font-bold text-white">AI Nathi Property</div>
+                <div className="text-xl font-bold text-white">HostTrack</div>
                 <div className="text-sm text-muted-foreground">Smart Portfolio Manager</div>
               </div>
             </div>
             
             <div className="flex space-x-8 mb-6 md:mb-0">
               <button className="text-muted-foreground hover:text-white transition-colors">About</button>
-              <button className="text-muted-foreground hover:text-white transition-colors">Pricing</button>
               <button className="text-muted-foreground hover:text-white transition-colors">Contact</button>
               <button className="text-muted-foreground hover:text-white transition-colors">Privacy</button>
             </div>
             
-            <p className="text-muted-foreground text-sm">© 2025 AI Nathi Property. All rights reserved.</p>
+            <p className="text-muted-foreground text-sm">© 2025 AI Nathi Property Intelligence. All rights reserved.</p>
           </div>
         </div>
       </footer>

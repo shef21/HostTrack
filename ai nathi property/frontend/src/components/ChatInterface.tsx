@@ -172,7 +172,7 @@ const ChatInterface: React.FC = () => {
             </div>
             <div>
               <h2 className="text-lg font-semibold text-gray-900">Chat with Nathi</h2>
-              <p className="text-sm text-gray-600">Your AI Property Manager</p>
+              <p className="text-sm text-gray-600">Your AI Property Intelligence</p>
             </div>
           </div>
         </div>
