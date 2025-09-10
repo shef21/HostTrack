@@ -1,19 +1,22 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
+import { useAuth } from '../../contexts/AuthContext';
 import Sidebar from './Sidebar';
 import Header from './Header';
 import ModernChatInterface from '../Chat/ModernChatInterface';
 import MemoryManager from '../MemoryManager';
 import LandingPage from '../Landing/LandingPage';
 import Dashboard from '../Dashboard/Dashboard';
+import AuthPage from '../Auth/AuthPage';
 import { cn } from '@/lib/utils';
 
-type TabType = 'landing' | 'chat' | 'memory' | 'analytics' | 'settings';
+type TabType = 'landing' | 'chat' | 'memory' | 'analytics' | 'settings' | 'auth';
 
 const MainLayout: React.FC = () => {
   const [activeTab, setActiveTab] = useState<TabType>('landing');
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const mainContentRef = useRef<HTMLDivElement>(null);
+  const { isAuthenticated, isLoading } = useAuth();
 
   // GSAP animations
   useEffect(() => {
@@ -29,8 +32,18 @@ const MainLayout: React.FC = () => {
     setActiveTab(tab);
   };
 
+  const handleSignIn = () => {
+    setActiveTab('auth');
+  };
+
+  const handleSignUp = () => {
+    setActiveTab('auth');
+  };
+
   const renderContent = () => {
     switch (activeTab) {
+      case 'auth':
+        return <AuthPage />;
       case 'chat':
         return <ModernChatInterface />;
       case 'memory':
@@ -40,9 +53,27 @@ const MainLayout: React.FC = () => {
       case 'settings':
         return <div className="p-6">Settings Coming Soon...</div>;
       default:
-        return <LandingPage onStartChat={() => setActiveTab('chat')} />;
+        return <LandingPage 
+          onStartChat={() => setActiveTab('chat')} 
+          onSignIn={handleSignIn}
+          onSignUp={handleSignUp}
+        />;
     }
   };
+
+  // Show loading spinner while checking auth
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-emerald-600"></div>
+      </div>
+    );
+  }
+
+  // Show auth page if not authenticated and trying to access protected routes
+  if (!isAuthenticated && ['chat', 'memory', 'analytics', 'settings'].includes(activeTab)) {
+    return <AuthPage />;
+  }
 
   return (
     <div className="min-h-screen bg-gray-50">

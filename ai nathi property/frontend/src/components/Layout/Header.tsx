@@ -10,12 +10,22 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '../ui/dropdown-menu';
+import { useAuth } from '../../contexts/AuthContext';
 
 interface HeaderProps {
   onSearch?: () => void;
 }
 
 const Header: React.FC<HeaderProps> = ({ onSearch }) => {
+  const { user, signOut } = useAuth();
+
+  const handleSignOut = async () => {
+    try {
+      await signOut();
+    } catch (error) {
+      console.error('Sign out error:', error);
+    }
+  };
   return (
     <header className="bg-white border-b border-gray-200 px-6 py-4">
       <div className="flex items-center justify-between">
@@ -55,9 +65,9 @@ const Header: React.FC<HeaderProps> = ({ onSearch }) => {
             <DropdownMenuContent className="w-56" align="end" forceMount>
               <DropdownMenuLabel className="font-normal">
                 <div className="flex flex-col space-y-1">
-                  <p className="text-sm font-medium leading-none">John Doe</p>
+                  <p className="text-sm font-medium leading-none">{user?.name || 'User'}</p>
                   <p className="text-xs leading-none text-muted-foreground">
-                    john@example.com
+                    {user?.email || 'user@example.com'}
                   </p>
                 </div>
               </DropdownMenuLabel>
@@ -71,7 +81,7 @@ const Header: React.FC<HeaderProps> = ({ onSearch }) => {
                 <span>Settings</span>
               </DropdownMenuItem>
               <DropdownMenuSeparator />
-              <DropdownMenuItem>
+              <DropdownMenuItem onClick={handleSignOut}>
                 <LogOut className="mr-2 h-4 w-4" />
                 <span>Log out</span>
               </DropdownMenuItem>
