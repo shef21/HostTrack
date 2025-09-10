@@ -354,5 +354,6 @@ app.listen(PORT, () => {
   console.log(`📅 Bookings endpoints: http://localhost:${PORT}/api/bookings`);
   console.log(`💰 Expenses endpoints: http://localhost:${PORT}/api/expenses`);
   console.log(`📊 Analytics endpoints: http://localhost:${PORT}/api/analytics`);
+  console.log(`🤖 AI Chat with real-time data: http://localhost:${PORT}/api/chat`);
   console.log(`🌐 Frontend files served from: ${path.join(__dirname, 'web')}`);
 });
