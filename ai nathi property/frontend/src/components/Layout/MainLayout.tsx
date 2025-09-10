@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { useAuth } from '../../contexts/AuthContext';
-import Sidebar from './Sidebar';
 import Header from './Header';
 import ModernChatInterface from '../Chat/ModernChatInterface';
 import MemoryManager from '../MemoryManager';
@@ -14,7 +13,6 @@ type TabType = 'landing' | 'chat' | 'memory' | 'analytics' | 'settings' | 'auth'
 
 const MainLayout: React.FC = () => {
   const [activeTab, setActiveTab] = useState<TabType>('landing');
-  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const mainContentRef = useRef<HTMLDivElement>(null);
   const { isAuthenticated, isLoading } = useAuth();
 
@@ -76,34 +74,24 @@ const MainLayout: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="flex">
-        {/* Sidebar */}
-        <Sidebar
-          collapsed={sidebarCollapsed}
-          onToggle={() => setSidebarCollapsed(!sidebarCollapsed)}
-          activeTab={activeTab}
-          onTabChange={handleTabChange}
-        />
+    <div className="min-h-screen bg-background">
+      {/* Main Content - Full Width */}
+      <div className="flex-1 flex flex-col">
+        {/* Header - only show for non-landing pages */}
+        {activeTab !== 'landing' && (
+          <Header onSearch={() => console.log('Search clicked')} />
+        )}
 
-        {/* Main Content */}
-        <div className="flex-1 flex flex-col">
-          {/* Header - only show for non-landing pages */}
-          {activeTab !== 'landing' && (
-            <Header onSearch={() => console.log('Search clicked')} />
+        {/* Page Content */}
+        <main 
+          ref={mainContentRef}
+          className={cn(
+            "flex-1",
+            activeTab === 'landing' ? "overflow-hidden" : "overflow-auto"
           )}
-
-          {/* Page Content */}
-          <main 
-            ref={mainContentRef}
-            className={cn(
-              "flex-1",
-              activeTab === 'landing' ? "overflow-hidden" : "overflow-auto"
-            )}
-          >
-            {renderContent()}
-          </main>
-        </div>
+        >
+          {renderContent()}
+        </main>
       </div>
     </div>
   );
