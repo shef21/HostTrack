@@ -65,6 +65,38 @@ app.get('/test', (req, res) => {
   });
 });
 
+// AI Chat endpoints
+app.post('/api/chat/', async (req, res) => {
+  try {
+    const { message, conversation_id, user_id } = req.body;
+    
+    if (!message) {
+      return res.status(400).json({ error: 'Message is required' });
+    }
+
+    // For now, return a simple response until we integrate OpenAI
+    const response = {
+      response: `I received your message: "${message}". This is a placeholder response. OpenAI integration will be added soon.`,
+      conversation_id: conversation_id || `conv_${Date.now()}`,
+      timestamp: new Date().toISOString()
+    };
+
+    res.json(response);
+  } catch (error) {
+    console.error('Chat endpoint error:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+app.get('/api/chat/conversations/:conversationId', (req, res) => {
+  const { conversationId } = req.params;
+  res.json({ 
+    conversation_id: conversationId,
+    messages: [],
+    message: 'Conversation history not implemented yet'
+  });
+});
+
 // Debug endpoint to check file structure
 app.get('/debug/files', (req, res) => {
   const fs = require('fs');
