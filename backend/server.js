@@ -182,7 +182,7 @@ async function getRelevantContext(query, userId) {
   }
 }
 
-// AI Chat endpoints
+// AI Chat endpoints - UPDATED WITH REAL AI INTEGRATION
 app.post('/api/chat/', async (req, res) => {
   try {
     const { message, conversation_id, user_id } = req.body;
@@ -206,7 +206,9 @@ app.post('/api/chat/', async (req, res) => {
     });
 
     // Get relevant context from Supabase
+    console.log('Getting context for message:', message);
     const context = await getRelevantContext(message, user_id);
+    console.log('Context retrieved:', context ? 'Yes' : 'No');
 
     // Prepare the system prompt for property intelligence with real data
     const systemPrompt = `You are Nathi, an AI Property Intelligence assistant specialized in real estate investment, short-term rental optimization, and property portfolio management. 
