@@ -1,7 +1,7 @@
 import React from 'react';
 import { Home, MessageCircle, Brain, TrendingUp, BarChart, Settings, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '../ui/button';
-import { cn } from '@/lib/utils';
+import { cn } from '../../lib/utils';
 
 interface SidebarProps {
   collapsed: boolean;

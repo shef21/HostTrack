@@ -5,7 +5,7 @@ import { Card, CardContent } from '../ui/card';
 import { Avatar, AvatarFallback } from '../ui/avatar';
 import { chatApi } from '../../services/api';
 import { ChatMessage } from '../../types';
-import { cn } from '@/lib/utils';
+import { cn } from '../../lib/utils';
 
 const ModernChatInterface: React.FC = () => {
   const [messages, setMessages] = useState<ChatMessage[]>([

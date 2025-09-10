@@ -8,7 +8,7 @@ import MemoryManager from '../MemoryManager';
 import LandingPage from '../Landing/LandingPage';
 import Dashboard from '../Dashboard/Dashboard';
 import AuthPage from '../Auth/AuthPage';
-import { cn } from '@/lib/utils';
+import { cn } from '../../lib/utils';
 
 type TabType = 'landing' | 'chat' | 'memory' | 'analytics' | 'settings' | 'auth';
 
@@ -28,8 +28,8 @@ const MainLayout: React.FC = () => {
     }
   }, [activeTab]);
 
-  const handleTabChange = (tab: TabType) => {
-    setActiveTab(tab);
+  const handleTabChange = (tab: string) => {
+    setActiveTab(tab as TabType);
   };
 
   const handleSignIn = () => {

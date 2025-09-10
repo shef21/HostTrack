@@ -1,6 +1,6 @@
 import * as React from "react"
 
-import { cn } from "@/lib/utils"
+import { cn } from "../../lib/utils"
 
 const Card = React.forwardRef<
   HTMLDivElement,
@@ -9,7 +9,7 @@ const Card = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "rounded-xl border bg-card text-card-foreground shadow-sm",
+      "rounded-2xl border border-white/10 bg-card/50 backdrop-blur-xl text-card-foreground shadow-xl transition-all duration-300",
       className
     )}
     {...props}
@@ -26,9 +26,9 @@ const CardHeader = React.forwardRef<
 CardHeader.displayName = "CardHeader"
 
 const CardTitle = React.forwardRef<
-  HTMLParagraphElement,
+  HTMLHeadingElement,
   React.HTMLAttributes<HTMLHeadingElement>
->(({ className, ...props }, ref) => (
+>(({ className, children, ...props }, ref) => (
   <h3
     ref={ref}
     className={cn(
@@ -36,7 +36,9 @@ const CardTitle = React.forwardRef<
       className
     )}
     {...props}
-  />
+  >
+    {children}
+  </h3>
 ))
 CardTitle.displayName = "CardTitle"
 
