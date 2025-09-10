@@ -9,23 +9,20 @@
 2. My Products → All Products and Services
 3. Find hosttrack.co.za → Click "DNS"
 
-**Add these 2 records:**
-
-**Record 1:**
-```
-Type: A
-Name: @
-Value: 76.76.19.61
-TTL: 600
-```
-
-**Record 2:**
-```
-Type: CNAME
-Name: www
-Value: cname.vercel-dns.com
-TTL: 600
-```
+**Use Vercel's DNS settings:**
+- Vercel will give you specific DNS records
+- Copy them exactly as Vercel shows them
+- Add them to your GoDaddy DNS
+- Usually looks like:
+  ```
+  Type: A
+  Name: @
+  Value: [Vercel's IP address]
+  
+  Type: CNAME
+  Name: www
+  Value: [Vercel's CNAME]
+  ```
 
 ### Step 2: Vercel Setup
 
