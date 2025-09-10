@@ -9,15 +9,15 @@
   "routes": [
     {
       "src": "/",
-      "dest": "/homepage.html"
+      "dest": "/index.html"
     },
     {
-      "src": "/app",
-      "dest": "/app.html"
+      "src": "/static/(.*)",
+      "dest": "/static/$1"
     },
     {
       "src": "/(.*)",
-      "dest": "/$1"
+      "dest": "/index.html"
     }
   ]
 }
