@@ -13,6 +13,13 @@ interface LandingPageProps {
 }
 
 const LandingPage: React.FC<LandingPageProps> = ({ onStartChat, onSignIn, onSignUp, onPricing }) => {
+  // Scroll to section function
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   // Animation variants for framer-motion
   const staggerContainer = {
     animate: {
@@ -58,14 +65,14 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStartChat, onSignIn, onSign
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 text-gray-900 overflow-hidden">
+    <div className="relative z-10 min-h-screen bg-gray-200 text-gray-900">
       {/* Background Effects */}
-      <div className="fixed inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-100"></div>
-      <div className="fixed inset-0 bg-grid opacity-20"></div>
+      <div className="fixed inset-0 bg-gradient-to-br from-gray-200 via-gray-100 to-gray-300 pointer-events-none"></div>
+      <div className="fixed inset-0 bg-grid opacity-10 pointer-events-none"></div>
       
       {/* Header */}
       <motion.header 
-        className="relative z-50 bg-white/80 backdrop-blur-sm border-b border-gray-200 shadow-sm"
+        className="relative z-50 bg-gray-100/90 backdrop-blur-sm border-b border-gray-400 shadow-sm"
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
@@ -105,7 +112,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStartChat, onSignIn, onSign
               >
                 Pricing
               </button>
-              <Button variant="outline" onClick={onSignIn} className="btn-outline-modern">
+              <Button variant="outline" onClick={onSignIn} className="border-emerald-600 text-emerald-600 hover:bg-emerald-600 hover:text-white px-6 py-2 rounded-xl font-semibold transition-all duration-300">
                 Sign In
               </Button>
               <Button onClick={onSignUp} className="btn-gradient">
@@ -122,10 +129,10 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStartChat, onSignIn, onSign
         {/* Animated Background Elements */}
         <div className="absolute inset-0">
           <motion.div 
-            className="absolute top-20 left-10 w-32 h-32 bg-emerald-200 rounded-full blur-3xl opacity-30"
+            className="absolute top-20 left-10 w-32 h-32 bg-emerald-300 rounded-full blur-3xl opacity-20"
             animate={{ 
               scale: [1, 1.2, 1],
-              opacity: [0.2, 0.4, 0.2]
+              opacity: [0.15, 0.3, 0.15]
             }}
             transition={{ 
               duration: 4,
@@ -134,10 +141,10 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStartChat, onSignIn, onSign
             }}
           />
           <motion.div 
-            className="absolute bottom-20 right-10 w-40 h-40 bg-blue-200 rounded-full blur-3xl opacity-25"
+            className="absolute bottom-20 right-10 w-40 h-40 bg-blue-300 rounded-full blur-3xl opacity-15"
             animate={{ 
               scale: [1, 1.3, 1],
-              opacity: [0.15, 0.3, 0.15]
+              opacity: [0.1, 0.25, 0.1]
             }}
             transition={{ 
               duration: 5,
@@ -147,10 +154,10 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStartChat, onSignIn, onSign
             }}
           />
           <motion.div 
-            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-60 h-60 bg-purple-200 rounded-full blur-3xl opacity-20"
+            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-60 h-60 bg-emerald-400 rounded-full blur-3xl opacity-10"
             animate={{ 
               scale: [1, 1.1, 1],
-              opacity: [0.1, 0.2, 0.1]
+              opacity: [0.05, 0.15, 0.05]
             }}
             transition={{ 
               duration: 6,
@@ -173,7 +180,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStartChat, onSignIn, onSign
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="inline-flex items-center px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm border border-gray-200 shadow-sm mb-8"
+              className="inline-flex items-center px-4 py-2 rounded-full bg-gray-100/90 backdrop-blur-sm border border-gray-400 shadow-sm mb-8"
             >
               <Star className="w-4 h-4 text-yellow-500 mr-2" />
               <span className="text-sm font-medium text-gray-700">Trusted by 500+ Property Intelligence Professionals</span>
@@ -192,7 +199,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStartChat, onSignIn, onSign
             </p>
 
             <motion.div 
-              className="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start"
+              className="flex justify-center lg:justify-start"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.7 }}
@@ -201,10 +208,6 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStartChat, onSignIn, onSign
                 <Sparkles className="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform" />
                 Start Free Trial
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              <Button variant="outline" onClick={onStartChat} className="btn-outline-modern text-lg px-8 py-6 group">
-                <Play className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
-                Watch Demo
               </Button>
             </motion.div>
           </motion.div>
@@ -225,7 +228,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStartChat, onSignIn, onSign
       </section>
 
       {/* Features Grid Section */}
-      <section className="py-32 px-4 relative">
+      <section id="features" className="py-32 px-4 relative bg-gray-100">
         <div className="max-w-7xl mx-auto">
           <motion.div 
             className="text-center mb-20"
@@ -259,7 +262,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStartChat, onSignIn, onSign
                   whileHover={{ y: -8, scale: 1.02 }}
                   className="group"
                 >
-                  <Card className="bg-white border border-gray-200 shadow-sm hover:shadow-md hover-lift hover-glow h-full">
+                  <Card className="bg-gray-200 border border-gray-400 shadow-sm hover:shadow-md hover-lift hover-glow h-full">
                     <CardContent className="p-8 h-full flex flex-col">
                       <div className="w-16 h-16 gradient-primary rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                         <Icon className="w-8 h-8 text-white" />
@@ -283,7 +286,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStartChat, onSignIn, onSign
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-32 px-4 relative">
+      <section className="py-32 px-4 relative bg-gray-200">
         <div className="max-w-7xl mx-auto">
           <motion.div 
             className="text-center mb-20"
@@ -311,7 +314,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStartChat, onSignIn, onSign
               <motion.div
                 key={index}
                 variants={staggerItem}
-                className="bg-white border border-gray-200 shadow-sm rounded-3xl p-8 hover-lift hover:shadow-md"
+                className="bg-gray-100 border border-gray-400 shadow-sm rounded-3xl p-8 hover-lift hover:shadow-md"
               >
                 <div className="flex items-center mb-6">
                   {[...Array(5)].map((_, i) => (
@@ -331,15 +334,172 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStartChat, onSignIn, onSign
         </div>
       </section>
 
+      {/* About Us Section */}
+      <section id="about" className="relative z-20 py-20 px-4 bg-gray-200">
+        <div className="max-w-7xl mx-auto">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-6">
+              About <span className="gradient-text">AI Nathi</span>
+            </h2>
+            <p className="text-xl text-gray-800 max-w-3xl mx-auto">
+              Real-time market data. AI insights. Better returns. AI Nathi helps hosts and investors set smarter prices, increase occupancy, and scale portfolios with confidence—powered by HostTrack.
+            </p>
+          </motion.div>
+          
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Mission</h3>
+              <p className="text-gray-600 mb-6">
+                To empower property investors and hosts with cutting-edge AI technology that provides 
+                real-time market insights, automated optimization, and intelligent decision-making tools.
+              </p>
+              <p className="text-gray-600">
+                Built by property professionals, for property professionals. We understand the challenges 
+                you face and have created solutions that actually work in the real world.
+              </p>
+            </motion.div>
+            
+            <motion.div
+              className="bg-gray-100 rounded-2xl p-8"
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Why Choose Us?</h3>
+              <ul className="space-y-3">
+                <li className="flex items-center text-gray-600">
+                  <div className="w-2 h-2 bg-emerald-500 rounded-full mr-3"></div>
+                  Real-time market data integration
+                </li>
+                <li className="flex items-center text-gray-600">
+                  <div className="w-2 h-2 bg-emerald-500 rounded-full mr-3"></div>
+                  AI-powered insights and recommendations
+                </li>
+                <li className="flex items-center text-gray-600">
+                  <div className="w-2 h-2 bg-emerald-500 rounded-full mr-3"></div>
+                  Proven results for property investors
+                </li>
+                <li className="flex items-center text-gray-600">
+                  <div className="w-2 h-2 bg-emerald-500 rounded-full mr-3"></div>
+                  24/7 support and guidance
+                </li>
+              </ul>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="relative z-20 py-20 px-4 bg-gray-100">
+        <div className="max-w-7xl mx-auto">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: false, margin: "-100px" }}
+          >
+            <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-6">
+              Get in <span className="gradient-text">Touch</span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Ready to transform your property portfolio? Let's discuss how AI Nathi can help you succeed.
+            </p>
+          </motion.div>
+          
+          <div className="grid md:grid-cols-2 gap-12">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: false, margin: "-100px" }}
+            >
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Contact Information</h3>
+              <div className="space-y-4">
+                <div className="flex items-center">
+                  <div className="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center mr-4">
+                    <span className="text-emerald-600 font-bold">📧</span>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-gray-900">Email</p>
+                    <p className="text-gray-600">hello@ainathi.com</p>
+                  </div>
+                </div>
+                <div className="flex items-center">
+                  <div className="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center mr-4">
+                    <span className="text-emerald-600 font-bold">📱</span>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-gray-900">Phone</p>
+                    <p className="text-gray-600">+27 21 123 4567</p>
+                  </div>
+                </div>
+                <div className="flex items-center">
+                  <div className="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center mr-4">
+                    <span className="text-emerald-600 font-bold">📍</span>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-gray-900">Location</p>
+                    <p className="text-gray-600">Cape Town, South Africa</p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+            
+            <motion.div
+              className="bg-gray-200 rounded-2xl p-8"
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: false, margin: "-100px" }}
+            >
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Send us a message</h3>
+              <div className="space-y-4">
+                <input 
+                  type="text" 
+                  placeholder="Your Name" 
+                  className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                />
+                <input 
+                  type="email" 
+                  placeholder="Your Email" 
+                  className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                />
+                <textarea 
+                  placeholder="Your Message" 
+                  rows={4}
+                  className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                ></textarea>
+                <button className="w-full btn-gradient text-white py-3 rounded-xl font-semibold">
+                  Send Message
+                </button>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
-      <section className="py-32 px-4 relative">
+      <section className="py-32 px-4 relative bg-gray-200">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="bg-white border border-gray-200 shadow-sm rounded-3xl p-12"
+            className="bg-gray-200 border border-gray-400 shadow-sm rounded-3xl p-12"
           >
             <h2 className="text-5xl md:text-6xl font-black text-gray-900 mb-6">
               Ready to <span className="gradient-text">Transform</span> Your Portfolio?
@@ -363,26 +523,62 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStartChat, onSignIn, onSign
       </section>
 
       {/* Footer */}
-      <footer className="py-16 px-4 border-t border-gray-200 bg-white">
+      <footer className="relative z-20 py-16 px-4 border-t border-gray-400 bg-gray-200">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="flex items-center space-x-3 mb-6 md:mb-0">
-              <div className="w-10 h-10 gradient-primary rounded-xl flex items-center justify-center">
-                <Home className="w-5 h-5 text-white" />
+          {/* Main Footer Content */}
+          <div className="grid md:grid-cols-4 gap-8 mb-8">
+            {/* Brand Section */}
+            <div className="md:col-span-2">
+              <div className="flex items-center space-x-3 mb-4">
+                <div className="w-10 h-10 gradient-primary rounded-xl flex items-center justify-center">
+                  <Home className="w-5 h-5 text-white" />
+                </div>
+                <div>
+                  <div className="text-xl font-bold text-gray-900">HostTrack</div>
+                  <div className="text-sm text-gray-700">Smart Portfolio Manager</div>
+                </div>
               </div>
-              <div>
-                <div className="text-xl font-bold text-gray-900">HostTrack</div>
-                <div className="text-sm text-gray-600">Smart Portfolio Manager</div>
+              <p className="text-gray-700 text-sm leading-relaxed max-w-md">
+                Transform your property portfolio with AI-powered insights, real-time market data, and intelligent automation. 
+                The future of property management is here.
+              </p>
+            </div>
+
+            {/* Quick Links */}
+            <div>
+              <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-4">Quick Links</h3>
+              <ul className="space-y-2">
+                <li><button onClick={() => scrollToSection('features')} className="text-gray-700 hover:text-gray-900 transition-colors text-sm">Features</button></li>
+                <li><button onClick={onPricing} className="text-gray-700 hover:text-gray-900 transition-colors text-sm">Pricing</button></li>
+                <li><button onClick={() => scrollToSection('about')} className="text-gray-700 hover:text-gray-900 transition-colors text-sm">About Us</button></li>
+                <li><button onClick={() => scrollToSection('contact')} className="text-gray-700 hover:text-gray-900 transition-colors text-sm">Contact</button></li>
+              </ul>
+            </div>
+
+            {/* Support */}
+            <div>
+              <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-4">Support</h3>
+              <ul className="space-y-2">
+                <li><button onClick={() => scrollToSection('contact')} className="text-gray-700 hover:text-gray-900 transition-colors text-sm">Help Center</button></li>
+                <li><button onClick={() => scrollToSection('features')} className="text-gray-700 hover:text-gray-900 transition-colors text-sm">Documentation</button></li>
+                <li><button onClick={() => window.open('mailto:hello@ainathi.com?subject=Privacy Policy Inquiry', '_blank')} className="text-gray-700 hover:text-gray-900 transition-colors text-sm">Privacy Policy</button></li>
+                <li><button onClick={() => window.open('mailto:hello@ainathi.com?subject=Terms of Service Inquiry', '_blank')} className="text-gray-700 hover:text-gray-900 transition-colors text-sm">Terms of Service</button></li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Bottom Section */}
+          <div className="border-t border-gray-400 pt-8">
+            <div className="flex flex-col md:flex-row justify-between items-center">
+              <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-6 mb-4 md:mb-0">
+                <p className="text-gray-700 text-sm">© 2025 AI Nathi Property Intelligence. All rights reserved.</p>
+                <p className="text-gray-700 text-sm">Powered by <span className="font-semibold text-emerald-600">HostTrack</span> 2025</p>
+              </div>
+              
+              <div className="flex items-center space-x-4">
+                <span className="text-gray-700 text-sm">Made with ❤️ in South Africa</span>
               </div>
             </div>
-            
-            <div className="flex space-x-8 mb-6 md:mb-0">
-              <button className="text-gray-600 hover:text-gray-900 transition-colors">About</button>
-              <button className="text-gray-600 hover:text-gray-900 transition-colors">Contact</button>
-              <button className="text-gray-600 hover:text-gray-900 transition-colors">Privacy</button>
-            </div>
-            
-            <p className="text-gray-500 text-sm">© 2025 AI Nathi Property Intelligence. All rights reserved.</p>
           </div>
         </div>
       </footer>

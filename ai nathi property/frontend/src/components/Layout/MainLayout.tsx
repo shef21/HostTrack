@@ -112,7 +112,8 @@ const MainLayout: React.FC = () => {
           ref={mainContentRef}
           className={cn(
             "flex-1",
-            activeTab === 'landing' ? "overflow-hidden" : "overflow-auto"
+            // Allow scrolling on landing so footer is always reachable
+            "overflow-auto"
           )}
         >
           {renderContent()}
