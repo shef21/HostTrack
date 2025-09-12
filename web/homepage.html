@@ -47,6 +47,12 @@
     
     <!-- Meta tags -->
     <meta name="theme-color" content="#10B981">
+    
+    <!-- Ensure page loads at top -->
+    <script>
+        // Immediately scroll to top when page starts loading
+        window.scrollTo(0, 0);
+    </script>
 </head>
 <body class="modern-theme">
     <!-- Header -->
@@ -546,7 +552,14 @@
         
         // Initialize chat when page loads
         document.addEventListener('DOMContentLoaded', () => {
+            // Ensure page loads at the top
+            window.scrollTo(0, 0);
             new NathiChat();
+        });
+        
+        // Also ensure page is at top when window loads
+        window.addEventListener('load', () => {
+            window.scrollTo(0, 0);
         });
     </script>
 </body>

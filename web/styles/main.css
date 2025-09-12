@@ -73,10 +73,7 @@ body.light-theme {
   box-sizing: border-box;
 }
 
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
-}
+/* Smooth scrolling - removed to prevent page scroll on chat messages */
 
 /* Enhanced transitions */
 * {
@@ -85,7 +82,6 @@ html {
 
 html {
   font-size: 16px;
-  scroll-behavior: smooth;
 }
 
 body {
@@ -1457,6 +1453,7 @@ body.modern-theme {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   line-height: 1.6;
   overflow-x: hidden;
+  scroll-behavior: auto;
 }
 
 /* Modern header */
@@ -1714,6 +1711,7 @@ body.modern-theme {
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
   overflow: hidden;
   animation: fadeInUp 0.8s ease-out 0.6s both;
+  position: relative;
 }
 
 .chat-header {
@@ -1775,8 +1773,10 @@ body.modern-theme {
 .chat-messages {
   max-height: 400px;
   overflow-y: auto;
+  overflow-x: hidden;
   padding: 1.5rem;
   background: var(--modern-bg);
+  scroll-behavior: smooth;
 }
 
 .message {
