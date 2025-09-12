@@ -1,21 +1,21 @@
 {
   "version": 2,
   "buildCommand": "echo 'No build required'",
-  "outputDirectory": "web",
+  "outputDirectory": ".",
   "builds": [
     {
-      "src": "web/**/*",
+      "src": "**/*",
       "use": "@vercel/static"
     }
   ],
   "routes": [
     {
       "src": "/",
-      "dest": "/web/homepage.html"
+      "dest": "/index.html"
     },
     {
       "src": "/(.*)",
-      "dest": "/web/$1"
+      "dest": "/$1"
     }
   ]
 }
