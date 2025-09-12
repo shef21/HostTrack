@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nathi AI - Cape Town Property Intelligence | HostTrack</title>
+    <meta name="description" content="Meet Nathi, your AI Property Intelligence assistant. Get instant insights on Cape Town property markets, pricing, and investment opportunities with real-time data from 500+ properties.">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://hosttrack.co.za/">
+    <meta property="og:title" content="Nathi AI - Cape Town Property Intelligence">
+    <meta property="og:description" content="Get instant insights on Cape Town property markets, pricing, and investment opportunities with real-time data from 500+ properties.">
+    <meta property="og:image" content="https://hosttrack.co.za/icons/Icon-512.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://hosttrack.co.za/">
+    <meta property="twitter:title" content="Nathi AI - Cape Town Property Intelligence">
+    <meta property="twitter:description" content="Get instant insights on Cape Town property markets, pricing, and investment opportunities with real-time data from 500+ properties.">
+    <meta property="twitter:image" content="https://hosttrack.co.za/icons/Icon-512.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Custom Font -->
+    <style>
+        @font-face {
+            font-family: 'Helvetica Now Display';
+            src: url('styles/helvetica-now-display.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+    </style>
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/components.css">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Meta tags -->
+    <meta name="theme-color" content="#10B981">
+</head>
+<body class="modern-theme">
+    <!-- Header -->
+    <header class="modern-header">
+        <div class="header-container">
+            <div class="header-left">
+                <div class="logo-container">
+                    <div class="logo-icon">✨</div>
+                    <div class="logo-text">
+                        <h1 class="logo-title">Nathi AI</h1>
+                        <p class="logo-subtitle">Cape Town Property Intelligence</p>
+                    </div>
+                </div>
+            </div>
+            <nav class="header-nav">
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#benefits" class="nav-link">Benefits</a>
+                <a href="#pricing" class="nav-link">Pricing</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+            <div class="header-actions">
+                <a href="/app" class="btn btn-secondary">Sign In</a>
+                <a href="#chat" class="btn btn-primary">Try Nathi Free</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="modern-hero" id="chat">
+        <div class="hero-background">
+            <div class="hero-gradient"></div>
+            <div class="hero-grid"></div>
+            <div class="hero-particles">
+                <div class="particle particle-1"></div>
+                <div class="particle particle-2"></div>
+                <div class="particle particle-3"></div>
+            </div>
+        </div>
+        
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-icon">🚀</span>
+                    <span class="badge-text">Trusted by 500+ Property Professionals</span>
+                </div>
+                
+                <h1 class="hero-title">
+                    Meet Nathi, Your Property AI.
+                </h1>
+                
+                <p class="hero-subtitle">
+                    The only AI that knows Cape Town's property market inside out. Get instant insights on pricing, occupancy, and investment opportunities.
+                </p>
+                
+                <p class="hero-description">
+                    Powered by HostTrack's real-time data from 500+ properties across Sea Point, Camps Bay, and beyond.
+                </p>
+                
+                <!-- Chat Interface -->
+                <div class="modern-chat-container">
+                    <div class="chat-header">
+                        <div class="chat-status">
+                            <div class="status-dot"></div>
+                            <span>Nathi AI Live</span>
+                        </div>
+                        <div class="chat-actions">
+                            <button class="chat-action-btn" title="Minimize">−</button>
+                            <button class="chat-action-btn" title="Maximize">□</button>
+                            <button class="chat-action-btn" title="Close">×</button>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="message nathi-message">
+                            <div class="message-avatar">
+                                <div class="avatar-icon">🤖</div>
+                            </div>
+                            <div class="message-content">
+                                <p>Hi! I'm Nathi, your AI property assistant. Ask me anything about property markets, pricing, or investment strategies. I have access to real-time Cape Town market data to help you make informed decisions.</p>
+                                <div class="message-time">Just now</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-input-container">
+                        <div class="input-wrapper">
+                            <input type="text" id="chatInput" placeholder="Ask Nathi about property markets, pricing, or investments..." class="chat-input">
+                            <button id="sendButton" class="chat-send-btn">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                                    <polygon points="22,2 15,22 11,13 2,9 22,2"></polygon>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-actions">
+                    <a href="#features" class="btn btn-primary btn-large">
+                        <span>Try Nathi Free</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14"></path>
+                            <path d="M12 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                    <a href="/app" class="btn btn-outline btn-large">Access HostTrack</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>AI-Powered Market Intelligence That Gives You the Edge</h2>
+                <p>Go beyond basic property management with AI-driven insights, competitor analysis, and strategic recommendations that maximize your returns</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card ai-feature">
+                    <div class="feature-icon">🤖</div>
+                    <h3>AI Market Intelligence</h3>
+                    <p>Get real-time market insights, competitor analysis, and strategic positioning recommendations powered by advanced AI algorithms.</p>
+                    <div class="feature-highlight">NEW: Market Intelligence Engine</div>
+                </div>
+                <div class="feature-card ai-feature">
+                    <div class="feature-icon">🏆</div>
+                    <h3>Competitor Analysis</h3>
+                    <p>Understand your market position, analyze competitor pricing, and identify opportunities to gain competitive advantage.</p>
+                    <div class="feature-highlight">Market Share Insights</div>
+                </div>
+                <div class="feature-card ai-feature">
+                    <div class="feature-icon">🔮</div>
+                    <h3>Predictive Analytics</h3>
+                    <p>Forecast revenue, occupancy, and expenses for the next 3-6 months with AI-powered predictive modeling.</p>
+                    <div class="feature-highlight">Future Performance Prediction</div>
+                </div>
+                <div class="feature-card ai-feature">
+                    <div class="feature-icon">🎯</div>
+                    <h3>ROI Recommendations</h3>
+                    <p>Get AI-calculated ROI analysis for property improvements, pricing strategies, and investment opportunities.</p>
+                    <div class="feature-highlight">Data-Driven Investment Decisions</div>
+                </div>
+                <div class="feature-card ai-feature">
+                    <div class="feature-icon">📈</div>
+                    <h3>Market Trends & Seasonality</h3>
+                    <p>Identify seasonal patterns, market trends, and optimal timing for pricing and marketing strategies.</p>
+                    <div class="feature-highlight">Seasonal Optimization</div>
+                </div>
+                <div class="feature-card ai-feature">
+                    <div class="feature-icon">💰</div>
+                    <h3>Smart Pricing Engine</h3>
+                    <p>AI-powered pricing optimization that considers market conditions, competitor pricing, and demand patterns.</p>
+                    <div class="feature-highlight">Dynamic Pricing Intelligence</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Capabilities Showcase -->
+    <section class="ai-showcase-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>How AI Market Intelligence Transforms Your Property Business</h2>
+                <p>See the real impact of AI-powered insights on property performance and returns</p>
+            </div>
+            <div class="ai-showcase-grid">
+                <div class="ai-showcase-item">
+                    <div class="showcase-icon">📊</div>
+                    <h3>6-Month Trend Analysis</h3>
+                    <p>AI analyzes your historical data to identify revenue trends, occupancy patterns, and seasonal cycles that impact your bottom line.</p>
+                    <div class="showcase-benefit">
+                        <strong>Result:</strong> 15-25% revenue increase through trend-based optimization
+                    </div>
+                </div>
+                <div class="ai-showcase-item">
+                    <div class="showcase-icon">🔮</div>
+                    <h3>3-6 Month Forecasting</h3>
+                    <p>Predict future revenue, occupancy, and expenses with AI-powered forecasting models based on market patterns and your performance data.</p>
+                    <div class="showcase-benefit">
+                        <strong>Result:</strong> Better planning and investment decisions
+                    </div>
+                </div>
+                <div class="ai-showcase-item">
+                    <div class="showcase-icon">🏆</div>
+                    <h3>Competitive Positioning</h3>
+                    <p>Understand your market position, analyze competitor pricing, and identify opportunities to gain competitive advantage in your market.</p>
+                    <div class="showcase-benefit">
+                        <strong>Result:</strong> Optimized pricing and market positioning
+                    </div>
+                </div>
+                <div class="ai-showcase-item">
+                    <div class="showcase-icon">🎯</div>
+                    <h3>ROI Investment Analysis</h3>
+                    <p>Get AI-calculated ROI analysis for property improvements, helping you make data-driven decisions about where to invest for maximum returns.</p>
+                    <div class="showcase-benefit">
+                        <strong>Result:</strong> Higher returns on property investments
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>AI Market Intelligence Pricing</h2>
+                <p>Get access to cutting-edge AI market intelligence that transforms your property business</p>
+            </div>
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>Free Plan</h3>
+                    <div class="price">
+                        <span class="currency">$</span>
+                        <span class="amount">0</span>
+                        <span class="period">/month</span>
+                    </div>
+                    <p class="pricing-subtitle">Perfect for getting started with property management</p>
+                </div>
+                <div class="pricing-features">
+                    <ul>
+                        <li>✅ Unlimited Properties</li>
+                        <li>✅ AI Market Intelligence</li>
+                        <li>✅ Competitor Analysis</li>
+                        <li>✅ Predictive Analytics</li>
+                        <li>✅ ROI Recommendations</li>
+                        <li>✅ Smart Pricing Engine</li>
+                        <li>✅ Market Trends & Seasonality</li>
+                        <li>✅ Email Support</li>
+                    </ul>
+                </div>
+                <div class="pricing-cta">
+                    <a href="/app" class="btn btn-primary btn-large">Get Started Free</a>
+                    <p class="pricing-note">No credit card required • Cancel anytime</p>
+                </div>
+            </div>
+            <div class="pricing-info">
+                <p><strong>Limited Time Offer:</strong> HostTrack AI Market Intelligence is currently free for all users. Experience the future of property management with AI-powered insights, competitor analysis, and ROI recommendations at no cost while we're in beta.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof & Results -->
+    <section class="results-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Real Results from AI Market Intelligence</h2>
+                <p>See how property managers are transforming their businesses with AI-powered insights</p>
+            </div>
+            <div class="results-grid">
+                <div class="result-card">
+                    <div class="result-number">25%</div>
+                    <h3>Average Revenue Increase</h3>
+                    <p>Property managers using AI market intelligence see 25% higher revenue through optimized pricing and market positioning.</p>
+                </div>
+                <div class="result-card">
+                    <div class="result-number">85%</div>
+                    <h3>ROI on Property Improvements</h3>
+                    <p>AI recommendations help identify property improvements with 85% average ROI and 14-month payback periods.</p>
+                </div>
+                <div class="result-card">
+                    <div class="result-number">40%</div>
+                    <h3>Better Market Positioning</h3>
+                    <p>Competitor analysis helps optimize pricing and positioning for 40% better market performance.</p>
+                </div>
+                <div class="result-card">
+                    <div class="result-number">6-Months</div>
+                    <h3>Trend Analysis</h3>
+                    <p>AI analyzes 6 months of data to identify patterns that basic analytics miss, leading to better strategic decisions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="benefits-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose HostTrack?</h2>
+                <p>Join thousands of property managers who trust HostTrack to grow their business</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <h3>Save Time</h3>
+                    <p>Automate routine tasks and focus on what matters most - growing your property portfolio.</p>
+                </div>
+                <div class="benefit-item">
+                    <h3>Increase Revenue</h3>
+                    <p>Optimize pricing, reduce vacancies, and maximize your property's earning potential.</p>
+                </div>
+                <div class="benefit-item">
+                    <h3>Professional Tools</h3>
+                    <p>Access enterprise-grade features that help you compete with larger property management companies.</p>
+                </div>
+                <div class="benefit-item">
+                    <h3>24/7 Support</h3>
+                    <p>Get help whenever you need it with our dedicated customer support team.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Experience AI-Powered Market Intelligence?</h2>
+                <p>Join HostTrack today and transform your property business with AI-driven insights, competitor analysis, and strategic recommendations.</p>
+                <div class="cta-actions">
+                    <a href="/app" class="btn btn-primary btn-large">Try AI Market Intelligence Free</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="homepage-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>HostTrack</h3>
+                    <p>AI-powered property market intelligence platform.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#benefits">Benefits</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#support">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                        <li><a href="#terms">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 AI Nathi Property Intelligence. All rights reserved.</p>
+                <p>Powered by <strong>HostTrack</strong> 2025</p>
+                <p>Made with ❤️ in South Africa</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chat JavaScript -->
+    <script>
+        // Configuration - Update this URL when you deploy the AI service
+        const AI_API_URL = 'https://api.hosttrack.co.za/api/chat/';
+        
+        class NathiChat {
+            constructor() {
+                this.chatMessages = document.getElementById('chatMessages');
+                this.chatInput = document.getElementById('chatInput');
+                this.sendButton = document.getElementById('sendButton');
+                this.conversationId = null;
+                
+                this.initializeEventListeners();
+            }
+            
+            initializeEventListeners() {
+                this.sendButton.addEventListener('click', () => this.sendMessage());
+                this.chatInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        this.sendMessage();
+                    }
+                });
+            }
+            
+            async sendMessage() {
+                const message = this.chatInput.value.trim();
+                if (!message) return;
+                
+                // Add user message to chat
+                this.addMessage(message, 'user');
+                this.chatInput.value = '';
+                this.setLoading(true);
+                
+                try {
+                    const response = await fetch(AI_API_URL, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            message: message,
+                            conversation_id: this.conversationId,
+                            user_id: 'homepage_user'
+                        })
+                    });
+                    
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    
+                    const data = await response.json();
+                    this.conversationId = data.conversation_id;
+                    
+                    // Add Nathi's response
+                    this.addMessage(data.response, 'nathi');
+                    
+                } catch (error) {
+                    console.error('Chat error:', error);
+                    this.addMessage('Sorry, I\'m having trouble connecting right now. Please try again in a moment.', 'nathi');
+                } finally {
+                    this.setLoading(false);
+                }
+            }
+            
+            addMessage(content, sender) {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `message ${sender}-message`;
+                
+                const avatar = sender === 'nathi' ? '🤖' : '👤';
+                const avatarClass = sender === 'nathi' ? 'nathi-avatar' : 'user-avatar';
+                const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                
+                messageDiv.innerHTML = `
+                    <div class="message-avatar ${avatarClass}">
+                        <div class="avatar-icon">${avatar}</div>
+                    </div>
+                    <div class="message-content">
+                        <p>${this.formatMessage(content)}</p>
+                        <div class="message-time">${time}</div>
+                    </div>
+                `;
+                
+                this.chatMessages.appendChild(messageDiv);
+                this.scrollToBottom();
+            }
+            
+            formatMessage(content) {
+                // Basic formatting for better readability
+                return content
+                    .replace(/\n/g, '<br>')
+                    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                    .replace(/\*(.*?)\*/g, '<em>$1</em>');
+            }
+            
+            setLoading(loading) {
+                this.sendButton.disabled = loading;
+                this.chatInput.disabled = loading;
+                
+                if (loading) {
+                    this.showTypingIndicator();
+                } else {
+                    this.hideTypingIndicator();
+                }
+            }
+            
+            showTypingIndicator() {
+                const typingDiv = document.createElement('div');
+                typingDiv.className = 'message nathi-message typing-indicator';
+                typingDiv.id = 'typingIndicator';
+                typingDiv.innerHTML = `
+                    <div class="message-avatar nathi-avatar">
+                        <div class="avatar-icon">🤖</div>
+                    </div>
+                    <div class="message-content">
+                        <div class="typing-indicator">
+                            Nathi is typing
+                            <div class="typing-dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                this.chatMessages.appendChild(typingDiv);
+                this.scrollToBottom();
+            }
+            
+            hideTypingIndicator() {
+                const typingIndicator = document.getElementById('typingIndicator');
+                if (typingIndicator) {
+                    typingIndicator.remove();
+                }
+            }
+            
+            scrollToBottom() {
+                this.chatMessages.scrollTop = this.chatMessages.scrollHeight;
+            }
+        }
+        
+        // Initialize chat when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            new NathiChat();
+        });
+    </script>
+</body>
+</html>
