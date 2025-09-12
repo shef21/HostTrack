@@ -35,9 +35,6 @@ const MainLayout: React.FC = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  const handleTabChange = (tab: string) => {
-    setActiveTab(tab as TabType);
-  };
 
   const handleSignIn = () => {
     setActiveTab('auth');

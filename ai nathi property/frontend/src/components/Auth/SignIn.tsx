@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Eye, EyeOff, Mail, Lock, Home } from 'lucide-react';
 import { Button } from '../ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
-import { cn } from '../../lib/utils';
 
 interface SignInProps {
   onSignIn: (email: string, password: string) => Promise<void>;

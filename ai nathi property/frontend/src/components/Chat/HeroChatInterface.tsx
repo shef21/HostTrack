@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { Send, Bot, User, Sparkles } from 'lucide-react';
 import { Button } from '../ui/button';
 import { Card, CardContent } from '../ui/card';
@@ -27,7 +27,7 @@ const HeroChatInterface: React.FC = () => {
     }
   };
 
-  const loadSessionMessages = (): ChatMessage[] => {
+  const loadSessionMessages = useCallback((): ChatMessage[] => {
     if (!isAuthenticated) {
       const saved = sessionStorage.getItem('nathi_session_messages');
       if (saved) {
@@ -37,7 +37,7 @@ const HeroChatInterface: React.FC = () => {
       }
     }
     return [];
-  };
+  }, [isAuthenticated]);
 
   const clearSessionMessages = () => {
     sessionStorage.removeItem('nathi_session_messages');
