@@ -1,9 +1,13 @@
 /styles/*
-  Content-Type: text/css
+  Content-Type: text/css; charset=utf-8
   Cache-Control: public, max-age=31536000
 
 /static/*
   Cache-Control: public, max-age=31536000
 
 /icons/*
+  Cache-Control: public, max-age=31536000
+
+/*.css
+  Content-Type: text/css; charset=utf-8
   Cache-Control: public, max-age=31536000
