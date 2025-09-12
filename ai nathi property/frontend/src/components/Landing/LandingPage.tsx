@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Home, BarChart, TrendingUp, Lightbulb, Calculator, Play, Sparkles, ArrowRight, Star, Zap } from 'lucide-react';
+import { Home, BarChart, TrendingUp, Lightbulb, Calculator, Play, ArrowRight, Star, Zap } from 'lucide-react';
 import { Button } from '../ui/button';
 import { Card, CardContent } from '../ui/card';
 import HeroChatSection from './HeroChatSection';

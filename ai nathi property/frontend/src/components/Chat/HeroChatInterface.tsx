@@ -12,7 +12,7 @@ const HeroChatInterface: React.FC = () => {
   const [inputMessage, setInputMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [conversationId, setConversationId] = useState<string | null>(null);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated] = useState(false);
   const [sessionMessageCount, setSessionMessageCount] = useState(0);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   
@@ -79,7 +79,7 @@ const HeroChatInterface: React.FC = () => {
     };
 
     loadConversationHistory();
-  }, [conversationId, isAuthenticated]);
+  }, [conversationId, isAuthenticated, loadSessionMessages]);
 
   const handleSendMessage = async (e: React.FormEvent) => {
     e.preventDefault();

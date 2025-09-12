@@ -33,10 +33,10 @@ const HeroChatSection: React.FC<HeroChatSectionProps> = ({ onSignUp, onSignIn })
                 </div>
                 <div>
                   <h1 className="text-2xl font-bold text-white">
-                    Nathi
+                    Nathi AI
                   </h1>
                   <p className="text-neutral-400 text-sm font-medium">
-                    AI Property Intelligence
+                    Cape Town Property Intelligence
                   </p>
                 </div>
               </div>
@@ -71,10 +71,13 @@ const HeroChatSection: React.FC<HeroChatSectionProps> = ({ onSignUp, onSignIn })
               transition={{ duration: 0.8, delay: 0.3 }}
             >
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-                Your AI Copilot is Ready.
+                Meet Nathi, Your Property AI.
               </h1>
-              <p className="text-xl md:text-2xl text-neutral-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-                Chat with your assistant in real-time. Try it now — no signup needed.
+              <p className="text-xl md:text-2xl text-neutral-300 mb-4 max-w-4xl mx-auto leading-relaxed">
+                The only AI that knows Cape Town's property market inside out. Get instant insights on pricing, occupancy, and investment opportunities.
+              </p>
+              <p className="text-lg text-neutral-400 mb-8 max-w-3xl mx-auto">
+                Powered by HostTrack's real-time data from 500+ properties across Sea Point, Camps Bay, and beyond.
               </p>
             </motion.div>
 
@@ -90,7 +93,7 @@ const HeroChatSection: React.FC<HeroChatSectionProps> = ({ onSignUp, onSignIn })
                 className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 text-lg font-semibold rounded-xl group"
               >
                 <Sparkles className="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform" />
-                Start Free Trial
+                Try Nathi Free
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button 
@@ -98,7 +101,7 @@ const HeroChatSection: React.FC<HeroChatSectionProps> = ({ onSignUp, onSignIn })
                 onClick={onSignIn}
                 className="border-neutral-600 text-neutral-300 hover:text-white hover:bg-neutral-800 px-8 py-4 text-lg font-semibold rounded-xl"
               >
-                Sign In
+                Access HostTrack
               </Button>
             </motion.div>
           </div>

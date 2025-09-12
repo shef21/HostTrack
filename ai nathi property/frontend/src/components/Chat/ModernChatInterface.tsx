@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Send, Bot, User, Home, TrendingUp, Upload, ChevronLeft, ChevronRight, Sparkles } from 'lucide-react';
+import { Send, Bot, User, Home, Upload, ChevronLeft, ChevronRight, Sparkles } from 'lucide-react';
 import { Button } from '../ui/button';
 import { Card, CardContent } from '../ui/card';
 import { Avatar, AvatarFallback } from '../ui/avatar';
@@ -14,7 +14,7 @@ const ModernChatInterface: React.FC = () => {
   const [conversationId, setConversationId] = useState<string | null>(null);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [isLoadingHistory, setIsLoadingHistory] = useState(false);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated] = useState(false);
   const [sessionMessageCount, setSessionMessageCount] = useState(0);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   
@@ -84,7 +84,7 @@ const ModernChatInterface: React.FC = () => {
     };
 
     loadConversationHistory();
-  }, [conversationId, isAuthenticated]);
+  }, [conversationId, isAuthenticated, loadSessionMessages]);
 
   const handleSendMessage = async (e: React.FormEvent) => {
     e.preventDefault();
